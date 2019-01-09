@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-01-10 Thu 01:10 -->
+<!-- 2019-01-10 Thu 01:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>index</title>
+<title><a href="https://fishshell.com/">fish</a></title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="KISHI Kousuke" />
 <style type="text/css">
@@ -249,27 +249,266 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">index</h1>
+<h1 class="title"><a href="https://fishshell.com/">fish</a></h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org5ddd4c2">1. MacBook Air</a></li>
-<li><a href="#org930b589">2. fish</a></li>
+<li><a href="#orgeba133c">1. Install</a></li>
+<li><a href="#org6f1a9dc">2. Change the login shell</a></li>
+<li><a href="#org6a0be85">3. fisherman</a>
+<ul>
+<li><a href="#orge2dc1d9">3.1. Install</a></li>
+<li><a href="#org3117167">3.2. Plugins</a></li>
+</ul>
+</li>
+<li><a href="#org214cfe2">4. Customize</a>
+<ul>
+<li><a href="#org2001049">4.1. Themes</a></li>
+<li><a href="#org894d557">4.2. Path</a></li>
+<li><a href="#org3b44ae2">4.3. Environment Variables</a></li>
+<li><a href="#orgff67e3e">4.4. Prompt</a></li>
+<li><a href="#orgd1f54ba">4.5. Greeting message</a></li>
+<li><a href="#org0fb8151">4.6. ls command coloring</a></li>
+</ul>
+</li>
+<li><a href="#org73b345f">5. クリーンアップ</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5ddd4c2" class="outline-2">
-<h2 id="org5ddd4c2"><span class="section-number-2">1</span> <a href="MacBook_Air.html">MacBook Air</a></h2>
+<div id="outline-container-orgeba133c" class="outline-2">
+<h2 id="orgeba133c"><span class="section-number-2">1</span> Install</h2>
+<div class="outline-text-2" id="text-1">
+<pre class="example">
+$ brew install fish
+</pre>
 </div>
-<div id="outline-container-org930b589" class="outline-2">
-<h2 id="org930b589"><span class="section-number-2">2</span> <a href="fish.html">fish</a></h2>
+</div>
+
+<div id="outline-container-org6f1a9dc" class="outline-2">
+<h2 id="org6f1a9dc"><span class="section-number-2">2</span> Change the login shell</h2>
+<div class="outline-text-2" id="text-2">
+<pre class="example">
+$ echo /usr/local/bin/fish |sudo tee -a /etc/shells
+$ chsh -s /usr/local/bin/fish
+</pre>
 </div>
 </div>
+
+<div id="outline-container-org6a0be85" class="outline-2">
+<h2 id="org6a0be85"><span class="section-number-2">3</span> <a href="https://github.com/jorgebucaran/fisher">fisherman</a></h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orge2dc1d9" class="outline-3">
+<h3 id="orge2dc1d9"><span class="section-number-3">3.1</span> Install</h3>
+<div class="outline-text-3" id="text-3-1">
+<pre class="example">
+$ curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org3117167" class="outline-3">
+<h3 id="org3117167"><span class="section-number-3">3.2</span> Plugins</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-org0071d6b" class="outline-4">
+<h4 id="org0071d6b"><span class="section-number-4">3.2.1</span> <a href="https://github.com/oh-my-fish/plugin-peco">peco</a></h4>
+<div class="outline-text-4" id="text-3-2-1">
+<pre class="example">
+$ brew install peco
+$ fisher add oh-my-fish/plugin-peco
+</pre>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>~/.config/fish/config.fish</label><pre class="src src-fish"><span style="color: #fff59d;">function</span> <span style="color: #84ffff;">fish_user_key_bindings</span>
+  <span style="color: #ff8A65;">bind</span> <span style="color: #4dd0e1;">\</span>cr peco_select_history
+<span style="color: #fff59d;">end</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org214cfe2" class="outline-2">
+<h2 id="org214cfe2"><span class="section-number-2">4</span> Customize</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org2001049" class="outline-3">
+<h3 id="org2001049"><span class="section-number-3">4.1</span> <a href="https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md">Themes</a></h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+いまのところテーマはインストールしていない。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org894d557" class="outline-3">
+<h3 id="org894d557"><span class="section-number-3">4.2</span> Path</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+まだ未設定。
+</p>
+
+<pre class="example">
+$ set -U fish_user_paths ~/bin\
+  ~/.composer/vendor/bin\
+  (brew --prefix coreutils)/libexec/gnubin\
+  (brew --prefix curl)/bin\
+  (brew --prefix git)/share/git-core/contrib/diff-highlight\
+  (brew --prefix openssl)/bin\
+  (brew --prefix php72)/bin\
+  /usr/local/bin\
+  $fish_user_paths
+$ set -L |grep '^fish_user_paths'
+$ set -L |grep '^PATH'
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org3b44ae2" class="outline-3">
+<h3 id="org3b44ae2"><span class="section-number-3">4.3</span> Environment Variables</h3>
+<div class="outline-text-3" id="text-4-3">
+</div>
+<div id="outline-container-org1bbc407" class="outline-4">
+<h4 id="org1bbc407"><span class="section-number-4">4.3.1</span> <code>LANG</code> について</h4>
+<div class="outline-text-4" id="text-4-3-1">
+<p>
+この<a href="https://fishshell.com/docs/current/faq.html#faq-exported-uvar">FAQ</a>にある事象が発生<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>した。
+</p>
+
+<p>
+どうやらfish起動前に <code>LANG</code> が定義されているらしく、
+</p>
+
+<pre class="example">
+$ set -qg LANG; echo $status
+0
+$ set |grep LANG
+LANG ''
+</pre>
+
+<p>
+という状態になっている。<br />
+(設定値が空のグローバル変数が存在している)
+</p>
+
+<pre class="example">
+$ set -qx LANG; echo $status
+0
+$ set -qU LANG; echo $status
+0
+$ set -qg LANG; and echo $LANG
+
+$ set -qg LANG; or echo $LANG
+</pre>
+
+<p>
+ユニバーサル変数のエクスポートもできてはいるが、ユニバーサル変数よりもグローバル変数の方が
+スコープは優位であるため、設定値を参照できていない模様。
+</p>
+
+<pre class="example">
+$ set -e LANG
+$ set |grep LANG
+LANG ja_JP.UTF-8
+</pre>
+
+<p>
+グローバル変数を削除すると設定値を参照できる。<br />
+そもそも、ユニバーサル変数をエクスポートするのはあまり宜しくなさそうなので、 <code>config.fish</code> で
+設定する。
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>~/.config/fish/config.fish</label><pre class="src src-fish"><span style="color: #fff59d;">set</span> <span style="color: #4dd0e1;">-x</span> <span style="color: #ffcc80;">LANG</span> ja_JP.UTF-8
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7371529" class="outline-4">
+<h4 id="org7371529"><span class="section-number-4">4.3.2</span> その他</h4>
+<div class="outline-text-4" id="text-4-3-2">
+<p>
+まだ未設定。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-fish"><span style="color: #fff59d;">set</span> <span style="color: #4dd0e1;">-x</span> <span style="color: #ffcc80;">ANDROID_HOME</span> /usr/local/opt/android-sdk
+<span style="color: #fff59d;">set</span> <span style="color: #4dd0e1;">-x</span> <span style="color: #ffcc80;">COMPOSER_HOME</span> ~/.composer
+<span style="color: #fff59d;">set</span> <span style="color: #4dd0e1;">-x</span> <span style="color: #ffcc80;">JAVA_HOME</span> <span style="color: #e91e63;">(</span><span style="color: #ff8A65;">/usr/libexec/java_home</span><span style="color: #e91e63;">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgff67e3e" class="outline-3">
+<h3 id="orgff67e3e"><span class="section-number-3">4.4</span> Prompt</h3>
+<div class="outline-text-3" id="text-4-4">
+<pre class="example">
+$ vim ~/.config/fish/functions/fish_prompt.fish
+$ vim ~/.config/fish/functions/fish_right_prompt.fish
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgd1f54ba" class="outline-3">
+<h3 id="orgd1f54ba"><span class="section-number-3">4.5</span> Greeting message</h3>
+<div class="outline-text-3" id="text-4-5">
+<p>
+邪魔なので消す。
+</p>
+
+<pre class="example">
+$ set -U fish_greeting ''
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0fb8151" class="outline-3">
+<h3 id="org0fb8151"><span class="section-number-3">4.6</span> ls command coloring</h3>
+<div class="outline-text-3" id="text-4-6">
+<pre class="example">
+$ set -xU LSCOLORS gxcxxxxxfxxxxxxxxxgxgx
+</pre>
+
+<p>
+Alacrittyでは不要。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org73b345f" class="outline-2">
+<h2 id="org73b345f"><span class="section-number-2">5</span> クリーンアップ</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+不要になったBashのファイルを削除する。
+</p>
+
+<pre class="example">
+$ rm ~/.bash_history
+</pre>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+macOS Mojave以降で発生?
+</p></div></div>
+
+
+</div>
+</div></div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-01-10 Thu 01:10</p>
+<p class="date">Created: 2019-01-10 Thu 01:27</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
