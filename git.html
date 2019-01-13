@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-01-14 Mon 06:51 -->
+<!-- 2019-01-14 Mon 06:58 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>index</title>
+<title><a href="https://git-scm.com/">Git</a></title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="KISHI Kousuke" />
 <style type="text/css">
@@ -249,31 +249,132 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">index</h1>
+<h1 class="title"><a href="https://git-scm.com/">Git</a></h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org4687d97">1. MacBook Air</a></li>
-<li><a href="#org4948072">2. fish</a></li>
-<li><a href="#org9a63ea6">3. Git</a></li>
+<li><a href="#orge540ff0">1. 初期設定</a></li>
+<li><a href="#orgd84bca4">2. コミットログのユーザ名とメールアドレスをすべて変更</a></li>
+<li><a href="#org3d40d06">3. branch</a></li>
+<li><a href="#orgc622a1a">4. tag</a>
+<ul>
+<li><a href="#org4fc62d3">4.1. タグを作成</a></li>
+<li><a href="#org4caec85">4.2. タグをリモートへ反映</a></li>
+<li><a href="#org2b336cc">4.3. すべてのタグをリモートへ反映</a></li>
+<li><a href="#org9f94e0a">4.4. タグを削除</a></li>
+<li><a href="#org25af2a0">4.5. リモートからタグを削除</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org4687d97" class="outline-2">
-<h2 id="org4687d97"><span class="section-number-2">1</span> <a href="MacBook_Air.html">MacBook Air</a></h2>
+<div id="outline-container-orge540ff0" class="outline-2">
+<h2 id="orge540ff0"><span class="section-number-2">1</span> 初期設定</h2>
+<div class="outline-text-2" id="text-1">
+<pre class="example">
+$ git config --global user.name 'KISHI Kousuke'
+$ git config --global user.email 'ksh2ksk4@gmail.com'
+</pre>
 </div>
-<div id="outline-container-org4948072" class="outline-2">
-<h2 id="org4948072"><span class="section-number-2">2</span> <a href="fish.html">fish</a></h2>
 </div>
-<div id="outline-container-org9a63ea6" class="outline-2">
-<h2 id="org9a63ea6"><span class="section-number-2">3</span> <a href="Git.html">Git</a></h2>
+
+<div id="outline-container-orgd84bca4" class="outline-2">
+<h2 id="orgd84bca4"><span class="section-number-2">2</span> コミットログのユーザ名とメールアドレスをすべて変更</h2>
+<div class="outline-text-2" id="text-2">
+<pre class="example">
+$ git filter-branch -f --env-filter\
+  "GIT_AUTHOR_NAME='new name';\
+   GIT_AUTHOR_EMAIL='new email';\
+   GIT_COMMITTER_NAME='new name';\
+   GIT_COMMITTER_EMAIL='new email';"\
+  HEAD
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org3d40d06" class="outline-2">
+<h2 id="org3d40d06"><span class="section-number-2">3</span> branch</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+ブランチの削除?
+</p>
+
+<pre class="example">
+$ git branch -d BRANCHNAME
+$ git push --delete origin BRANCHNAME
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgc622a1a" class="outline-2">
+<h2 id="orgc622a1a"><span class="section-number-2">4</span> tag</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org4fc62d3" class="outline-3">
+<h3 id="org4fc62d3"><span class="section-number-3">4.1</span> タグを作成</h3>
+<div class="outline-text-3" id="text-4-1">
+</div>
+<div id="outline-container-org7221388" class="outline-4">
+<h4 id="org7221388"><span class="section-number-4">4.1.1</span> lightweight tag</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<pre class="example">
+$ git tag TAGNAME
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0123fb6" class="outline-4">
+<h4 id="org0123fb6"><span class="section-number-4">4.1.2</span> annotated tag</h4>
+<div class="outline-text-4" id="text-4-1-2">
+<pre class="example">
+$ git tag -a TAGNAME
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4caec85" class="outline-3">
+<h3 id="org4caec85"><span class="section-number-3">4.2</span> タグをリモートへ反映</h3>
+<div class="outline-text-3" id="text-4-2">
+<pre class="example">
+$ git push origin TAGNAME
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org2b336cc" class="outline-3">
+<h3 id="org2b336cc"><span class="section-number-3">4.3</span> すべてのタグをリモートへ反映</h3>
+<div class="outline-text-3" id="text-4-3">
+<pre class="example">
+$ git push origin --tags
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org9f94e0a" class="outline-3">
+<h3 id="org9f94e0a"><span class="section-number-3">4.4</span> タグを削除</h3>
+<div class="outline-text-3" id="text-4-4">
+<pre class="example">
+$ git tag -d TAGNAME
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org25af2a0" class="outline-3">
+<h3 id="org25af2a0"><span class="section-number-3">4.5</span> リモートからタグを削除</h3>
+<div class="outline-text-3" id="text-4-5">
+<pre class="example">
+$ git push --delete origin TAGNAME
+</pre>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-01-14 Mon 06:51</p>
+<p class="date">Created: 2019-01-14 Mon 06:58</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
