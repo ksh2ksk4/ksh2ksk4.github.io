@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-01-27 Sun 17:58 -->
+<!-- 2019-01-28 Mon 03:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title><a href="https://aws.amazon.com/jp/corretto/">Amazon Corretto</a></title>
@@ -254,23 +254,48 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org09c4165">1. Install</a></li>
-<li><a href="#org8782940">2. Uninstall</a></li>
+<li><a href="#org6ca9ef4">1. Install</a></li>
+<li><a href="#orgaab901a">2. Uninstall</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org09c4165" class="outline-2">
-<h2 id="org09c4165"><span class="section-number-2">1</span> Install</h2>
+<div id="outline-container-org6ca9ef4" class="outline-2">
+<h2 id="org6ca9ef4"><span class="section-number-2">1</span> Install</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="https://docs.aws.amazon.com/ja_jp/corretto/latest/corretto-8-ug/macos-install.html">ここ</a>を参照。
 </p>
+
+<pre class="example">
+$ set -S JAVA_HOME
+$JAVA_HOME: not set in local scope
+$JAVA_HOME: not set in global scope
+$JAVA_HOME: not set in universal scope
+$ /usr/libexec/java_home -V
+Matching Java Virtual Machines (1):
+    1.8.0_192, x86_64:  "Amazon Corretto 8"     /Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home
+
+/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home
+</pre>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>~/.config/fish/config.fish</label><pre class="src src-fish"><span style="color: #fff59d;">set</span> <span style="color: #4dd0e1;">-x</span> <span style="color: #ffcc80;">JAVA_HOME</span> <span style="color: #e91e63;">(</span><span style="color: #ff8A65;">/usr/libexec/java_home</span><span style="color: #e91e63;">)</span>
+</pre>
+</div>
+
+<pre class="example">
+$ set -S JAVA_HOME
+$JAVA_HOME: not set in local scope
+$JAVA_HOME: set in global scope, exported, with 1 elements
+$JAVA_HOME[1]: length=69 value=|/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home|
+$JAVA_HOME: not set in universal scope
+</pre>
 </div>
 </div>
 
-<div id="outline-container-org8782940" class="outline-2">
-<h2 id="org8782940"><span class="section-number-2">2</span> Uninstall</h2>
+<div id="outline-container-orgaab901a" class="outline-2">
+<h2 id="orgaab901a"><span class="section-number-2">2</span> Uninstall</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <code>/Library/Java/JavaVirtualMachines</code> にあるJDKのディレクトリを削除する。
@@ -284,7 +309,7 @@ $ sudo rm -rf /Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-01-27 Sun 17:58</p>
+<p class="date">Created: 2019-01-28 Mon 03:05</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
