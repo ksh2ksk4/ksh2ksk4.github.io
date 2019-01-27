@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-01-27 Sun 17:26 -->
+<!-- 2019-01-27 Sun 17:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>index</title>
+<title><a href="https://github.com/jwilm/alacritty">Alacritty</a></title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="KISHI Kousuke" />
 <style type="text/css">
@@ -249,39 +249,57 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">index</h1>
+<h1 class="title"><a href="https://github.com/jwilm/alacritty">Alacritty</a></h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org4d863cc">1. MacBook Air</a></li>
-<li><a href="#org64a3442">2. fish</a></li>
-<li><a href="#org942d4ba">3. Git</a></li>
-<li><a href="#orgd082815">4. Rust</a></li>
-<li><a href="#orgd382a58">5. Alacritty</a></li>
+<li><a href="#org584267f">1. Build</a></li>
+<li><a href="#org7604914">2. Manual</a></li>
+<li><a href="#orga983509">3. Shell completions</a></li>
 </ul>
 </div>
 </div>
+<p>
+<a href="https://github.com/jwilm/alacritty/blob/master/INSTALL.md">ここ</a>を参照。
+</p>
 
-<div id="outline-container-org4d863cc" class="outline-2">
-<h2 id="org4d863cc"><span class="section-number-2">1</span> <a href="MacBook_Air.html">MacBook Air</a></h2>
+<div id="outline-container-org584267f" class="outline-2">
+<h2 id="org584267f"><span class="section-number-2">1</span> Build</h2>
+<div class="outline-text-2" id="text-1">
+<pre class="example">
+$ cd ~/tmp
+$ git clone https://github.com/jwilm/alacritty.git
+$ cd alacritty
+$ rustup override set stable
+$ rustup update stable
+$ make app
+$ cp -a target/release/osx/Alacritty.app /Applications/
+</pre>
 </div>
-<div id="outline-container-org64a3442" class="outline-2">
-<h2 id="org64a3442"><span class="section-number-2">2</span> <a href="fish.html">fish</a></h2>
 </div>
-<div id="outline-container-org942d4ba" class="outline-2">
-<h2 id="org942d4ba"><span class="section-number-2">3</span> <a href="Git.html">Git</a></h2>
+
+<div id="outline-container-org7604914" class="outline-2">
+<h2 id="org7604914"><span class="section-number-2">2</span> Manual</h2>
+<div class="outline-text-2" id="text-2">
+<pre class="example">
+$ gzip -c alacritty.man |sudo tee /usr/local/share/man/man1/alacritty.1.gz &gt;/dev/null
+</pre>
 </div>
-<div id="outline-container-orgd082815" class="outline-2">
-<h2 id="orgd082815"><span class="section-number-2">4</span> <a href="Rust.html">Rust</a></h2>
 </div>
-<div id="outline-container-orgd382a58" class="outline-2">
-<h2 id="orgd382a58"><span class="section-number-2">5</span> <a href="Alacritty.html">Alacritty</a></h2>
+
+<div id="outline-container-orga983509" class="outline-2">
+<h2 id="orga983509"><span class="section-number-2">3</span> Shell completions</h2>
+<div class="outline-text-2" id="text-3">
+<pre class="example">
+$ sudo cp alacritty-completions.fish $__fish_data_dir/vendor_completions.d/alacritty.fish
+</pre>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-01-27 Sun 17:26</p>
+<p class="date">Created: 2019-01-27 Sun 17:25</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
