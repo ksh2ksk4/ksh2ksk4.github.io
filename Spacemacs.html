@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-01-27 Sun 18:08 -->
+<!-- 2019-01-27 Sun 18:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>index</title>
+<title><a href="https://github.com/syl20bnr/spacemacs">Spacemacs</a></title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="KISHI Kousuke" />
 <style type="text/css">
@@ -249,47 +249,50 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">index</h1>
+<h1 class="title"><a href="https://github.com/syl20bnr/spacemacs">Spacemacs</a></h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgcd793ab">1. MacBook Air</a></li>
-<li><a href="#org8744cea">2. fish</a></li>
-<li><a href="#org39ad9b7">3. Amazon Corretto</a></li>
-<li><a href="#org7c2f71b">4. Git</a></li>
-<li><a href="#org95e66b6">5. Spacemacs</a></li>
-<li><a href="#orgd95d9db">6. Rust</a></li>
-<li><a href="#org6f537b2">7. Alacritty</a></li>
+<li><a href="#orgec5a47b">1. Install</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgcd793ab" class="outline-2">
-<h2 id="orgcd793ab"><span class="section-number-2">1</span> <a href="MacBook_Air.html">MacBook Air</a></h2>
+<div id="outline-container-orgec5a47b" class="outline-2">
+<h2 id="orgec5a47b"><span class="section-number-2">1</span> Install</h2>
+<div class="outline-text-2" id="text-1">
+<pre class="example">
+$ brew tap d12frosted/emacs-plus
+$ brew install emacs-plus
+$ ln -sfv /usr/local/opt/emacs-plus/Emacs.app /Applications
+$ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+</pre>
+
+<p>
+Googleドライブにバックアップし易いように。
+</p>
+
+<pre class="example">
+$ mkdir ~/.config/spacemacs
+$ mv ~/.spacemacs ~/.config/spacemacs/
+$ ln -sfv ~/.config/spacemacs/.spacemacs
+</pre>
+
+<p>
+以下のフォントをインストールしておく。
+</p>
+
+<ul class="org-ul">
+<li><a href="https://github.com/adobe-fonts/source-code-pro">Source Code Pro</a></li>
+<li><a href="https://github.com/miiton/Cica">Cica Font</a></li>
+</ul>
 </div>
-<div id="outline-container-org8744cea" class="outline-2">
-<h2 id="org8744cea"><span class="section-number-2">2</span> <a href="fish.html">fish</a></h2>
-</div>
-<div id="outline-container-org39ad9b7" class="outline-2">
-<h2 id="org39ad9b7"><span class="section-number-2">3</span> <a href="Amazon_Corretto.html">Amazon Corretto</a></h2>
-</div>
-<div id="outline-container-org7c2f71b" class="outline-2">
-<h2 id="org7c2f71b"><span class="section-number-2">4</span> <a href="Git.html">Git</a></h2>
-</div>
-<div id="outline-container-org95e66b6" class="outline-2">
-<h2 id="org95e66b6"><span class="section-number-2">5</span> <a href="Spacemacs.html">Spacemacs</a></h2>
-</div>
-<div id="outline-container-orgd95d9db" class="outline-2">
-<h2 id="orgd95d9db"><span class="section-number-2">6</span> <a href="Rust.html">Rust</a></h2>
-</div>
-<div id="outline-container-org6f537b2" class="outline-2">
-<h2 id="org6f537b2"><span class="section-number-2">7</span> <a href="Alacritty.html">Alacritty</a></h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-01-27 Sun 18:08</p>
+<p class="date">Created: 2019-01-27 Sun 18:06</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
