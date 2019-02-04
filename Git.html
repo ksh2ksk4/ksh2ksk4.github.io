@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-01-14 Mon 07:02 -->
+<!-- 2019-02-04 Mon 15:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title><a href="https://git-scm.com/">Git</a></title>
@@ -205,7 +205,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -254,24 +254,29 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org5470e3a">1. 初期設定</a></li>
-<li><a href="#org8554d6d">2. コミットログのユーザ名とメールアドレスをすべて変更</a></li>
-<li><a href="#org17c8a60">3. branch</a></li>
-<li><a href="#orgb14e2f6">4. tag</a>
+<li><a href="#orgded3aaf">1. 初期設定</a></li>
+<li><a href="#org13872b1">2. コミットログのユーザ名とメールアドレスをすべて変更</a></li>
+<li><a href="#org2fe7d98">3. 特定リポジトリのコミットメッセージに定形文を設定する</a>
 <ul>
-<li><a href="#org188bfb7">4.1. タグを作成</a></li>
-<li><a href="#org4bfe38c">4.2. タグをリモートへ反映</a></li>
-<li><a href="#org62f355c">4.3. すべてのタグをリモートへ反映</a></li>
-<li><a href="#org00278e2">4.4. タグを削除</a></li>
-<li><a href="#org5ebc807">4.5. リモートからタグを削除</a></li>
+<li><a href="#org9d420b1">3.1. 参考</a></li>
+</ul>
+</li>
+<li><a href="#orgf06b9f9">4. branch</a></li>
+<li><a href="#orgfc0c283">5. tag</a>
+<ul>
+<li><a href="#orgae01904">5.1. タグを作成</a></li>
+<li><a href="#org4025f73">5.2. タグをリモートへ反映</a></li>
+<li><a href="#org0d2bec7">5.3. すべてのタグをリモートへ反映</a></li>
+<li><a href="#org6e64716">5.4. タグを削除</a></li>
+<li><a href="#org3363204">5.5. リモートからタグを削除</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5470e3a" class="outline-2">
-<h2 id="org5470e3a"><span class="section-number-2">1</span> 初期設定</h2>
+<div id="outline-container-orgded3aaf" class="outline-2">
+<h2 id="orgded3aaf"><span class="section-number-2">1</span> 初期設定</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 $ git config --global user.name 'KISHI Kousuke'
@@ -280,8 +285,8 @@ $ git config --global user.email 'ksh2ksk4@gmail.com'
 </div>
 </div>
 
-<div id="outline-container-org8554d6d" class="outline-2">
-<h2 id="org8554d6d"><span class="section-number-2">2</span> コミットログのユーザ名とメールアドレスをすべて変更</h2>
+<div id="outline-container-org13872b1" class="outline-2">
+<h2 id="org13872b1"><span class="section-number-2">2</span> コミットログのユーザ名とメールアドレスをすべて変更</h2>
 <div class="outline-text-2" id="text-2">
 <pre class="example">
 $ git filter-branch -f --env-filter\
@@ -294,9 +299,69 @@ $ git filter-branch -f --env-filter\
 </div>
 </div>
 
-<div id="outline-container-org17c8a60" class="outline-2">
-<h2 id="org17c8a60"><span class="section-number-2">3</span> branch</h2>
+<div id="outline-container-org2fe7d98" class="outline-2">
+<h2 id="org2fe7d98"><span class="section-number-2">3</span> 特定リポジトリのコミットメッセージに定形文を設定する</h2>
 <div class="outline-text-2" id="text-3">
+<p>
+<code>prepare-commit-msg</code> を変更する。<br />
+リポジトリ毎に変更するのは煩雑なので、変更は一箇所に集約し、各リポジトリからシンボリックリンクを張る。
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>~/.config/fish/functions/git/hooks/prepare-commit-msg</label><pre class="src src-fish"><span style="color: #b0bec5;">#</span><span style="color: #b0bec5;">!/usr/bin/env fish</span>
+
+<span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">https://git-scm.com/docs/githooks</span>
+
+<span style="color: #fff59d;">set</span> <span style="color: #4dd0e1;">-l</span> <span style="color: #ffcc80;">argc</span> <span style="color: #e91e63;">(</span><span style="color: #ff8A65;">count</span> <span style="color: #9ccc65;">$</span><span style="color: #ffcc80;">argv</span><span style="color: #e91e63;">)</span>
+<span style="color: #fff59d;">set</span> <span style="color: #4dd0e1;">-l</span> <span style="color: #ffcc80;">message_file</span> <span style="color: #9ccc65;">$</span><span style="color: #ffcc80;">argv</span><span style="color: #e91e63;">[</span><span style="color: #9ccc65;">1</span><span style="color: #e91e63;">]</span>
+
+<span style="color: #fff59d;">set</span> <span style="color: #4dd0e1;">-l</span> <span style="color: #ffcc80;">repository_url</span> <span style="color: #e91e63;">(</span><span style="color: #ff8A65;">git</span> remote -vv <span style="color: #4dd0e1;">|</span><span style="color: #ff8A65;">grep</span> <span style="color: #9ccc65;">'\(fetch\)'</span> <span style="color: #4dd0e1;">|</span><span style="color: #ff8A65;">string</span> replace -r <span style="color: #9ccc65;">'[ \t]+'</span> <span style="color: #9ccc65;">' '</span> <span style="color: #4dd0e1;">|</span><span style="color: #ff8A65;">cut</span> -d <span style="color: #9ccc65;">' '</span> -f <span style="color: #9ccc65;">2</span><span style="color: #e91e63;">)</span>
+
+<span style="color: #ff8A65;">string</span> match -r <span style="color: #9ccc65;">'(^.+/wiki$|^.+ksh2ksk4/memoranda.git$|^.+ksh2ksk4/ksh2ksk4.github.io.git$)'</span> <span style="color: #9ccc65;">$</span><span style="color: #ffcc80;">repository_url</span>
+
+<span style="color: #fff59d;">if</span> <span style="color: #fff59d;">test</span> <span style="color: #9ccc65;">$</span><span style="color: #ff8A65;">status</span> -eq <span style="color: #9ccc65;">0</span>
+  <span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">wiki&#12363;Memoranda&#12398;&#22580;&#21512;</span>
+  <span style="color: #ff8A65;">echo</span> <span style="color: #9ccc65;">'Update documents'</span> <span style="color: #4dd0e1;">|</span><span style="color: #ff8A65;">cat</span> - <span style="color: #9ccc65;">$</span><span style="color: #ffcc80;">message_file</span> &gt;<span style="color: #9ccc65;">"$message_file"</span>_tmp
+  <span style="color: #ff8A65;">mv</span> <span style="color: #9ccc65;">"$message_file"</span>_tmp <span style="color: #9ccc65;">$</span><span style="color: #ffcc80;">message_file</span>
+<span style="color: #fff59d;">else</span>
+  <span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">wiki&#12363;Memoranda&#20197;&#22806;&#12398;&#22580;&#21512;</span>
+  <span style="color: #fff59d;">set</span> <span style="color: #4dd0e1;">-l</span> <span style="color: #ffcc80;">branch</span> <span style="color: #e91e63;">(</span><span style="color: #ff8A65;">git</span> branch <span style="color: #4dd0e1;">|</span><span style="color: #ff8A65;">grep</span> <span style="color: #9ccc65;">'^* '</span> <span style="color: #4dd0e1;">|</span><span style="color: #ff8A65;">string</span> replace <span style="color: #9ccc65;">'* '</span> <span style="color: #9ccc65;">''</span><span style="color: #e91e63;">)</span>
+
+  <span style="color: #ff8A65;">string</span> match -r <span style="color: #9ccc65;">'^feature_'</span> <span style="color: #9ccc65;">$</span><span style="color: #ffcc80;">branch</span>
+
+  <span style="color: #fff59d;">if</span> <span style="color: #fff59d;">test</span> <span style="color: #9ccc65;">$</span><span style="color: #ff8A65;">status</span> -eq <span style="color: #9ccc65;">0</span>
+    <span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">&#12501;&#12451;&#12540;&#12481;&#12515;&#12540;&#12502;&#12521;&#12531;&#12481;&#12398;&#22580;&#21512;</span>
+    <span style="color: #fff59d;">set</span> <span style="color: #4dd0e1;">-l</span> <span style="color: #ffcc80;">feature</span> <span style="color: #e91e63;">(</span><span style="color: #ff8A65;">string</span> replace -r <span style="color: #9ccc65;">'^feature_'</span> <span style="color: #9ccc65;">'#'</span> <span style="color: #9ccc65;">$</span><span style="color: #ffcc80;">branch</span><span style="color: #e91e63;">)</span>
+
+    <span style="color: #fff59d;">if</span> <span style="color: #fff59d;">test</span> <span style="color: #9ccc65;">$</span><span style="color: #ffcc80;">argc</span> -eq <span style="color: #9ccc65;">1</span>
+      <span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">&#36890;&#24120;&#12398;&#12467;&#12511;&#12483;&#12488;&#12398;&#22580;&#21512;</span>
+      <span style="color: #ff8A65;">echo</span> <span style="color: #9ccc65;">"refs $feature "</span> <span style="color: #4dd0e1;">|</span><span style="color: #ff8A65;">cat</span> - <span style="color: #9ccc65;">$</span><span style="color: #ffcc80;">message_file</span> &gt;<span style="color: #9ccc65;">"$message_file"</span>_tmp
+      <span style="color: #ff8A65;">mv</span> <span style="color: #9ccc65;">"$message_file"</span>_tmp <span style="color: #9ccc65;">$</span><span style="color: #ffcc80;">message_file</span>
+    <span style="color: #fff59d;">end</span>
+  <span style="color: #fff59d;">end</span>
+<span style="color: #fff59d;">end</span>
+</pre>
+</div>
+
+<pre class="example">
+$ cd repository
+$ ln -sfv ~/.config/fish/functions/git/hooks/prepare-commit-msg .git/hooks/
+</pre>
+</div>
+
+<div id="outline-container-org9d420b1" class="outline-3">
+<h3 id="org9d420b1"><span class="section-number-3">3.1</span> 参考</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li><a href="https://git-scm.com/docs/githooks">https://git-scm.com/docs/githooks</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf06b9f9" class="outline-2">
+<h2 id="orgf06b9f9"><span class="section-number-2">4</span> branch</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 ブランチの削除?
 </p>
@@ -308,26 +373,26 @@ $ git push --delete origin BRANCHNAME
 </div>
 </div>
 
-<div id="outline-container-orgb14e2f6" class="outline-2">
-<h2 id="orgb14e2f6"><span class="section-number-2">4</span> tag</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-orgfc0c283" class="outline-2">
+<h2 id="orgfc0c283"><span class="section-number-2">5</span> tag</h2>
+<div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org188bfb7" class="outline-3">
-<h3 id="org188bfb7"><span class="section-number-3">4.1</span> タグを作成</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-orgae01904" class="outline-3">
+<h3 id="orgae01904"><span class="section-number-3">5.1</span> タグを作成</h3>
+<div class="outline-text-3" id="text-5-1">
 </div>
-<div id="outline-container-org28fb5f8" class="outline-4">
-<h4 id="org28fb5f8"><span class="section-number-4">4.1.1</span> lightweight tag</h4>
-<div class="outline-text-4" id="text-4-1-1">
+<div id="outline-container-org63bf321" class="outline-4">
+<h4 id="org63bf321"><span class="section-number-4">5.1.1</span> lightweight tag</h4>
+<div class="outline-text-4" id="text-5-1-1">
 <pre class="example">
 $ git tag TAGNAME
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orge3f058a" class="outline-4">
-<h4 id="orge3f058a"><span class="section-number-4">4.1.2</span> annotated tag</h4>
-<div class="outline-text-4" id="text-4-1-2">
+<div id="outline-container-orged72236" class="outline-4">
+<h4 id="orged72236"><span class="section-number-4">5.1.2</span> annotated tag</h4>
+<div class="outline-text-4" id="text-5-1-2">
 <pre class="example">
 $ git tag -a TAGNAME
 </pre>
@@ -335,36 +400,36 @@ $ git tag -a TAGNAME
 </div>
 </div>
 
-<div id="outline-container-org4bfe38c" class="outline-3">
-<h3 id="org4bfe38c"><span class="section-number-3">4.2</span> タグをリモートへ反映</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-org4025f73" class="outline-3">
+<h3 id="org4025f73"><span class="section-number-3">5.2</span> タグをリモートへ反映</h3>
+<div class="outline-text-3" id="text-5-2">
 <pre class="example">
 $ git push origin TAGNAME
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org62f355c" class="outline-3">
-<h3 id="org62f355c"><span class="section-number-3">4.3</span> すべてのタグをリモートへ反映</h3>
-<div class="outline-text-3" id="text-4-3">
+<div id="outline-container-org0d2bec7" class="outline-3">
+<h3 id="org0d2bec7"><span class="section-number-3">5.3</span> すべてのタグをリモートへ反映</h3>
+<div class="outline-text-3" id="text-5-3">
 <pre class="example">
 $ git push origin --tags
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org00278e2" class="outline-3">
-<h3 id="org00278e2"><span class="section-number-3">4.4</span> タグを削除</h3>
-<div class="outline-text-3" id="text-4-4">
+<div id="outline-container-org6e64716" class="outline-3">
+<h3 id="org6e64716"><span class="section-number-3">5.4</span> タグを削除</h3>
+<div class="outline-text-3" id="text-5-4">
 <pre class="example">
 $ git tag -d TAGNAME
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org5ebc807" class="outline-3">
-<h3 id="org5ebc807"><span class="section-number-3">4.5</span> リモートからタグを削除</h3>
-<div class="outline-text-3" id="text-4-5">
+<div id="outline-container-org3363204" class="outline-3">
+<h3 id="org3363204"><span class="section-number-3">5.5</span> リモートからタグを削除</h3>
+<div class="outline-text-3" id="text-5-5">
 <pre class="example">
 $ git push --delete origin TAGNAME
 </pre>
@@ -374,7 +439,7 @@ $ git push --delete origin TAGNAME
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-01-14 Mon 07:02</p>
+<p class="date">Created: 2019-02-04 Mon 15:07</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
