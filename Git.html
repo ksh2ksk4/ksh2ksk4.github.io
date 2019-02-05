@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-02-04 Mon 15:07 -->
+<!-- 2019-02-05 Tue 14:58 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title><a href="https://git-scm.com/">Git</a></title>
@@ -254,39 +254,50 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgded3aaf">1. 初期設定</a></li>
-<li><a href="#org13872b1">2. コミットログのユーザ名とメールアドレスをすべて変更</a></li>
-<li><a href="#org2fe7d98">3. 特定リポジトリのコミットメッセージに定形文を設定する</a>
+<li><a href="#org86a867d">1. 初期設定</a></li>
+<li><a href="#org5fb4259">2. コミットログのユーザ名とメールアドレスをすべて変更</a></li>
+<li><a href="#org178d2c7">3. 特定リポジトリのコミットメッセージに定形文を設定する</a>
 <ul>
-<li><a href="#org9d420b1">3.1. 参考</a></li>
+<li><a href="#org6b53cb1">3.1. 参考</a></li>
 </ul>
 </li>
-<li><a href="#orgf06b9f9">4. branch</a></li>
-<li><a href="#orgfc0c283">5. tag</a>
+<li><a href="#orgaeb032b">4. branch</a></li>
+<li><a href="#org8a16730">5. tag</a>
 <ul>
-<li><a href="#orgae01904">5.1. タグを作成</a></li>
-<li><a href="#org4025f73">5.2. タグをリモートへ反映</a></li>
-<li><a href="#org0d2bec7">5.3. すべてのタグをリモートへ反映</a></li>
-<li><a href="#org6e64716">5.4. タグを削除</a></li>
-<li><a href="#org3363204">5.5. リモートからタグを削除</a></li>
+<li><a href="#org74eccc1">5.1. タグを作成</a></li>
+<li><a href="#org99f76bb">5.2. タグをリモートへ反映</a></li>
+<li><a href="#org70a5f4b">5.3. すべてのタグをリモートへ反映</a></li>
+<li><a href="#org14ff192">5.4. タグを削除</a></li>
+<li><a href="#org4cb0692">5.5. リモートからタグを削除</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgded3aaf" class="outline-2">
-<h2 id="orgded3aaf"><span class="section-number-2">1</span> 初期設定</h2>
+<div id="outline-container-org86a867d" class="outline-2">
+<h2 id="org86a867d"><span class="section-number-2">1</span> 初期設定</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 $ git config --global user.name 'KISHI Kousuke'
 $ git config --global user.email 'ksh2ksk4@gmail.com'
 </pre>
+
+<p>
+バックアップしやすいように。
+</p>
+
+<pre class="example">
+$ mv ~/.gitconfig ~/.config/git/
+$ ln -sfv .config/git/.gitconfig
+$ mv ~/.gitignore_global ~/.config/git/
+$ ln -sfv .config/git/.gitignore_global
+</pre>
 </div>
 </div>
 
-<div id="outline-container-org13872b1" class="outline-2">
-<h2 id="org13872b1"><span class="section-number-2">2</span> コミットログのユーザ名とメールアドレスをすべて変更</h2>
+<div id="outline-container-org5fb4259" class="outline-2">
+<h2 id="org5fb4259"><span class="section-number-2">2</span> コミットログのユーザ名とメールアドレスをすべて変更</h2>
 <div class="outline-text-2" id="text-2">
 <pre class="example">
 $ git filter-branch -f --env-filter\
@@ -299,8 +310,8 @@ $ git filter-branch -f --env-filter\
 </div>
 </div>
 
-<div id="outline-container-org2fe7d98" class="outline-2">
-<h2 id="org2fe7d98"><span class="section-number-2">3</span> 特定リポジトリのコミットメッセージに定形文を設定する</h2>
+<div id="outline-container-org178d2c7" class="outline-2">
+<h2 id="org178d2c7"><span class="section-number-2">3</span> 特定リポジトリのコミットメッセージに定形文を設定する</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 <code>prepare-commit-msg</code> を変更する。<br />
@@ -349,8 +360,8 @@ $ ln -sfv ~/.config/fish/functions/git/hooks/prepare-commit-msg .git/hooks/
 </pre>
 </div>
 
-<div id="outline-container-org9d420b1" class="outline-3">
-<h3 id="org9d420b1"><span class="section-number-3">3.1</span> 参考</h3>
+<div id="outline-container-org6b53cb1" class="outline-3">
+<h3 id="org6b53cb1"><span class="section-number-3">3.1</span> 参考</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li><a href="https://git-scm.com/docs/githooks">https://git-scm.com/docs/githooks</a></li>
@@ -359,8 +370,8 @@ $ ln -sfv ~/.config/fish/functions/git/hooks/prepare-commit-msg .git/hooks/
 </div>
 </div>
 
-<div id="outline-container-orgf06b9f9" class="outline-2">
-<h2 id="orgf06b9f9"><span class="section-number-2">4</span> branch</h2>
+<div id="outline-container-orgaeb032b" class="outline-2">
+<h2 id="orgaeb032b"><span class="section-number-2">4</span> branch</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 ブランチの削除?
@@ -373,16 +384,16 @@ $ git push --delete origin BRANCHNAME
 </div>
 </div>
 
-<div id="outline-container-orgfc0c283" class="outline-2">
-<h2 id="orgfc0c283"><span class="section-number-2">5</span> tag</h2>
+<div id="outline-container-org8a16730" class="outline-2">
+<h2 id="org8a16730"><span class="section-number-2">5</span> tag</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orgae01904" class="outline-3">
-<h3 id="orgae01904"><span class="section-number-3">5.1</span> タグを作成</h3>
+<div id="outline-container-org74eccc1" class="outline-3">
+<h3 id="org74eccc1"><span class="section-number-3">5.1</span> タグを作成</h3>
 <div class="outline-text-3" id="text-5-1">
 </div>
-<div id="outline-container-org63bf321" class="outline-4">
-<h4 id="org63bf321"><span class="section-number-4">5.1.1</span> lightweight tag</h4>
+<div id="outline-container-orgcff495b" class="outline-4">
+<h4 id="orgcff495b"><span class="section-number-4">5.1.1</span> lightweight tag</h4>
 <div class="outline-text-4" id="text-5-1-1">
 <pre class="example">
 $ git tag TAGNAME
@@ -390,8 +401,8 @@ $ git tag TAGNAME
 </div>
 </div>
 
-<div id="outline-container-orged72236" class="outline-4">
-<h4 id="orged72236"><span class="section-number-4">5.1.2</span> annotated tag</h4>
+<div id="outline-container-orgf1b4756" class="outline-4">
+<h4 id="orgf1b4756"><span class="section-number-4">5.1.2</span> annotated tag</h4>
 <div class="outline-text-4" id="text-5-1-2">
 <pre class="example">
 $ git tag -a TAGNAME
@@ -400,8 +411,8 @@ $ git tag -a TAGNAME
 </div>
 </div>
 
-<div id="outline-container-org4025f73" class="outline-3">
-<h3 id="org4025f73"><span class="section-number-3">5.2</span> タグをリモートへ反映</h3>
+<div id="outline-container-org99f76bb" class="outline-3">
+<h3 id="org99f76bb"><span class="section-number-3">5.2</span> タグをリモートへ反映</h3>
 <div class="outline-text-3" id="text-5-2">
 <pre class="example">
 $ git push origin TAGNAME
@@ -409,8 +420,8 @@ $ git push origin TAGNAME
 </div>
 </div>
 
-<div id="outline-container-org0d2bec7" class="outline-3">
-<h3 id="org0d2bec7"><span class="section-number-3">5.3</span> すべてのタグをリモートへ反映</h3>
+<div id="outline-container-org70a5f4b" class="outline-3">
+<h3 id="org70a5f4b"><span class="section-number-3">5.3</span> すべてのタグをリモートへ反映</h3>
 <div class="outline-text-3" id="text-5-3">
 <pre class="example">
 $ git push origin --tags
@@ -418,8 +429,8 @@ $ git push origin --tags
 </div>
 </div>
 
-<div id="outline-container-org6e64716" class="outline-3">
-<h3 id="org6e64716"><span class="section-number-3">5.4</span> タグを削除</h3>
+<div id="outline-container-org14ff192" class="outline-3">
+<h3 id="org14ff192"><span class="section-number-3">5.4</span> タグを削除</h3>
 <div class="outline-text-3" id="text-5-4">
 <pre class="example">
 $ git tag -d TAGNAME
@@ -427,8 +438,8 @@ $ git tag -d TAGNAME
 </div>
 </div>
 
-<div id="outline-container-org3363204" class="outline-3">
-<h3 id="org3363204"><span class="section-number-3">5.5</span> リモートからタグを削除</h3>
+<div id="outline-container-org4cb0692" class="outline-3">
+<h3 id="org4cb0692"><span class="section-number-3">5.5</span> リモートからタグを削除</h3>
 <div class="outline-text-3" id="text-5-5">
 <pre class="example">
 $ git push --delete origin TAGNAME
@@ -439,7 +450,7 @@ $ git push --delete origin TAGNAME
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-02-04 Mon 15:07</p>
+<p class="date">Created: 2019-02-05 Tue 14:58</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
