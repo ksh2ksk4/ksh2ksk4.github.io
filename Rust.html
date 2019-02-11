@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-01-27 Sun 17:04 -->
+<!-- 2019-02-11 Mon 21:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title><a href="https://www.rust-lang.org/">Rust</a></title>
@@ -205,7 +205,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -254,14 +254,21 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org4b49666">1. Install</a></li>
-<li><a href="#org321f5d2">2. Bookmarks</a></li>
+<li><a href="#org131d779">1. Install</a></li>
+<li><a href="#org0e6090a">2. 特徴的な概念・機能</a>
+<ul>
+<li><a href="#org97897e2">2.1. Shadowing</a></li>
+<li><a href="#org7da0d58">2.2. Array</a></li>
+<li><a href="#org5fb4c9d">2.3. Statement/Expression</a></li>
+</ul>
+</li>
+<li><a href="#orgfd7e4c1">3. Bookmarks</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org4b49666" class="outline-2">
-<h2 id="org4b49666"><span class="section-number-2">1</span> Install</h2>
+<div id="outline-container-org131d779" class="outline-2">
+<h2 id="org131d779"><span class="section-number-2">1</span> Install</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 $ curl https://sh.rustup.rs -sSf | sh
@@ -270,9 +277,76 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </div>
 
-<div id="outline-container-org321f5d2" class="outline-2">
-<h2 id="org321f5d2"><span class="section-number-2">2</span> Bookmarks</h2>
+<div id="outline-container-org0e6090a" class="outline-2">
+<h2 id="org0e6090a"><span class="section-number-2">2</span> 特徴的な概念・機能</h2>
 <div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org97897e2" class="outline-3">
+<h3 id="org97897e2"><span class="section-number-3">2.1</span> Shadowing</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+前に定義した変数と同じ名前の新しい変数を定義できる。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-rust"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">x</span> = <span style="color: #9ccc65;">1</span>;
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">x</span> = x + <span style="color: #9ccc65;">1</span>;
+</pre>
+</div>
+
+<p>
+ミュータブルではないので再束縛は不可(コンパイルエラー)。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-rust">x = <span style="color: #9ccc65;">100</span>;
+</pre>
+</div>
+
+<p>
+型を変更することも可能。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-rust"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">spaces</span> = <span style="color: #9ccc65;">"        "</span>;
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">spaces</span> = spaces.len<span style="color: #e91e63;">()</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7da0d58" class="outline-3">
+<h3 id="org7da0d58"><span class="section-number-3">2.2</span> Array</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+固定長。
+可変長のデータを扱う場合はベクタを利用する。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5fb4c9d" class="outline-3">
+<h3 id="org5fb4c9d"><span class="section-number-3">2.3</span> Statement/Expression</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>文
+<ul class="org-ul">
+<li>実行後に値を返さない</li>
+<li>終端に <code>;</code> を含む</li>
+</ul></li>
+<li>式
+<ul class="org-ul">
+<li>実行後に値を返す</li>
+<li>終端に <code>;</code> を含まない</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfd7e4c1" class="outline-2">
+<h2 id="orgfd7e4c1"><span class="section-number-2">3</span> Bookmarks</h2>
+<div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><a href="https://doc.rust-jp.rs/">https://doc.rust-jp.rs/</a></li>
 <li><a href="https://creators-note.chatwork.com/entry/2017/12/07/000000">https://creators-note.chatwork.com/entry/2017/12/07/000000</a></li>
@@ -282,7 +356,7 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-01-27 Sun 17:04</p>
+<p class="date">Created: 2019-02-11 Mon 21:31</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
