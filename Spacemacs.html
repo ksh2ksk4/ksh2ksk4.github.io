@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-02-11 Mon 21:49 -->
+<!-- 2019-02-11 Mon 21:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title><a href="https://github.com/syl20bnr/spacemacs">Spacemacs</a></title>
@@ -254,25 +254,25 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgbee302e">1. Install</a></li>
-<li><a href="#org6c47718">2. YASnippet</a>
+<li><a href="#org7ad2cca">1. Install</a></li>
+<li><a href="#org74292f1">2. YASnippet</a>
 <ul>
-<li><a href="#orgcc87fe6">2.1. Install</a></li>
-<li><a href="#org69d23e2">2.2. Settings</a></li>
-<li><a href="#org27f90dd">2.3. Functions</a></li>
+<li><a href="#orgc89c2c2">2.1. Install</a></li>
+<li><a href="#org3847971">2.2. Settings</a></li>
+<li><a href="#orgf3a8d10">2.3. Functions</a></li>
 </ul>
 </li>
-<li><a href="#orge4e4861">3. pdf-tools layer</a>
+<li><a href="#org356109a">3. pdf-tools layer</a>
 <ul>
-<li><a href="#orga36a835">3.1. Install</a></li>
+<li><a href="#org76b0352">3.1. Install</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgbee302e" class="outline-2">
-<h2 id="orgbee302e"><span class="section-number-2">1</span> Install</h2>
+<div id="outline-container-org7ad2cca" class="outline-2">
+<h2 id="org7ad2cca"><span class="section-number-2">1</span> Install</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 $ brew tap d12frosted/emacs-plus
@@ -302,12 +302,12 @@ $ ln -sfv ~/.config/spacemacs/.spacemacs
 </div>
 </div>
 
-<div id="outline-container-org6c47718" class="outline-2">
-<h2 id="org6c47718"><span class="section-number-2">2</span> <a href="https://github.com/joaotavora/yasnippet">YASnippet</a></h2>
+<div id="outline-container-org74292f1" class="outline-2">
+<h2 id="org74292f1"><span class="section-number-2">2</span> <a href="https://github.com/joaotavora/yasnippet">YASnippet</a></h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgcc87fe6" class="outline-3">
-<h3 id="orgcc87fe6"><span class="section-number-3">2.1</span> Install</h3>
+<div id="outline-container-orgc89c2c2" class="outline-3">
+<h3 id="orgc89c2c2"><span class="section-number-3">2.1</span> Install</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 インストールされていた(たぶんパッケージの依存関係)。
@@ -315,15 +315,15 @@ $ ln -sfv ~/.config/spacemacs/.spacemacs
 </div>
 </div>
 
-<div id="outline-container-org69d23e2" class="outline-3">
-<h3 id="org69d23e2"><span class="section-number-3">2.2</span> Settings</h3>
+<div id="outline-container-org3847971" class="outline-3">
+<h3 id="org3847971"><span class="section-number-3">2.2</span> Settings</h3>
 <div class="outline-text-3" id="text-2-2">
 <pre class="example">
 $ mkdir -p .config/spacemacs/snippets
 </pre>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">use-package</span> <span style="color: #8bc34a;">yasnippet</span>
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">use-package</span> <span style="color: #8bc34a;">yasnippet</span>
   <span style="color: #ff8A65;">:config</span>
   <span style="color: #2196F3;">(</span><span style="color: #fff59d;">setq</span> yas-snippet-dirs <span style="color: #EF6C00;">(</span>append yas-snippet-dirs
                                  '<span style="color: #B388FF;">(</span><span style="color: #9ccc65;">"~/.config/spacemacs/snippets"</span><span style="color: #B388FF;">)</span><span style="color: #EF6C00;">)</span><span style="color: #2196F3;">)</span>
@@ -350,8 +350,8 @@ $ mkdir -p .config/spacemacs/snippets/org-mode
 </div>
 </div>
 
-<div id="outline-container-org27f90dd" class="outline-3">
-<h3 id="org27f90dd"><span class="section-number-3">2.3</span> Functions</h3>
+<div id="outline-container-orgf3a8d10" class="outline-3">
+<h3 id="orgf3a8d10"><span class="section-number-3">2.3</span> Functions</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>M-x yas-describe-tables</li>
@@ -360,15 +360,16 @@ $ mkdir -p .config/spacemacs/snippets/org-mode
 </div>
 </div>
 
-<div id="outline-container-orge4e4861" class="outline-2">
-<h2 id="orge4e4861"><span class="section-number-2">3</span> <a href="https://github.com/syl20bnr/spacemacs/tree/master/layers/+tools/pdf-tools">pdf-tools layer</a></h2>
+<div id="outline-container-org356109a" class="outline-2">
+<h2 id="org356109a"><span class="section-number-2">3</span> <a href="https://github.com/syl20bnr/spacemacs/tree/master/layers/+tools/pdf-tools">pdf-tools layer</a></h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orga36a835" class="outline-3">
-<h3 id="orga36a835"><span class="section-number-3">3.1</span> Install</h3>
+<div id="outline-container-org76b0352" class="outline-3">
+<h3 id="org76b0352"><span class="section-number-3">3.1</span> Install</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
-<code>dotspacemacs-configuration-layers</code> に <code>pdf-tools</code> を追加するだけ。
+<code>dotspacemacs-configuration-layers</code> に <code>pdf-tools</code> を追加するだけ。<br />
+以下、インストールログ。
 </p>
 
 <pre class="example">
@@ -576,7 +577,7 @@ Comint finished at Mon Feb 11 17:49:54
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-02-11 Mon 21:49</p>
+<p class="date">Created: 2019-02-11 Mon 21:55</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
