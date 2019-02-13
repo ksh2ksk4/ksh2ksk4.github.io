@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-02-13 Wed 03:21 -->
+<!-- 2019-02-13 Wed 23:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title><a href="https://www.rust-lang.org/">Rust</a></title>
@@ -276,19 +276,20 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org49833a5">1. Install</a></li>
-<li><a href="#org92c5f49">2. Data types</a>
+<li><a href="#org183cd8a">1. Install</a></li>
+<li><a href="#org25ee92d">2. Data types</a>
 <ul>
-<li><a href="#orgcd2988d">2.1. Scalar types</a></li>
+<li><a href="#orga758432">2.1. Scalar types</a></li>
+<li><a href="#org438fff0">2.2. Compound types</a></li>
 </ul>
 </li>
-<li><a href="#org9718297">3. Bookmarks</a></li>
+<li><a href="#orgbfc742b">3. Bookmarks</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org49833a5" class="outline-2">
-<h2 id="org49833a5"><span class="section-number-2">1</span> Install</h2>
+<div id="outline-container-org183cd8a" class="outline-2">
+<h2 id="org183cd8a"><span class="section-number-2">1</span> Install</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 $ curl https://sh.rustup.rs -sSf | sh
@@ -297,16 +298,16 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </div>
 
-<div id="outline-container-org92c5f49" class="outline-2">
-<h2 id="org92c5f49"><span class="section-number-2">2</span> Data types</h2>
+<div id="outline-container-org25ee92d" class="outline-2">
+<h2 id="org25ee92d"><span class="section-number-2">2</span> Data types</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgcd2988d" class="outline-3">
-<h3 id="orgcd2988d"><span class="section-number-3">2.1</span> Scalar types</h3>
+<div id="outline-container-orga758432" class="outline-3">
+<h3 id="orga758432"><span class="section-number-3">2.1</span> Scalar types</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-orge04082d" class="outline-4">
-<h4 id="orge04082d"><span class="section-number-4">2.1.1</span> 整数型(符号あり)</h4>
+<div id="outline-container-org98e8bf9" class="outline-4">
+<h4 id="org98e8bf9"><span class="section-number-4">2.1.1</span> 整数型(符号あり)</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -382,8 +383,8 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </div>
 
-<div id="outline-container-orgaa24de6" class="outline-4">
-<h4 id="orgaa24de6"><span class="section-number-4">2.1.2</span> 整数型(符号なし)</h4>
+<div id="outline-container-org53f3615" class="outline-4">
+<h4 id="org53f3615"><span class="section-number-4">2.1.2</span> 整数型(符号なし)</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -455,8 +456,8 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </div>
 
-<div id="outline-container-orgb63d6b0" class="outline-4">
-<h4 id="orgb63d6b0"><span class="section-number-4">2.1.3</span> 浮動小数点数型</h4>
+<div id="outline-container-org09bf1fe" class="outline-4">
+<h4 id="org09bf1fe"><span class="section-number-4">2.1.3</span> 浮動小数点数型</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <p>
 <code>f32</code> (単精度浮動小数点数) と <code>f64</code> (倍精度浮動小数点数) があり、 <code>f64</code> が浮動小数点数型の基準型。
@@ -464,8 +465,8 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </div>
 
-<div id="outline-container-org3905539" class="outline-4">
-<h4 id="org3905539"><span class="section-number-4">2.1.4</span> 論理値型</h4>
+<div id="outline-container-orgb7f296d" class="outline-4">
+<h4 id="orgb7f296d"><span class="section-number-4">2.1.4</span> 論理値型</h4>
 <div class="outline-text-4" id="text-2-1-4">
 <p>
 論理値型は <code>bool</code> であり、 <code>true</code> と <code>false</code> が取り得る値。
@@ -473,8 +474,8 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </div>
 
-<div id="outline-container-orgac136bd" class="outline-4">
-<h4 id="orgac136bd"><span class="section-number-4">2.1.5</span> 文字型</h4>
+<div id="outline-container-org94b5afd" class="outline-4">
+<h4 id="org94b5afd"><span class="section-number-4">2.1.5</span> 文字型</h4>
 <div class="outline-text-4" id="text-2-1-5">
 <p>
 文字型は <code>char</code> であり、Unicodeのスカラ値を表す。<br />
@@ -483,8 +484,8 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </div>
 
-<div id="outline-container-org149f25f" class="outline-4">
-<h4 id="org149f25f"><span class="section-number-4">2.1.6</span> ユニット型</h4>
+<div id="outline-container-org8d6a00f" class="outline-4">
+<h4 id="org8d6a00f"><span class="section-number-4">2.1.6</span> ユニット型</h4>
 <div class="outline-text-4" id="text-2-1-6">
 <p>
 ユニット型は <code>()</code> であり、空のタプル( <code>()</code> )が取り得る値。
@@ -492,10 +493,23 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </div>
 </div>
+
+<div id="outline-container-org438fff0" class="outline-3">
+<h3 id="org438fff0"><span class="section-number-3">2.2</span> Compound types</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-org9ae0038" class="outline-4">
+<h4 id="org9ae0038"><span class="section-number-4">2.2.1</span> タプル型</h4>
 </div>
 
-<div id="outline-container-org9718297" class="outline-2">
-<h2 id="org9718297"><span class="section-number-2">3</span> Bookmarks</h2>
+<div id="outline-container-orgf772990" class="outline-4">
+<h4 id="orgf772990"><span class="section-number-4">2.2.2</span> 配列型</h4>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbfc742b" class="outline-2">
+<h2 id="orgbfc742b"><span class="section-number-2">3</span> Bookmarks</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><a href="https://doc.rust-jp.rs/">https://doc.rust-jp.rs/</a></li>
@@ -517,7 +531,7 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-02-13 Wed 03:21</p>
+<p class="date">Created: 2019-02-13 Wed 23:39</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
