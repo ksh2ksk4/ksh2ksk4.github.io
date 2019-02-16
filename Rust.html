@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-02-17 Sun 06:14 -->
+<!-- 2019-02-17 Sun 06:18 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title><a href="https://www.rust-lang.org/">Rust</a></title>
@@ -276,26 +276,26 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8b92ba9">1. Install</a></li>
-<li><a href="#org4581ab2">2. Data types</a>
+<li><a href="#orgba145b8">1. Install</a></li>
+<li><a href="#org988e1fb">2. Data types</a>
 <ul>
-<li><a href="#org94ba349">2.1. Scalar types</a></li>
-<li><a href="#org15aadce">2.2. Compound types</a></li>
+<li><a href="#orgbf21087">2.1. Scalar types</a></li>
+<li><a href="#orged9ec1f">2.2. Compound types</a></li>
 </ul>
 </li>
-<li><a href="#orgc7224f1">3. Function</a></li>
-<li><a href="#org45f5713">4. フロー制御</a>
+<li><a href="#org91048ad">3. Function</a></li>
+<li><a href="#orgbe8d590">4. フロー制御</a>
 <ul>
-<li><a href="#orgfe36d2f">4.1. <code>if</code></a></li>
+<li><a href="#orgb4062d5">4.1. <code>if</code></a></li>
 </ul>
 </li>
-<li><a href="#org0d71f79">5. Bookmarks</a></li>
+<li><a href="#orgeaf0a5f">5. Bookmarks</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org8b92ba9" class="outline-2">
-<h2 id="org8b92ba9"><span class="section-number-2">1</span> Install</h2>
+<div id="outline-container-orgba145b8" class="outline-2">
+<h2 id="orgba145b8"><span class="section-number-2">1</span> Install</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 $ curl https://sh.rustup.rs -sSf | sh
@@ -304,16 +304,16 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </div>
 
-<div id="outline-container-org4581ab2" class="outline-2">
-<h2 id="org4581ab2"><span class="section-number-2">2</span> Data types</h2>
+<div id="outline-container-org988e1fb" class="outline-2">
+<h2 id="org988e1fb"><span class="section-number-2">2</span> Data types</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org94ba349" class="outline-3">
-<h3 id="org94ba349"><span class="section-number-3">2.1</span> Scalar types</h3>
+<div id="outline-container-orgbf21087" class="outline-3">
+<h3 id="orgbf21087"><span class="section-number-3">2.1</span> Scalar types</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-org6b9e874" class="outline-4">
-<h4 id="org6b9e874"><span class="section-number-4">2.1.1</span> 整数型(符号あり)</h4>
+<div id="outline-container-org2ed82af" class="outline-4">
+<h4 id="org2ed82af"><span class="section-number-4">2.1.1</span> 整数型(符号あり)</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -389,8 +389,8 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </div>
 
-<div id="outline-container-org927832c" class="outline-4">
-<h4 id="org927832c"><span class="section-number-4">2.1.2</span> 整数型(符号なし)</h4>
+<div id="outline-container-orgbc97da1" class="outline-4">
+<h4 id="orgbc97da1"><span class="section-number-4">2.1.2</span> 整数型(符号なし)</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -462,8 +462,8 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </div>
 
-<div id="outline-container-org5cb4782" class="outline-4">
-<h4 id="org5cb4782"><span class="section-number-4">2.1.3</span> 浮動小数点数型</h4>
+<div id="outline-container-orgd3533cf" class="outline-4">
+<h4 id="orgd3533cf"><span class="section-number-4">2.1.3</span> 浮動小数点数型</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <p>
 <code>f32</code> (単精度浮動小数点数) と <code>f64</code> (倍精度浮動小数点数) があり、 <code>f64</code> が浮動小数点数型の基準型。
@@ -471,8 +471,8 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </div>
 
-<div id="outline-container-org44b50a2" class="outline-4">
-<h4 id="org44b50a2"><span class="section-number-4">2.1.4</span> 論理値型</h4>
+<div id="outline-container-org3992916" class="outline-4">
+<h4 id="org3992916"><span class="section-number-4">2.1.4</span> 論理値型</h4>
 <div class="outline-text-4" id="text-2-1-4">
 <p>
 論理値型は <code>bool</code> であり、 <code>true</code> と <code>false</code> が取り得る値。
@@ -480,8 +480,8 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </div>
 
-<div id="outline-container-orgd46fb2b" class="outline-4">
-<h4 id="orgd46fb2b"><span class="section-number-4">2.1.5</span> 文字型</h4>
+<div id="outline-container-orgc2a3c7d" class="outline-4">
+<h4 id="orgc2a3c7d"><span class="section-number-4">2.1.5</span> 文字型</h4>
 <div class="outline-text-4" id="text-2-1-5">
 <p>
 文字型は <code>char</code> であり、Unicodeのスカラ値を表す。<br />
@@ -490,8 +490,8 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </div>
 
-<div id="outline-container-org7177461" class="outline-4">
-<h4 id="org7177461"><span class="section-number-4">2.1.6</span> ユニット型</h4>
+<div id="outline-container-org6d05724" class="outline-4">
+<h4 id="org6d05724"><span class="section-number-4">2.1.6</span> ユニット型</h4>
 <div class="outline-text-4" id="text-2-1-6">
 <p>
 ユニット型は <code>()</code> であり、空のタプル( <code>()</code> )が取り得る値。
@@ -500,12 +500,12 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </div>
 
-<div id="outline-container-org15aadce" class="outline-3">
-<h3 id="org15aadce"><span class="section-number-3">2.2</span> Compound types</h3>
+<div id="outline-container-orged9ec1f" class="outline-3">
+<h3 id="orged9ec1f"><span class="section-number-3">2.2</span> Compound types</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-org3ad4dc6" class="outline-4">
-<h4 id="org3ad4dc6"><span class="section-number-4">2.2.1</span> タプル型</h4>
+<div id="outline-container-orgd3a5da6" class="outline-4">
+<h4 id="orgd3a5da6"><span class="section-number-4">2.2.1</span> タプル型</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 複数の型を一つの型に集約したもの。
@@ -520,8 +520,8 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </div>
 
-<div id="outline-container-orga0ac66f" class="outline-4">
-<h4 id="orga0ac66f"><span class="section-number-4">2.2.2</span> 配列型</h4>
+<div id="outline-container-org8ad6c75" class="outline-4">
+<h4 id="org8ad6c75"><span class="section-number-4">2.2.2</span> 配列型</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <ul class="org-ul">
 <li>コレクションの一種</li>
@@ -551,8 +551,8 @@ The value of first is 1 and last is 3
 </div>
 </div>
 
-<div id="outline-container-orgc7224f1" class="outline-2">
-<h2 id="orgc7224f1"><span class="section-number-2">3</span> Function</h2>
+<div id="outline-container-org91048ad" class="outline-2">
+<h2 id="org91048ad"><span class="section-number-2">3</span> Function</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><code>main</code> はプログラムのエントリポイント</li>
@@ -596,12 +596,12 @@ The return value of sub_function is 10
 </div>
 </div>
 
-<div id="outline-container-org45f5713" class="outline-2">
-<h2 id="org45f5713"><span class="section-number-2">4</span> フロー制御</h2>
+<div id="outline-container-orgbe8d590" class="outline-2">
+<h2 id="orgbe8d590"><span class="section-number-2">4</span> フロー制御</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgfe36d2f" class="outline-3">
-<h3 id="orgfe36d2f"><span class="section-number-3">4.1</span> <code>if</code></h3>
+<div id="outline-container-orgb4062d5" class="outline-3">
+<h3 id="orgb4062d5"><span class="section-number-3">4.1</span> <code>if</code></h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 条件式は <code>bool</code> でなければならない。<br />
@@ -609,7 +609,7 @@ The return value of sub_function is 10
 </p>
 
 <div class="org-src-container">
-<pre class="src src-rust"><span style="color: #fff59d;">if</span> <span style="color: #fff59d;">true</span> <span style="color: #e91e63;">{</span>
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>ifのサンプルコード1</label><pre class="src src-rust"><span style="color: #fff59d;">if</span> <span style="color: #fff59d;">true</span> <span style="color: #e91e63;">{</span>
     <span style="color: #ff8A65;">println!</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"true"</span><span style="color: #2196F3;">)</span>;
 <span style="color: #e91e63;">}</span> <span style="color: #fff59d;">else</span> <span style="color: #e91e63;">{</span>
     <span style="color: #ff8A65;">println!</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"false"</span><span style="color: #2196F3;">)</span>;
@@ -617,13 +617,18 @@ The return value of sub_function is 10
 </pre>
 </div>
 
+<pre class="example">
+true
+</pre>
+
+
 <p>
 条件が複数存在する場合、 <code>else if</code> を利用できる。<br />
 また、 <code>if</code> は文ではなく式であるため、文や式の右辺に置くことができる。
 </p>
 
 <div class="org-src-container">
-<pre class="src src-rust"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">result</span> = <span style="color: #fff59d;">if</span> <span style="color: #fff59d;">true</span> <span style="color: #e91e63;">{</span>
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>ifのサンプルコード2</label><pre class="src src-rust"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">result</span> = <span style="color: #fff59d;">if</span> <span style="color: #fff59d;">true</span> <span style="color: #e91e63;">{</span>
     <span style="color: #fff59d;">true</span>
 <span style="color: #e91e63;">}</span> <span style="color: #fff59d;">else</span> <span style="color: #e91e63;">{</span>
     <span style="color: #fff59d;">false</span>
@@ -632,12 +637,16 @@ The return value of sub_function is 10
 <span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"The value of result is </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;">"</span>, result<span style="color: #e91e63;">)</span>;
 </pre>
 </div>
+
+<pre class="example">
+The value of result is true
+</pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org0d71f79" class="outline-2">
-<h2 id="org0d71f79"><span class="section-number-2">5</span> Bookmarks</h2>
+<div id="outline-container-orgeaf0a5f" class="outline-2">
+<h2 id="orgeaf0a5f"><span class="section-number-2">5</span> Bookmarks</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li><a href="https://doc.rust-jp.rs/">https://doc.rust-jp.rs/</a></li>
@@ -663,7 +672,7 @@ The return value of sub_function is 10
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-02-17 Sun 06:14</p>
+<p class="date">Created: 2019-02-17 Sun 06:18</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
