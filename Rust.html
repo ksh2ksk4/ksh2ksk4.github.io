@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-02-17 Sun 06:51 -->
+<!-- 2019-02-17 Sun 07:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title><a href="https://www.rust-lang.org/">Rust</a></title>
@@ -276,21 +276,22 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8670691">1. Install</a></li>
-<li><a href="#org776413d">2. 言語仕様</a>
+<li><a href="#orgb9b0921">1. Install</a></li>
+<li><a href="#org8b1d7c2">2. 言語仕様</a>
 <ul>
-<li><a href="#org9d78a10">2.1. Data types</a></li>
-<li><a href="#org173bd2e">2.2. Function</a></li>
-<li><a href="#org3464079">2.3. フロー制御</a></li>
+<li><a href="#org44fe9fa">2.1. Data types</a></li>
+<li><a href="#org157f38e">2.2. Variable</a></li>
+<li><a href="#org4ae70dc">2.3. Function</a></li>
+<li><a href="#org45a502d">2.4. フロー制御</a></li>
 </ul>
 </li>
-<li><a href="#orgf965b09">3. Bookmarks</a></li>
+<li><a href="#orgd8d5507">3. Bookmarks</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org8670691" class="outline-2">
-<h2 id="org8670691"><span class="section-number-2">1</span> Install</h2>
+<div id="outline-container-orgb9b0921" class="outline-2">
+<h2 id="orgb9b0921"><span class="section-number-2">1</span> Install</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 $ curl https://sh.rustup.rs -sSf | sh
@@ -299,20 +300,20 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </div>
 
-<div id="outline-container-org776413d" class="outline-2">
-<h2 id="org776413d"><span class="section-number-2">2</span> 言語仕様</h2>
+<div id="outline-container-org8b1d7c2" class="outline-2">
+<h2 id="org8b1d7c2"><span class="section-number-2">2</span> 言語仕様</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org9d78a10" class="outline-3">
-<h3 id="org9d78a10"><span class="section-number-3">2.1</span> Data types</h3>
+<div id="outline-container-org44fe9fa" class="outline-3">
+<h3 id="org44fe9fa"><span class="section-number-3">2.1</span> Data types</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-orgfd14fae" class="outline-4">
-<h4 id="orgfd14fae"><span class="section-number-4">2.1.1</span> Scalar types</h4>
+<div id="outline-container-orgfe9f0b0" class="outline-4">
+<h4 id="orgfe9f0b0"><span class="section-number-4">2.1.1</span> Scalar types</h4>
 <div class="outline-text-4" id="text-2-1-1">
 </div>
 <ol class="org-ol">
-<li><a id="orgf89e430"></a>整数型(符号あり)<br />
+<li><a id="org76dabba"></a>整数型(符号あり)<br />
 <div class="outline-text-5" id="text-2-1-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -388,7 +389,7 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </li>
 
-<li><a id="org7c1c838"></a>整数型(符号なし)<br />
+<li><a id="org81b2f09"></a>整数型(符号なし)<br />
 <div class="outline-text-5" id="text-2-1-1-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -460,7 +461,7 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </li>
 
-<li><a id="org6968f82"></a>浮動小数点数型<br />
+<li><a id="orga4ec556"></a>浮動小数点数型<br />
 <div class="outline-text-5" id="text-2-1-1-3">
 <p>
 <code>f32</code> (単精度浮動小数点数) と <code>f64</code> (倍精度浮動小数点数) があり、 <code>f64</code> が浮動小数点数型の基準型。
@@ -468,7 +469,7 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </li>
 
-<li><a id="orgb24d7cb"></a>論理値型<br />
+<li><a id="org7b01e36"></a>論理値型<br />
 <div class="outline-text-5" id="text-2-1-1-4">
 <p>
 論理値型は <code>bool</code> であり、 <code>true</code> と <code>false</code> が取り得る値。
@@ -476,7 +477,7 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </li>
 
-<li><a id="org9f5db76"></a>文字型<br />
+<li><a id="orgaa8505f"></a>文字型<br />
 <div class="outline-text-5" id="text-2-1-1-5">
 <p>
 文字型は <code>char</code> であり、Unicodeのスカラ値を表す。<br />
@@ -485,7 +486,7 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </li>
 
-<li><a id="org417648d"></a>ユニット型<br />
+<li><a id="org7e2333c"></a>ユニット型<br />
 <div class="outline-text-5" id="text-2-1-1-6">
 <p>
 ユニット型は <code>()</code> であり、空のタプル( <code>()</code> )が取り得る値。
@@ -495,12 +496,12 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </ol>
 </div>
 
-<div id="outline-container-orgbec19ec" class="outline-4">
-<h4 id="orgbec19ec"><span class="section-number-4">2.1.2</span> Compound types</h4>
+<div id="outline-container-org3947a57" class="outline-4">
+<h4 id="org3947a57"><span class="section-number-4">2.1.2</span> Compound types</h4>
 <div class="outline-text-4" id="text-2-1-2">
 </div>
 <ol class="org-ol">
-<li><a id="org54db20b"></a>タプル型<br />
+<li><a id="org0b7c012"></a>タプル型<br />
 <div class="outline-text-5" id="text-2-1-2-1">
 <p>
 複数の型を一つの型に集約したもの。
@@ -515,7 +516,7 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </li>
 
-<li><a id="org57eb3a9"></a>配列型<br />
+<li><a id="org396290d"></a>配列型<br />
 <div class="outline-text-5" id="text-2-1-2-2">
 <ul class="org-ul">
 <li>コレクションの一種</li>
@@ -527,7 +528,6 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 <label class="org-src-name"><span class="listing-number">Listing 1: </span>配列型のサンプルコード</label><pre class="src src-rust"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">x</span> = <span style="color: #e91e63;">[</span><span style="color: #9ccc65;">1</span>, <span style="color: #9ccc65;">2</span>, <span style="color: #9ccc65;">3</span><span style="color: #e91e63;">]</span>;
 <span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">first</span> = x<span style="color: #e91e63;">[</span><span style="color: #9ccc65;">0</span><span style="color: #e91e63;">]</span>;
 <span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">last</span> = x<span style="color: #e91e63;">[</span><span style="color: #9ccc65;">2</span><span style="color: #e91e63;">]</span>;
-
 <span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"The value of first is </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;"> and last is </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;">"</span>, first, last<span style="color: #e91e63;">)</span>;
 </pre>
 </div>
@@ -546,9 +546,72 @@ The value of first is 1 and last is 3
 </div>
 </div>
 
-<div id="outline-container-org173bd2e" class="outline-3">
-<h3 id="org173bd2e"><span class="section-number-3">2.2</span> Function</h3>
+<div id="outline-container-org157f38e" class="outline-3">
+<h3 id="org157f38e"><span class="section-number-3">2.2</span> Variable</h3>
 <div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-orgf6ba360" class="outline-4">
+<h4 id="orgf6ba360"><span class="section-number-4">2.2.1</span> Shadowing</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+前に定義した変数と同じ名前の新しい変数を定義できる。
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>変数のサンプルコード1</label><pre class="src src-rust"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">x</span> = <span style="color: #9ccc65;">1</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"The value of x is </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;">"</span>, x<span style="color: #e91e63;">)</span>;
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">x</span> = x + <span style="color: #9ccc65;">1</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"The value of x is </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;">"</span>, x<span style="color: #e91e63;">)</span>;
+</pre>
+</div>
+
+<pre class="example">
+The value of x is 1
+The value of x is 2
+</pre>
+
+
+<p>
+ミュータブルではないので再束縛は不可(コンパイルエラー)。
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>変数のサンプルコード2</label><pre class="src src-rust"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">x</span> = <span style="color: #9ccc65;">1</span>;
+x = <span style="color: #9ccc65;">100</span>;
+</pre>
+</div>
+
+<pre class="example">
+error[E0384]: cannot assign twice to immutable variable `x`
+ --&gt; rust-src-KLc4WQ.rs:3:1
+  |
+2 | let x = 1;
+  |     - first assignment to `x`
+3 | x = 100;
+  | ^^^^^^^ cannot assign twice to immutable variable
+</pre>
+
+<p>
+型を変更することも可能。
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>変数のサンプルコード3</label><pre class="src src-rust"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">spaces</span> = <span style="color: #9ccc65;">"        "</span>;
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">spaces</span> = spaces.len<span style="color: #e91e63;">()</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"The value of spaces is </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;">"</span>, spaces<span style="color: #e91e63;">)</span>;
+</pre>
+</div>
+
+<pre class="example">
+The value of spaces is 8
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4ae70dc" class="outline-3">
+<h3 id="org4ae70dc"><span class="section-number-3">2.3</span> Function</h3>
+<div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li><code>main</code> はプログラムのエントリポイント</li>
 <li><code>snake_case</code> で命名するのが慣例</li>
@@ -557,7 +620,7 @@ The value of first is 1 and last is 3
 </ul>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 2: </span>関数のサンプルコード</label><pre class="src src-rust"><span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">main</span><span style="color: #e91e63;">()</span> <span style="color: #e91e63;">{</span>
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>関数のサンプルコード</label><pre class="src src-rust"><span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">main</span><span style="color: #e91e63;">()</span> <span style="color: #e91e63;">{</span>
     <span style="color: #ff8A65;">println!</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"The return value of sub_function is </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;">"</span>, sub_function<span style="color: #EF6C00;">(</span><span style="color: #9ccc65;">10</span><span style="color: #EF6C00;">)</span><span style="color: #2196F3;">)</span>;
 <span style="color: #e91e63;">}</span>
 
@@ -591,20 +654,20 @@ The return value of sub_function is 10
 </div>
 </div>
 
-<div id="outline-container-org3464079" class="outline-3">
-<h3 id="org3464079"><span class="section-number-3">2.3</span> フロー制御</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-org45a502d" class="outline-3">
+<h3 id="org45a502d"><span class="section-number-3">2.4</span> フロー制御</h3>
+<div class="outline-text-3" id="text-2-4">
 </div>
-<div id="outline-container-org0dcf906" class="outline-4">
-<h4 id="org0dcf906"><span class="section-number-4">2.3.1</span> <code>if</code></h4>
-<div class="outline-text-4" id="text-2-3-1">
+<div id="outline-container-org020cd7c" class="outline-4">
+<h4 id="org020cd7c"><span class="section-number-4">2.4.1</span> <code>if</code></h4>
+<div class="outline-text-4" id="text-2-4-1">
 <p>
 条件式は <code>bool</code> でなければならない。<br />
 (<code>bool</code> 以外の値が暗黙的に変換されることはない)
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 3: </span>ifのサンプルコード1</label><pre class="src src-rust"><span style="color: #fff59d;">if</span> <span style="color: #fff59d;">true</span> <span style="color: #e91e63;">{</span>
+<label class="org-src-name"><span class="listing-number">Listing 6: </span>ifのサンプルコード1</label><pre class="src src-rust"><span style="color: #fff59d;">if</span> <span style="color: #fff59d;">true</span> <span style="color: #e91e63;">{</span>
     <span style="color: #ff8A65;">println!</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"true"</span><span style="color: #2196F3;">)</span>;
 <span style="color: #e91e63;">}</span> <span style="color: #fff59d;">else</span> <span style="color: #e91e63;">{</span>
     <span style="color: #ff8A65;">println!</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"false"</span><span style="color: #2196F3;">)</span>;
@@ -623,7 +686,7 @@ true
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 4: </span>ifのサンプルコード2</label><pre class="src src-rust"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">result</span> = <span style="color: #fff59d;">if</span> <span style="color: #fff59d;">true</span> <span style="color: #e91e63;">{</span>
+<label class="org-src-name"><span class="listing-number">Listing 7: </span>ifのサンプルコード2</label><pre class="src src-rust"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">result</span> = <span style="color: #fff59d;">if</span> <span style="color: #fff59d;">true</span> <span style="color: #e91e63;">{</span>
     <span style="color: #fff59d;">true</span>
 <span style="color: #e91e63;">}</span> <span style="color: #fff59d;">else</span> <span style="color: #e91e63;">{</span>
     <span style="color: #fff59d;">false</span>
@@ -639,9 +702,9 @@ The value of result is true
 </div>
 </div>
 
-<div id="outline-container-org6d34e94" class="outline-4">
-<h4 id="org6d34e94"><span class="section-number-4">2.3.2</span> <code>loop</code></h4>
-<div class="outline-text-4" id="text-2-3-2">
+<div id="outline-container-org8ed28b5" class="outline-4">
+<h4 id="org8ed28b5"><span class="section-number-4">2.4.2</span> <code>loop</code></h4>
+<div class="outline-text-4" id="text-2-4-2">
 <div class="note">
 <p>
 具体例を記載する。
@@ -651,9 +714,9 @@ The value of result is true
 </div>
 </div>
 
-<div id="outline-container-org348f984" class="outline-4">
-<h4 id="org348f984"><span class="section-number-4">2.3.3</span> <code>while</code></h4>
-<div class="outline-text-4" id="text-2-3-3">
+<div id="outline-container-org2ec45f6" class="outline-4">
+<h4 id="org2ec45f6"><span class="section-number-4">2.4.3</span> <code>while</code></h4>
+<div class="outline-text-4" id="text-2-4-3">
 <div class="note">
 <p>
 具体例を記載する。
@@ -663,9 +726,9 @@ The value of result is true
 </div>
 </div>
 
-<div id="outline-container-orgd912086" class="outline-4">
-<h4 id="orgd912086"><span class="section-number-4">2.3.4</span> <code>for</code></h4>
-<div class="outline-text-4" id="text-2-3-4">
+<div id="outline-container-orgad87e01" class="outline-4">
+<h4 id="orgad87e01"><span class="section-number-4">2.4.4</span> <code>for</code></h4>
+<div class="outline-text-4" id="text-2-4-4">
 <div class="note">
 <p>
 具体例を記載する。
@@ -677,8 +740,9 @@ The value of result is true
 </div>
 </div>
 
-<div id="outline-container-orgf965b09" class="outline-2">
-<h2 id="orgf965b09"><span class="section-number-2">3</span> Bookmarks</h2>
+
+<div id="outline-container-orgd8d5507" class="outline-2">
+<h2 id="orgd8d5507"><span class="section-number-2">3</span> Bookmarks</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><a href="https://doc.rust-jp.rs/">https://doc.rust-jp.rs/</a></li>
@@ -704,7 +768,7 @@ The value of result is true
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-02-17 Sun 06:51</p>
+<p class="date">Created: 2019-02-17 Sun 07:14</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
