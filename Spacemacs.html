@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-02-24 Sun 00:53 -->
+<!-- 2019-02-24 Sun 02:50 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title><a href="https://github.com/syl20bnr/spacemacs">Spacemacs</a></title>
@@ -254,30 +254,30 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org493dfe3">1. Install</a></li>
-<li><a href="#org0757829">2. Settings</a>
+<li><a href="#org78a9878">1. Install</a></li>
+<li><a href="#org754daf4">2. Settings</a>
 <ul>
-<li><a href="#orge2dc763">2.1. Fonts</a></li>
+<li><a href="#orgfd99cfe">2.1. Fonts</a></li>
 </ul>
 </li>
-<li><a href="#org4a5278e">3. YASnippet</a>
+<li><a href="#org40ab215">3. YASnippet</a>
 <ul>
-<li><a href="#org8717e1a">3.1. Install</a></li>
-<li><a href="#orgb4081a2">3.2. Settings</a></li>
-<li><a href="#orgc21c2d5">3.3. Functions</a></li>
+<li><a href="#org2a5ecf8">3.1. Install</a></li>
+<li><a href="#orgc894174">3.2. Settings</a></li>
+<li><a href="#org09d1451">3.3. Functions</a></li>
 </ul>
 </li>
-<li><a href="#org706671b">4. pdf-tools layer</a>
+<li><a href="#org93ec9e4">4. pdf-tools layer</a>
 <ul>
-<li><a href="#org7846a86">4.1. Install</a></li>
+<li><a href="#orge9d4eca">4.1. Install</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org493dfe3" class="outline-2">
-<h2 id="org493dfe3"><span class="section-number-2">1</span> Install</h2>
+<div id="outline-container-org78a9878" class="outline-2">
+<h2 id="org78a9878"><span class="section-number-2">1</span> Install</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 $ brew tap d12frosted/emacs-plus
@@ -309,16 +309,16 @@ $ ln -sfv ~/.config/spacemacs/.spacemacs
 </div>
 </div>
 
-<div id="outline-container-org0757829" class="outline-2">
-<h2 id="org0757829"><span class="section-number-2">2</span> Settings</h2>
+<div id="outline-container-org754daf4" class="outline-2">
+<h2 id="org754daf4"><span class="section-number-2">2</span> Settings</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orge2dc763" class="outline-3">
-<h3 id="orge2dc763"><span class="section-number-3">2.1</span> Fonts</h3>
+<div id="outline-container-orgfd99cfe" class="outline-3">
+<h3 id="orgfd99cfe"><span class="section-number-3">2.1</span> Fonts</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-orgd9732ac" class="outline-4">
-<h4 id="orgd9732ac"><span class="section-number-4">2.1.1</span> <code>charset</code></h4>
+<div id="outline-container-org7e3ae00" class="outline-4">
+<h4 id="org7e3ae00"><span class="section-number-4">2.1.1</span> <code>charset</code></h4>
 <div class="outline-text-4" id="text-2-1-1">
 <ul class="org-ul">
 <li><code>M-x list-character-sets</code>
@@ -333,8 +333,8 @@ $ ln -sfv ~/.config/spacemacs/.spacemacs
 </div>
 </div>
 
-<div id="outline-container-org06c6b47" class="outline-4">
-<h4 id="org06c6b47"><span class="section-number-4">2.1.2</span> font</h4>
+<div id="outline-container-orgdced4ea" class="outline-4">
+<h4 id="orgdced4ea"><span class="section-number-4">2.1.2</span> font</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <ul class="org-ul">
 <li><code>(font-spec ARGS...)</code>
@@ -356,8 +356,8 @@ $ ln -sfv ~/.config/spacemacs/.spacemacs
 </div>
 </div>
 
-<div id="outline-container-orge2a83d5" class="outline-4">
-<h4 id="orge2a83d5"><span class="section-number-4">2.1.3</span> Spacemacsの場合</h4>
+<div id="outline-container-org8e87670" class="outline-4">
+<h4 id="org8e87670"><span class="section-number-4">2.1.3</span> Spacemacsの場合</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <p>
 以下、日本語(正確には <code>unicode charset</code>)とそれ以外を別のフォントで設定している。<br />
@@ -366,7 +366,7 @@ $ ln -sfv ~/.config/spacemacs/.spacemacs
 </div>
 
 <ol class="org-ol">
-<li><a id="org70a4524"></a>デフォルトフォントにASCIIコードベースのフォントを設定<br />
+<li><a id="org20d49a1"></a>デフォルトフォントにASCIIコードベースのフォントを設定<br />
 <div class="outline-text-5" id="text-2-1-3-1">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 1: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">defun</span> <span style="color: #84ffff;">dotspacemacs/init</span> <span style="color: #2196F3;">()</span>
@@ -382,7 +382,7 @@ $ ln -sfv ~/.config/spacemacs/.spacemacs
 </div>
 </li>
 
-<li><a id="org8282497"></a><code>unicode charset</code> に好みの日本語フォントを設定<br />
+<li><a id="orgf417e79"></a><code>unicode charset</code> に好みの日本語フォントを設定<br />
 <div class="outline-text-5" id="text-2-1-3-2">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 2: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #b0bec5;">;; </span><span style="color: #b0bec5;">&#12487;&#12501;&#12457;&#12523;&#12488;&#12501;&#12457;&#12531;&#12488;&#12475;&#12483;&#12488;&#12398;unicode charset&#12395;&#23567;&#26441;&#20024;&#12468;&#12471;&#12483;&#12463;&#12434;&#35373;&#23450;</span>
@@ -392,7 +392,7 @@ $ ln -sfv ~/.config/spacemacs/.spacemacs
 </div>
 </li>
 
-<li><a id="org63b4a02"></a>記号類を日本語フォントで表示するよう設定<br />
+<li><a id="orgd4565a0"></a>記号類を日本語フォントで表示するよう設定<br />
 <div class="outline-text-5" id="text-2-1-3-3">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 3: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #b0bec5;">;; </span><span style="color: #b0bec5;">&#35352;&#21495;&#39006;&#12399;&#12487;&#12501;&#12457;&#12523;&#12488;&#12501;&#12457;&#12531;&#12488;&#12391;&#34920;&#31034;&#12375;&#12394;&#12356;&#12424;&#12358;&#12395;&#12377;&#12427;</span>
@@ -403,6 +403,20 @@ $ ln -sfv ~/.config/spacemacs/.spacemacs
 <p>
 <code>○</code> や <code>△</code> などの記号を日本語と同じ大きさで表示したい場合はこれを設定する。<br />
 これを設定しないと記号類もデフォルトフォントで表示される。
+</p>
+</div>
+</li>
+
+<li><a id="org49d8806"></a>　(DOTTED SQUARE)のみヒラギノ丸ゴ ProNで表示するよう設定<br />
+<div class="outline-text-5" id="text-2-1-3-4">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #b0bec5;">;; </span><span style="color: #b0bec5;">&#12288;(DOTTED SQUARE)&#12398;&#12415;&#12498;&#12521;&#12462;&#12494;&#20024;&#12468; ProN&#12391;&#34920;&#31034;</span>
+<span style="color: #e91e63;">(</span>set-fontset-font t <span style="color: #9ccc65;">#x2b1a</span> <span style="color: #2196F3;">(</span>font-spec <span style="color: #ff8A65;">:family</span> <span style="color: #9ccc65;">"Hiragino Maru Gothic ProN"</span> <span style="color: #ff8A65;">:size</span> <span style="color: #9ccc65;">14</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span>
+</pre>
+</div>
+
+<p>
+<code>Whitespace mode</code> で全角スペースを　(DOTTED SQUARE)で表示するように設定しているが、小杉丸ゴシックだと半角サイズで表示されるため、これだけ別のフォントで表示する。
 </p>
 
 <div class="tip">
@@ -419,12 +433,12 @@ Fira Codeと小杉丸ゴシックの場合、フォントサイズを 12,14 や 
 </div>
 </div>
 
-<div id="outline-container-org4a5278e" class="outline-2">
-<h2 id="org4a5278e"><span class="section-number-2">3</span> <a href="https://github.com/joaotavora/yasnippet">YASnippet</a></h2>
+<div id="outline-container-org40ab215" class="outline-2">
+<h2 id="org40ab215"><span class="section-number-2">3</span> <a href="https://github.com/joaotavora/yasnippet">YASnippet</a></h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org8717e1a" class="outline-3">
-<h3 id="org8717e1a"><span class="section-number-3">3.1</span> Install</h3>
+<div id="outline-container-org2a5ecf8" class="outline-3">
+<h3 id="org2a5ecf8"><span class="section-number-3">3.1</span> Install</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 インストールされていた(たぶんパッケージの依存関係)。
@@ -432,15 +446,15 @@ Fira Codeと小杉丸ゴシックの場合、フォントサイズを 12,14 や 
 </div>
 </div>
 
-<div id="outline-container-orgb4081a2" class="outline-3">
-<h3 id="orgb4081a2"><span class="section-number-3">3.2</span> Settings</h3>
+<div id="outline-container-orgc894174" class="outline-3">
+<h3 id="orgc894174"><span class="section-number-3">3.2</span> Settings</h3>
 <div class="outline-text-3" id="text-3-2">
 <pre class="example">
 $ mkdir -p .config/spacemacs/snippets
 </pre>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 4: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">use-package</span> <span style="color: #8bc34a;">yasnippet</span>
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">use-package</span> <span style="color: #8bc34a;">yasnippet</span>
   <span style="color: #ff8A65;">:config</span>
   <span style="color: #2196F3;">(</span><span style="color: #fff59d;">setq</span> yas-snippet-dirs <span style="color: #EF6C00;">(</span>append yas-snippet-dirs
                                  '<span style="color: #B388FF;">(</span><span style="color: #9ccc65;">"~/.config/spacemacs/snippets"</span><span style="color: #B388FF;">)</span><span style="color: #EF6C00;">)</span><span style="color: #2196F3;">)</span>
@@ -467,8 +481,8 @@ $ mkdir -p .config/spacemacs/snippets/org-mode
 </div>
 </div>
 
-<div id="outline-container-orgc21c2d5" class="outline-3">
-<h3 id="orgc21c2d5"><span class="section-number-3">3.3</span> Functions</h3>
+<div id="outline-container-org09d1451" class="outline-3">
+<h3 id="org09d1451"><span class="section-number-3">3.3</span> Functions</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>M-x yas-describe-tables</li>
@@ -477,12 +491,12 @@ $ mkdir -p .config/spacemacs/snippets/org-mode
 </div>
 </div>
 
-<div id="outline-container-org706671b" class="outline-2">
-<h2 id="org706671b"><span class="section-number-2">4</span> <a href="https://github.com/syl20bnr/spacemacs/tree/master/layers/+tools/pdf-tools">pdf-tools layer</a></h2>
+<div id="outline-container-org93ec9e4" class="outline-2">
+<h2 id="org93ec9e4"><span class="section-number-2">4</span> <a href="https://github.com/syl20bnr/spacemacs/tree/master/layers/+tools/pdf-tools">pdf-tools layer</a></h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org7846a86" class="outline-3">
-<h3 id="org7846a86"><span class="section-number-3">4.1</span> Install</h3>
+<div id="outline-container-orge9d4eca" class="outline-3">
+<h3 id="orge9d4eca"><span class="section-number-3">4.1</span> Install</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 <code>dotspacemacs-configuration-layers</code> に <code>pdf-tools</code> を追加するだけ。<br />
@@ -694,7 +708,7 @@ Comint finished at Mon Feb 11 17:49:54
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-02-24 Sun 00:53</p>
+<p class="date">Created: 2019-02-24 Sun 02:50</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
