@@ -1,0 +1,1189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-02-24 Sun 17:24 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Language Specification</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="KISHI Kousuke" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
+<style>div#content{max-width:none;}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Language Specification</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgb86276a">1. Data types</a>
+<ul>
+<li><a href="#org3d6868c">1.1. Scalar types</a></li>
+<li><a href="#org42024ed">1.2. Compound types</a></li>
+</ul>
+</li>
+<li><a href="#org135a8ce">2. Variable</a>
+<ul>
+<li><a href="#org0ffab8e">2.1. Shadowing</a></li>
+</ul>
+</li>
+<li><a href="#org641dc5a">3. Function</a></li>
+<li><a href="#org8b9093f">4. フロー制御</a>
+<ul>
+<li><a href="#org704c780">4.1. <code>if</code></a></li>
+<li><a href="#orgcb1fa02">4.2. <code>loop</code></a></li>
+<li><a href="#orga133955">4.3. <code>while</code></a></li>
+<li><a href="#org96db697">4.4. <code>for</code></a></li>
+</ul>
+</li>
+<li><a href="#org41fec00">5. 所有権</a></li>
+<li><a href="#org9d67428">6. 構造体(struct)</a>
+<ul>
+<li><a href="#org9e0bdfc">6.1. 構造体</a></li>
+<li><a href="#org92ed936">6.2. タプル構造体</a></li>
+<li><a href="#orgaa6597b">6.3. ユニット様構造体</a></li>
+<li><a href="#orge20996c">6.4. 構造体データの所有権</a></li>
+<li><a href="#org60a0ece">6.5. メソッド</a></li>
+<li><a href="#orgdb5695d">6.6. 関連関数</a></li>
+<li><a href="#orgfe20a35">6.7. プログラム例</a></li>
+</ul>
+</li>
+<li><a href="#org2b98fb7">7. 列挙型(enum)</a>
+<ul>
+<li><a href="#org5d7c5e2">7.1. 列挙型と構造体によるIPアドレスデータ</a></li>
+<li><a href="#org63f9ecc">7.2. 列挙型のみによるIPアドレスデータ</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+<a href="https://doc.rust-jp.rs/book/second-edition/">プログラミング言語 Rust, 2nd Edition</a>から。
+</p>
+
+<div id="outline-container-orgb86276a" class="outline-2">
+<h2 id="orgb86276a"><span class="section-number-2">1</span> Data types</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org3d6868c" class="outline-3">
+<h3 id="org3d6868c"><span class="section-number-3">1.1</span> Scalar types</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org02028b7" class="outline-4">
+<h4 id="org02028b7"><span class="section-number-4">1.1.1</span> 整数型(符号あり)</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">Size(bit)</th>
+<th scope="col" class="org-right">Min</th>
+<th scope="col" class="org-right">Max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>i8</code></td>
+<td class="org-right">8</td>
+<td class="org-right">-256</td>
+<td class="org-right">127</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>i16</code></td>
+<td class="org-right">16</td>
+<td class="org-right">-32768</td>
+<td class="org-right">32767</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>i32</code></td>
+<td class="org-right">32</td>
+<td class="org-right">-2147483648</td>
+<td class="org-right">2147483647</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>i64</code></td>
+<td class="org-right">64</td>
+<td class="org-right">-9223372036854775808</td>
+<td class="org-right">9223372036854775807</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>isize</code> <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+取り得る値の範囲は以下の通り。
+</p>
+
+<p>
+\[
+   -(2^{n-1}) \leq x \leq 2^{n-1} - 1
+   \]
+</p>
+
+<p>
+<code>i32</code> が整数型の基準型。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga783545" class="outline-4">
+<h4 id="orga783545"><span class="section-number-4">1.1.2</span> 整数型(符号なし)</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">Size(bit)</th>
+<th scope="col" class="org-right">Min</th>
+<th scope="col" class="org-right">Max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>u8</code></td>
+<td class="org-right">8</td>
+<td class="org-right">0</td>
+<td class="org-right">255</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>u16</code></td>
+<td class="org-right">16</td>
+<td class="org-right">0</td>
+<td class="org-right">65535</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>u32</code></td>
+<td class="org-right">32</td>
+<td class="org-right">0</td>
+<td class="org-right">4294967295</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>u64</code></td>
+<td class="org-right">64</td>
+<td class="org-right">0</td>
+<td class="org-right">18446744073709551615</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>usize</code> <sup><a id="fnr.1.100" class="footref" href="#fn.1">1</a></sup></td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+取り得る値の範囲は以下の通り。
+</p>
+
+<p>
+\[
+   0 \leq x \leq 2^n - 1
+   \]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb637127" class="outline-4">
+<h4 id="orgb637127"><span class="section-number-4">1.1.3</span> 浮動小数点数型</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<p>
+<code>f32</code> (単精度浮動小数点数) と <code>f64</code> (倍精度浮動小数点数) があり、 <code>f64</code> が浮動小数点数型の基準型。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org38f5729" class="outline-4">
+<h4 id="org38f5729"><span class="section-number-4">1.1.4</span> 論理値型</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<p>
+論理値型は <code>bool</code> であり、 <code>true</code> と <code>false</code> が取り得る値。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org31596b7" class="outline-4">
+<h4 id="org31596b7"><span class="section-number-4">1.1.5</span> 文字型</h4>
+<div class="outline-text-4" id="text-1-1-5">
+<p>
+文字型は <code>char</code> であり、Unicodeのスカラ値を表す。<br />
+文字列とは異なるため、 <code>"</code> ではなく <code>'</code> でクォートする。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5117fab" class="outline-4">
+<h4 id="org5117fab"><span class="section-number-4">1.1.6</span> ユニット型</h4>
+<div class="outline-text-4" id="text-1-1-6">
+<p>
+ユニット型は <code>()</code> であり、空のタプル( <code>()</code> )が取り得る値。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org42024ed" class="outline-3">
+<h3 id="org42024ed"><span class="section-number-3">1.2</span> Compound types</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org89342af" class="outline-4">
+<h4 id="org89342af"><span class="section-number-4">1.2.1</span> タプル型</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+複数の型を一つの型に集約したもの。
+</p>
+
+<div class="note">
+<p>
+具体例を記載する。
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga75e224" class="outline-4">
+<h4 id="orga75e224"><span class="section-number-4">1.2.2</span> 配列型</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<ul class="org-ul">
+<li>コレクションの一種</li>
+<li>全要素は同一の型</li>
+<li>固定長</li>
+</ul>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>配列型のサンプルコード</label><pre class="src src-rust"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">x</span> = <span style="color: #e91e63;">[</span><span style="color: #9ccc65;">1</span>, <span style="color: #9ccc65;">2</span>, <span style="color: #9ccc65;">3</span><span style="color: #e91e63;">]</span>;
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">first</span> = x<span style="color: #e91e63;">[</span><span style="color: #9ccc65;">0</span><span style="color: #e91e63;">]</span>;
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">last</span> = x<span style="color: #e91e63;">[</span><span style="color: #9ccc65;">2</span><span style="color: #e91e63;">]</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"The value of first is </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;"> and last is </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;">"</span>, first, last<span style="color: #e91e63;">)</span>;
+</pre>
+</div>
+
+<pre class="example">
+The value of first is 1 and last is 3
+</pre>
+
+
+<p>
+可変長のデータを扱う場合は配列ではなくベクタを利用する。
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org135a8ce" class="outline-2">
+<h2 id="org135a8ce"><span class="section-number-2">2</span> Variable</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org0ffab8e" class="outline-3">
+<h3 id="org0ffab8e"><span class="section-number-3">2.1</span> Shadowing</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+前に定義した変数と同じ名前の新しい変数を定義できる。
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>変数のサンプルコード1</label><pre class="src src-rust"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">x</span> = <span style="color: #9ccc65;">1</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"The value of x is </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;">"</span>, x<span style="color: #e91e63;">)</span>;
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">x</span> = x + <span style="color: #9ccc65;">1</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"The value of x is </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;">"</span>, x<span style="color: #e91e63;">)</span>;
+</pre>
+</div>
+
+<pre class="example">
+The value of x is 1
+The value of x is 2
+</pre>
+
+
+<p>
+ミュータブルではないので再束縛は不可(コンパイルエラー)。
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>変数のサンプルコード2</label><pre class="src src-rust"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">x</span> = <span style="color: #9ccc65;">1</span>;
+x = <span style="color: #9ccc65;">100</span>;
+</pre>
+</div>
+
+<pre class="example">
+error[E0384]: cannot assign twice to immutable variable `x`
+ --&gt; rust-src-KLc4WQ.rs:3:1
+  |
+2 | let x = 1;
+  |     - first assignment to `x`
+3 | x = 100;
+  | ^^^^^^^ cannot assign twice to immutable variable
+</pre>
+
+<p>
+型を変更することも可能。
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>変数のサンプルコード3</label><pre class="src src-rust"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">spaces</span> = <span style="color: #9ccc65;">"        "</span>;
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">spaces</span> = spaces.len<span style="color: #e91e63;">()</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"The value of spaces is </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;">"</span>, spaces<span style="color: #e91e63;">)</span>;
+</pre>
+</div>
+
+<pre class="example">
+The value of spaces is 8
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org641dc5a" class="outline-2">
+<h2 id="org641dc5a"><span class="section-number-2">3</span> Function</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li><code>main</code> はプログラムのエントリポイント</li>
+<li><code>snake_case</code> で命名するのが慣例</li>
+<li>関数定義では仮引数<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>の型は宣言しなければならない</li>
+<li>戻り値は <code>-&gt;</code> の後に型を指定して宣言しなければならない</li>
+</ul>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>関数のサンプルコード</label><pre class="src src-rust"><span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">main</span><span style="color: #e91e63;">()</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #ff8A65;">println!</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"The return value of sub_function is </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;">"</span>, sub_function<span style="color: #EF6C00;">(</span><span style="color: #9ccc65;">10</span><span style="color: #EF6C00;">)</span><span style="color: #2196F3;">)</span>;
+<span style="color: #e91e63;">}</span>
+
+<span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">sub_function</span><span style="color: #e91e63;">(</span><span style="color: #ffcc80;">x</span>: <span style="color: #84ffff;">i32</span><span style="color: #e91e63;">)</span> -&gt; <span style="color: #84ffff;">i32</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #ff8A65;">println!</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"The value of x is </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;">"</span>, x<span style="color: #2196F3;">)</span>;
+    x
+<span style="color: #e91e63;">}</span>
+</pre>
+</div>
+
+<pre class="example">
+The value of x is 10
+The return value of sub_function is 10
+</pre>
+
+
+<ul class="org-ul">
+<li>文(statement)
+<ul class="org-ul">
+<li>実行後に値を返さない</li>
+<li>終端に <code>;</code> を含む</li>
+<li>関数定義は文</li>
+</ul></li>
+<li>式(expression)
+<ul class="org-ul">
+<li>実行後に値を返す</li>
+<li>終端に <code>;</code> を含まない</li>
+<li>ブロック( <code>{}</code> )は式</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8b9093f" class="outline-2">
+<h2 id="org8b9093f"><span class="section-number-2">4</span> フロー制御</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org704c780" class="outline-3">
+<h3 id="org704c780"><span class="section-number-3">4.1</span> <code>if</code></h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+条件式は <code>bool</code> でなければならない。<br />
+(<code>bool</code> 以外の値が暗黙的に変換されることはない)
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 6: </span>ifのサンプルコード1</label><pre class="src src-rust"><span style="color: #fff59d;">if</span> <span style="color: #fff59d;">true</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #ff8A65;">println!</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"true"</span><span style="color: #2196F3;">)</span>;
+<span style="color: #e91e63;">}</span> <span style="color: #fff59d;">else</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #ff8A65;">println!</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"false"</span><span style="color: #2196F3;">)</span>;
+<span style="color: #e91e63;">}</span>
+</pre>
+</div>
+
+<pre class="example">
+true
+</pre>
+
+
+<p>
+条件が複数存在する場合、 <code>else if</code> を利用できる。<br />
+また、 <code>if</code> は文ではなく式であるため、文や式の右辺に置くことができる。
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 7: </span>ifのサンプルコード2</label><pre class="src src-rust"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">result</span> = <span style="color: #fff59d;">if</span> <span style="color: #fff59d;">true</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #fff59d;">true</span>
+<span style="color: #e91e63;">}</span> <span style="color: #fff59d;">else</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #fff59d;">false</span>
+<span style="color: #e91e63;">}</span>;
+
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"The value of result is </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;">"</span>, result<span style="color: #e91e63;">)</span>;
+</pre>
+</div>
+
+<pre class="example">
+The value of result is true
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgcb1fa02" class="outline-3">
+<h3 id="orgcb1fa02"><span class="section-number-3">4.2</span> <code>loop</code></h3>
+<div class="outline-text-3" id="text-4-2">
+<div class="note">
+<p>
+具体例を記載する。
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga133955" class="outline-3">
+<h3 id="orga133955"><span class="section-number-3">4.3</span> <code>while</code></h3>
+<div class="outline-text-3" id="text-4-3">
+<div class="note">
+<p>
+具体例を記載する。
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org96db697" class="outline-3">
+<h3 id="org96db697"><span class="section-number-3">4.4</span> <code>for</code></h3>
+<div class="outline-text-3" id="text-4-4">
+<div class="note">
+<p>
+具体例を記載する。
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org41fec00" class="outline-2">
+<h2 id="org41fec00"><span class="section-number-2">5</span> 所有権</h2>
+<div class="outline-text-2" id="text-5">
+<div class="note">
+<p>
+詳細をまとめる。
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9d67428" class="outline-2">
+<h2 id="org9d67428"><span class="section-number-2">6</span> 構造体(struct)</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org9e0bdfc" class="outline-3">
+<h3 id="org9e0bdfc"><span class="section-number-3">6.1</span> 構造体</h3>
+<div class="outline-text-3" id="text-6-1">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 8: </span>構造体のサンプルコード</label><pre class="src src-rust"><span style="color: #b0bec5;">// </span><span style="color: #b0bec5;">&#27083;&#36896;&#20307;&#12434;&#23450;&#32681;</span>
+<span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">derive</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">Debug</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
+<span style="color: #fff59d;">struct</span> <span style="color: #84ffff;">User</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #ffcc80;">username</span>: <span style="color: #84ffff;">String</span>,
+    <span style="color: #ffcc80;">email</span>: <span style="color: #84ffff;">String</span>,
+    <span style="color: #ffcc80;">sign_in_count</span>: <span style="color: #84ffff;">u64</span>,
+    <span style="color: #ffcc80;">active</span>: <span style="color: #84ffff;">bool</span>
+<span style="color: #e91e63;">}</span>
+
+<span style="color: #b0bec5;">// </span><span style="color: #b0bec5;">&#19981;&#22793;&#12452;&#12531;&#12473;&#12479;&#12531;&#12473;&#12434;&#29983;&#25104;</span>
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">user1</span> = <span style="color: #84ffff;">User</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #ffcc80;">username</span>: <span style="color: #84ffff;">String</span>::from<span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"foo"</span><span style="color: #2196F3;">)</span>,
+    <span style="color: #ffcc80;">email</span>: <span style="color: #84ffff;">String</span>::from<span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"foo@example.com"</span><span style="color: #2196F3;">)</span>,
+    <span style="color: #ffcc80;">active</span>: <span style="color: #fff59d;">true</span>,
+    <span style="color: #ffcc80;">sign_in_count</span>: <span style="color: #9ccc65;">1</span>
+<span style="color: #e91e63;">}</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"The value of user1 is </span><span style="color: #9ccc65; font-style: italic;">{:?}</span><span style="color: #9ccc65;">"</span>, user1<span style="color: #e91e63;">)</span>;
+
+<span style="color: #b0bec5;">// </span><span style="color: #b0bec5;">&#21487;&#22793;&#12452;&#12531;&#12473;&#12479;&#12531;&#12473;&#12434;&#29983;&#25104;</span>
+<span style="color: #b0bec5;">// </span><span style="color: #b0bec5;">&#19968;&#37096;&#12398;&#12501;&#12451;&#12540;&#12523;&#12489;&#12398;&#12415;&#21487;&#22793;&#12395;&#12377;&#12427;&#12371;&#12392;&#12399;&#12391;&#12365;&#12394;&#12356;&#12290;&#12452;&#12531;&#12473;&#12479;&#12531;&#12473;&#20840;&#20307;&#12434;&#21487;&#22793;&#12395;&#12377;&#12427;&#12290;</span>
+<span style="color: #fff59d;">let</span> <span style="color: #fff59d;">mut</span> <span style="color: #ffcc80;">user2</span> = <span style="color: #84ffff;">User</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #ffcc80;">username</span>: <span style="color: #84ffff;">String</span>::from<span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"bar"</span><span style="color: #2196F3;">)</span>,
+    <span style="color: #ffcc80;">email</span>: <span style="color: #84ffff;">String</span>::from<span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"bar@example.com"</span><span style="color: #2196F3;">)</span>,
+    <span style="color: #ffcc80;">sign_in_count</span>: <span style="color: #9ccc65;">1</span>,
+    <span style="color: #ffcc80;">active</span>: <span style="color: #fff59d;">true</span>
+<span style="color: #e91e63;">}</span>;
+user2.active = <span style="color: #fff59d;">false</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"The value of user2 is </span><span style="color: #9ccc65; font-style: italic;">{:?}</span><span style="color: #9ccc65;">"</span>, user2<span style="color: #e91e63;">)</span>;
+
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">user3</span> = <span style="color: #84ffff;">User</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #ffcc80;">username</span>: <span style="color: #84ffff;">String</span>::from<span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"baz"</span><span style="color: #2196F3;">)</span>,
+    <span style="color: #ffcc80;">email</span>: <span style="color: #84ffff;">String</span>::from<span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"baz@example.com"</span><span style="color: #2196F3;">)</span>,
+    ..user1
+<span style="color: #e91e63;">}</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"The value of user3 is </span><span style="color: #9ccc65; font-style: italic;">{:?}</span><span style="color: #9ccc65;">"</span>, user3<span style="color: #e91e63;">)</span>;
+
+<span style="color: #b0bec5;">// </span><span style="color: #b0bec5;">&#19981;&#22793;&#12452;&#12531;&#12473;&#12479;&#12531;&#12473;&#12434;&#29983;&#25104;&#12377;&#12427;&#38306;&#25968;</span>
+<span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">build_user</span><span style="color: #e91e63;">(</span><span style="color: #ffcc80;">username</span>: <span style="color: #84ffff;">String</span>, <span style="color: #ffcc80;">email</span>: <span style="color: #84ffff;">String</span><span style="color: #e91e63;">)</span> -&gt; <span style="color: #84ffff;">User</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #84ffff;">User</span> <span style="color: #2196F3;">{</span>
+        username,
+        email,
+        <span style="color: #ffcc80;">sign_in_count</span>: <span style="color: #9ccc65;">1</span>,
+        <span style="color: #ffcc80;">active</span>: <span style="color: #fff59d;">true</span>
+    <span style="color: #2196F3;">}</span>
+<span style="color: #e91e63;">}</span>
+
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">user4</span> = build_user<span style="color: #e91e63;">(</span><span style="color: #84ffff;">String</span>::from<span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"foo"</span><span style="color: #2196F3;">)</span>, <span style="color: #84ffff;">String</span>::from<span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"foo@example.com"</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"The value of user4 is </span><span style="color: #9ccc65; font-style: italic;">{:?}</span><span style="color: #9ccc65;">"</span>, user4<span style="color: #e91e63;">)</span>;
+</pre>
+</div>
+
+<pre class="example">
+The value of user1 is User { username: "foo", email: "foo@example.com", sign_in_count: 1, active: true }
+The value of user2 is User { username: "bar", email: "bar@example.com", sign_in_count: 1, active: false }
+The value of user3 is User { username: "baz", email: "baz@example.com", sign_in_count: 1, active: true }
+The value of user4 is User { username: "foo", email: "foo@example.com", sign_in_count: 1, active: true }
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org92ed936" class="outline-3">
+<h3 id="org92ed936"><span class="section-number-3">6.2</span> タプル構造体</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+フィールドに名前の不要な構造体。
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 9: </span>タプル構造体のサンプルコード</label><pre class="src src-rust"><span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">derive</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">Debug</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
+<span style="color: #fff59d;">struct</span> <span style="color: #84ffff;">Color</span><span style="color: #e91e63;">(</span><span style="color: #84ffff;">u8</span>, <span style="color: #84ffff;">u8</span>, <span style="color: #84ffff;">u8</span><span style="color: #e91e63;">)</span>;
+<span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">derive</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">Debug</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
+<span style="color: #fff59d;">struct</span> <span style="color: #84ffff;">Point</span><span style="color: #e91e63;">(</span><span style="color: #84ffff;">i32</span>, <span style="color: #84ffff;">i32</span>, <span style="color: #84ffff;">i32</span><span style="color: #e91e63;">)</span>;
+
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">black</span> = <span style="color: #84ffff;">Color</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">0</span>, <span style="color: #9ccc65;">0</span>, <span style="color: #9ccc65;">0</span><span style="color: #e91e63;">)</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"The value of black is </span><span style="color: #9ccc65; font-style: italic;">{:?}</span><span style="color: #9ccc65;">"</span>, black<span style="color: #e91e63;">)</span>;
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">origin</span> = <span style="color: #84ffff;">Point</span><span style="color: #e91e63;">(</span>-<span style="color: #9ccc65;">1</span>, -<span style="color: #9ccc65;">1</span>, -<span style="color: #9ccc65;">1</span><span style="color: #e91e63;">)</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"The value of origin is </span><span style="color: #9ccc65; font-style: italic;">{:?}</span><span style="color: #9ccc65;">"</span>, origin<span style="color: #e91e63;">)</span>;
+</pre>
+</div>
+
+<pre class="example">
+The value of black is Color(0, 0, 0)
+The value of origin is Point(-1, -1, -1)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgaa6597b" class="outline-3">
+<h3 id="orgaa6597b"><span class="section-number-3">6.3</span> ユニット様構造体</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+フィールドの存在しない構造体。<br />
+トレイトを参照。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge20996c" class="outline-3">
+<h3 id="orge20996c"><span class="section-number-3">6.4</span> 構造体データの所有権</h3>
+<div class="outline-text-3" id="text-6-4">
+<div class="note">
+<p>
+詳細をまとめる。
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org60a0ece" class="outline-3">
+<h3 id="org60a0ece"><span class="section-number-3">6.5</span> メソッド</h3>
+<div class="outline-text-3" id="text-6-5">
+<p>
+構造体に関連付けられて定義される関数で第一引数が <code>self</code> (メソッドが実行されている構造体)であるもの。<br />
+<code>.</code> でコールする。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdb5695d" class="outline-3">
+<h3 id="orgdb5695d"><span class="section-number-3">6.6</span> 関連関数</h3>
+<div class="outline-text-3" id="text-6-6">
+<p>
+構造体に関連付けられて定義される関数で <code>self</code> を引数に取らないもの。<br />
+<code>::</code> でコールする。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfe20a35" class="outline-3">
+<h3 id="orgfe20a35"><span class="section-number-3">6.7</span> プログラム例</h3>
+<div class="outline-text-3" id="text-6-7">
+</div>
+<div id="outline-container-orgcc284d4" class="outline-4">
+<h4 id="orgcc284d4"><span class="section-number-4">6.7.1</span> 四角形の面積を算出する</h4>
+<div class="outline-text-4" id="text-6-7-1">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 10: </span>単一変数により面積を算出する</label><pre class="src src-rust"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">width</span> = <span style="color: #9ccc65;">30</span>;
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">height</span> = <span style="color: #9ccc65;">50</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"The area of the rectangle is </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;"> square pixels."</span>, area<span style="color: #2196F3;">(</span>width, height<span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span>;
+
+<span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">area</span><span style="color: #e91e63;">(</span><span style="color: #ffcc80;">width</span>: <span style="color: #84ffff;">u32</span>, <span style="color: #ffcc80;">height</span>: <span style="color: #84ffff;">u32</span><span style="color: #e91e63;">)</span> -&gt; <span style="color: #84ffff;">u32</span> <span style="color: #e91e63;">{</span>
+    width * height
+<span style="color: #e91e63;">}</span>
+</pre>
+</div>
+
+<pre class="example">
+The area of the rectangle is 1500 square pixels.
+</pre>
+
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 11: </span>タプルにより面積を算出する</label><pre class="src src-rust"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">rectangle</span> = <span style="color: #e91e63;">(</span><span style="color: #9ccc65;">30</span>, <span style="color: #9ccc65;">50</span><span style="color: #e91e63;">)</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"The area of the rectangle is </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;"> square pixels."</span>, area<span style="color: #2196F3;">(</span>rectangle<span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span>;
+
+<span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">area</span><span style="color: #e91e63;">(</span><span style="color: #ffcc80;">dimensions</span>: <span style="color: #2196F3;">(</span><span style="color: #84ffff;">u32</span>, <span style="color: #84ffff;">u32</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span> -&gt; <span style="color: #84ffff;">u32</span> <span style="color: #e91e63;">{</span>
+    dimensions.<span style="color: #9ccc65;">0</span> * dimensions.<span style="color: #9ccc65;">1</span>
+<span style="color: #e91e63;">}</span>
+</pre>
+</div>
+
+<pre class="example">
+The area of the rectangle is 1500 square pixels.
+</pre>
+
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 12: </span>構造体により面積を算出する</label><pre class="src src-rust"><span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">derive</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">Debug</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
+<span style="color: #fff59d;">struct</span> <span style="color: #84ffff;">Rectangle</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #ffcc80;">width</span>: <span style="color: #84ffff;">u32</span>,
+    <span style="color: #ffcc80;">height</span>: <span style="color: #84ffff;">u32</span>
+<span style="color: #e91e63;">}</span>
+
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">rectangle</span> = <span style="color: #84ffff;">Rectangle</span><span style="color: #e91e63;">{</span><span style="color: #ffcc80;">width</span>: <span style="color: #9ccc65;">30</span>, <span style="color: #ffcc80;">height</span>: <span style="color: #9ccc65;">50</span><span style="color: #e91e63;">}</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"rectangle: </span><span style="color: #9ccc65; font-style: italic;">{:#?}</span><span style="color: #9ccc65;">"</span>, rectangle<span style="color: #e91e63;">)</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"The area of the rectangle is </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;"> square pixels."</span>, area<span style="color: #2196F3;">(</span>&amp;rectangle<span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span>;
+
+<span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">area</span><span style="color: #e91e63;">(</span><span style="color: #ffcc80;">rectangle</span>: &amp;<span style="color: #84ffff;">Rectangle</span><span style="color: #e91e63;">)</span> -&gt; <span style="color: #84ffff;">u32</span> <span style="color: #e91e63;">{</span>
+    rectangle.width * rectangle.height
+<span style="color: #e91e63;">}</span>
+</pre>
+</div>
+
+<pre class="example">
+rectangle: Rectangle {
+    width: 30,
+    height: 50
+}
+The area of the rectangle is 1500 square pixels.
+</pre>
+
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 13: </span>構造体にメソッドを定義して面積を算出する</label><pre class="src src-rust"><span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">derive</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">Debug</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
+<span style="color: #fff59d;">struct</span> <span style="color: #84ffff;">Rectangle</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #ffcc80;">width</span>: <span style="color: #84ffff;">u32</span>,
+    <span style="color: #ffcc80;">height</span>: <span style="color: #84ffff;">u32</span>
+<span style="color: #e91e63;">}</span>
+
+<span style="color: #fff59d;">impl</span> <span style="color: #84ffff;">Rectangle</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">area</span><span style="color: #2196F3;">(</span>&amp;<span style="color: #fff59d;">self</span><span style="color: #2196F3;">)</span> -&gt; <span style="color: #84ffff;">u32</span> <span style="color: #2196F3;">{</span>
+        <span style="color: #fff59d;">self</span>.width * <span style="color: #fff59d;">self</span>.height
+    <span style="color: #2196F3;">}</span>
+<span style="color: #e91e63;">}</span>
+
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">rectangle</span> = <span style="color: #84ffff;">Rectangle</span><span style="color: #e91e63;">{</span><span style="color: #ffcc80;">width</span>: <span style="color: #9ccc65;">30</span>, <span style="color: #ffcc80;">height</span>: <span style="color: #9ccc65;">50</span><span style="color: #e91e63;">}</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"rectangle: </span><span style="color: #9ccc65; font-style: italic;">{:#?}</span><span style="color: #9ccc65;">"</span>, rectangle<span style="color: #e91e63;">)</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"The area of the rectangle is </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;"> square pixels."</span>, rectangle.area<span style="color: #2196F3;">()</span><span style="color: #e91e63;">)</span>;
+</pre>
+</div>
+
+<pre class="example">
+rectangle: Rectangle {
+    width: 30,
+    height: 50
+}
+The area of the rectangle is 1500 square pixels.
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org677128f" class="outline-4">
+<h4 id="org677128f"><span class="section-number-4">6.7.2</span> 他の四角形を内包するかチェックする</h4>
+<div class="outline-text-4" id="text-6-7-2">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 14: </span>他の四角形を内包するかチェックする</label><pre class="src src-rust"><span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">derive</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">Debug</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
+<span style="color: #fff59d;">struct</span> <span style="color: #84ffff;">Rectangle</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #ffcc80;">width</span>: <span style="color: #84ffff;">u32</span>,
+    <span style="color: #ffcc80;">height</span>: <span style="color: #84ffff;">u32</span>
+<span style="color: #e91e63;">}</span>
+
+<span style="color: #fff59d;">impl</span> <span style="color: #84ffff;">Rectangle</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">area</span><span style="color: #2196F3;">(</span>&amp;<span style="color: #fff59d;">self</span><span style="color: #2196F3;">)</span> -&gt; <span style="color: #84ffff;">u32</span> <span style="color: #2196F3;">{</span>
+        <span style="color: #fff59d;">self</span>.width * <span style="color: #fff59d;">self</span>.height
+    <span style="color: #2196F3;">}</span>
+
+    <span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">can_hold</span><span style="color: #2196F3;">(</span>&amp;<span style="color: #fff59d;">self</span>, <span style="color: #ffcc80;">other</span>: &amp;<span style="color: #84ffff;">Rectangle</span><span style="color: #2196F3;">)</span> -&gt; <span style="color: #84ffff;">bool</span> <span style="color: #2196F3;">{</span>
+        <span style="color: #fff59d;">self</span>.width &gt; other.width &amp;&amp; <span style="color: #fff59d;">self</span>.height &gt; other.height
+    <span style="color: #2196F3;">}</span>
+<span style="color: #e91e63;">}</span>
+
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">rectangle1</span> = <span style="color: #84ffff;">Rectangle</span><span style="color: #e91e63;">{</span><span style="color: #ffcc80;">width</span>: <span style="color: #9ccc65;">30</span>, <span style="color: #ffcc80;">height</span>: <span style="color: #9ccc65;">50</span><span style="color: #e91e63;">}</span>;
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">rectangle2</span> = <span style="color: #84ffff;">Rectangle</span><span style="color: #e91e63;">{</span><span style="color: #ffcc80;">width</span>: <span style="color: #9ccc65;">10</span>, <span style="color: #ffcc80;">height</span>: <span style="color: #9ccc65;">40</span><span style="color: #e91e63;">}</span>;
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">rectangle3</span> = <span style="color: #84ffff;">Rectangle</span><span style="color: #e91e63;">{</span><span style="color: #ffcc80;">width</span>: <span style="color: #9ccc65;">60</span>, <span style="color: #ffcc80;">height</span>: <span style="color: #9ccc65;">45</span><span style="color: #e91e63;">}</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"rectangle1: </span><span style="color: #9ccc65; font-style: italic;">{:#?}</span><span style="color: #9ccc65;">"</span>, rectangle1<span style="color: #e91e63;">)</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"rectangle2: </span><span style="color: #9ccc65; font-style: italic;">{:#?}</span><span style="color: #9ccc65;">"</span>, rectangle2<span style="color: #e91e63;">)</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"rectangle3: </span><span style="color: #9ccc65; font-style: italic;">{:#?}</span><span style="color: #9ccc65;">"</span>, rectangle3<span style="color: #e91e63;">)</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"Can rectangle1 hold rectangle2? </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;">"</span>, rectangle1.can_hold<span style="color: #2196F3;">(</span>&amp;rectangle2<span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"Can rectangle1 hold rectangle3? </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;">"</span>, rectangle1.can_hold<span style="color: #2196F3;">(</span>&amp;rectangle3<span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span>;
+</pre>
+</div>
+
+<pre class="example">
+rectangle1: Rectangle {
+    width: 30,
+    height: 50
+}
+rectangle2: Rectangle {
+    width: 10,
+    height: 40
+}
+rectangle3: Rectangle {
+    width: 60,
+    height: 45
+}
+Can rectangle1 hold rectangle2? true
+Can rectangle1 hold rectangle3? false
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org3fce2fc" class="outline-4">
+<h4 id="org3fce2fc"><span class="section-number-4">6.7.3</span> 正方形を生成する</h4>
+<div class="outline-text-4" id="text-6-7-3">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 15: </span>正方形を生成する</label><pre class="src src-rust"><span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">derive</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">Debug</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
+<span style="color: #fff59d;">struct</span> <span style="color: #84ffff;">Rectangle</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #ffcc80;">width</span>: <span style="color: #84ffff;">u32</span>,
+    <span style="color: #ffcc80;">height</span>: <span style="color: #84ffff;">u32</span>
+<span style="color: #e91e63;">}</span>
+
+<span style="color: #fff59d;">impl</span> <span style="color: #84ffff;">Rectangle</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">square</span><span style="color: #2196F3;">(</span><span style="color: #ffcc80;">size</span>: <span style="color: #84ffff;">u32</span><span style="color: #2196F3;">)</span> -&gt; <span style="color: #84ffff;">Rectangle</span> <span style="color: #2196F3;">{</span>
+        <span style="color: #84ffff;">Rectangle</span> <span style="color: #EF6C00;">{</span><span style="color: #ffcc80;">width</span>: size, <span style="color: #ffcc80;">height</span>: size<span style="color: #EF6C00;">}</span>
+    <span style="color: #2196F3;">}</span>
+<span style="color: #e91e63;">}</span>
+
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">square</span> = <span style="color: #84ffff;">Rectangle</span>::square<span style="color: #e91e63;">(</span><span style="color: #9ccc65;">100</span><span style="color: #e91e63;">)</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"square: </span><span style="color: #9ccc65; font-style: italic;">{:#?}</span><span style="color: #9ccc65;">"</span>, square<span style="color: #e91e63;">)</span>;
+</pre>
+</div>
+
+<pre class="example">
+square: Rectangle {
+    width: 100,
+    height: 100
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2b98fb7" class="outline-2">
+<h2 id="org2b98fb7"><span class="section-number-2">7</span> 列挙型(enum)</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org5d7c5e2" class="outline-3">
+<h3 id="org5d7c5e2"><span class="section-number-3">7.1</span> 列挙型と構造体によるIPアドレスデータ</h3>
+<div class="outline-text-3" id="text-7-1">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 16: </span>列挙型と構造体によるIPアドレスデータ</label><pre class="src src-rust"><span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">derive</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">Debug</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
+<span style="color: #fff59d;">enum</span> <span style="color: #84ffff;">IpAddrKind</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #84ffff;">V4</span>,
+    <span style="color: #84ffff;">V6</span>
+<span style="color: #e91e63;">}</span>
+
+<span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">derive</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">Debug</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
+<span style="color: #fff59d;">struct</span> <span style="color: #84ffff;">IpAddr</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #ffcc80;">kind</span>: <span style="color: #84ffff;">IpAddrKind</span>,
+    <span style="color: #ffcc80;">address</span>: <span style="color: #84ffff;">String</span>
+<span style="color: #e91e63;">}</span>
+
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">home</span> = <span style="color: #84ffff;">IpAddr</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #ffcc80;">kind</span>: <span style="color: #84ffff;">IpAddrKind</span>::<span style="color: #84ffff;">V4</span>,
+    <span style="color: #ffcc80;">address</span>: <span style="color: #84ffff;">String</span>::from<span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"127.0.0.1"</span><span style="color: #2196F3;">)</span>
+<span style="color: #e91e63;">}</span>;
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">loopback</span> = <span style="color: #84ffff;">IpAddr</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #ffcc80;">kind</span>: <span style="color: #84ffff;">IpAddrKind</span>::<span style="color: #84ffff;">V6</span>,
+    <span style="color: #ffcc80;">address</span>: <span style="color: #84ffff;">String</span>::from<span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"::1"</span><span style="color: #2196F3;">)</span>
+<span style="color: #e91e63;">}</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"home: </span><span style="color: #9ccc65; font-style: italic;">{:#?}</span><span style="color: #9ccc65;">"</span>, home<span style="color: #e91e63;">)</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"loopback: </span><span style="color: #9ccc65; font-style: italic;">{:#?}</span><span style="color: #9ccc65;">"</span>, loopback<span style="color: #e91e63;">)</span>;
+</pre>
+</div>
+
+<pre class="example">
+home: IpAddr {
+    kind: V4,
+    address: "127.0.0.1"
+}
+loopback: IpAddr {
+    kind: V6,
+    address: "::1"
+}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org63f9ecc" class="outline-3">
+<h3 id="org63f9ecc"><span class="section-number-3">7.2</span> 列挙型のみによるIPアドレスデータ</h3>
+<div class="outline-text-3" id="text-7-2">
+<p>
+列挙型では列挙子に任意のデータを関連付けることができる。
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 17: </span>列挙型のみによるIPアドレスデータ</label><pre class="src src-rust"><span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">derive</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">Debug</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
+<span style="color: #fff59d;">enum</span> <span style="color: #84ffff;">IpAddr</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #84ffff;">V4</span><span style="color: #2196F3;">(</span><span style="color: #84ffff;">u8</span>, <span style="color: #84ffff;">u8</span>, <span style="color: #84ffff;">u8</span>, <span style="color: #84ffff;">u8</span><span style="color: #2196F3;">)</span>,
+    <span style="color: #84ffff;">V6</span><span style="color: #2196F3;">(</span><span style="color: #84ffff;">String</span><span style="color: #2196F3;">)</span>
+<span style="color: #e91e63;">}</span>
+
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">home</span> = <span style="color: #84ffff;">IpAddr</span>::<span style="color: #84ffff;">V4</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">127</span>, <span style="color: #9ccc65;">0</span>, <span style="color: #9ccc65;">0</span>, <span style="color: #9ccc65;">1</span><span style="color: #e91e63;">)</span>;
+<span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">loopback</span> = <span style="color: #84ffff;">IpAddr</span>::<span style="color: #84ffff;">V6</span><span style="color: #e91e63;">(</span><span style="color: #84ffff;">String</span>::from<span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"::1"</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"home: </span><span style="color: #9ccc65; font-style: italic;">{:#?}</span><span style="color: #9ccc65;">"</span>, home<span style="color: #e91e63;">)</span>;
+<span style="color: #ff8A65;">println!</span><span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"loopback: </span><span style="color: #9ccc65; font-style: italic;">{:#?}</span><span style="color: #9ccc65;">"</span>, loopback<span style="color: #e91e63;">)</span>;
+</pre>
+</div>
+
+<pre class="example">
+home: V4(
+    127,
+    0,
+    0,
+    1
+)
+loopback: V6(
+    "::1"
+)
+</pre>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+実際のサイズはアーキテクチャに依存する。
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+仮引数は <code>parameter</code> であり実引数は <code>argument</code> 。
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: KISHI Kousuke</p>
+<p class="date">Created: 2019-02-24 Sun 17:24</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-02-24 Sun 17:30 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WebAssembly</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="KISHI Kousuke" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
+<style>div#content{max-width:none;}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">WebAssembly</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org300001c">1. 5.1. Setup</a>
+<ul>
+<li><a href="#orgfcdbb5e">1.1. Rust toolchain</a></li>
+<li><a href="#org896c0b7">1.2. wasm-pack</a></li>
+<li><a href="#org714017c">1.3. cargo-generate</a></li>
+<li><a href="#org45f9ab1">1.4. npm</a></li>
+</ul>
+</li>
+<li><a href="#org304616a">2. 5.2. Hello, World!</a>
+<ul>
+<li><a href="#orge67b582">2.1. Clone the Project Template</a></li>
+<li><a href="#orgbde2920">2.2. What's Inside</a></li>
+<li><a href="#org1c774fa">2.3. Build the Project</a></li>
+<li><a href="#org2849c82">2.4. Putting it into a Web Page</a></li>
+<li><a href="#orgd0cf36e">2.5. Install the dependencies</a></li>
+<li><a href="#org481b1a3">2.6. Using our Local wasm-game-of-life Package in www</a></li>
+<li><a href="#org9e0d448">2.7. Serving Locally</a></li>
+<li><a href="#orgb8e0d53">2.8. Exercises</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+RustのコードをWebAssembly<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>にコンパイルしてWebブラウザで動かす。
+</p>
+
+<p>
+以降、<a href="https://rustwasm.github.io/book/">Rust and WebAssembly</a>の<a href="https://rustwasm.github.io/book/game-of-life/introduction.html">5. Tutorial</a>から。
+</p>
+
+<div id="outline-container-org300001c" class="outline-2">
+<h2 id="org300001c"><span class="section-number-2">1</span> <a href="https://rustwasm.github.io/book/game-of-life/setup.html">5.1. Setup</a></h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgfcdbb5e" class="outline-3">
+<h3 id="orgfcdbb5e"><span class="section-number-3">1.1</span> <a href="https://www.rust-lang.org/tools/install">Rust toolchain</a></h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+インストールは済んでいるはず。<br />
+Rust 1.30以降が必要。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org896c0b7" class="outline-3">
+<h3 id="org896c0b7"><span class="section-number-3">1.2</span> <a href="https://rustwasm.github.io/wasm-pack/">wasm-pack</a></h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+<code>.wasm</code> をビルドしたり、テストしたり、公開したりするツール。
+</p>
+
+<pre class="example">
+$ curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org714017c" class="outline-3">
+<h3 id="org714017c"><span class="section-number-3">1.3</span> <a href="https://github.com/ashleygwilliams/cargo-generate">cargo-generate</a></h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+既に存在するリポジトリをテンプレートとしてRustプロジェクトをセットアップするツール。
+</p>
+
+<pre class="example">
+$ cargo install cargo-generate
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org45f9ab1" class="outline-3">
+<h3 id="org45f9ab1"><span class="section-number-3">1.4</span> <a href="https://www.npmjs.com/get-npm">npm</a></h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+JavaScriptのパッケージマネージャ。<br />
+bundlerと開発用サーバのために使用する。<br />
+チュートリアルの最後では作成した <code>.wasm</code> をnpmレジストリに公開する。
+</p>
+
+<pre class="example">
+$ brew install node
+$ npm install npm@latest -g
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org304616a" class="outline-2">
+<h2 id="org304616a"><span class="section-number-2">2</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html">5.2. Hello, World!</a></h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<code>Hello, World!</code> というメッセージを表示するWebページを作成する。
+</p>
+</div>
+
+<div id="outline-container-orge67b582" class="outline-3">
+<h3 id="orge67b582"><span class="section-number-3">2.1</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#clone-the-project-template">Clone the Project Template</a></h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+テンプレートをクローンしてプロジェクトを作成。
+</p>
+
+<pre class="example">
+$ cargo generate --git https://github.com/rustwasm/wasm-pack-template
+</pre>
+
+<p>
+プロジェクトの名称は <code>wasm-game-of-life</code> 。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbde2920" class="outline-3">
+<h3 id="orgbde2920"><span class="section-number-3">2.2</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#whats-inside">What's Inside</a></h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="note">
+<p>
+各ファイルの詳細をまとめる。
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1c774fa" class="outline-3">
+<h3 id="org1c774fa"><span class="section-number-3">2.3</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#build-the-project">Build the Project</a></h3>
+<div class="outline-text-3" id="text-2-3">
+<pre class="example">
+$ cd wasm-game-of-life
+$ wasm-pack build
+</pre>
+
+<p>
+<code>wasm-pack build</code> でやっていること。
+</p>
+
+<ul class="org-ul">
+<li>Rust 1.30以降がインストールされていることを確認</li>
+<li><code>rustup</code> で <code>wasm32-unknown-unknown</code> ターゲットがインストールされていることを確認</li>
+<li><code>cargo</code> でRustのコードを <code>.wasm</code> へコンパイル</li>
+<li>コンパイルされた <code>.wasm</code> を実行するため <code>wasm-bindgen</code> でJavaScript APIを生成</li>
+</ul>
+
+<div class="note">
+<p>
+各ファイルの詳細をまとめる。
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2849c82" class="outline-3">
+<h3 id="org2849c82"><span class="section-number-3">2.4</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#putting-it-into-a-web-page">Putting it into a Web Page</a></h3>
+<div class="outline-text-3" id="text-2-4">
+<pre class="example">
+$ npm init wasm-app www
+</pre>
+
+<p>
+<code>wasm-game-of-life</code> パッケージをWebページで使えるようにするため、<a href="https://github.com/rustwasm/create-wasm-app">create-wasm-app</a>テンプレートを元にJavaScriptプロジェクトを作成する。
+</p>
+
+<div class="note">
+<p>
+各ファイルの詳細をまとめる。
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd0cf36e" class="outline-3">
+<h3 id="orgd0cf36e"><span class="section-number-3">2.5</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#install-the-dependencies">Install the dependencies</a></h3>
+<div class="outline-text-3" id="text-2-5">
+<pre class="example">
+$ cd www
+$ npm install
+</pre>
+
+<p>
+開発用サーバとそれに必要なものをインストール。<br />
+(RustとWebAssemblyに <code>webpack</code> は必須ではない。便利なのでインストールしている)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org481b1a3" class="outline-3">
+<h3 id="org481b1a3"><span class="section-number-3">2.6</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#using-our-local-wasm-game-of-life-package-in-www">Using our Local wasm-game-of-life Package in www</a></h3>
+<div class="outline-text-3" id="text-2-6">
+<pre class="example">
+$ cd ../pkg
+$ npm link
+/usr/local/lib/node_modules/wasm-game-of-life -&gt; /Users/kishi/.own/srcs/Rust/wasm-game-of-life/pkg
+</pre>
+
+<p>
+このシンボリックリンクにより、ローカルの <code>wasm-game-of-life</code> パッケージが <code>npm</code> でインストールされたパッケージのように見える。
+</p>
+
+<pre class="example">
+$ cd ../www
+$ npm link wasm-game-of-life
+/Users/kishi/.own/srcs/Rust/wasm-game-of-life/www/node_modules/wasm-game-of-life -&gt; /usr/local/lib/node_modules/wasm-game-of-life -&gt; /Users/kishi/.own/srcs/Rust/wasm-game-of-life/pkg
+</pre>
+
+<p>
+<code>www</code> パッケージが <code>wasm-game-of-life</code> パッケージ(さきほど <code>npm link</code> した <code>wasm-game-of-life</code> パッケージ)を参照するようにしている。
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>wasm-game-of-life/www/index.js</label><pre class="src src-js"><span style="color: #fff59d;">import</span> * as wasm from <span style="color: #9ccc65;">"wasm-game-of-life"</span>;
+
+wasm.greet<span style="color: #e91e63;">()</span>;
+</pre>
+</div>
+
+<p>
+JavaScriptで <code>wasm-game-of-life</code> パッケージをインポートするように変更。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9e0d448" class="outline-3">
+<h3 id="org9e0d448"><span class="section-number-3">2.7</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#serving-locally">Serving Locally</a></h3>
+<div class="outline-text-3" id="text-2-7">
+<p>
+別のターミナルで以下を実行する。<br />
+(開発用Webサーバが起動し続けるため)
+</p>
+
+<pre class="example">
+$ cd wasm-game-of-life/www
+$ npm run start
+</pre>
+
+<p>
+ブラウザで <a href="http://localhost:8080/">http://localhost:8080/</a> へアクセス。
+</p>
+
+<p>
+<code>wasm-game-of-life</code> ディレクトリで以下のコマンドを実行すると、コードの変更が反映される。
+</p>
+
+<pre class="example">
+$ wasm-pack build
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgb8e0d53" class="outline-3">
+<h3 id="orgb8e0d53"><span class="section-number-3">2.8</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#exercises">Exercises</a></h3>
+<div class="outline-text-3" id="text-2-8">
+<p>
+アラートメッセージをカスタマイズするために <code>wasm-game-of-life/src/lib.rs</code> の <code>greet</code> 関数が <code>name: &amp;str</code> パラメータを取るように変更して、 <code>wasm-game-of-life/www/index.js</code> から <code>greet</code> 関数へ名前を渡す。<br />
+<code>wasm-pack build</code> で <code>.wasm</code> ファイルをリビルドしてからブラウザで <a href="http://localhost:8080/">http://localhost:8080/</a> を再表示してカスタマイズしたメッセージが表示されることを確認する。
+</p>
+</div>
+
+<div id="outline-container-orgb327c54" class="outline-4">
+<h4 id="orgb327c54"><span class="section-number-4">2.8.1</span> 変更前</h4>
+<div class="outline-text-4" id="text-2-8-1">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>wasm-game-of-life/src/lib.rs</label><pre class="src src-rust"><span style="color: #fff59d;">extern</span> <span style="color: #fff59d;">crate</span> cfg_if;
+<span style="color: #fff59d;">extern</span> <span style="color: #fff59d;">crate</span> wasm_bindgen;
+
+<span style="color: #fff59d;">mod</span> <span style="color: #8bc34a;">utils</span>;
+
+<span style="color: #fff59d;">use</span> <span style="color: #8bc34a;">cfg_if</span>::cfg_if;
+<span style="color: #fff59d;">use</span> <span style="color: #8bc34a;">wasm_bindgen</span>::<span style="color: #8bc34a;">prelude</span>::*;
+
+<span style="color: #ffd700;">cfg_if!</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #b0bec5;">// </span><span style="color: #b0bec5;">When the `wee_alloc` feature is enabled, use `wee_alloc` as the global</span>
+    <span style="color: #b0bec5;">// </span><span style="color: #b0bec5;">allocator.</span>
+    <span style="color: #fff59d;">if</span> <span style="color: #ffd700;">#</span><span style="color: #2196F3;">[</span><span style="color: #ffd700;">cfg</span><span style="color: #EF6C00;">(</span><span style="color: #ffd700;">feature = </span><span style="color: #9ccc65;">"wee_alloc"</span><span style="color: #EF6C00;">)</span><span style="color: #2196F3;">]</span> <span style="color: #2196F3;">{</span>
+        <span style="color: #fff59d;">extern</span> <span style="color: #fff59d;">crate</span> wee_alloc;
+        <span style="color: #ffd700;">#</span><span style="color: #EF6C00;">[</span><span style="color: #ffd700;">global_allocator</span><span style="color: #EF6C00;">]</span>
+        <span style="color: #fff59d;">static</span> <span style="color: #ffcc80;">ALLOC</span>: <span style="color: #8bc34a;">wee_alloc</span>::<span style="color: #84ffff;">WeeAlloc</span> = <span style="color: #8bc34a;">wee_alloc</span>::<span style="color: #84ffff;">WeeAlloc</span>::<span style="color: #84ffff;">INIT</span>;
+    <span style="color: #2196F3;">}</span>
+<span style="color: #e91e63;">}</span>
+
+<span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">wasm_bindgen</span><span style="color: #e91e63;">]</span>
+<span style="color: #fff59d;">extern</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">alert</span><span style="color: #2196F3;">(</span><span style="color: #ffcc80;">s</span>: &amp;<span style="color: #84ffff;">str</span><span style="color: #2196F3;">)</span>;
+<span style="color: #e91e63;">}</span>
+
+<span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">wasm_bindgen</span><span style="color: #e91e63;">]</span>
+<span style="color: #fff59d;">pub</span> <span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">greet</span><span style="color: #e91e63;">()</span> <span style="color: #e91e63;">{</span>
+    alert<span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"Hello, wasm-game-of-life!"</span><span style="color: #2196F3;">)</span>;
+<span style="color: #e91e63;">}</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>wasm-game-of-life/www/index.js</label><pre class="src src-js"><span style="color: #fff59d;">import</span> * as wasm from <span style="color: #9ccc65;">"wasm-game-of-life"</span>;
+
+wasm.greet<span style="color: #e91e63;">()</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org980c89c" class="outline-4">
+<h4 id="org980c89c"><span class="section-number-4">2.8.2</span> 変更後</h4>
+<div class="outline-text-4" id="text-2-8-2">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>wasm-game-of-life/src/lib.rs</label><pre class="src src-rust"><span style="color: #fff59d;">extern</span> <span style="color: #fff59d;">crate</span> cfg_if;
+<span style="color: #fff59d;">extern</span> <span style="color: #fff59d;">crate</span> wasm_bindgen;
+
+<span style="color: #fff59d;">mod</span> <span style="color: #8bc34a;">utils</span>;
+
+<span style="color: #fff59d;">use</span> <span style="color: #8bc34a;">cfg_if</span>::cfg_if;
+<span style="color: #fff59d;">use</span> <span style="color: #8bc34a;">wasm_bindgen</span>::<span style="color: #8bc34a;">prelude</span>::*;
+
+<span style="color: #ffd700;">cfg_if!</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #b0bec5;">// </span><span style="color: #b0bec5;">When the `wee_alloc` feature is enabled, use `wee_alloc` as the global</span>
+    <span style="color: #b0bec5;">// </span><span style="color: #b0bec5;">allocator.</span>
+    <span style="color: #fff59d;">if</span> <span style="color: #ffd700;">#</span><span style="color: #2196F3;">[</span><span style="color: #ffd700;">cfg</span><span style="color: #EF6C00;">(</span><span style="color: #ffd700;">feature = </span><span style="color: #9ccc65;">"wee_alloc"</span><span style="color: #EF6C00;">)</span><span style="color: #2196F3;">]</span> <span style="color: #2196F3;">{</span>
+        <span style="color: #fff59d;">extern</span> <span style="color: #fff59d;">crate</span> wee_alloc;
+        <span style="color: #ffd700;">#</span><span style="color: #EF6C00;">[</span><span style="color: #ffd700;">global_allocator</span><span style="color: #EF6C00;">]</span>
+        <span style="color: #fff59d;">static</span> <span style="color: #ffcc80;">ALLOC</span>: <span style="color: #8bc34a;">wee_alloc</span>::<span style="color: #84ffff;">WeeAlloc</span> = <span style="color: #8bc34a;">wee_alloc</span>::<span style="color: #84ffff;">WeeAlloc</span>::<span style="color: #84ffff;">INIT</span>;
+    <span style="color: #2196F3;">}</span>
+<span style="color: #e91e63;">}</span>
+
+<span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">wasm_bindgen</span><span style="color: #e91e63;">]</span>
+<span style="color: #fff59d;">extern</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">alert</span><span style="color: #2196F3;">(</span><span style="color: #ffcc80;">s</span>: &amp;<span style="color: #84ffff;">str</span><span style="color: #2196F3;">)</span>;
+<span style="color: #e91e63;">}</span>
+
+<span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">wasm_bindgen</span><span style="color: #e91e63;">]</span>
+<span style="color: #fff59d;">pub</span> <span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">greet</span><span style="color: #e91e63;">(</span><span style="color: #ffcc80;">name</span>: &amp;<span style="color: #84ffff;">str</span><span style="color: #e91e63;">)</span> <span style="color: #e91e63;">{</span>
+    alert<span style="color: #2196F3;">(</span>&amp;<span style="color: #ff8A65;">format!</span><span style="color: #EF6C00;">(</span><span style="color: #9ccc65;">"Hello, </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;">!"</span>, name<span style="color: #EF6C00;">)</span><span style="color: #2196F3;">)</span>;
+<span style="color: #e91e63;">}</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>wasm-game-of-life/www/index.js</label><pre class="src src-js"><span style="color: #fff59d;">import</span> * as wasm from <span style="color: #9ccc65;">"wasm-game-of-life"</span>;
+
+wasm.greet<span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"foo"</span><span style="color: #e91e63;">)</span>;
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+以下、 <code>.wasm</code> と記述したりもする。
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: KISHI Kousuke</p>
+<p class="date">Created: 2019-02-24 Sun 17:30</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
