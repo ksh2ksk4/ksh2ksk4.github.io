@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-02-25 Mon 01:18 -->
+<!-- 2019-02-25 Mon 01:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>WebAssembly</title>
@@ -254,27 +254,27 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org847c121">4.1. Setup</a>
+<li><a href="#org97ff323">4.1. Setup</a>
 <ul>
-<li><a href="#orgfaaf5a4">Rust toolchain</a></li>
-<li><a href="#org551b508">wasm-pack</a></li>
-<li><a href="#org7c852a2">cargo-generate</a></li>
-<li><a href="#org79b0c2e">npm</a></li>
+<li><a href="#orgd43cc95">Rust toolchain</a></li>
+<li><a href="#org2bb3151">wasm-pack</a></li>
+<li><a href="#orge32150a">cargo-generate</a></li>
+<li><a href="#org549cc72">npm</a></li>
 </ul>
 </li>
-<li><a href="#orga57dcc0">4.2. Hello, World!</a>
+<li><a href="#org9959e57">4.2. Hello, World!</a>
 <ul>
-<li><a href="#orga6c4e0f">Clone the Project Template</a></li>
-<li><a href="#orgce19446">What's Inside</a></li>
-<li><a href="#org81312f6">Build the Project</a></li>
-<li><a href="#org525b135">Putting it into a Web Page</a></li>
-<li><a href="#org2f389dd">Install the dependencies</a></li>
-<li><a href="#orga914092">Using our Local wasm-game-of-life Package in www</a></li>
-<li><a href="#orgd47d134">Serving Locally</a></li>
-<li><a href="#org2c2de78">Exercises</a></li>
+<li><a href="#org1e37981">Clone the Project Template</a></li>
+<li><a href="#org38f3610">What's Inside</a></li>
+<li><a href="#org3d59255">Build the Project</a></li>
+<li><a href="#org8fba52e">Putting it into a Web Page</a></li>
+<li><a href="#orgf936aec">Install the dependencies</a></li>
+<li><a href="#org5c5ff43">Using our Local wasm-game-of-life Package in www</a></li>
+<li><a href="#org9867365">Serving Locally</a></li>
+<li><a href="#org9a24a98">Exercises</a></li>
 </ul>
 </li>
-<li><a href="#org50ba0fd">4.3. Rules</a></li>
+<li><a href="#org8e1f460">4.3. Rules</a></li>
 </ul>
 </div>
 </div>
@@ -286,13 +286,13 @@ RustのコードをWebAssembly<sup><a id="fnr.1" class="footref" href="#fn.1">1<
 以降、<a href="https://rustwasm.github.io/book/">Rust and WebAssembly</a>の<a href="https://rustwasm.github.io/book/game-of-life/introduction.html">4. Tutorial</a>から。
 </p>
 
-<div id="outline-container-org847c121" class="outline-2">
-<h2 id="org847c121"><a href="https://rustwasm.github.io/book/game-of-life/setup.html">4.1. Setup</a></h2>
-<div class="outline-text-2" id="text-org847c121">
+<div id="outline-container-org97ff323" class="outline-2">
+<h2 id="org97ff323"><a href="https://rustwasm.github.io/book/game-of-life/setup.html">4.1. Setup</a></h2>
+<div class="outline-text-2" id="text-org97ff323">
 </div>
-<div id="outline-container-orgfaaf5a4" class="outline-3">
-<h3 id="orgfaaf5a4"><a href="https://www.rust-lang.org/tools/install">Rust toolchain</a></h3>
-<div class="outline-text-3" id="text-orgfaaf5a4">
+<div id="outline-container-orgd43cc95" class="outline-3">
+<h3 id="orgd43cc95"><a href="https://www.rust-lang.org/tools/install">Rust toolchain</a></h3>
+<div class="outline-text-3" id="text-orgd43cc95">
 <p>
 インストールは済んでいるはず。<br />
 Rust 1.30以降が必要。
@@ -300,9 +300,9 @@ Rust 1.30以降が必要。
 </div>
 </div>
 
-<div id="outline-container-org551b508" class="outline-3">
-<h3 id="org551b508"><a href="https://rustwasm.github.io/wasm-pack/">wasm-pack</a></h3>
-<div class="outline-text-3" id="text-org551b508">
+<div id="outline-container-org2bb3151" class="outline-3">
+<h3 id="org2bb3151"><a href="https://rustwasm.github.io/wasm-pack/">wasm-pack</a></h3>
+<div class="outline-text-3" id="text-org2bb3151">
 <p>
 <code>.wasm</code> をビルドしたり、テストしたり、公開したりするツール。
 </p>
@@ -313,9 +313,9 @@ $ curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 </div>
 </div>
 
-<div id="outline-container-org7c852a2" class="outline-3">
-<h3 id="org7c852a2"><a href="https://github.com/ashleygwilliams/cargo-generate">cargo-generate</a></h3>
-<div class="outline-text-3" id="text-org7c852a2">
+<div id="outline-container-orge32150a" class="outline-3">
+<h3 id="orge32150a"><a href="https://github.com/ashleygwilliams/cargo-generate">cargo-generate</a></h3>
+<div class="outline-text-3" id="text-orge32150a">
 <p>
 既に存在するリポジトリをテンプレートとしてRustプロジェクトをセットアップするツール。
 </p>
@@ -326,9 +326,9 @@ $ cargo install cargo-generate
 </div>
 </div>
 
-<div id="outline-container-org79b0c2e" class="outline-3">
-<h3 id="org79b0c2e"><a href="https://www.npmjs.com/get-npm">npm</a></h3>
-<div class="outline-text-3" id="text-org79b0c2e">
+<div id="outline-container-org549cc72" class="outline-3">
+<h3 id="org549cc72"><a href="https://www.npmjs.com/get-npm">npm</a></h3>
+<div class="outline-text-3" id="text-org549cc72">
 <p>
 JavaScriptのパッケージマネージャ。<br />
 bundlerと開発用サーバのために使用する。<br />
@@ -343,17 +343,17 @@ $ npm install npm@latest -g
 </div>
 </div>
 
-<div id="outline-container-orga57dcc0" class="outline-2">
-<h2 id="orga57dcc0"><a href="https://rustwasm.github.io/book/game-of-life/hello-world.html">4.2. Hello, World!</a></h2>
-<div class="outline-text-2" id="text-orga57dcc0">
+<div id="outline-container-org9959e57" class="outline-2">
+<h2 id="org9959e57"><a href="https://rustwasm.github.io/book/game-of-life/hello-world.html">4.2. Hello, World!</a></h2>
+<div class="outline-text-2" id="text-org9959e57">
 <p>
 <code>Hello, World!</code> というメッセージを表示するWebページを作成する。
 </p>
 </div>
 
-<div id="outline-container-orga6c4e0f" class="outline-3">
-<h3 id="orga6c4e0f"><a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#clone-the-project-template">Clone the Project Template</a></h3>
-<div class="outline-text-3" id="text-orga6c4e0f">
+<div id="outline-container-org1e37981" class="outline-3">
+<h3 id="org1e37981"><a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#clone-the-project-template">Clone the Project Template</a></h3>
+<div class="outline-text-3" id="text-org1e37981">
 <p>
 テンプレートをクローンしてプロジェクトを作成。
 </p>
@@ -368,9 +368,9 @@ $ cargo generate --git https://github.com/rustwasm/wasm-pack-template
 </div>
 </div>
 
-<div id="outline-container-orgce19446" class="outline-3">
-<h3 id="orgce19446"><a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#whats-inside">What's Inside</a></h3>
-<div class="outline-text-3" id="text-orgce19446">
+<div id="outline-container-org38f3610" class="outline-3">
+<h3 id="org38f3610"><a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#whats-inside">What's Inside</a></h3>
+<div class="outline-text-3" id="text-org38f3610">
 <div class="note">
 <p>
 各ファイルの詳細をまとめる。
@@ -380,9 +380,9 @@ $ cargo generate --git https://github.com/rustwasm/wasm-pack-template
 </div>
 </div>
 
-<div id="outline-container-org81312f6" class="outline-3">
-<h3 id="org81312f6"><a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#build-the-project">Build the Project</a></h3>
-<div class="outline-text-3" id="text-org81312f6">
+<div id="outline-container-org3d59255" class="outline-3">
+<h3 id="org3d59255"><a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#build-the-project">Build the Project</a></h3>
+<div class="outline-text-3" id="text-org3d59255">
 <pre class="example">
 $ cd wasm-game-of-life
 $ wasm-pack build
@@ -408,9 +408,9 @@ $ wasm-pack build
 </div>
 </div>
 
-<div id="outline-container-org525b135" class="outline-3">
-<h3 id="org525b135"><a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#putting-it-into-a-web-page">Putting it into a Web Page</a></h3>
-<div class="outline-text-3" id="text-org525b135">
+<div id="outline-container-org8fba52e" class="outline-3">
+<h3 id="org8fba52e"><a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#putting-it-into-a-web-page">Putting it into a Web Page</a></h3>
+<div class="outline-text-3" id="text-org8fba52e">
 <pre class="example">
 $ npm init wasm-app www
 </pre>
@@ -428,9 +428,9 @@ $ npm init wasm-app www
 </div>
 </div>
 
-<div id="outline-container-org2f389dd" class="outline-3">
-<h3 id="org2f389dd"><a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#install-the-dependencies">Install the dependencies</a></h3>
-<div class="outline-text-3" id="text-org2f389dd">
+<div id="outline-container-orgf936aec" class="outline-3">
+<h3 id="orgf936aec"><a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#install-the-dependencies">Install the dependencies</a></h3>
+<div class="outline-text-3" id="text-orgf936aec">
 <pre class="example">
 $ cd www
 $ npm install
@@ -443,9 +443,9 @@ $ npm install
 </div>
 </div>
 
-<div id="outline-container-orga914092" class="outline-3">
-<h3 id="orga914092"><a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#using-our-local-wasm-game-of-life-package-in-www">Using our Local wasm-game-of-life Package in www</a></h3>
-<div class="outline-text-3" id="text-orga914092">
+<div id="outline-container-org5c5ff43" class="outline-3">
+<h3 id="org5c5ff43"><a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#using-our-local-wasm-game-of-life-package-in-www">Using our Local wasm-game-of-life Package in www</a></h3>
+<div class="outline-text-3" id="text-org5c5ff43">
 <pre class="example">
 $ cd ../pkg
 $ npm link
@@ -479,9 +479,9 @@ JavaScriptで <code>wasm-game-of-life</code> パッケージをインポート�
 </div>
 </div>
 
-<div id="outline-container-orgd47d134" class="outline-3">
-<h3 id="orgd47d134"><a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#serving-locally">Serving Locally</a></h3>
-<div class="outline-text-3" id="text-orgd47d134">
+<div id="outline-container-org9867365" class="outline-3">
+<h3 id="org9867365"><a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#serving-locally">Serving Locally</a></h3>
+<div class="outline-text-3" id="text-org9867365">
 <p>
 別のターミナルで以下を実行する。<br />
 (開発用Webサーバが起動し続けるため)
@@ -506,18 +506,18 @@ $ wasm-pack build
 </div>
 </div>
 
-<div id="outline-container-org2c2de78" class="outline-3">
-<h3 id="org2c2de78"><a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#exercises">Exercises</a></h3>
-<div class="outline-text-3" id="text-org2c2de78">
+<div id="outline-container-org9a24a98" class="outline-3">
+<h3 id="org9a24a98"><a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#exercises">Exercises</a></h3>
+<div class="outline-text-3" id="text-org9a24a98">
 <p>
 アラートメッセージをカスタマイズするために <code>wasm-game-of-life/src/lib.rs</code> の <code>greet</code> 関数が <code>name: &amp;str</code> パラメータを取るように変更して、 <code>wasm-game-of-life/www/index.js</code> から <code>greet</code> 関数へ名前を渡す。<br />
 <code>wasm-pack build</code> で <code>.wasm</code> ファイルをリビルドしてからブラウザで <a href="http://localhost:8080/">http://localhost:8080/</a> を再表示してカスタマイズしたメッセージが表示されることを確認する。
 </p>
 </div>
 
-<div id="outline-container-org56c3a30" class="outline-4">
-<h4 id="org56c3a30">変更前</h4>
-<div class="outline-text-4" id="text-org56c3a30">
+<div id="outline-container-org8c87aae" class="outline-4">
+<h4 id="org8c87aae">変更前</h4>
+<div class="outline-text-4" id="text-org8c87aae">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 2: </span>wasm-game-of-life/src/lib.rs</label><pre class="src src-rust"><span style="color: #fff59d;">extern</span> <span style="color: #fff59d;">crate</span> cfg_if;
 <span style="color: #fff59d;">extern</span> <span style="color: #fff59d;">crate</span> wasm_bindgen;
@@ -558,9 +558,9 @@ wasm.greet<span style="color: #e91e63;">()</span>;
 </div>
 </div>
 
-<div id="outline-container-org20943b0" class="outline-4">
-<h4 id="org20943b0">変更後</h4>
-<div class="outline-text-4" id="text-org20943b0">
+<div id="outline-container-orgb5143b1" class="outline-4">
+<h4 id="orgb5143b1">変更後</h4>
+<div class="outline-text-4" id="text-orgb5143b1">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 4: </span>wasm-game-of-life/src/lib.rs</label><pre class="src src-rust"><span style="color: #fff59d;">extern</span> <span style="color: #fff59d;">crate</span> cfg_if;
 <span style="color: #fff59d;">extern</span> <span style="color: #fff59d;">crate</span> wasm_bindgen;
@@ -603,9 +603,12 @@ wasm.greet<span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"f
 </div>
 </div>
 
-<div id="outline-container-org50ba0fd" class="outline-2">
-<h2 id="org50ba0fd"><a href="https://rustwasm.github.io/book/game-of-life/rules.html">4.3. Rules</a></h2>
-<div class="outline-text-2" id="text-org50ba0fd">
+<div id="outline-container-org8e1f460" class="outline-2">
+<h2 id="org8e1f460"><a href="https://rustwasm.github.io/book/game-of-life/rules.html">4.3. Rules</a></h2>
+<div class="outline-text-2" id="text-org8e1f460">
+<p>
+このセクションは割愛。
+</p>
 </div>
 </div>
 <div id="footnotes">
@@ -621,7 +624,7 @@ wasm.greet<span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"f
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-02-25 Mon 01:18</p>
+<p class="date">Created: 2019-02-25 Mon 01:25</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
