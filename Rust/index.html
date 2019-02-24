@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-02-24 Sun 03:23 -->
+<!-- 2019-02-24 Sun 17:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title><a href="https://www.rust-lang.org/">Rust</a></title>
@@ -276,32 +276,37 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2432dbb">1. Install</a></li>
-<li><a href="#orgfcf08fe">2. 言語仕様</a>
+<li><a href="#org53c8680">1. Install</a></li>
+<li><a href="#orgd3397a1">2. 言語仕様</a>
 <ul>
-<li><a href="#orgbf38f1f">2.1. Data types</a></li>
-<li><a href="#org47eec09">2.2. Variable</a></li>
-<li><a href="#org2d9eeeb">2.3. Function</a></li>
-<li><a href="#org60dca07">2.4. フロー制御</a></li>
-<li><a href="#org74ecf08">2.5. 所有権</a></li>
-<li><a href="#org452db01">2.6. 構造体(struct)</a></li>
-<li><a href="#orgd33f92c">2.7. 列挙型(enum)</a></li>
+<li><a href="#org9d12cb2">2.1. Data types</a></li>
+<li><a href="#orge798a48">2.2. Variable</a></li>
+<li><a href="#org608bc58">2.3. Function</a></li>
+<li><a href="#orge900273">2.4. フロー制御</a></li>
+<li><a href="#orgaecd99d">2.5. 所有権</a></li>
+<li><a href="#org255e31e">2.6. 構造体(struct)</a></li>
+<li><a href="#org0129feb">2.7. 列挙型(enum)</a></li>
 </ul>
 </li>
-<li><a href="#org9ad9af9">3. WebAssembly</a>
+<li><a href="#org598bdde">3. WebAssembly</a>
 <ul>
-<li><a href="#orge04473a">3.1. 5.1. Setup</a></li>
-<li><a href="#org8f3114c">3.2. 5.2. Hello, World!</a></li>
+<li><a href="#orgf8e664d">3.1. 5.1. Setup</a></li>
+<li><a href="#org3c8bf40">3.2. 5.2. Hello, World!</a></li>
 </ul>
 </li>
-<li><a href="#org453c2e6">4. Framework</a></li>
-<li><a href="#org8a80248">5. Bookmarks</a></li>
+<li><a href="#org477935c">4. Chrome Extensions</a>
+<ul>
+<li><a href="#org76800b9">4.1. 開いているすべてのタブから文字列を検索する</a></li>
+</ul>
+</li>
+<li><a href="#org046dc4c">5. Framework</a></li>
+<li><a href="#org552f181">6. Bookmarks</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2432dbb" class="outline-2">
-<h2 id="org2432dbb"><span class="section-number-2">1</span> Install</h2>
+<div id="outline-container-org53c8680" class="outline-2">
+<h2 id="org53c8680"><span class="section-number-2">1</span> Install</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 $ curl https://sh.rustup.rs -sSf | sh
@@ -310,24 +315,24 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </div>
 
-<div id="outline-container-orgfcf08fe" class="outline-2">
-<h2 id="orgfcf08fe"><span class="section-number-2">2</span> 言語仕様</h2>
+<div id="outline-container-orgd3397a1" class="outline-2">
+<h2 id="orgd3397a1"><span class="section-number-2">2</span> 言語仕様</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <a href="https://doc.rust-jp.rs/book/second-edition/">プログラミング言語 Rust, 2nd Edition</a>から。
 </p>
 </div>
 
-<div id="outline-container-orgbf38f1f" class="outline-3">
-<h3 id="orgbf38f1f"><span class="section-number-3">2.1</span> Data types</h3>
+<div id="outline-container-org9d12cb2" class="outline-3">
+<h3 id="org9d12cb2"><span class="section-number-3">2.1</span> Data types</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-org0d866db" class="outline-4">
-<h4 id="org0d866db"><span class="section-number-4">2.1.1</span> Scalar types</h4>
+<div id="outline-container-org1cb9e2a" class="outline-4">
+<h4 id="org1cb9e2a"><span class="section-number-4">2.1.1</span> Scalar types</h4>
 <div class="outline-text-4" id="text-2-1-1">
 </div>
 <ol class="org-ol">
-<li><a id="org0aa8634"></a>整数型(符号あり)<br />
+<li><a id="orgbddfcbc"></a>整数型(符号あり)<br />
 <div class="outline-text-5" id="text-2-1-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -403,7 +408,7 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </li>
 
-<li><a id="org485dda6"></a>整数型(符号なし)<br />
+<li><a id="orgeb2de85"></a>整数型(符号なし)<br />
 <div class="outline-text-5" id="text-2-1-1-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -475,7 +480,7 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </li>
 
-<li><a id="orgadb0e6d"></a>浮動小数点数型<br />
+<li><a id="org3f2513b"></a>浮動小数点数型<br />
 <div class="outline-text-5" id="text-2-1-1-3">
 <p>
 <code>f32</code> (単精度浮動小数点数) と <code>f64</code> (倍精度浮動小数点数) があり、 <code>f64</code> が浮動小数点数型の基準型。
@@ -483,7 +488,7 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </li>
 
-<li><a id="org577268f"></a>論理値型<br />
+<li><a id="org687912a"></a>論理値型<br />
 <div class="outline-text-5" id="text-2-1-1-4">
 <p>
 論理値型は <code>bool</code> であり、 <code>true</code> と <code>false</code> が取り得る値。
@@ -491,7 +496,7 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </li>
 
-<li><a id="orgb09016b"></a>文字型<br />
+<li><a id="orga4847a8"></a>文字型<br />
 <div class="outline-text-5" id="text-2-1-1-5">
 <p>
 文字型は <code>char</code> であり、Unicodeのスカラ値を表す。<br />
@@ -500,7 +505,7 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </li>
 
-<li><a id="orgdae4c6c"></a>ユニット型<br />
+<li><a id="orgb5cdfd2"></a>ユニット型<br />
 <div class="outline-text-5" id="text-2-1-1-6">
 <p>
 ユニット型は <code>()</code> であり、空のタプル( <code>()</code> )が取り得る値。
@@ -510,12 +515,12 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </ol>
 </div>
 
-<div id="outline-container-org26af7be" class="outline-4">
-<h4 id="org26af7be"><span class="section-number-4">2.1.2</span> Compound types</h4>
+<div id="outline-container-org3ad4baf" class="outline-4">
+<h4 id="org3ad4baf"><span class="section-number-4">2.1.2</span> Compound types</h4>
 <div class="outline-text-4" id="text-2-1-2">
 </div>
 <ol class="org-ol">
-<li><a id="org7629176"></a>タプル型<br />
+<li><a id="org386afca"></a>タプル型<br />
 <div class="outline-text-5" id="text-2-1-2-1">
 <p>
 複数の型を一つの型に集約したもの。
@@ -530,7 +535,7 @@ $ set -U fish_user_paths ~/.cargo/bin $fish_user_paths
 </div>
 </li>
 
-<li><a id="org0097bb4"></a>配列型<br />
+<li><a id="org3a11381"></a>配列型<br />
 <div class="outline-text-5" id="text-2-1-2-2">
 <ul class="org-ul">
 <li>コレクションの一種</li>
@@ -560,12 +565,12 @@ The value of first is 1 and last is 3
 </div>
 </div>
 
-<div id="outline-container-org47eec09" class="outline-3">
-<h3 id="org47eec09"><span class="section-number-3">2.2</span> Variable</h3>
+<div id="outline-container-orge798a48" class="outline-3">
+<h3 id="orge798a48"><span class="section-number-3">2.2</span> Variable</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-org5cb53a6" class="outline-4">
-<h4 id="org5cb53a6"><span class="section-number-4">2.2.1</span> Shadowing</h4>
+<div id="outline-container-org2dee5bf" class="outline-4">
+<h4 id="org2dee5bf"><span class="section-number-4">2.2.1</span> Shadowing</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 前に定義した変数と同じ名前の新しい変数を定義できる。
@@ -623,8 +628,8 @@ The value of spaces is 8
 </div>
 </div>
 
-<div id="outline-container-org2d9eeeb" class="outline-3">
-<h3 id="org2d9eeeb"><span class="section-number-3">2.3</span> Function</h3>
+<div id="outline-container-org608bc58" class="outline-3">
+<h3 id="org608bc58"><span class="section-number-3">2.3</span> Function</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li><code>main</code> はプログラムのエントリポイント</li>
@@ -668,12 +673,12 @@ The return value of sub_function is 10
 </div>
 </div>
 
-<div id="outline-container-org60dca07" class="outline-3">
-<h3 id="org60dca07"><span class="section-number-3">2.4</span> フロー制御</h3>
+<div id="outline-container-orge900273" class="outline-3">
+<h3 id="orge900273"><span class="section-number-3">2.4</span> フロー制御</h3>
 <div class="outline-text-3" id="text-2-4">
 </div>
-<div id="outline-container-orgfe361bd" class="outline-4">
-<h4 id="orgfe361bd"><span class="section-number-4">2.4.1</span> <code>if</code></h4>
+<div id="outline-container-org4613905" class="outline-4">
+<h4 id="org4613905"><span class="section-number-4">2.4.1</span> <code>if</code></h4>
 <div class="outline-text-4" id="text-2-4-1">
 <p>
 条件式は <code>bool</code> でなければならない。<br />
@@ -716,8 +721,8 @@ The value of result is true
 </div>
 </div>
 
-<div id="outline-container-orgb3a7a65" class="outline-4">
-<h4 id="orgb3a7a65"><span class="section-number-4">2.4.2</span> <code>loop</code></h4>
+<div id="outline-container-org75e1d8e" class="outline-4">
+<h4 id="org75e1d8e"><span class="section-number-4">2.4.2</span> <code>loop</code></h4>
 <div class="outline-text-4" id="text-2-4-2">
 <div class="note">
 <p>
@@ -728,8 +733,8 @@ The value of result is true
 </div>
 </div>
 
-<div id="outline-container-org09d5d4c" class="outline-4">
-<h4 id="org09d5d4c"><span class="section-number-4">2.4.3</span> <code>while</code></h4>
+<div id="outline-container-org1de729a" class="outline-4">
+<h4 id="org1de729a"><span class="section-number-4">2.4.3</span> <code>while</code></h4>
 <div class="outline-text-4" id="text-2-4-3">
 <div class="note">
 <p>
@@ -740,8 +745,8 @@ The value of result is true
 </div>
 </div>
 
-<div id="outline-container-orgc297825" class="outline-4">
-<h4 id="orgc297825"><span class="section-number-4">2.4.4</span> <code>for</code></h4>
+<div id="outline-container-orgcb3d4aa" class="outline-4">
+<h4 id="orgcb3d4aa"><span class="section-number-4">2.4.4</span> <code>for</code></h4>
 <div class="outline-text-4" id="text-2-4-4">
 <div class="note">
 <p>
@@ -753,8 +758,8 @@ The value of result is true
 </div>
 </div>
 
-<div id="outline-container-org74ecf08" class="outline-3">
-<h3 id="org74ecf08"><span class="section-number-3">2.5</span> 所有権</h3>
+<div id="outline-container-orgaecd99d" class="outline-3">
+<h3 id="orgaecd99d"><span class="section-number-3">2.5</span> 所有権</h3>
 <div class="outline-text-3" id="text-2-5">
 <div class="note">
 <p>
@@ -765,12 +770,12 @@ The value of result is true
 </div>
 </div>
 
-<div id="outline-container-org452db01" class="outline-3">
-<h3 id="org452db01"><span class="section-number-3">2.6</span> 構造体(struct)</h3>
+<div id="outline-container-org255e31e" class="outline-3">
+<h3 id="org255e31e"><span class="section-number-3">2.6</span> 構造体(struct)</h3>
 <div class="outline-text-3" id="text-2-6">
 </div>
-<div id="outline-container-org4852866" class="outline-4">
-<h4 id="org4852866"><span class="section-number-4">2.6.1</span> 構造体</h4>
+<div id="outline-container-org2d6a6d9" class="outline-4">
+<h4 id="org2d6a6d9"><span class="section-number-4">2.6.1</span> 構造体</h4>
 <div class="outline-text-4" id="text-2-6-1">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 8: </span>構造体のサンプルコード</label><pre class="src src-rust"><span style="color: #b0bec5;">// </span><span style="color: #b0bec5;">&#27083;&#36896;&#20307;&#12434;&#23450;&#32681;</span>
@@ -833,8 +838,8 @@ The value of user4 is User { username: "foo", email: "foo@example.com", sign_in_
 </div>
 </div>
 
-<div id="outline-container-orgd7dc6a5" class="outline-4">
-<h4 id="orgd7dc6a5"><span class="section-number-4">2.6.2</span> タプル構造体</h4>
+<div id="outline-container-org32694dd" class="outline-4">
+<h4 id="org32694dd"><span class="section-number-4">2.6.2</span> タプル構造体</h4>
 <div class="outline-text-4" id="text-2-6-2">
 <p>
 フィールドに名前の不要な構造体。
@@ -860,8 +865,8 @@ The value of origin is Point(-1, -1, -1)
 </div>
 </div>
 
-<div id="outline-container-orgc1e03cb" class="outline-4">
-<h4 id="orgc1e03cb"><span class="section-number-4">2.6.3</span> ユニット様構造体</h4>
+<div id="outline-container-org850ac66" class="outline-4">
+<h4 id="org850ac66"><span class="section-number-4">2.6.3</span> ユニット様構造体</h4>
 <div class="outline-text-4" id="text-2-6-3">
 <p>
 フィールドの存在しない構造体。<br />
@@ -870,8 +875,8 @@ The value of origin is Point(-1, -1, -1)
 </div>
 </div>
 
-<div id="outline-container-orgd048486" class="outline-4">
-<h4 id="orgd048486"><span class="section-number-4">2.6.4</span> 構造体データの所有権</h4>
+<div id="outline-container-org06670ee" class="outline-4">
+<h4 id="org06670ee"><span class="section-number-4">2.6.4</span> 構造体データの所有権</h4>
 <div class="outline-text-4" id="text-2-6-4">
 <div class="note">
 <p>
@@ -882,8 +887,8 @@ The value of origin is Point(-1, -1, -1)
 </div>
 </div>
 
-<div id="outline-container-orgb48528f" class="outline-4">
-<h4 id="orgb48528f"><span class="section-number-4">2.6.5</span> メソッド</h4>
+<div id="outline-container-orgff6f4b3" class="outline-4">
+<h4 id="orgff6f4b3"><span class="section-number-4">2.6.5</span> メソッド</h4>
 <div class="outline-text-4" id="text-2-6-5">
 <p>
 構造体に関連付けられて定義される関数で第一引数が <code>self</code> (メソッドが実行されている構造体)であるもの。<br />
@@ -892,8 +897,8 @@ The value of origin is Point(-1, -1, -1)
 </div>
 </div>
 
-<div id="outline-container-orgc66ea65" class="outline-4">
-<h4 id="orgc66ea65"><span class="section-number-4">2.6.6</span> 関連関数</h4>
+<div id="outline-container-orgb36810e" class="outline-4">
+<h4 id="orgb36810e"><span class="section-number-4">2.6.6</span> 関連関数</h4>
 <div class="outline-text-4" id="text-2-6-6">
 <p>
 構造体に関連付けられて定義される関数で <code>self</code> を引数に取らないもの。<br />
@@ -902,12 +907,12 @@ The value of origin is Point(-1, -1, -1)
 </div>
 </div>
 
-<div id="outline-container-orga536e24" class="outline-4">
-<h4 id="orga536e24"><span class="section-number-4">2.6.7</span> プログラム例</h4>
+<div id="outline-container-org0213dbd" class="outline-4">
+<h4 id="org0213dbd"><span class="section-number-4">2.6.7</span> プログラム例</h4>
 <div class="outline-text-4" id="text-2-6-7">
 </div>
 <ol class="org-ol">
-<li><a id="orgd120488"></a>四角形の面積を算出する<br />
+<li><a id="org6344c28"></a>四角形の面積を算出する<br />
 <div class="outline-text-5" id="text-2-6-7-1">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 10: </span>単一変数により面積を算出する</label><pre class="src src-rust"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">width</span> = <span style="color: #9ccc65;">30</span>;
@@ -995,7 +1000,7 @@ The area of the rectangle is 1500 square pixels.
 </div>
 </li>
 
-<li><a id="orgbc42ce9"></a>他の四角形を内包するかチェックする<br />
+<li><a id="org122ab16"></a>他の四角形を内包するかチェックする<br />
 <div class="outline-text-5" id="text-2-6-7-2">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 14: </span>他の四角形を内包するかチェックする</label><pre class="src src-rust"><span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">derive</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">Debug</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
@@ -1044,7 +1049,7 @@ Can rectangle1 hold rectangle3? false
 </div>
 </li>
 
-<li><a id="orgb8b164b"></a>正方形を生成する<br />
+<li><a id="org89bd1eb"></a>正方形を生成する<br />
 <div class="outline-text-5" id="text-2-6-7-3">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 15: </span>正方形を生成する</label><pre class="src src-rust"><span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">derive</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">Debug</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
@@ -1076,12 +1081,12 @@ square: Rectangle {
 </div>
 </div>
 
-<div id="outline-container-orgd33f92c" class="outline-3">
-<h3 id="orgd33f92c"><span class="section-number-3">2.7</span> 列挙型(enum)</h3>
+<div id="outline-container-org0129feb" class="outline-3">
+<h3 id="org0129feb"><span class="section-number-3">2.7</span> 列挙型(enum)</h3>
 <div class="outline-text-3" id="text-2-7">
 </div>
-<div id="outline-container-orgce5d3b1" class="outline-4">
-<h4 id="orgce5d3b1"><span class="section-number-4">2.7.1</span> 列挙型と構造体によるIPアドレスデータ</h4>
+<div id="outline-container-orgf93a6c6" class="outline-4">
+<h4 id="orgf93a6c6"><span class="section-number-4">2.7.1</span> 列挙型と構造体によるIPアドレスデータ</h4>
 <div class="outline-text-4" id="text-2-7-1">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 16: </span>列挙型と構造体によるIPアドレスデータ</label><pre class="src src-rust"><span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">derive</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">Debug</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
@@ -1122,8 +1127,8 @@ loopback: IpAddr {
 </div>
 </div>
 
-<div id="outline-container-org0ef85cc" class="outline-4">
-<h4 id="org0ef85cc"><span class="section-number-4">2.7.2</span> 列挙型のみによるIPアドレスデータ</h4>
+<div id="outline-container-org8076016" class="outline-4">
+<h4 id="org8076016"><span class="section-number-4">2.7.2</span> 列挙型のみによるIPアドレスデータ</h4>
 <div class="outline-text-4" id="text-2-7-2">
 <p>
 列挙型では列挙子に任意のデータを関連付けることができる。
@@ -1159,8 +1164,8 @@ loopback: V6(
 </div>
 </div>
 
-<div id="outline-container-org9ad9af9" class="outline-2">
-<h2 id="org9ad9af9"><span class="section-number-2">3</span> WebAssembly</h2>
+<div id="outline-container-org598bdde" class="outline-2">
+<h2 id="org598bdde"><span class="section-number-2">3</span> WebAssembly</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 RustのコードをWebAssembly<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>にコンパイルしてWebブラウザで動かす。
@@ -1171,12 +1176,12 @@ RustのコードをWebAssembly<sup><a id="fnr.3" class="footref" href="#fn.3">3<
 </p>
 </div>
 
-<div id="outline-container-orge04473a" class="outline-3">
-<h3 id="orge04473a"><span class="section-number-3">3.1</span> <a href="https://rustwasm.github.io/book/game-of-life/setup.html">5.1. Setup</a></h3>
+<div id="outline-container-orgf8e664d" class="outline-3">
+<h3 id="orgf8e664d"><span class="section-number-3">3.1</span> <a href="https://rustwasm.github.io/book/game-of-life/setup.html">5.1. Setup</a></h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-orgbf470a7" class="outline-4">
-<h4 id="orgbf470a7"><span class="section-number-4">3.1.1</span> <a href="https://www.rust-lang.org/tools/install">Rust toolchain</a></h4>
+<div id="outline-container-org5592219" class="outline-4">
+<h4 id="org5592219"><span class="section-number-4">3.1.1</span> <a href="https://www.rust-lang.org/tools/install">Rust toolchain</a></h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
 インストールは済んでいるはず。<br />
@@ -1185,8 +1190,8 @@ Rust 1.30以降が必要。
 </div>
 </div>
 
-<div id="outline-container-orge288be9" class="outline-4">
-<h4 id="orge288be9"><span class="section-number-4">3.1.2</span> <a href="https://rustwasm.github.io/wasm-pack/">wasm-pack</a></h4>
+<div id="outline-container-org394bb9b" class="outline-4">
+<h4 id="org394bb9b"><span class="section-number-4">3.1.2</span> <a href="https://rustwasm.github.io/wasm-pack/">wasm-pack</a></h4>
 <div class="outline-text-4" id="text-3-1-2">
 <p>
 <code>.wasm</code> をビルドしたり、テストしたり、公開したりするツール。
@@ -1198,8 +1203,8 @@ $ curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 </div>
 </div>
 
-<div id="outline-container-org01d52ce" class="outline-4">
-<h4 id="org01d52ce"><span class="section-number-4">3.1.3</span> <a href="https://github.com/ashleygwilliams/cargo-generate">cargo-generate</a></h4>
+<div id="outline-container-org988e43e" class="outline-4">
+<h4 id="org988e43e"><span class="section-number-4">3.1.3</span> <a href="https://github.com/ashleygwilliams/cargo-generate">cargo-generate</a></h4>
 <div class="outline-text-4" id="text-3-1-3">
 <p>
 既に存在するリポジトリをテンプレートとしてRustプロジェクトをセットアップするツール。
@@ -1211,8 +1216,8 @@ $ cargo install cargo-generate
 </div>
 </div>
 
-<div id="outline-container-orgf680a38" class="outline-4">
-<h4 id="orgf680a38"><span class="section-number-4">3.1.4</span> <a href="https://www.npmjs.com/get-npm">npm</a></h4>
+<div id="outline-container-org46c5e55" class="outline-4">
+<h4 id="org46c5e55"><span class="section-number-4">3.1.4</span> <a href="https://www.npmjs.com/get-npm">npm</a></h4>
 <div class="outline-text-4" id="text-3-1-4">
 <p>
 JavaScriptのパッケージマネージャ。<br />
@@ -1228,16 +1233,16 @@ $ npm install npm@latest -g
 </div>
 </div>
 
-<div id="outline-container-org8f3114c" class="outline-3">
-<h3 id="org8f3114c"><span class="section-number-3">3.2</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html">5.2. Hello, World!</a></h3>
+<div id="outline-container-org3c8bf40" class="outline-3">
+<h3 id="org3c8bf40"><span class="section-number-3">3.2</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html">5.2. Hello, World!</a></h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 <code>Hello, World!</code> というメッセージを表示するWebページを作成する。
 </p>
 </div>
 
-<div id="outline-container-orgc7eac3f" class="outline-4">
-<h4 id="orgc7eac3f"><span class="section-number-4">3.2.1</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#clone-the-project-template">Clone the Project Template</a></h4>
+<div id="outline-container-orgba14ee3" class="outline-4">
+<h4 id="orgba14ee3"><span class="section-number-4">3.2.1</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#clone-the-project-template">Clone the Project Template</a></h4>
 <div class="outline-text-4" id="text-3-2-1">
 <p>
 テンプレートをクローンしてプロジェクトを作成。
@@ -1253,8 +1258,8 @@ $ cargo generate --git https://github.com/rustwasm/wasm-pack-template
 </div>
 </div>
 
-<div id="outline-container-org1c86a37" class="outline-4">
-<h4 id="org1c86a37"><span class="section-number-4">3.2.2</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#whats-inside">What's Inside</a></h4>
+<div id="outline-container-orgf517aec" class="outline-4">
+<h4 id="orgf517aec"><span class="section-number-4">3.2.2</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#whats-inside">What's Inside</a></h4>
 <div class="outline-text-4" id="text-3-2-2">
 <div class="note">
 <p>
@@ -1265,8 +1270,8 @@ $ cargo generate --git https://github.com/rustwasm/wasm-pack-template
 </div>
 </div>
 
-<div id="outline-container-org308bb91" class="outline-4">
-<h4 id="org308bb91"><span class="section-number-4">3.2.3</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#build-the-project">Build the Project</a></h4>
+<div id="outline-container-org5998f4a" class="outline-4">
+<h4 id="org5998f4a"><span class="section-number-4">3.2.3</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#build-the-project">Build the Project</a></h4>
 <div class="outline-text-4" id="text-3-2-3">
 <pre class="example">
 $ cd wasm-game-of-life
@@ -1293,8 +1298,8 @@ $ wasm-pack build
 </div>
 </div>
 
-<div id="outline-container-orge18f142" class="outline-4">
-<h4 id="orge18f142"><span class="section-number-4">3.2.4</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#putting-it-into-a-web-page">Putting it into a Web Page</a></h4>
+<div id="outline-container-org250fdb9" class="outline-4">
+<h4 id="org250fdb9"><span class="section-number-4">3.2.4</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#putting-it-into-a-web-page">Putting it into a Web Page</a></h4>
 <div class="outline-text-4" id="text-3-2-4">
 <pre class="example">
 $ npm init wasm-app www
@@ -1313,8 +1318,8 @@ $ npm init wasm-app www
 </div>
 </div>
 
-<div id="outline-container-org0eb45fe" class="outline-4">
-<h4 id="org0eb45fe"><span class="section-number-4">3.2.5</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#install-the-dependencies">Install the dependencies</a></h4>
+<div id="outline-container-orgd04c1d9" class="outline-4">
+<h4 id="orgd04c1d9"><span class="section-number-4">3.2.5</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#install-the-dependencies">Install the dependencies</a></h4>
 <div class="outline-text-4" id="text-3-2-5">
 <pre class="example">
 $ cd www
@@ -1328,8 +1333,8 @@ $ npm install
 </div>
 </div>
 
-<div id="outline-container-org3e8e6be" class="outline-4">
-<h4 id="org3e8e6be"><span class="section-number-4">3.2.6</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#using-our-local-wasm-game-of-life-package-in-www">Using our Local wasm-game-of-life Package in www</a></h4>
+<div id="outline-container-org0c8098c" class="outline-4">
+<h4 id="org0c8098c"><span class="section-number-4">3.2.6</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#using-our-local-wasm-game-of-life-package-in-www">Using our Local wasm-game-of-life Package in www</a></h4>
 <div class="outline-text-4" id="text-3-2-6">
 <pre class="example">
 $ cd ../pkg
@@ -1364,8 +1369,8 @@ JavaScriptで <code>wasm-game-of-life</code> パッケージをインポート�
 </div>
 </div>
 
-<div id="outline-container-orgf7513f5" class="outline-4">
-<h4 id="orgf7513f5"><span class="section-number-4">3.2.7</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#serving-locally">Serving Locally</a></h4>
+<div id="outline-container-org3499e4f" class="outline-4">
+<h4 id="org3499e4f"><span class="section-number-4">3.2.7</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#serving-locally">Serving Locally</a></h4>
 <div class="outline-text-4" id="text-3-2-7">
 <p>
 別のターミナルで以下を実行する。<br />
@@ -1391,8 +1396,8 @@ $ wasm-pack build
 </div>
 </div>
 
-<div id="outline-container-org610bd00" class="outline-4">
-<h4 id="org610bd00"><span class="section-number-4">3.2.8</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#exercises">Exercises</a></h4>
+<div id="outline-container-orgf5d4804" class="outline-4">
+<h4 id="orgf5d4804"><span class="section-number-4">3.2.8</span> <a href="https://rustwasm.github.io/book/game-of-life/hello-world.html#exercises">Exercises</a></h4>
 <div class="outline-text-4" id="text-3-2-8">
 <p>
 アラートメッセージをカスタマイズするために <code>wasm-game-of-life/src/lib.rs</code> の <code>greet</code> 関数が <code>name: &amp;str</code> パラメータを取るように変更して、 <code>wasm-game-of-life/www/index.js</code> から <code>greet</code> 関数へ名前を渡す。<br />
@@ -1401,7 +1406,7 @@ $ wasm-pack build
 </div>
 
 <ol class="org-ol">
-<li><a id="org82be2ac"></a>変更前<br />
+<li><a id="orgbd29c08"></a>変更前<br />
 <div class="outline-text-5" id="text-3-2-8-1">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 19: </span>wasm-game-of-life/src/lib.rs</label><pre class="src src-rust"><span style="color: #fff59d;">extern</span> <span style="color: #fff59d;">crate</span> cfg_if;
@@ -1443,7 +1448,7 @@ wasm.greet<span style="color: #e91e63;">()</span>;
 </div>
 </li>
 
-<li><a id="org8b68168"></a>変更後<br />
+<li><a id="orge1630a9"></a>変更後<br />
 <div class="outline-text-5" id="text-3-2-8-2">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 21: </span>wasm-game-of-life/src/lib.rs</label><pre class="src src-rust"><span style="color: #fff59d;">extern</span> <span style="color: #fff59d;">crate</span> cfg_if;
@@ -1489,9 +1494,20 @@ wasm.greet<span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"f
 </div>
 </div>
 
-<div id="outline-container-org453c2e6" class="outline-2">
-<h2 id="org453c2e6"><span class="section-number-2">4</span> Framework</h2>
+<div id="outline-container-org477935c" class="outline-2">
+<h2 id="org477935c"><span class="section-number-2">4</span> Chrome Extensions</h2>
 <div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org76800b9" class="outline-3">
+<h3 id="org76800b9"><span class="section-number-3">4.1</span> 開いているすべてのタブから文字列を検索する</h3>
+</div>
+</div>
+
+
+
+<div id="outline-container-org046dc4c" class="outline-2">
+<h2 id="org046dc4c"><span class="section-number-2">5</span> Framework</h2>
+<div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li><a href="https://github.com/flosse/rust-web-framework-comparison">Rust web framework comparison</a></li>
 <li><a href="https://rocket.rs/">Rocket</a></li>
@@ -1500,9 +1516,9 @@ wasm.greet<span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"f
 </div>
 </div>
 
-<div id="outline-container-org8a80248" class="outline-2">
-<h2 id="org8a80248"><span class="section-number-2">5</span> Bookmarks</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-org552f181" class="outline-2">
+<h2 id="org552f181"><span class="section-number-2">6</span> Bookmarks</h2>
+<div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li><a href="https://doc.rust-jp.rs/">Rustの日本語ドキュメント</a></li>
 <li><a href="https://doc.rust-lang.org/stable/rust-by-example/">Rust by Example</a></li>
@@ -1531,7 +1547,7 @@ wasm.greet<span style="color: #e91e63;">(</span><span style="color: #9ccc65;">"f
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-02-24 Sun 03:23</p>
+<p class="date">Created: 2019-02-24 Sun 17:15</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
