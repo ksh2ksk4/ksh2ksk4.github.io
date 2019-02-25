@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-02-26 Tue 05:03 -->
+<!-- 2019-02-26 Tue 05:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title><a href="https://www.orgmode.org/ja/index.html">Org-mode</a></title>
@@ -254,21 +254,64 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9b7afeb">コードブロックのコードを実行する</a>
+<li><a href="#orgac4e1ae">Export</a>
 <ul>
-<li><a href="#org4d2cad3">Calc</a></li>
-<li><a href="#org9d4feee">Emacs-lisp</a></li>
-<li><a href="#org55668d4">PlantUML</a></li>
-<li><a href="#org1cdc7a5">Rust</a></li>
+<li><a href="#org5cf183a">HTML</a></li>
+<li><a href="#orgeb8dc30">Markdown</a></li>
+</ul>
+</li>
+<li><a href="#orgc830d32">コードブロックのコードを実行する</a>
+<ul>
+<li><a href="#org4d5bc4f">Calc</a></li>
+<li><a href="#org47911fe">Emacs-lisp</a></li>
+<li><a href="#orgf26ff1f">PlantUML</a></li>
+<li><a href="#org90b88b3">Rust</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org9b7afeb" class="outline-2">
-<h2 id="org9b7afeb">コードブロックのコードを実行する</h2>
-<div class="outline-text-2" id="text-org9b7afeb">
+<div id="outline-container-orgac4e1ae" class="outline-2">
+<h2 id="orgac4e1ae">Export</h2>
+<div class="outline-text-2" id="text-orgac4e1ae">
+</div>
+<div id="outline-container-org5cf183a" class="outline-3">
+<h3 id="org5cf183a">HTML</h3>
+<div class="outline-text-3" id="text-org5cf183a">
+<ul class="org-ul">
+<li><code>M-x org-html-export-as-html</code>
+<ul class="org-ul">
+<li>HTMLデータをSpacemacsの別のバッファに出力する</li>
+</ul></li>
+<li><code>M-x org-html-export-to-html</code>
+<ul class="org-ul">
+<li>HTMLデータをファイルに出力する</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgeb8dc30" class="outline-3">
+<h3 id="orgeb8dc30">Markdown</h3>
+<div class="outline-text-3" id="text-orgeb8dc30">
+<ul class="org-ul">
+<li><code>M-x org-md-export-as-markdown</code>
+<ul class="org-ul">
+<li>MarkdownデータをSpacemacsの別のバッファに出力する</li>
+</ul></li>
+<li><code>M-x org-md-export-to-markdown</code>
+<ul class="org-ul">
+<li>Markdownデータをファイルに出力する</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc830d32" class="outline-2">
+<h2 id="orgc830d32">コードブロックのコードを実行する</h2>
+<div class="outline-text-2" id="text-orgc830d32">
 <p>
 コードブロックにカーソルを置いて <code>C-c</code> <code>C-c</code> で実行できる。<br />
 実行結果はコードブロック直下の <code>#+RESULT:</code> に出力される。
@@ -289,13 +332,13 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-org4d2cad3" class="outline-3">
-<h3 id="org4d2cad3">Calc</h3>
-<div class="outline-text-3" id="text-org4d2cad3">
+<div id="outline-container-org4d5bc4f" class="outline-3">
+<h3 id="org4d5bc4f">Calc</h3>
+<div class="outline-text-3" id="text-org4d5bc4f">
 </div>
-<div id="outline-container-orgbf9c868" class="outline-4">
-<h4 id="orgbf9c868"><code>org-babel</code> で使用する言語に追加</h4>
-<div class="outline-text-4" id="text-orgbf9c868">
+<div id="outline-container-org3950653" class="outline-4">
+<h4 id="org3950653"><code>org-babel</code> で使用する言語に追加</h4>
+<div class="outline-text-4" id="text-org3950653">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 1: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">defun</span> <span style="color: #84ffff;">dotspacemacs/user-config</span> <span style="color: #2196F3;">()</span>
   <span style="color: #2196F3;">(</span>org-babel-do-load-languages
@@ -305,11 +348,11 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org9ab36f4" class="outline-4">
-<h4 id="org9ab36f4">e.g.</h4>
-<div class="outline-text-4" id="text-org9ab36f4">
+<div id="outline-container-org2cf47e0" class="outline-4">
+<h4 id="org2cf47e0">e.g.</h4>
+<div class="outline-text-4" id="text-org2cf47e0">
 <div class="org-src-container">
-<pre class="src src-calc" id="org4382929">a*x**2+b*x+c
+<pre class="src src-calc" id="org1bd86d5">a*x**2+b*x+c
 </pre>
 </div>
 
@@ -320,13 +363,13 @@ x^2 - 4 x + 3
 </div>
 </div>
 
-<div id="outline-container-org9d4feee" class="outline-3">
-<h3 id="org9d4feee">Emacs-lisp</h3>
-<div class="outline-text-3" id="text-org9d4feee">
+<div id="outline-container-org47911fe" class="outline-3">
+<h3 id="org47911fe">Emacs-lisp</h3>
+<div class="outline-text-3" id="text-org47911fe">
 </div>
-<div id="outline-container-org946a5cf" class="outline-4">
-<h4 id="org946a5cf"><code>org-babel</code> で使用する言語に追加</h4>
-<div class="outline-text-4" id="text-org946a5cf">
+<div id="outline-container-org53f00f1" class="outline-4">
+<h4 id="org53f00f1"><code>org-babel</code> で使用する言語に追加</h4>
+<div class="outline-text-4" id="text-org53f00f1">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 2: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">defun</span> <span style="color: #84ffff;">dotspacemacs/user-config</span> <span style="color: #2196F3;">()</span>
   <span style="color: #2196F3;">(</span>org-babel-do-load-languages
@@ -337,13 +380,13 @@ x^2 - 4 x + 3
 </div>
 </div>
 
-<div id="outline-container-org55668d4" class="outline-3">
-<h3 id="org55668d4">PlantUML</h3>
-<div class="outline-text-3" id="text-org55668d4">
+<div id="outline-container-orgf26ff1f" class="outline-3">
+<h3 id="orgf26ff1f">PlantUML</h3>
+<div class="outline-text-3" id="text-orgf26ff1f">
 </div>
-<div id="outline-container-org38f549b" class="outline-4">
-<h4 id="org38f549b"><code>org-babel</code> で使用する言語に追加</h4>
-<div class="outline-text-4" id="text-org38f549b">
+<div id="outline-container-orgb33bb26" class="outline-4">
+<h4 id="orgb33bb26"><code>org-babel</code> で使用する言語に追加</h4>
+<div class="outline-text-4" id="text-orgb33bb26">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 3: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">defun</span> <span style="color: #84ffff;">dotspacemacs/user-config</span> <span style="color: #2196F3;">()</span>
   <span style="color: #2196F3;">(</span>org-babel-do-load-languages
@@ -354,13 +397,13 @@ x^2 - 4 x + 3
 </div>
 </div>
 
-<div id="outline-container-org1cdc7a5" class="outline-3">
-<h3 id="org1cdc7a5">Rust</h3>
-<div class="outline-text-3" id="text-org1cdc7a5">
+<div id="outline-container-org90b88b3" class="outline-3">
+<h3 id="org90b88b3">Rust</h3>
+<div class="outline-text-3" id="text-org90b88b3">
 </div>
-<div id="outline-container-org427df1c" class="outline-4">
-<h4 id="org427df1c"><code>org-babel</code> で使用する言語に追加</h4>
-<div class="outline-text-4" id="text-org427df1c">
+<div id="outline-container-orgb97c0e7" class="outline-4">
+<h4 id="orgb97c0e7"><code>org-babel</code> で使用する言語に追加</h4>
+<div class="outline-text-4" id="text-orgb97c0e7">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 4: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">defun</span> <span style="color: #84ffff;">dotspacemacs/user-config</span> <span style="color: #2196F3;">()</span>
   <span style="color: #2196F3;">(</span>org-babel-do-load-languages
@@ -370,9 +413,9 @@ x^2 - 4 x + 3
 </div>
 </div>
 
-<div id="outline-container-org9f6cbe6" class="outline-4">
-<h4 id="org9f6cbe6"><a href="https://github.com/micanzhang/ob-rust">ob-rust</a> パッケージをインストール</h4>
-<div class="outline-text-4" id="text-org9f6cbe6">
+<div id="outline-container-org90a6561" class="outline-4">
+<h4 id="org90a6561"><a href="https://github.com/micanzhang/ob-rust">ob-rust</a> パッケージをインストール</h4>
+<div class="outline-text-4" id="text-org90a6561">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 5: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">setq-default</span>
  dotspacemacs-additional-packages
@@ -385,9 +428,9 @@ x^2 - 4 x + 3
 </div>
 </div>
 
-<div id="outline-container-org398dea5" class="outline-4">
-<h4 id="org398dea5"><code>cargo-script</code> をインストール</h4>
-<div class="outline-text-4" id="text-org398dea5">
+<div id="outline-container-org5f4ba9b" class="outline-4">
+<h4 id="org5f4ba9b"><code>cargo-script</code> をインストール</h4>
+<div class="outline-text-4" id="text-org5f4ba9b">
 <pre class="example">
 $ cargo install cargo-script
 </pre>
@@ -398,7 +441,7 @@ $ cargo install cargo-script
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-02-26 Tue 05:03</p>
+<p class="date">Created: 2019-02-26 Tue 05:15</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
