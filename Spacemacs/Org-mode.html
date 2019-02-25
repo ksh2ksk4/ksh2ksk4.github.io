@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-02-26 Tue 05:47 -->
+<!-- 2019-02-26 Tue 05:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title><a href="https://www.orgmode.org/ja/index.html">Org-mode</a></title>
@@ -254,31 +254,32 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org5c1fab3">Export</a>
+<li><a href="#orgcbf4622">Export</a>
 <ul>
-<li><a href="#orgd2b760e">HTML</a></li>
-<li><a href="#orgb5a7c95">Markdown</a></li>
+<li><a href="#org8bf9ab1">HTML</a></li>
+<li><a href="#org1bee873">Markdown</a></li>
+<li><a href="#orga1cac46">Settings</a></li>
 </ul>
 </li>
-<li><a href="#org4eab049">コードブロックのコードを実行する</a>
+<li><a href="#org99a48eb">コードブロックのコードを実行する</a>
 <ul>
-<li><a href="#org4fdfce3">Calc</a></li>
-<li><a href="#org5fee139">Emacs-lisp</a></li>
-<li><a href="#org421b6a3">PlantUML</a></li>
-<li><a href="#orgc3f7c0f">Rust</a></li>
+<li><a href="#org94897d9">Calc</a></li>
+<li><a href="#orgf62e2ab">Emacs-lisp</a></li>
+<li><a href="#orga37eada">PlantUML</a></li>
+<li><a href="#org9bda320">Rust</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5c1fab3" class="outline-2">
-<h2 id="org5c1fab3">Export</h2>
-<div class="outline-text-2" id="text-org5c1fab3">
+<div id="outline-container-orgcbf4622" class="outline-2">
+<h2 id="orgcbf4622">Export</h2>
+<div class="outline-text-2" id="text-orgcbf4622">
 </div>
-<div id="outline-container-orgd2b760e" class="outline-3">
-<h3 id="orgd2b760e">HTML</h3>
-<div class="outline-text-3" id="text-orgd2b760e">
+<div id="outline-container-org8bf9ab1" class="outline-3">
+<h3 id="org8bf9ab1">HTML</h3>
+<div class="outline-text-3" id="text-org8bf9ab1">
 <ul class="org-ul">
 <li><code>M-x org-html-export-as-html</code>
 <ul class="org-ul">
@@ -291,9 +292,9 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-org13645c0" class="outline-4">
-<h4 id="org13645c0">theme</h4>
-<div class="outline-text-4" id="text-org13645c0">
+<div id="outline-container-org2eade47" class="outline-4">
+<h4 id="org2eade47">theme</h4>
+<div class="outline-text-4" id="text-org2eade47">
 <p>
 <a href="https://sphinx-rtd-theme.readthedocs.io/en/latest/index.html">Read the Docs Sphinx Theme</a>が綺麗なので<a href="https://github.com/fniessen/org-html-themes">org-html-themes</a>を利用する。
 </p>
@@ -301,9 +302,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgb5a7c95" class="outline-3">
-<h3 id="orgb5a7c95">Markdown</h3>
-<div class="outline-text-3" id="text-orgb5a7c95">
+<div id="outline-container-org1bee873" class="outline-3">
+<h3 id="org1bee873">Markdown</h3>
+<div class="outline-text-3" id="text-org1bee873">
 <ul class="org-ul">
 <li><code>M-x org-md-export-as-markdown</code>
 <ul class="org-ul">
@@ -316,11 +317,31 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 </div>
+
+<div id="outline-container-orga1cac46" class="outline-3">
+<h3 id="orga1cac46">Settings</h3>
+<div class="outline-text-3" id="text-orga1cac46">
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #8bc34a; font-size: 135%;">#+AUTHOR:</span> <span style="color: #81d4fa; font-size: 135%;">KISHI Kousuke</span>
+<span style="color: #8bc34a; font-size: 135%;">#+EMAIL:</span> <span style="color: #81d4fa; font-size: 135%;">ksh2ksk4@gmail.com</span>
+<span style="color: #b0bec5;">#+OPTIONS: num:nil toc:2 ^:nil</span>
+<span style="color: #b0bec5;">#+STARTUP: showall inlineimages</span>
+<span style="color: #b0bec5;">#+SETUPFILE: <a href="https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup">https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup</a></span>
+<span style="color: #b0bec5;">#+HTML_HEAD: &lt;style&gt;div#content{max-width:none;}&lt;/style&gt;</span>
+</pre>
 </div>
 
-<div id="outline-container-org4eab049" class="outline-2">
-<h2 id="org4eab049">コードブロックのコードを実行する</h2>
-<div class="outline-text-2" id="text-org4eab049">
+<ul class="org-ul">
+<li><a href="https://orgmode.org/manual/Export-Settings.html#Export-Settings">https://orgmode.org/manual/Export-Settings.html#Export-Settings</a></li>
+<li><a href="https://orgmode.org/manual/In_002dbuffer-Settings.html#In_002dbuffer-Settings">https://orgmode.org/manual/In_002dbuffer-Settings.html#In_002dbuffer-Settings</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org99a48eb" class="outline-2">
+<h2 id="org99a48eb">コードブロックのコードを実行する</h2>
+<div class="outline-text-2" id="text-org99a48eb">
 <p>
 コードブロックにカーソルを置いて <code>C-c</code> <code>C-c</code> で実行できる。<br />
 実行結果はコードブロック直下の <code>#+RESULT:</code> に出力される。
@@ -341,13 +362,13 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-org4fdfce3" class="outline-3">
-<h3 id="org4fdfce3">Calc</h3>
-<div class="outline-text-3" id="text-org4fdfce3">
+<div id="outline-container-org94897d9" class="outline-3">
+<h3 id="org94897d9">Calc</h3>
+<div class="outline-text-3" id="text-org94897d9">
 </div>
-<div id="outline-container-orgc101569" class="outline-4">
-<h4 id="orgc101569"><code>org-babel</code> で使用する言語に追加</h4>
-<div class="outline-text-4" id="text-orgc101569">
+<div id="outline-container-org0bb0b9b" class="outline-4">
+<h4 id="org0bb0b9b"><code>org-babel</code> で使用する言語に追加</h4>
+<div class="outline-text-4" id="text-org0bb0b9b">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 1: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">defun</span> <span style="color: #84ffff;">dotspacemacs/user-config</span> <span style="color: #2196F3;">()</span>
   <span style="color: #2196F3;">(</span>org-babel-do-load-languages
@@ -357,11 +378,11 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org69bc2cb" class="outline-4">
-<h4 id="org69bc2cb">e.g.</h4>
-<div class="outline-text-4" id="text-org69bc2cb">
+<div id="outline-container-org9e47707" class="outline-4">
+<h4 id="org9e47707">e.g.</h4>
+<div class="outline-text-4" id="text-org9e47707">
 <div class="org-src-container">
-<pre class="src src-calc" id="org973d279">a*x**2+b*x+c
+<pre class="src src-calc" id="orgbbb65a5">a*x**2+b*x+c
 </pre>
 </div>
 
@@ -372,13 +393,13 @@ x^2 - 4 x + 3
 </div>
 </div>
 
-<div id="outline-container-org5fee139" class="outline-3">
-<h3 id="org5fee139">Emacs-lisp</h3>
-<div class="outline-text-3" id="text-org5fee139">
+<div id="outline-container-orgf62e2ab" class="outline-3">
+<h3 id="orgf62e2ab">Emacs-lisp</h3>
+<div class="outline-text-3" id="text-orgf62e2ab">
 </div>
-<div id="outline-container-org5be219e" class="outline-4">
-<h4 id="org5be219e"><code>org-babel</code> で使用する言語に追加</h4>
-<div class="outline-text-4" id="text-org5be219e">
+<div id="outline-container-org617f315" class="outline-4">
+<h4 id="org617f315"><code>org-babel</code> で使用する言語に追加</h4>
+<div class="outline-text-4" id="text-org617f315">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 2: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">defun</span> <span style="color: #84ffff;">dotspacemacs/user-config</span> <span style="color: #2196F3;">()</span>
   <span style="color: #2196F3;">(</span>org-babel-do-load-languages
@@ -389,13 +410,13 @@ x^2 - 4 x + 3
 </div>
 </div>
 
-<div id="outline-container-org421b6a3" class="outline-3">
-<h3 id="org421b6a3">PlantUML</h3>
-<div class="outline-text-3" id="text-org421b6a3">
+<div id="outline-container-orga37eada" class="outline-3">
+<h3 id="orga37eada">PlantUML</h3>
+<div class="outline-text-3" id="text-orga37eada">
 </div>
-<div id="outline-container-org8c6aabb" class="outline-4">
-<h4 id="org8c6aabb"><code>org-babel</code> で使用する言語に追加</h4>
-<div class="outline-text-4" id="text-org8c6aabb">
+<div id="outline-container-org3dd4691" class="outline-4">
+<h4 id="org3dd4691"><code>org-babel</code> で使用する言語に追加</h4>
+<div class="outline-text-4" id="text-org3dd4691">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 3: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">defun</span> <span style="color: #84ffff;">dotspacemacs/user-config</span> <span style="color: #2196F3;">()</span>
   <span style="color: #2196F3;">(</span>org-babel-do-load-languages
@@ -406,13 +427,13 @@ x^2 - 4 x + 3
 </div>
 </div>
 
-<div id="outline-container-orgc3f7c0f" class="outline-3">
-<h3 id="orgc3f7c0f">Rust</h3>
-<div class="outline-text-3" id="text-orgc3f7c0f">
+<div id="outline-container-org9bda320" class="outline-3">
+<h3 id="org9bda320">Rust</h3>
+<div class="outline-text-3" id="text-org9bda320">
 </div>
-<div id="outline-container-org6da3682" class="outline-4">
-<h4 id="org6da3682"><code>org-babel</code> で使用する言語に追加</h4>
-<div class="outline-text-4" id="text-org6da3682">
+<div id="outline-container-org00418e7" class="outline-4">
+<h4 id="org00418e7"><code>org-babel</code> で使用する言語に追加</h4>
+<div class="outline-text-4" id="text-org00418e7">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 4: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">defun</span> <span style="color: #84ffff;">dotspacemacs/user-config</span> <span style="color: #2196F3;">()</span>
   <span style="color: #2196F3;">(</span>org-babel-do-load-languages
@@ -422,9 +443,9 @@ x^2 - 4 x + 3
 </div>
 </div>
 
-<div id="outline-container-orgbef6bc7" class="outline-4">
-<h4 id="orgbef6bc7"><a href="https://github.com/micanzhang/ob-rust">ob-rust</a> パッケージをインストール</h4>
-<div class="outline-text-4" id="text-orgbef6bc7">
+<div id="outline-container-orgd9ec1d3" class="outline-4">
+<h4 id="orgd9ec1d3"><a href="https://github.com/micanzhang/ob-rust">ob-rust</a> パッケージをインストール</h4>
+<div class="outline-text-4" id="text-orgd9ec1d3">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 5: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">setq-default</span>
  dotspacemacs-additional-packages
@@ -437,9 +458,9 @@ x^2 - 4 x + 3
 </div>
 </div>
 
-<div id="outline-container-orgf2ebedf" class="outline-4">
-<h4 id="orgf2ebedf"><code>cargo-script</code> をインストール</h4>
-<div class="outline-text-4" id="text-orgf2ebedf">
+<div id="outline-container-orgfff8ec3" class="outline-4">
+<h4 id="orgfff8ec3"><code>cargo-script</code> をインストール</h4>
+<div class="outline-text-4" id="text-orgfff8ec3">
 <pre class="example">
 $ cargo install cargo-script
 </pre>
@@ -450,7 +471,7 @@ $ cargo install cargo-script
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-02-26 Tue 05:47</p>
+<p class="date">Created: 2019-02-26 Tue 05:53</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
