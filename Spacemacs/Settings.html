@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-02-24 Sun 02:50 -->
+<!-- 2019-02-26 Tue 04:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title><a href="https://github.com/syl20bnr/spacemacs">Spacemacs</a></title>
+<title>Settings</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="KISHI Kousuke" />
 <style type="text/css">
@@ -249,77 +249,29 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title"><a href="https://github.com/syl20bnr/spacemacs">Spacemacs</a></h1>
+<h1 class="title">Settings</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org78a9878">1. Install</a></li>
-<li><a href="#org754daf4">2. Settings</a>
+<li><a href="#org72d8617">Fonts</a>
 <ul>
-<li><a href="#orgfd99cfe">2.1. Fonts</a></li>
-</ul>
-</li>
-<li><a href="#org40ab215">3. YASnippet</a>
-<ul>
-<li><a href="#org2a5ecf8">3.1. Install</a></li>
-<li><a href="#orgc894174">3.2. Settings</a></li>
-<li><a href="#org09d1451">3.3. Functions</a></li>
-</ul>
-</li>
-<li><a href="#org93ec9e4">4. pdf-tools layer</a>
-<ul>
-<li><a href="#orge9d4eca">4.1. Install</a></li>
+<li><a href="#orgd2fdadb"><code>charset</code></a></li>
+<li><a href="#orgfc0cba8">font</a></li>
+<li><a href="#org0a6b8af">Spacemacsの場合</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org78a9878" class="outline-2">
-<h2 id="org78a9878"><span class="section-number-2">1</span> Install</h2>
-<div class="outline-text-2" id="text-1">
-<pre class="example">
-$ brew tap d12frosted/emacs-plus
-$ brew install emacs-plus
-$ ln -sfv /usr/local/opt/emacs-plus/Emacs.app /Applications
-$ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-</pre>
-
-<p>
-Googleドライブにバックアップし易いように。
-</p>
-
-<pre class="example">
-$ mkdir ~/.config/spacemacs
-$ mv ~/.spacemacs ~/.config/spacemacs/
-$ ln -sfv ~/.config/spacemacs/.spacemacs
-</pre>
-
-<p>
-以下のフォントをインストールしておく。
-</p>
-
-<ul class="org-ul">
-<li><a href="https://github.com/adobe-fonts/source-code-pro">Source Code Pro</a></li>
-<li><a href="https://github.com/tonsky/FiraCode">Fira Code</a></li>
-<li><a href="https://fonts.google.com/specimen/Kosugi+Maru">小杉丸ゴシック</a></li>
-<li><a href="https://github.com/miiton/Cica">Cica Font</a></li>
-</ul>
+<div id="outline-container-org72d8617" class="outline-2">
+<h2 id="org72d8617">Fonts</h2>
+<div class="outline-text-2" id="text-org72d8617">
 </div>
-</div>
-
-<div id="outline-container-org754daf4" class="outline-2">
-<h2 id="org754daf4"><span class="section-number-2">2</span> Settings</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgfd99cfe" class="outline-3">
-<h3 id="orgfd99cfe"><span class="section-number-3">2.1</span> Fonts</h3>
-<div class="outline-text-3" id="text-2-1">
-</div>
-<div id="outline-container-org7e3ae00" class="outline-4">
-<h4 id="org7e3ae00"><span class="section-number-4">2.1.1</span> <code>charset</code></h4>
-<div class="outline-text-4" id="text-2-1-1">
+<div id="outline-container-orgd2fdadb" class="outline-3">
+<h3 id="orgd2fdadb"><code>charset</code></h3>
+<div class="outline-text-3" id="text-orgd2fdadb">
 <ul class="org-ul">
 <li><code>M-x list-character-sets</code>
 <ul class="org-ul">
@@ -333,9 +285,9 @@ $ ln -sfv ~/.config/spacemacs/.spacemacs
 </div>
 </div>
 
-<div id="outline-container-orgdced4ea" class="outline-4">
-<h4 id="orgdced4ea"><span class="section-number-4">2.1.2</span> font</h4>
-<div class="outline-text-4" id="text-2-1-2">
+<div id="outline-container-orgfc0cba8" class="outline-3">
+<h3 id="orgfc0cba8">font</h3>
+<div class="outline-text-3" id="text-orgfc0cba8">
 <ul class="org-ul">
 <li><code>(font-spec ARGS...)</code>
 <ul class="org-ul">
@@ -356,18 +308,18 @@ $ ln -sfv ~/.config/spacemacs/.spacemacs
 </div>
 </div>
 
-<div id="outline-container-org8e87670" class="outline-4">
-<h4 id="org8e87670"><span class="section-number-4">2.1.3</span> Spacemacsの場合</h4>
-<div class="outline-text-4" id="text-2-1-3">
+<div id="outline-container-org0a6b8af" class="outline-3">
+<h3 id="org0a6b8af">Spacemacsの場合</h3>
+<div class="outline-text-3" id="text-org0a6b8af">
 <p>
 以下、日本語(正確には <code>unicode charset</code>)とそれ以外を別のフォントで設定している。<br />
 そのため、文字の表示バランスが微妙になる可能性がある。
 </p>
 </div>
 
-<ol class="org-ol">
-<li><a id="org20d49a1"></a>デフォルトフォントにASCIIコードベースのフォントを設定<br />
-<div class="outline-text-5" id="text-2-1-3-1">
+<div id="outline-container-org3626621" class="outline-4">
+<h4 id="org3626621">デフォルトフォントにASCIIコードベースのフォントを設定</h4>
+<div class="outline-text-4" id="text-org3626621">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 1: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">defun</span> <span style="color: #84ffff;">dotspacemacs/init</span> <span style="color: #2196F3;">()</span>
   <span style="color: #2196F3;">(</span><span style="color: #fff59d;">setq-default</span>
@@ -380,20 +332,22 @@ $ ln -sfv ~/.config/spacemacs/.spacemacs
 </pre>
 </div>
 </div>
-</li>
+</div>
 
-<li><a id="orgf417e79"></a><code>unicode charset</code> に好みの日本語フォントを設定<br />
-<div class="outline-text-5" id="text-2-1-3-2">
+<div id="outline-container-org465a961" class="outline-4">
+<h4 id="org465a961"><code>unicode charset</code> に好みの日本語フォントを設定</h4>
+<div class="outline-text-4" id="text-org465a961">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 2: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #b0bec5;">;; </span><span style="color: #b0bec5;">&#12487;&#12501;&#12457;&#12523;&#12488;&#12501;&#12457;&#12531;&#12488;&#12475;&#12483;&#12488;&#12398;unicode charset&#12395;&#23567;&#26441;&#20024;&#12468;&#12471;&#12483;&#12463;&#12434;&#35373;&#23450;</span>
 <span style="color: #e91e63;">(</span>set-fontset-font t 'unicode <span style="color: #2196F3;">(</span>font-spec <span style="color: #ff8A65;">:family</span> <span style="color: #9ccc65;">"MotoyaLMaru"</span> <span style="color: #ff8A65;">:size</span> <span style="color: #9ccc65;">14</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span>
 </pre>
 </div>
 </div>
-</li>
+</div>
 
-<li><a id="orgd4565a0"></a>記号類を日本語フォントで表示するよう設定<br />
-<div class="outline-text-5" id="text-2-1-3-3">
+<div id="outline-container-org1e25a21" class="outline-4">
+<h4 id="org1e25a21">記号類を日本語フォントで表示するよう設定</h4>
+<div class="outline-text-4" id="text-org1e25a21">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 3: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #b0bec5;">;; </span><span style="color: #b0bec5;">&#35352;&#21495;&#39006;&#12399;&#12487;&#12501;&#12457;&#12523;&#12488;&#12501;&#12457;&#12531;&#12488;&#12391;&#34920;&#31034;&#12375;&#12394;&#12356;&#12424;&#12358;&#12395;&#12377;&#12427;</span>
 <span style="color: #e91e63;">(</span><span style="color: #fff59d;">setq</span> use-default-font-for-symbols nil<span style="color: #e91e63;">)</span>
@@ -405,10 +359,11 @@ $ ln -sfv ~/.config/spacemacs/.spacemacs
 これを設定しないと記号類もデフォルトフォントで表示される。
 </p>
 </div>
-</li>
+</div>
 
-<li><a id="org49d8806"></a>　(DOTTED SQUARE)のみヒラギノ丸ゴ ProNで表示するよう設定<br />
-<div class="outline-text-5" id="text-2-1-3-4">
+<div id="outline-container-orgd564f06" class="outline-4">
+<h4 id="orgd564f06">　(DOTTED SQUARE)のみヒラギノ丸ゴ ProNで表示するよう設定</h4>
+<div class="outline-text-4" id="text-orgd564f06">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 4: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #b0bec5;">;; </span><span style="color: #b0bec5;">&#12288;(DOTTED SQUARE)&#12398;&#12415;&#12498;&#12521;&#12462;&#12494;&#20024;&#12468; ProN&#12391;&#34920;&#31034;</span>
 <span style="color: #e91e63;">(</span>set-fontset-font t <span style="color: #9ccc65;">#x2b1a</span> <span style="color: #2196F3;">(</span>font-spec <span style="color: #ff8A65;">:family</span> <span style="color: #9ccc65;">"Hiragino Maru Gothic ProN"</span> <span style="color: #ff8A65;">:size</span> <span style="color: #9ccc65;">14</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span>
@@ -427,288 +382,13 @@ Fira Codeと小杉丸ゴシックの場合、フォントサイズを 12,14 や 
 
 </div>
 </div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org40ab215" class="outline-2">
-<h2 id="org40ab215"><span class="section-number-2">3</span> <a href="https://github.com/joaotavora/yasnippet">YASnippet</a></h2>
-<div class="outline-text-2" id="text-3">
-</div>
-<div id="outline-container-org2a5ecf8" class="outline-3">
-<h3 id="org2a5ecf8"><span class="section-number-3">3.1</span> Install</h3>
-<div class="outline-text-3" id="text-3-1">
-<p>
-インストールされていた(たぶんパッケージの依存関係)。
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgc894174" class="outline-3">
-<h3 id="orgc894174"><span class="section-number-3">3.2</span> Settings</h3>
-<div class="outline-text-3" id="text-3-2">
-<pre class="example">
-$ mkdir -p .config/spacemacs/snippets
-</pre>
-
-<div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 5: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">use-package</span> <span style="color: #8bc34a;">yasnippet</span>
-  <span style="color: #ff8A65;">:config</span>
-  <span style="color: #2196F3;">(</span><span style="color: #fff59d;">setq</span> yas-snippet-dirs <span style="color: #EF6C00;">(</span>append yas-snippet-dirs
-                                 '<span style="color: #B388FF;">(</span><span style="color: #9ccc65;">"~/.config/spacemacs/snippets"</span><span style="color: #B388FF;">)</span><span style="color: #EF6C00;">)</span><span style="color: #2196F3;">)</span>
-  <span style="color: #2196F3;">(</span>yas-reload-all<span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span>
-</pre>
-</div>
-
-<p>
-各モードのスニペットを保存するディレクトリを作成。
-</p>
-
-<ul class="org-ul">
-<li><p>
-Org-Modeの場合
-</p>
-<pre class="example">
-$ mkdir -p .config/spacemacs/snippets/org-mode
-</pre></li>
-</ul>
-
-<p>
-このディレクトリにスニペットを作成していく。
-</p>
-</div>
-</div>
-
-<div id="outline-container-org09d1451" class="outline-3">
-<h3 id="org09d1451"><span class="section-number-3">3.3</span> Functions</h3>
-<div class="outline-text-3" id="text-3-3">
-<ul class="org-ul">
-<li>M-x yas-describe-tables</li>
-</ul>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org93ec9e4" class="outline-2">
-<h2 id="org93ec9e4"><span class="section-number-2">4</span> <a href="https://github.com/syl20bnr/spacemacs/tree/master/layers/+tools/pdf-tools">pdf-tools layer</a></h2>
-<div class="outline-text-2" id="text-4">
-</div>
-<div id="outline-container-orge9d4eca" class="outline-3">
-<h3 id="orge9d4eca"><span class="section-number-3">4.1</span> Install</h3>
-<div class="outline-text-3" id="text-4-1">
-<p>
-<code>dotspacemacs-configuration-layers</code> に <code>pdf-tools</code> を追加するだけ。<br />
-以下、インストールログ。
-</p>
-
-<pre class="example">
--*- mode: compilation; default-directory: "~/.emacs.d/elpa/pdf-tools-20190129.1822/build/server/" -*-
-Comint started at Mon Feb 11 17:47:04
-
-/Users/kishi/.emacs.d/elpa/pdf-tools-20190129.1822/build/server/autobuild -i /Users/kishi/.emacs.d/elpa/pdf-tools-20190129.1822/
----------------------------
-    Installing packages
----------------------------
-brew install pkg-config poppler automake
-Warning: pkg-config 0.29.2 is already installed and up-to-date
-To reinstall 0.29.2, run `brew reinstall pkg-config`
-==&gt; Installing dependencies for poppler: libtiff, nspr, nss and qt
-==&gt; Installing poppler dependency: libtiff
-==&gt; Downloading https://homebrew.bintray.com/bottles/libtiff-4.0.10_1.mojave.bottle.tar.gz
-############################################################################################## 100.0%
-==&gt; Pouring libtiff-4.0.10_1.mojave.bottle.tar.gz
-🍺  /usr/local/Cellar/libtiff/4.0.10_1: 246 files, 3.5MB
-==&gt; Installing poppler dependency: nspr
-==&gt; Downloading https://homebrew.bintray.com/bottles/nspr-4.20.mojave.bottle.tar.gz
-############################################################################################## 100.0%
-==&gt; Pouring nspr-4.20.mojave.bottle.tar.gz
-🍺  /usr/local/Cellar/nspr/4.20: 92 files, 1.2MB
-==&gt; Installing poppler dependency: nss
-==&gt; Downloading https://homebrew.bintray.com/bottles/nss-3.42.mojave.bottle.tar.gz
-############################################################################################## 100.0%
-==&gt; Pouring nss-3.42.mojave.bottle.tar.gz
-==&gt; Caveats
-nss is keg-only, which means it was not symlinked into /usr/local,
-because Firefox can pick this up instead of the built-in library, resulting in
-random crashes without meaningful explanation.
-
-Please see https://bugzilla.mozilla.org/show_bug.cgi?id=1142646 for details.
-
-If you need to have nss first in your PATH run:
-  echo 'set -g fish_user_paths "/usr/local/opt/nss/bin" $fish_user_paths' &gt;&gt; ~/.config/fish/config.fish
-
-For compilers to find nss you may need to set:
-  set -gx LDFLAGS "-L/usr/local/opt/nss/lib"
-  set -gx CPPFLAGS "-I/usr/local/opt/nss/include"
-
-For pkg-config to find nss you may need to set:
-  set -gx PKG_CONFIG_PATH "/usr/local/opt/nss/lib/pkgconfig"
-
-==&gt; Summary
-🍺  /usr/local/Cellar/nss/3.42: 221 files, 26.7MB
-==&gt; Installing poppler dependency: qt
-==&gt; Downloading https://homebrew.bintray.com/bottles/qt-5.12.0.mojave.bottle.tar.gz
-############################################################################################## 100.0%
-==&gt; Pouring qt-5.12.0.mojave.bottle.tar.gz
-==&gt; Caveats
-We agreed to the Qt open source license for you.
-If this is unacceptable you should uninstall.
-
-qt is keg-only, which means it was not symlinked into /usr/local,
-because Qt 5 has CMake issues when linked.
-
-If you need to have qt first in your PATH run:
-  echo 'set -g fish_user_paths "/usr/local/opt/qt/bin" $fish_user_paths' &gt;&gt; ~/.config/fish/config.fish
-
-For compilers to find qt you may need to set:
-  set -gx LDFLAGS "-L/usr/local/opt/qt/lib"
-  set -gx CPPFLAGS "-I/usr/local/opt/qt/include"
-
-For pkg-config to find qt you may need to set:
-  set -gx PKG_CONFIG_PATH "/usr/local/opt/qt/lib/pkgconfig"
-
-==&gt; Summary
-🍺  /usr/local/Cellar/qt/5.12.0: 9,689 files, 318.9MB
-==&gt; Installing poppler
-==&gt; Downloading https://homebrew.bintray.com/bottles/poppler-0.74.0.mojave.bottle.tar.gz
-############################################################################################## 100.0%
-==&gt; Pouring poppler-0.74.0.mojave.bottle.tar.gz
-🍺  /usr/local/Cellar/poppler/0.74.0: 458 files, 24.5MB
-==&gt; Downloading https://homebrew.bintray.com/bottles/automake-1.16.1_1.mojave.bottle.tar.gz
-############################################################################################## 100.0%
-==&gt; Pouring automake-1.16.1_1.mojave.bottle.tar.gz
-🍺  /usr/local/Cellar/automake/1.16.1_1: 131 files, 3.4MB
-==&gt; Caveats
-==&gt; nss
-nss is keg-only, which means it was not symlinked into /usr/local,
-because Firefox can pick this up instead of the built-in library, resulting in
-random crashes without meaningful explanation.
-
-Please see https://bugzilla.mozilla.org/show_bug.cgi?id=1142646 for details.
-
-If you need to have nss first in your PATH run:
-  echo 'set -g fish_user_paths "/usr/local/opt/nss/bin" $fish_user_paths' &gt;&gt; ~/.config/fish/config.fish
-
-For compilers to find nss you may need to set:
-  set -gx LDFLAGS "-L/usr/local/opt/nss/lib"
-  set -gx CPPFLAGS "-I/usr/local/opt/nss/include"
-
-For pkg-config to find nss you may need to set:
-  set -gx PKG_CONFIG_PATH "/usr/local/opt/nss/lib/pkgconfig"
-
-==&gt; qt
-We agreed to the Qt open source license for you.
-If this is unacceptable you should uninstall.
-
-qt is keg-only, which means it was not symlinked into /usr/local,
-because Qt 5 has CMake issues when linked.
-
-If you need to have qt first in your PATH run:
-  echo 'set -g fish_user_paths "/usr/local/opt/qt/bin" $fish_user_paths' &gt;&gt; ~/.config/fish/config.fish
-
-For compilers to find qt you may need to set:
-  set -gx LDFLAGS "-L/usr/local/opt/qt/lib"
-  set -gx CPPFLAGS "-I/usr/local/opt/qt/include"
-
-For pkg-config to find qt you may need to set:
-  set -gx PKG_CONFIG_PATH "/usr/local/opt/qt/lib/pkgconfig"
-
-
----------------------------
- Configuring and compiling
----------------------------
-autoreconf -i
-perl: warning: Setting locale failed.
-perl: warning: Please check that your locale settings:
-  LC_ALL = (unset),
-  LANG = "en_JP.UTF-8"
-    are supported and installed on your system.
-perl: warning: Falling back to the standard locale ("C").
-perl: warning: Setting locale failed.
-perl: warning: Please check that your locale settings:
-  LC_ALL = (unset),
-  LANG = "en_JP.UTF-8"
-    are supported and installed on your system.
-perl: warning: Falling back to the standard locale ("C").
-perl: warning: Setting locale failed.
-perl: warning: Please check that your locale settings:
-  LC_ALL = (unset),
-  LANG = "en_JP.UTF-8"
-    are supported and installed on your system.
-perl: warning: Falling back to the standard locale ("C").
-perl: warning: Setting locale failed.
-perl: warning: Please check that your locale settings:
-  LC_ALL = (unset),
-  LANG = "en_JP.UTF-8"
-    are supported and installed on your system.
-perl: warning: Falling back to the standard locale ("C").
-perl: warning: Setting locale failed.
-perl: warning: Please check that your locale settings:
-  LC_ALL = (unset),
-  LANG = "en_JP.UTF-8"
-    are supported and installed on your system.
-perl: warning: Falling back to the standard locale ("C").
-perl: warning: Setting locale failed.
-perl: warning: Please check that your locale settings:
-  LC_ALL = (unset),
-  LANG = "en_JP.UTF-8"
-    are supported and installed on your system.
-perl: warning: Falling back to the standard locale ("C").
-perl: warning: Setting locale failed.
-perl: warning: Please check that your locale settings:
-  LC_ALL = (unset),
-  LANG = "en_JP.UTF-8"
-    are supported and installed on your system.
-perl: warning: Falling back to the standard locale ("C").
-configure.ac:15: installing './ar-lib'
-configure.ac:11: installing './compile'
-configure.ac:78: installing './config.guess'
-configure.ac:78: installing './config.sub'
-configure.ac:6: installing './install-sh'
-configure.ac:6: installing './missing'
-Makefile.am: installing './depcomp'
-./configure -q --bindir=/Users/kishi/.emacs.d/elpa/pdf-tools-20190129.1822/ &amp;&amp; make -s
-
-Is case-sensitive searching enabled ?     yes
-Is modifying text annotations enabled ?   yes
-Is modifying markup annotations enabled ? yes
-
-epdfinfo.c:354:19: warning: 'tempnam' is deprecated: This function is provided for compatibility
-      reasons only. Due to security concerns inherent in the design of tempnam(3), it is highly
-      recommended that you use mkstemp(3) instead. [-Wdeprecated-declarations]
-      filename =  tempnam(NULL, "epdfinfo");
-                  ^
-/usr/include/stdio.h:306:1: note: 'tempnam' has been explicitly marked deprecated here
-__deprecated_msg("This function is provided for compatibility reasons only.  Due to security ...
-^
-/usr/include/sys/cdefs.h:180:48: note: expanded from macro '__deprecated_msg'
-        #define __deprecated_msg(_msg) __attribute__((deprecated(_msg)))
-                                                      ^
-1 warning generated.
-
----------------------------
-       Installing
----------------------------
-make -s install
- /usr/local/opt/coreutils/libexec/gnubin/mkdir -p '/Users/kishi/.emacs.d/elpa/pdf-tools-20190129.1822'
-  /usr/local/opt/coreutils/libexec/gnubin/install -c epdfinfo '/Users/kishi/.emacs.d/elpa/pdf-tools-20190129.1822'
-make[1]: Nothing to be done for `install-data-am'.
-
-===========================
-   Build succeeded. :O)
-===========================
-
-Comint finished at Mon Feb 11 17:49:54
-</pre>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-02-24 Sun 02:50</p>
+<p class="date">Created: 2019-02-26 Tue 04:49</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
