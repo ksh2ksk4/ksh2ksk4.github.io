@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-02-27 Wed 23:48 -->
+<!-- 2019-02-28 Thu 00:21 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title><a href="https://www.orgmode.org/ja/index.html">Org-mode</a></title>
@@ -254,42 +254,65 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8e10748">Notation</a>
+<li><a href="#org1826c51">Notation</a>
 <ul>
-<li><a href="#org8a15bda">Admonitions</a></li>
+<li><a href="#orga7150ba">Admonitions</a></li>
 </ul>
 </li>
-<li><a href="#orgb7424af">Export</a>
+<li><a href="#orgbd7845a">Export</a>
 <ul>
-<li><a href="#orgc94938d">HTML</a></li>
-<li><a href="#org818d462">Markdown</a></li>
-<li><a href="#orgdd95b46">Settings</a></li>
+<li><a href="#org8888b4c">HTML</a></li>
+<li><a href="#org924950c">Markdown</a></li>
+<li><a href="#org8210e9e">Settings</a></li>
 </ul>
 </li>
-<li><a href="#org966d7e1">コードブロックのコードを実行する</a>
+<li><a href="#org6bf43c4">コードブロックのコードを実行する</a>
 <ul>
-<li><a href="#orgbb7d391">Calc</a></li>
-<li><a href="#orgcdc5a84">Emacs-lisp</a></li>
-<li><a href="#orgfd821a2">PlantUML</a></li>
-<li><a href="#org7b1519b">Rust</a></li>
+<li><a href="#orga23ab5c">Calc</a></li>
+<li><a href="#org3c06a28">Emacs-lisp</a></li>
+<li><a href="#org974cbf9">PlantUML</a></li>
+<li><a href="#org5d015a0">Rust</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org8e10748" class="outline-2">
-<h2 id="org8e10748">Notation</h2>
-<div class="outline-text-2" id="text-org8e10748">
+<div id="outline-container-org1826c51" class="outline-2">
+<h2 id="org1826c51">Notation</h2>
+<div class="outline-text-2" id="text-org1826c51">
 </div>
-<div id="outline-container-org8a15bda" class="outline-3">
-<h3 id="org8a15bda">Admonitions<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup><sup>, </sup><sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup></h3>
-<div class="outline-text-3" id="text-org8a15bda">
+<div id="outline-container-orga7150ba" class="outline-3">
+<h3 id="orga7150ba">Admonitions<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup><sup>, </sup><sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup></h3>
+<div class="outline-text-3" id="text-orga7150ba">
+</div>
+<div id="outline-container-orgb7b75b1" class="outline-4">
+<h4 id="orgb7b75b1">Attention</h4>
+<div class="outline-text-4" id="text-orgb7b75b1">
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #b3e5fc; background-color: #1e2930;">#+begin_attention</span>
+attention
+<span style="color: #b3e5fc; background-color: #1e2930;">#+end_attention</span>
+</pre>
+</div>
+
 <div class="attention">
 <p>
 attention
 </p>
 
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga82c7f6" class="outline-4">
+<h4 id="orga82c7f6">Caution</h4>
+<div class="outline-text-4" id="text-orga82c7f6">
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #b3e5fc; background-color: #1e2930;">#+begin_caution</span>
+caution
+<span style="color: #b3e5fc; background-color: #1e2930;">#+end_caution</span>
+</pre>
 </div>
 
 <div class="caution">
@@ -298,12 +321,36 @@ caution
 </p>
 
 </div>
+</div>
+</div>
+
+<div id="outline-container-orgd86b0d4" class="outline-4">
+<h4 id="orgd86b0d4">Danger</h4>
+<div class="outline-text-4" id="text-orgd86b0d4">
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #b3e5fc; background-color: #1e2930;">#+begin_danger</span>
+danger
+<span style="color: #b3e5fc; background-color: #1e2930;">#+end_danger</span>
+</pre>
+</div>
 
 <div class="danger">
 <p>
 danger
 </p>
 
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb220ce2" class="outline-4">
+<h4 id="orgb220ce2">Error</h4>
+<div class="outline-text-4" id="text-orgb220ce2">
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #b3e5fc; background-color: #1e2930;">#+begin_error</span>
+error
+<span style="color: #b3e5fc; background-color: #1e2930;">#+end_error</span>
+</pre>
 </div>
 
 <div class="error">
@@ -312,12 +359,36 @@ error
 </p>
 
 </div>
+</div>
+</div>
+
+<div id="outline-container-org568f6b2" class="outline-4">
+<h4 id="org568f6b2">Hint</h4>
+<div class="outline-text-4" id="text-org568f6b2">
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #b3e5fc; background-color: #1e2930;">#+begin_hint</span>
+hint
+<span style="color: #b3e5fc; background-color: #1e2930;">#+end_hint</span>
+</pre>
+</div>
 
 <div class="hint">
 <p>
 hint
 </p>
 
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge06729e" class="outline-4">
+<h4 id="orge06729e">Important</h4>
+<div class="outline-text-4" id="text-orge06729e">
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #b3e5fc; background-color: #1e2930;">#+begin_important</span>
+important
+<span style="color: #b3e5fc; background-color: #1e2930;">#+end_important</span>
+</pre>
 </div>
 
 <div class="important">
@@ -326,12 +397,36 @@ important
 </p>
 
 </div>
+</div>
+</div>
+
+<div id="outline-container-orga24c12f" class="outline-4">
+<h4 id="orga24c12f">Note</h4>
+<div class="outline-text-4" id="text-orga24c12f">
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #b3e5fc; background-color: #1e2930;">#+begin_note</span>
+note
+<span style="color: #b3e5fc; background-color: #1e2930;">#+end_note</span>
+</pre>
+</div>
 
 <div class="note">
 <p>
 note
 </p>
 
+</div>
+</div>
+</div>
+
+<div id="outline-container-org373dcb9" class="outline-4">
+<h4 id="org373dcb9">Tip</h4>
+<div class="outline-text-4" id="text-org373dcb9">
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #b3e5fc; background-color: #1e2930;">#+begin_tip</span>
+tip
+<span style="color: #b3e5fc; background-color: #1e2930;">#+end_tip</span>
+</pre>
 </div>
 
 <div class="tip">
@@ -340,6 +435,18 @@ tip
 </p>
 
 </div>
+</div>
+</div>
+
+<div id="outline-container-org7acf0f8" class="outline-4">
+<h4 id="org7acf0f8">Warning</h4>
+<div class="outline-text-4" id="text-org7acf0f8">
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #b3e5fc; background-color: #1e2930;">#+begin_warning</span>
+warning
+<span style="color: #b3e5fc; background-color: #1e2930;">#+end_warning</span>
+</pre>
+</div>
 
 <div class="warning">
 <p>
@@ -347,24 +454,18 @@ warning
 </p>
 
 </div>
-
-<div class="hint">
-<p>
-hint
-</p>
-
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgb7424af" class="outline-2">
-<h2 id="orgb7424af">Export</h2>
-<div class="outline-text-2" id="text-orgb7424af">
+<div id="outline-container-orgbd7845a" class="outline-2">
+<h2 id="orgbd7845a">Export</h2>
+<div class="outline-text-2" id="text-orgbd7845a">
 </div>
-<div id="outline-container-orgc94938d" class="outline-3">
-<h3 id="orgc94938d">HTML</h3>
-<div class="outline-text-3" id="text-orgc94938d">
+<div id="outline-container-org8888b4c" class="outline-3">
+<h3 id="org8888b4c">HTML</h3>
+<div class="outline-text-3" id="text-org8888b4c">
 <ul class="org-ul">
 <li><code>M-x org-html-export-as-html</code>
 <ul class="org-ul">
@@ -377,9 +478,9 @@ hint
 </ul>
 </div>
 
-<div id="outline-container-orgc1a841d" class="outline-4">
-<h4 id="orgc1a841d">theme</h4>
-<div class="outline-text-4" id="text-orgc1a841d">
+<div id="outline-container-org7dd5723" class="outline-4">
+<h4 id="org7dd5723">theme</h4>
+<div class="outline-text-4" id="text-org7dd5723">
 <p>
 <a href="https://sphinx-rtd-theme.readthedocs.io/en/latest/index.html">Read the Docs Sphinx Theme</a>が綺麗なので<a href="https://github.com/fniessen/org-html-themes">org-html-themes</a>を利用する。
 </p>
@@ -387,9 +488,9 @@ hint
 </div>
 </div>
 
-<div id="outline-container-org818d462" class="outline-3">
-<h3 id="org818d462">Markdown</h3>
-<div class="outline-text-3" id="text-org818d462">
+<div id="outline-container-org924950c" class="outline-3">
+<h3 id="org924950c">Markdown</h3>
+<div class="outline-text-3" id="text-org924950c">
 <ul class="org-ul">
 <li><code>M-x org-md-export-as-markdown</code>
 <ul class="org-ul">
@@ -403,9 +504,9 @@ hint
 </div>
 </div>
 
-<div id="outline-container-orgdd95b46" class="outline-3">
-<h3 id="orgdd95b46">Settings</h3>
-<div class="outline-text-3" id="text-orgdd95b46">
+<div id="outline-container-org8210e9e" class="outline-3">
+<h3 id="org8210e9e">Settings</h3>
+<div class="outline-text-3" id="text-org8210e9e">
 <div class="org-src-container">
 <pre class="src src-org"><span style="color: #8bc34a; font-size: 135%;">#+AUTHOR:</span> <span style="color: #81d4fa; font-size: 135%;">KISHI Kousuke</span>
 <span style="color: #8bc34a; font-size: 135%;">#+EMAIL:</span> <span style="color: #81d4fa; font-size: 135%;">ksh2ksk4@gmail.com</span>
@@ -424,9 +525,9 @@ hint
 </div>
 </div>
 
-<div id="outline-container-org966d7e1" class="outline-2">
-<h2 id="org966d7e1">コードブロックのコードを実行する</h2>
-<div class="outline-text-2" id="text-org966d7e1">
+<div id="outline-container-org6bf43c4" class="outline-2">
+<h2 id="org6bf43c4">コードブロックのコードを実行する</h2>
+<div class="outline-text-2" id="text-org6bf43c4">
 <p>
 コードブロックにカーソルを置いて <code>C-c</code> <code>C-c</code> で実行できる。<br />
 実行結果はコードブロック直下の <code>#+RESULT:</code> に出力される。
@@ -447,13 +548,13 @@ hint
 </ul>
 </div>
 
-<div id="outline-container-orgbb7d391" class="outline-3">
-<h3 id="orgbb7d391">Calc</h3>
-<div class="outline-text-3" id="text-orgbb7d391">
+<div id="outline-container-orga23ab5c" class="outline-3">
+<h3 id="orga23ab5c">Calc</h3>
+<div class="outline-text-3" id="text-orga23ab5c">
 </div>
-<div id="outline-container-org53dca4c" class="outline-4">
-<h4 id="org53dca4c"><code>org-babel</code> で使用する言語に追加</h4>
-<div class="outline-text-4" id="text-org53dca4c">
+<div id="outline-container-org4d010c8" class="outline-4">
+<h4 id="org4d010c8"><code>org-babel</code> で使用する言語に追加</h4>
+<div class="outline-text-4" id="text-org4d010c8">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 1: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">defun</span> <span style="color: #84ffff;">dotspacemacs/user-config</span> <span style="color: #2196F3;">()</span>
   <span style="color: #2196F3;">(</span>org-babel-do-load-languages
@@ -463,11 +564,11 @@ hint
 </div>
 </div>
 
-<div id="outline-container-org0637b67" class="outline-4">
-<h4 id="org0637b67">e.g.</h4>
-<div class="outline-text-4" id="text-org0637b67">
+<div id="outline-container-orgffabb47" class="outline-4">
+<h4 id="orgffabb47">e.g.</h4>
+<div class="outline-text-4" id="text-orgffabb47">
 <div class="org-src-container">
-<pre class="src src-calc" id="org55dd142">a*x**2+b*x+c
+<pre class="src src-calc" id="orgdb7e22c">a*x**2+b*x+c
 </pre>
 </div>
 
@@ -478,13 +579,13 @@ x^2 - 4 x + 3
 </div>
 </div>
 
-<div id="outline-container-orgcdc5a84" class="outline-3">
-<h3 id="orgcdc5a84">Emacs-lisp</h3>
-<div class="outline-text-3" id="text-orgcdc5a84">
+<div id="outline-container-org3c06a28" class="outline-3">
+<h3 id="org3c06a28">Emacs-lisp</h3>
+<div class="outline-text-3" id="text-org3c06a28">
 </div>
-<div id="outline-container-orgb32581d" class="outline-4">
-<h4 id="orgb32581d"><code>org-babel</code> で使用する言語に追加</h4>
-<div class="outline-text-4" id="text-orgb32581d">
+<div id="outline-container-orgd5c5a38" class="outline-4">
+<h4 id="orgd5c5a38"><code>org-babel</code> で使用する言語に追加</h4>
+<div class="outline-text-4" id="text-orgd5c5a38">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 2: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">defun</span> <span style="color: #84ffff;">dotspacemacs/user-config</span> <span style="color: #2196F3;">()</span>
   <span style="color: #2196F3;">(</span>org-babel-do-load-languages
@@ -495,13 +596,13 @@ x^2 - 4 x + 3
 </div>
 </div>
 
-<div id="outline-container-orgfd821a2" class="outline-3">
-<h3 id="orgfd821a2">PlantUML</h3>
-<div class="outline-text-3" id="text-orgfd821a2">
+<div id="outline-container-org974cbf9" class="outline-3">
+<h3 id="org974cbf9">PlantUML</h3>
+<div class="outline-text-3" id="text-org974cbf9">
 </div>
-<div id="outline-container-org8aeb311" class="outline-4">
-<h4 id="org8aeb311"><code>org-babel</code> で使用する言語に追加</h4>
-<div class="outline-text-4" id="text-org8aeb311">
+<div id="outline-container-org75a483e" class="outline-4">
+<h4 id="org75a483e"><code>org-babel</code> で使用する言語に追加</h4>
+<div class="outline-text-4" id="text-org75a483e">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 3: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">defun</span> <span style="color: #84ffff;">dotspacemacs/user-config</span> <span style="color: #2196F3;">()</span>
   <span style="color: #2196F3;">(</span>org-babel-do-load-languages
@@ -512,13 +613,13 @@ x^2 - 4 x + 3
 </div>
 </div>
 
-<div id="outline-container-org7b1519b" class="outline-3">
-<h3 id="org7b1519b">Rust</h3>
-<div class="outline-text-3" id="text-org7b1519b">
+<div id="outline-container-org5d015a0" class="outline-3">
+<h3 id="org5d015a0">Rust</h3>
+<div class="outline-text-3" id="text-org5d015a0">
 </div>
-<div id="outline-container-orgef9e9fd" class="outline-4">
-<h4 id="orgef9e9fd"><code>org-babel</code> で使用する言語に追加</h4>
-<div class="outline-text-4" id="text-orgef9e9fd">
+<div id="outline-container-orgb7edc17" class="outline-4">
+<h4 id="orgb7edc17"><code>org-babel</code> で使用する言語に追加</h4>
+<div class="outline-text-4" id="text-orgb7edc17">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 4: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">defun</span> <span style="color: #84ffff;">dotspacemacs/user-config</span> <span style="color: #2196F3;">()</span>
   <span style="color: #2196F3;">(</span>org-babel-do-load-languages
@@ -528,9 +629,9 @@ x^2 - 4 x + 3
 </div>
 </div>
 
-<div id="outline-container-org33a6890" class="outline-4">
-<h4 id="org33a6890"><a href="https://github.com/micanzhang/ob-rust">ob-rust</a> パッケージをインストール</h4>
-<div class="outline-text-4" id="text-org33a6890">
+<div id="outline-container-orgd4cce75" class="outline-4">
+<h4 id="orgd4cce75"><a href="https://github.com/micanzhang/ob-rust">ob-rust</a> パッケージをインストール</h4>
+<div class="outline-text-4" id="text-orgd4cce75">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 5: </span>~/.spacemacs</label><pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">setq-default</span>
  dotspacemacs-additional-packages
@@ -543,9 +644,9 @@ x^2 - 4 x + 3
 </div>
 </div>
 
-<div id="outline-container-orgf7174b9" class="outline-4">
-<h4 id="orgf7174b9"><code>cargo-script</code> をインストール</h4>
-<div class="outline-text-4" id="text-orgf7174b9">
+<div id="outline-container-org4041dd1" class="outline-4">
+<h4 id="org4041dd1"><code>cargo-script</code> をインストール</h4>
+<div class="outline-text-4" id="text-org4041dd1">
 <pre class="example">
 $ cargo install cargo-script
 </pre>
@@ -570,7 +671,7 @@ $ cargo install cargo-script
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-02-27 Wed 23:48</p>
+<p class="date">Created: 2019-02-28 Thu 00:21</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
