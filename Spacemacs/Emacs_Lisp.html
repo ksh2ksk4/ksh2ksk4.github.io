@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-03-02 Sat 20:09 -->
+<!-- 2019-03-02 Sat 20:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title><a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/">Emacs Lisp</a></title>
@@ -254,14 +254,14 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc4049f8">自作関数</a></li>
+<li><a href="#orgedc010d">自作関数</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgc4049f8" class="outline-2">
-<h2 id="orgc4049f8">自作関数</h2>
-<div class="outline-text-2" id="text-orgc4049f8">
+<div id="outline-container-orgedc010d" class="outline-2">
+<h2 id="orgedc010d">自作関数</h2>
+<div class="outline-text-2" id="text-orgedc010d">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">defun</span> <span style="color: #84ffff;">my-upcase-word</span> <span style="color: #2196F3;">()</span>
   <span style="color: #ffe4b5;">"&#12459;&#12540;&#12477;&#12523;&#12398;&#20301;&#32622;&#12395;&#12354;&#12427;&#21336;&#35486;&#12434;&#22823;&#25991;&#23383;&#12395;&#22793;&#25563;&#12377;&#12427;"</span>
@@ -279,12 +279,27 @@ for the JavaScript code in this tag.
   <span style="color: #2196F3;">(</span>downcase-word <span style="color: #9ccc65;">1</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span>
 </pre>
 </div>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">defun</span> <span style="color: #84ffff;">my-org-html-export-to-html</span> <span style="color: #2196F3;">()</span>
+  <span style="color: #ffe4b5;">"my-org-html-export-to-html"</span>
+  <span style="color: #2196F3;">(</span><span style="color: #fff59d;">interactive</span><span style="color: #2196F3;">)</span>
+  <span style="color: #2196F3;">(</span><span style="color: #fff59d;">let*</span> <span style="color: #EF6C00;">(</span><span style="color: #B388FF;">(</span>root-dir <span style="color: #9ccc65;">"/Users/kishi/.own/docs/memoranda/"</span><span style="color: #B388FF;">)</span>
+         <span style="color: #b0bec5;">;; </span><span style="color: #b0bec5;">rename-file &#12391;&#12487;&#12451;&#12524;&#12463;&#12488;&#12522;&#21517;&#12392;&#12375;&#12390;&#35469;&#35672;&#12373;&#12379;&#12427;&#12383;&#12417;&#26411;&#23614;&#12395;'/'&#12364;&#24517;&#35201;</span>
+         <span style="color: #B388FF;">(</span>html-dir <span style="color: #9ccc65;">"ksh2ksk4.github.io/"</span><span style="color: #B388FF;">)</span>
+         <span style="color: #B388FF;">(</span>cwd default-directory<span style="color: #B388FF;">)</span>
+         <span style="color: #B388FF;">(</span>sub-dir <span style="color: #76ff03;">(</span><span style="color: #fff59d;">progn</span>
+                    <span style="color: #26A69A;">(</span>string-match root-dir cwd<span style="color: #26A69A;">)</span>
+                    <span style="color: #26A69A;">(</span>replace-match <span style="color: #9ccc65;">""</span> nil nil cwd<span style="color: #26A69A;">)</span><span style="color: #76ff03;">)</span><span style="color: #B388FF;">)</span><span style="color: #EF6C00;">)</span>
+    <span style="color: #EF6C00;">(</span>rename-file <span style="color: #B388FF;">(</span>org-html-export-to-html<span style="color: #B388FF;">)</span> <span style="color: #B388FF;">(</span>concat root-dir html-dir sub-dir<span style="color: #B388FF;">)</span> t<span style="color: #EF6C00;">)</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span>
+</pre>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-03-02 Sat 20:09</p>
+<p class="date">Created: 2019-03-02 Sat 20:11</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
