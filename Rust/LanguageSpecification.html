@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-03-03 Sun 02:00 -->
+<!-- 2019-03-03 Sun 02:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Language Specification</title>
@@ -276,31 +276,31 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0b07acc">1. 事始め</a></li>
-<li><a href="#org08ea2de">2. 数当てゲームをプログラムする</a></li>
-<li><a href="#org8cb0a24">3. 一般的なプログラミングの概念</a>
+<li><a href="#org66623a7">1. 事始め</a></li>
+<li><a href="#orgd7e293e">2. 数当てゲームをプログラムする</a></li>
+<li><a href="#orgc45ee0d">3. 一般的なプログラミングの概念</a>
 <ul>
-<li><a href="#orga326dac">3.1. データ型</a></li>
-<li><a href="#org3d13f17">3.2. Variable</a></li>
-<li><a href="#org8be65fb">3.3. Function</a></li>
-<li><a href="#orgffbc1b7">3.4. フロー制御</a></li>
+<li><a href="#org4f7d5a5">3.1. データ型</a></li>
+<li><a href="#org68d219e">3.2. Variable</a></li>
+<li><a href="#orgd07a16c">3.3. Function</a></li>
+<li><a href="#orgf8ba00e">3.4. フロー制御</a></li>
 </ul>
 </li>
-<li><a href="#orgbd6f7cb">4. 所有権</a></li>
-<li><a href="#org9728b78">5. 構造体(struct)</a>
+<li><a href="#org9061485">4. 所有権を理解する</a></li>
+<li><a href="#orga5fa347">5. 構造体(struct)</a>
 <ul>
-<li><a href="#org910b678">5.1. 構造体</a></li>
-<li><a href="#orgf2efde0">5.2. タプル構造体</a></li>
-<li><a href="#orgd6a158e">5.3. ユニット様構造体</a></li>
-<li><a href="#org5b238c1">5.4. 構造体データの所有権</a></li>
-<li><a href="#orgb7f674c">5.5. メソッド</a></li>
-<li><a href="#orgdb56e85">5.6. 関連関数</a></li>
-<li><a href="#org17c9cdc">5.7. プログラム例</a></li>
+<li><a href="#orgf119f08">5.1. 構造体</a></li>
+<li><a href="#orgcf6a17f">5.2. タプル構造体</a></li>
+<li><a href="#orgb4db387">5.3. ユニット様構造体</a></li>
+<li><a href="#org2fec758">5.4. 構造体データの所有権</a></li>
+<li><a href="#org8d75273">5.5. メソッド</a></li>
+<li><a href="#orgc3ab49f">5.6. 関連関数</a></li>
+<li><a href="#org126d067">5.7. プログラム例</a></li>
 </ul>
 </li>
-<li><a href="#org898bd12">6. Enumとパターンマッチング</a>
+<li><a href="#orge0ef83d">6. Enumとパターンマッチング</a>
 <ul>
-<li><a href="#org38adb08">6.1. e.g. IPアドレスデータを表現する場合</a></li>
+<li><a href="#org3ae2751">6.1. e.g. IPアドレスデータを表現する場合</a></li>
 </ul>
 </li>
 </ul>
@@ -310,8 +310,8 @@ for the JavaScript code in this tag.
 <a href="https://doc.rust-jp.rs/book/second-edition/">プログラミング言語 Rust, 2nd Edition</a>から。
 </p>
 
-<div id="outline-container-org0b07acc" class="outline-2">
-<h2 id="org0b07acc"><span class="section-number-2">1</span> 事始め</h2>
+<div id="outline-container-org66623a7" class="outline-2">
+<h2 id="org66623a7"><span class="section-number-2">1</span> 事始め</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 $ rustc --version
@@ -322,8 +322,8 @@ cargo 1.32.0 (8610973aa 2019-01-02)
 </div>
 </div>
 
-<div id="outline-container-org08ea2de" class="outline-2">
-<h2 id="org08ea2de"><span class="section-number-2">2</span> 数当てゲームをプログラムする</h2>
+<div id="outline-container-orgd7e293e" class="outline-2">
+<h2 id="orgd7e293e"><span class="section-number-2">2</span> 数当てゲームをプログラムする</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 記載の通り。
@@ -331,20 +331,20 @@ cargo 1.32.0 (8610973aa 2019-01-02)
 </div>
 </div>
 
-<div id="outline-container-org8cb0a24" class="outline-2">
-<h2 id="org8cb0a24"><span class="section-number-2">3</span> 一般的なプログラミングの概念</h2>
+<div id="outline-container-orgc45ee0d" class="outline-2">
+<h2 id="orgc45ee0d"><span class="section-number-2">3</span> 一般的なプログラミングの概念</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orga326dac" class="outline-3">
-<h3 id="orga326dac"><span class="section-number-3">3.1</span> データ型</h3>
+<div id="outline-container-org4f7d5a5" class="outline-3">
+<h3 id="org4f7d5a5"><span class="section-number-3">3.1</span> データ型</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-orgb9dcc32" class="outline-4">
-<h4 id="orgb9dcc32"><span class="section-number-4">3.1.1</span> スカラー型</h4>
+<div id="outline-container-org9298759" class="outline-4">
+<h4 id="org9298759"><span class="section-number-4">3.1.1</span> スカラー型</h4>
 <div class="outline-text-4" id="text-3-1-1">
 </div>
-<div id="outline-container-org1cf7f99" class="outline-5">
-<h5 id="org1cf7f99"><span class="section-number-5">3.1.1.1</span> 整数型(符号あり)</h5>
+<div id="outline-container-org0722c95" class="outline-5">
+<h5 id="org0722c95"><span class="section-number-5">3.1.1.1</span> 整数型(符号あり)</h5>
 <div class="outline-text-5" id="text-3-1-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -420,8 +420,8 @@ cargo 1.32.0 (8610973aa 2019-01-02)
 </div>
 </div>
 
-<div id="outline-container-org67d4160" class="outline-5">
-<h5 id="org67d4160"><span class="section-number-5">3.1.1.2</span> 整数型(符号なし)</h5>
+<div id="outline-container-org25c8317" class="outline-5">
+<h5 id="org25c8317"><span class="section-number-5">3.1.1.2</span> 整数型(符号なし)</h5>
 <div class="outline-text-5" id="text-3-1-1-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -493,8 +493,8 @@ cargo 1.32.0 (8610973aa 2019-01-02)
 </div>
 </div>
 
-<div id="outline-container-org8df88f8" class="outline-5">
-<h5 id="org8df88f8"><span class="section-number-5">3.1.1.3</span> 浮動小数点数型</h5>
+<div id="outline-container-orgebc7a58" class="outline-5">
+<h5 id="orgebc7a58"><span class="section-number-5">3.1.1.3</span> 浮動小数点数型</h5>
 <div class="outline-text-5" id="text-3-1-1-3">
 <p>
 <code>f32</code> (単精度浮動小数点数) と <code>f64</code> (倍精度浮動小数点数) があり、 <code>f64</code> が浮動小数点数型の基準型。
@@ -502,8 +502,8 @@ cargo 1.32.0 (8610973aa 2019-01-02)
 </div>
 </div>
 
-<div id="outline-container-org3133f5e" class="outline-5">
-<h5 id="org3133f5e"><span class="section-number-5">3.1.1.4</span> 論理値型</h5>
+<div id="outline-container-orgfd6c416" class="outline-5">
+<h5 id="orgfd6c416"><span class="section-number-5">3.1.1.4</span> 論理値型</h5>
 <div class="outline-text-5" id="text-3-1-1-4">
 <p>
 論理値型は <code>bool</code> であり、 <code>true</code> と <code>false</code> が取り得る値。
@@ -511,8 +511,8 @@ cargo 1.32.0 (8610973aa 2019-01-02)
 </div>
 </div>
 
-<div id="outline-container-org86ca4db" class="outline-5">
-<h5 id="org86ca4db"><span class="section-number-5">3.1.1.5</span> 文字型</h5>
+<div id="outline-container-org11d887c" class="outline-5">
+<h5 id="org11d887c"><span class="section-number-5">3.1.1.5</span> 文字型</h5>
 <div class="outline-text-5" id="text-3-1-1-5">
 <p>
 文字型は <code>char</code> であり、Unicodeのスカラ値を表す。<br />
@@ -521,8 +521,8 @@ cargo 1.32.0 (8610973aa 2019-01-02)
 </div>
 </div>
 
-<div id="outline-container-org14b9934" class="outline-5">
-<h5 id="org14b9934"><span class="section-number-5">3.1.1.6</span> ユニット型</h5>
+<div id="outline-container-orgc321bfa" class="outline-5">
+<h5 id="orgc321bfa"><span class="section-number-5">3.1.1.6</span> ユニット型</h5>
 <div class="outline-text-5" id="text-3-1-1-6">
 <p>
 ユニット型は <code>()</code> であり、空のタプル( <code>()</code> )が取り得る値。
@@ -531,12 +531,12 @@ cargo 1.32.0 (8610973aa 2019-01-02)
 </div>
 </div>
 
-<div id="outline-container-org8b7a4b5" class="outline-4">
-<h4 id="org8b7a4b5"><span class="section-number-4">3.1.2</span> 複合型</h4>
+<div id="outline-container-orgeb3beb1" class="outline-4">
+<h4 id="orgeb3beb1"><span class="section-number-4">3.1.2</span> 複合型</h4>
 <div class="outline-text-4" id="text-3-1-2">
 </div>
-<div id="outline-container-orge868677" class="outline-5">
-<h5 id="orge868677"><span class="section-number-5">3.1.2.1</span> タプル型</h5>
+<div id="outline-container-org70fbf6f" class="outline-5">
+<h5 id="org70fbf6f"><span class="section-number-5">3.1.2.1</span> タプル型</h5>
 <div class="outline-text-5" id="text-3-1-2-1">
 <p>
 複数の型を一つの型に集約したもの。
@@ -551,8 +551,8 @@ cargo 1.32.0 (8610973aa 2019-01-02)
 </div>
 </div>
 
-<div id="outline-container-orge8988bf" class="outline-5">
-<h5 id="orge8988bf"><span class="section-number-5">3.1.2.2</span> 配列型</h5>
+<div id="outline-container-orgf6185ed" class="outline-5">
+<h5 id="orgf6185ed"><span class="section-number-5">3.1.2.2</span> 配列型</h5>
 <div class="outline-text-5" id="text-3-1-2-2">
 <ul class="org-ul">
 <li>コレクションの一種</li>
@@ -581,12 +581,12 @@ The value of first is 1 and last is 3
 </div>
 </div>
 
-<div id="outline-container-org3d13f17" class="outline-3">
-<h3 id="org3d13f17"><span class="section-number-3">3.2</span> Variable</h3>
+<div id="outline-container-org68d219e" class="outline-3">
+<h3 id="org68d219e"><span class="section-number-3">3.2</span> Variable</h3>
 <div class="outline-text-3" id="text-3-2">
 </div>
-<div id="outline-container-orgf7bbcca" class="outline-4">
-<h4 id="orgf7bbcca"><span class="section-number-4">3.2.1</span> Shadowing</h4>
+<div id="outline-container-orgbbd93a3" class="outline-4">
+<h4 id="orgbbd93a3"><span class="section-number-4">3.2.1</span> Shadowing</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <p>
 前に定義した変数と同じ名前の新しい変数を定義できる。
@@ -644,8 +644,8 @@ The value of spaces is 8
 </div>
 </div>
 
-<div id="outline-container-org8be65fb" class="outline-3">
-<h3 id="org8be65fb"><span class="section-number-3">3.3</span> Function</h3>
+<div id="outline-container-orgd07a16c" class="outline-3">
+<h3 id="orgd07a16c"><span class="section-number-3">3.3</span> Function</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li><code>main</code> はプログラムのエントリポイント</li>
@@ -689,12 +689,12 @@ The return value of sub_function is 10
 </div>
 </div>
 
-<div id="outline-container-orgffbc1b7" class="outline-3">
-<h3 id="orgffbc1b7"><span class="section-number-3">3.4</span> フロー制御</h3>
+<div id="outline-container-orgf8ba00e" class="outline-3">
+<h3 id="orgf8ba00e"><span class="section-number-3">3.4</span> フロー制御</h3>
 <div class="outline-text-3" id="text-3-4">
 </div>
-<div id="outline-container-org64e95bf" class="outline-4">
-<h4 id="org64e95bf"><span class="section-number-4">3.4.1</span> <code>if</code></h4>
+<div id="outline-container-orgf35182d" class="outline-4">
+<h4 id="orgf35182d"><span class="section-number-4">3.4.1</span> <code>if</code></h4>
 <div class="outline-text-4" id="text-3-4-1">
 <p>
 条件式は <code>bool</code> でなければならない。<br />
@@ -737,8 +737,8 @@ The value of result is true
 </div>
 </div>
 
-<div id="outline-container-org797ea5c" class="outline-4">
-<h4 id="org797ea5c"><span class="section-number-4">3.4.2</span> <code>loop</code></h4>
+<div id="outline-container-org3469504" class="outline-4">
+<h4 id="org3469504"><span class="section-number-4">3.4.2</span> <code>loop</code></h4>
 <div class="outline-text-4" id="text-3-4-2">
 <div class="note">
 <p>
@@ -749,8 +749,8 @@ The value of result is true
 </div>
 </div>
 
-<div id="outline-container-org5e4e574" class="outline-4">
-<h4 id="org5e4e574"><span class="section-number-4">3.4.3</span> <code>while</code></h4>
+<div id="outline-container-org119265b" class="outline-4">
+<h4 id="org119265b"><span class="section-number-4">3.4.3</span> <code>while</code></h4>
 <div class="outline-text-4" id="text-3-4-3">
 <div class="note">
 <p>
@@ -761,8 +761,8 @@ The value of result is true
 </div>
 </div>
 
-<div id="outline-container-org795e7c7" class="outline-4">
-<h4 id="org795e7c7"><span class="section-number-4">3.4.4</span> <code>for</code></h4>
+<div id="outline-container-org743ca13" class="outline-4">
+<h4 id="org743ca13"><span class="section-number-4">3.4.4</span> <code>for</code></h4>
 <div class="outline-text-4" id="text-3-4-4">
 <div class="note">
 <p>
@@ -775,8 +775,8 @@ The value of result is true
 </div>
 </div>
 
-<div id="outline-container-orgbd6f7cb" class="outline-2">
-<h2 id="orgbd6f7cb"><span class="section-number-2">4</span> 所有権</h2>
+<div id="outline-container-org9061485" class="outline-2">
+<h2 id="org9061485"><span class="section-number-2">4</span> 所有権を理解する</h2>
 <div class="outline-text-2" id="text-4">
 <div class="note">
 <p>
@@ -787,12 +787,12 @@ The value of result is true
 </div>
 </div>
 
-<div id="outline-container-org9728b78" class="outline-2">
-<h2 id="org9728b78"><span class="section-number-2">5</span> 構造体(struct)</h2>
+<div id="outline-container-orga5fa347" class="outline-2">
+<h2 id="orga5fa347"><span class="section-number-2">5</span> 構造体(struct)</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org910b678" class="outline-3">
-<h3 id="org910b678"><span class="section-number-3">5.1</span> 構造体</h3>
+<div id="outline-container-orgf119f08" class="outline-3">
+<h3 id="orgf119f08"><span class="section-number-3">5.1</span> 構造体</h3>
 <div class="outline-text-3" id="text-5-1">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 8: </span>構造体のサンプルコード</label><pre class="src src-rust"><span style="color: #b0bec5;">// </span><span style="color: #b0bec5;">&#27083;&#36896;&#20307;&#12434;&#23450;&#32681;</span>
@@ -855,8 +855,8 @@ The value of user4 is User { username: "foo", email: "foo@example.com", sign_in_
 </div>
 </div>
 
-<div id="outline-container-orgf2efde0" class="outline-3">
-<h3 id="orgf2efde0"><span class="section-number-3">5.2</span> タプル構造体</h3>
+<div id="outline-container-orgcf6a17f" class="outline-3">
+<h3 id="orgcf6a17f"><span class="section-number-3">5.2</span> タプル構造体</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 フィールドに名前の不要な構造体。
@@ -882,8 +882,8 @@ The value of origin is Point(-1, -1, -1)
 </div>
 </div>
 
-<div id="outline-container-orgd6a158e" class="outline-3">
-<h3 id="orgd6a158e"><span class="section-number-3">5.3</span> ユニット様構造体</h3>
+<div id="outline-container-orgb4db387" class="outline-3">
+<h3 id="orgb4db387"><span class="section-number-3">5.3</span> ユニット様構造体</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 フィールドの存在しない構造体。<br />
@@ -892,8 +892,8 @@ The value of origin is Point(-1, -1, -1)
 </div>
 </div>
 
-<div id="outline-container-org5b238c1" class="outline-3">
-<h3 id="org5b238c1"><span class="section-number-3">5.4</span> 構造体データの所有権</h3>
+<div id="outline-container-org2fec758" class="outline-3">
+<h3 id="org2fec758"><span class="section-number-3">5.4</span> 構造体データの所有権</h3>
 <div class="outline-text-3" id="text-5-4">
 <div class="note">
 <p>
@@ -904,8 +904,8 @@ The value of origin is Point(-1, -1, -1)
 </div>
 </div>
 
-<div id="outline-container-orgb7f674c" class="outline-3">
-<h3 id="orgb7f674c"><span class="section-number-3">5.5</span> メソッド</h3>
+<div id="outline-container-org8d75273" class="outline-3">
+<h3 id="org8d75273"><span class="section-number-3">5.5</span> メソッド</h3>
 <div class="outline-text-3" id="text-5-5">
 <p>
 構造体に関連付けられて定義される関数で第一引数が <code>self</code> (メソッドが実行されている構造体)であるもの。<br />
@@ -914,8 +914,8 @@ The value of origin is Point(-1, -1, -1)
 </div>
 </div>
 
-<div id="outline-container-orgdb56e85" class="outline-3">
-<h3 id="orgdb56e85"><span class="section-number-3">5.6</span> 関連関数</h3>
+<div id="outline-container-orgc3ab49f" class="outline-3">
+<h3 id="orgc3ab49f"><span class="section-number-3">5.6</span> 関連関数</h3>
 <div class="outline-text-3" id="text-5-6">
 <p>
 構造体に関連付けられて定義される関数で <code>self</code> を引数に取らないもの。<br />
@@ -924,12 +924,12 @@ The value of origin is Point(-1, -1, -1)
 </div>
 </div>
 
-<div id="outline-container-org17c9cdc" class="outline-3">
-<h3 id="org17c9cdc"><span class="section-number-3">5.7</span> プログラム例</h3>
+<div id="outline-container-org126d067" class="outline-3">
+<h3 id="org126d067"><span class="section-number-3">5.7</span> プログラム例</h3>
 <div class="outline-text-3" id="text-5-7">
 </div>
-<div id="outline-container-org08ef627" class="outline-4">
-<h4 id="org08ef627"><span class="section-number-4">5.7.1</span> 四角形の面積を算出する</h4>
+<div id="outline-container-org3f7b956" class="outline-4">
+<h4 id="org3f7b956"><span class="section-number-4">5.7.1</span> 四角形の面積を算出する</h4>
 <div class="outline-text-4" id="text-5-7-1">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 10: </span>単一変数により面積を算出する</label><pre class="src src-rust"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">width</span> = <span style="color: #9ccc65;">30</span>;
@@ -1017,8 +1017,8 @@ The area of the rectangle is 1500 square pixels.
 </div>
 </div>
 
-<div id="outline-container-org490795f" class="outline-4">
-<h4 id="org490795f"><span class="section-number-4">5.7.2</span> 他の四角形を内包するかチェックする</h4>
+<div id="outline-container-org967739b" class="outline-4">
+<h4 id="org967739b"><span class="section-number-4">5.7.2</span> 他の四角形を内包するかチェックする</h4>
 <div class="outline-text-4" id="text-5-7-2">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 14: </span>他の四角形を内包するかチェックする</label><pre class="src src-rust"><span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">derive</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">Debug</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
@@ -1067,8 +1067,8 @@ Can rectangle1 hold rectangle3? false
 </div>
 </div>
 
-<div id="outline-container-org0ad4e3c" class="outline-4">
-<h4 id="org0ad4e3c"><span class="section-number-4">5.7.3</span> 正方形を生成する</h4>
+<div id="outline-container-org549d7c0" class="outline-4">
+<h4 id="org549d7c0"><span class="section-number-4">5.7.3</span> 正方形を生成する</h4>
 <div class="outline-text-4" id="text-5-7-3">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 15: </span>正方形を生成する</label><pre class="src src-rust"><span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">derive</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">Debug</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
@@ -1099,20 +1099,20 @@ square: Rectangle {
 </div>
 </div>
 
-<div id="outline-container-org898bd12" class="outline-2">
-<h2 id="org898bd12"><span class="section-number-2">6</span> Enumとパターンマッチング</h2>
+<div id="outline-container-orge0ef83d" class="outline-2">
+<h2 id="orge0ef83d"><span class="section-number-2">6</span> Enumとパターンマッチング</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Rustの列挙型(enum)は関数型言語における<a href="https://ja.wikipedia.org/wiki/%E4%BB%A3%E6%95%B0%E7%9A%84%E3%83%87%E3%83%BC%E3%82%BF%E5%9E%8B">代数的データ型</a>に非常に近い。
 </p>
 </div>
 
-<div id="outline-container-org38adb08" class="outline-3">
-<h3 id="org38adb08"><span class="section-number-3">6.1</span> e.g. IPアドレスデータを表現する場合</h3>
+<div id="outline-container-org3ae2751" class="outline-3">
+<h3 id="org3ae2751"><span class="section-number-3">6.1</span> e.g. IPアドレスデータを表現する場合</h3>
 <div class="outline-text-3" id="text-6-1">
 </div>
-<div id="outline-container-orgb50fb16" class="outline-4">
-<h4 id="orgb50fb16"><span class="section-number-4">6.1.1</span> 列挙型と構造体によるIPアドレスデータ</h4>
+<div id="outline-container-orgc05d05c" class="outline-4">
+<h4 id="orgc05d05c"><span class="section-number-4">6.1.1</span> 列挙型と構造体によるIPアドレスデータ</h4>
 <div class="outline-text-4" id="text-6-1-1">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 16: </span>列挙型と構造体によるIPアドレスデータ</label><pre class="src src-rust"><span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">derive</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">Debug</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
@@ -1153,8 +1153,8 @@ loopback: IpAddr {
 </div>
 </div>
 
-<div id="outline-container-org612f6cc" class="outline-4">
-<h4 id="org612f6cc"><span class="section-number-4">6.1.2</span> 列挙型のみによるIPアドレスデータ</h4>
+<div id="outline-container-orgda30b5c" class="outline-4">
+<h4 id="orgda30b5c"><span class="section-number-4">6.1.2</span> 列挙型のみによるIPアドレスデータ</h4>
 <div class="outline-text-4" id="text-6-1-2">
 <p>
 列挙型では列挙子に任意のデータを関連付けることができる。
@@ -1206,7 +1206,7 @@ loopback: V6(
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-03-03 Sun 02:00</p>
+<p class="date">Created: 2019-03-03 Sun 02:01</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
