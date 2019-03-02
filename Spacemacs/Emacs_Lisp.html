@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-03-02 Sat 20:07 -->
+<!-- 2019-03-02 Sat 20:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title><a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/">Emacs Lisp</a></title>
@@ -254,14 +254,14 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org5865630">自作関数</a></li>
+<li><a href="#orgc4049f8">自作関数</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5865630" class="outline-2">
-<h2 id="org5865630">自作関数</h2>
-<div class="outline-text-2" id="text-org5865630">
+<div id="outline-container-orgc4049f8" class="outline-2">
+<h2 id="orgc4049f8">自作関数</h2>
+<div class="outline-text-2" id="text-orgc4049f8">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">defun</span> <span style="color: #84ffff;">my-upcase-word</span> <span style="color: #2196F3;">()</span>
   <span style="color: #ffe4b5;">"&#12459;&#12540;&#12477;&#12523;&#12398;&#20301;&#32622;&#12395;&#12354;&#12427;&#21336;&#35486;&#12434;&#22823;&#25991;&#23383;&#12395;&#22793;&#25563;&#12377;&#12427;"</span>
@@ -270,12 +270,21 @@ for the JavaScript code in this tag.
   <span style="color: #2196F3;">(</span>upcase-word <span style="color: #9ccc65;">1</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span>
 </pre>
 </div>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">defun</span> <span style="color: #84ffff;">my-downcase-word</span> <span style="color: #2196F3;">()</span>
+  <span style="color: #ffe4b5;">"&#12459;&#12540;&#12477;&#12523;&#12398;&#20301;&#32622;&#12395;&#12354;&#12427;&#21336;&#35486;&#12434;&#23567;&#25991;&#23383;&#12395;&#22793;&#25563;&#12377;&#12427;"</span>
+  <span style="color: #2196F3;">(</span><span style="color: #fff59d;">interactive</span><span style="color: #2196F3;">)</span>
+  <span style="color: #2196F3;">(</span>backward-word<span style="color: #2196F3;">)</span>
+  <span style="color: #2196F3;">(</span>downcase-word <span style="color: #9ccc65;">1</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span>
+</pre>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-03-02 Sat 20:07</p>
+<p class="date">Created: 2019-03-02 Sat 20:09</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
