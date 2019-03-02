@@ -6,7 +6,7 @@
 <!-- 2019-03-02 Sat 20:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title><a href="https://github.com/syl20bnr/spacemacs">Spacemacs</a></title>
+<title><a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/">Emacs Lisp</a></title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="KISHI Kousuke" />
 <style type="text/css">
@@ -249,38 +249,28 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title"><a href="https://github.com/syl20bnr/spacemacs">Spacemacs</a></h1>
+<h1 class="title"><a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/">Emacs Lisp</a></h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org34d5df7">Install</a></li>
-<li><a href="#orgf4a961d">Settings</a></li>
-<li><a href="#org48fcba2">Org-mode</a></li>
-<li><a href="#orgad166e5">Packages</a></li>
-<li><a href="#org7359108">Emacs Lisp</a></li>
+<li><a href="#org5865630">自作関数</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org34d5df7" class="outline-2">
-<h2 id="org34d5df7"><a href="Install.html">Install</a></h2>
+<div id="outline-container-org5865630" class="outline-2">
+<h2 id="org5865630">自作関数</h2>
+<div class="outline-text-2" id="text-org5865630">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">defun</span> <span style="color: #84ffff;">my-upcase-word</span> <span style="color: #2196F3;">()</span>
+  <span style="color: #ffe4b5;">"&#12459;&#12540;&#12477;&#12523;&#12398;&#20301;&#32622;&#12395;&#12354;&#12427;&#21336;&#35486;&#12434;&#22823;&#25991;&#23383;&#12395;&#22793;&#25563;&#12377;&#12427;"</span>
+  <span style="color: #2196F3;">(</span><span style="color: #fff59d;">interactive</span><span style="color: #2196F3;">)</span>
+  <span style="color: #2196F3;">(</span>backward-word<span style="color: #2196F3;">)</span>
+  <span style="color: #2196F3;">(</span>upcase-word <span style="color: #9ccc65;">1</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span>
+</pre>
 </div>
-
-<div id="outline-container-orgf4a961d" class="outline-2">
-<h2 id="orgf4a961d"><a href="Settings.html">Settings</a></h2>
 </div>
-
-<div id="outline-container-org48fcba2" class="outline-2">
-<h2 id="org48fcba2"><a href="Org-mode.html">Org-mode</a></h2>
-</div>
-
-<div id="outline-container-orgad166e5" class="outline-2">
-<h2 id="orgad166e5"><a href="Packages.html">Packages</a></h2>
-</div>
-
-<div id="outline-container-org7359108" class="outline-2">
-<h2 id="org7359108"><a href="Emacs_Lisp.html">Emacs Lisp</a></h2>
 </div>
 </div>
 <div id="postamble" class="status">
