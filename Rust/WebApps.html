@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-03-03 Sun 22:25 -->
+<!-- 2019-03-04 Mon 00:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title><a href="https://www.rust-lang.org/">Rust</a></title>
+<title>Web Apps</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="KISHI Kousuke" />
 <style type="text/css">
@@ -249,53 +249,103 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title"><a href="https://www.rust-lang.org/">Rust</a></h1>
+<h1 class="title">Web Apps</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgdebb62a">1. Install</a></li>
-<li><a href="#org6fffe34">2. Language Specification</a></li>
-<li><a href="#org48c5499">3. WebAssembly</a></li>
-<li><a href="#org466b640">4. Chrome Extensions</a></li>
-<li><a href="#orge33b6f1">5. Frameworks</a></li>
-<li><a href="#org003eb51">6. Web Apps</a></li>
-<li><a href="#orgef3ff57">7. Bookmarks</a></li>
+<li><a href="#orgfbb881a">1. オンライン版 Org-mode</a>
+<ul>
+<li><a href="#org2a12634">1.1. プロジェクト作成</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgdebb62a" class="outline-2">
-<h2 id="orgdebb62a"><span class="section-number-2">1</span> <a href="Install.html">Install</a></h2>
+<div id="outline-container-orgfbb881a" class="outline-2">
+<h2 id="orgfbb881a"><span class="section-number-2">1</span> オンライン版 Org-mode</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org2a12634" class="outline-3">
+<h3 id="org2a12634"><span class="section-number-3">1.1</span> プロジェクト作成</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+バイナリプロジェクトを作成。
+</p>
+
+<pre class="example">
+$ cd ~/.own/srcs/Rust/Rocket
+$ cargo new Online-Org-mode --bin
+$ cd Online-Org-mode
+</pre>
+
+<p>
+GitHubへ登録<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>。
+</p>
+
+<pre class="example">
+$ git remote add origin https://github.com/ksh2ksk4/Online-Org-mode.git
+</pre>
+
+<p>
+依存関係を追加。
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Cargo.toml</label><pre class="src src-rust"><span style="color: #e91e63;">[</span>dependencies<span style="color: #e91e63;">]</span>
+rocket = <span style="color: #9ccc65;">"0.4.0"</span>
+</pre>
 </div>
 
-<div id="outline-container-org6fffe34" class="outline-2">
-<h2 id="org6fffe34"><span class="section-number-2">2</span> <a href="LanguageSpecification.html">Language Specification</a></h2>
+<p>
+ソースコードを変更。
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>src/main.rs</label><pre class="src src-rust"><span style="color: #ffd700;">#!</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">feature</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">proc_macro_hygiene, decl_macro</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
+
+<span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">macro_use</span><span style="color: #e91e63;">]</span> <span style="color: #fff59d;">extern</span> <span style="color: #fff59d;">crate</span> rocket;
+
+<span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">get</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"/"</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
+<span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">index</span><span style="color: #e91e63;">()</span> -&gt; &amp;'<span style="color: #fff59d;">static</span> <span style="color: #84ffff;">str</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #9ccc65;">"Hello, world!"</span>
+<span style="color: #e91e63;">}</span>
+
+<span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">main</span><span style="color: #e91e63;">()</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #8bc34a;">rocket</span>::ignite<span style="color: #2196F3;">()</span>.mount<span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"/"</span>, <span style="color: #ffd700;">routes!</span><span style="color: #EF6C00;">[</span>index<span style="color: #EF6C00;">]</span><span style="color: #2196F3;">)</span>.launch<span style="color: #2196F3;">()</span>;
+<span style="color: #e91e63;">}</span>
+</pre>
 </div>
 
-<div id="outline-container-org48c5499" class="outline-2">
-<h2 id="org48c5499"><span class="section-number-2">3</span> <a href="WebAssembly.html">WebAssembly</a></h2>
-</div>
+<p>
+アプリを起動。
+</p>
 
-<div id="outline-container-org466b640" class="outline-2">
-<h2 id="org466b640"><span class="section-number-2">4</span> <a href="ChromeExtensions.html">Chrome Extensions</a></h2>
-</div>
+<pre class="example">
+$ cargo run
+</pre>
 
-<div id="outline-container-orge33b6f1" class="outline-2">
-<h2 id="orge33b6f1"><span class="section-number-2">5</span> <a href="Frameworks.html">Frameworks</a></h2>
+<p>
+<a href="http://localhost:8000/">http://localhost:8000/</a> でアプリが起動しているはず。
+</p>
 </div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
 
-<div id="outline-container-org003eb51" class="outline-2">
-<h2 id="org003eb51"><span class="section-number-2">6</span> <a href="WebApps.html">Web Apps</a></h2>
-</div>
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+Gitの操作はMagitで実行している。
+</p></div></div>
 
-<div id="outline-container-orgef3ff57" class="outline-2">
-<h2 id="orgef3ff57"><span class="section-number-2">7</span> <a href="Bookmarks.html">Bookmarks</a></h2>
+
 </div>
-</div>
+</div></div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-03-03 Sun 22:25</p>
+<p class="date">Created: 2019-03-04 Mon 00:01</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
