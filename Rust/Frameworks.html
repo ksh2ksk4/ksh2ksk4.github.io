@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-03-03 Sun 12:56 -->
+<!-- 2019-03-03 Sun 13:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Frameworks</title>
@@ -254,27 +254,27 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org766d2d9">1. Rocket</a>
+<li><a href="#orge03a673">1. Rocket</a>
 <ul>
-<li><a href="#orgf59dc87">1.1. Introduction</a></li>
-<li><a href="#org3ae96dd">1.2. QuickstartとGetting Started</a></li>
+<li><a href="#org230dc5b">1.1. Introduction</a></li>
+<li><a href="#orgf0bece8">1.2. QuickstartとGetting Started</a></li>
 </ul>
 </li>
-<li><a href="#org3036ec2">2. Bookmarks</a></li>
+<li><a href="#org83cd3f3">2. Bookmarks</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org766d2d9" class="outline-2">
-<h2 id="org766d2d9"><span class="section-number-2">1</span> <a href="https://rocket.rs/">Rocket</a></h2>
+<div id="outline-container-orge03a673" class="outline-2">
+<h2 id="orge03a673"><span class="section-number-2">1</span> <a href="https://rocket.rs/">Rocket</a></h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="https://rocket.rs/v0.4/guide/#the-rocket-programming-guide">The Rocket Programming Guide</a>を順に。
 </p>
 </div>
 
-<div id="outline-container-orgf59dc87" class="outline-3">
-<h3 id="orgf59dc87"><span class="section-number-3">1.1</span> <a href="https://rocket.rs/v0.4/guide/introduction/">Introduction</a></h3>
+<div id="outline-container-org230dc5b" class="outline-3">
+<h3 id="org230dc5b"><span class="section-number-3">1.1</span> <a href="https://rocket.rs/v0.4/guide/introduction/">Introduction</a></h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 割愛。
@@ -282,9 +282,13 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org3ae96dd" class="outline-3">
-<h3 id="org3ae96dd"><span class="section-number-3">1.2</span> <a href="https://rocket.rs/v0.4/guide/quickstart/">Quickstart</a>と<a href="https://rocket.rs/v0.4/guide/getting-started/">Getting Started</a></h3>
+<div id="outline-container-orgf0bece8" class="outline-3">
+<h3 id="orgf0bece8"><span class="section-number-3">1.2</span> <a href="https://rocket.rs/v0.4/guide/quickstart/">Quickstart</a>と<a href="https://rocket.rs/v0.4/guide/getting-started/">Getting Started</a></h3>
 <div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org23c7eb6" class="outline-4">
+<h4 id="org23c7eb6"><span class="section-number-4">1.2.1</span> サンプルアプリを起動</h4>
+<div class="outline-text-4" id="text-1-2-1">
 <p>
 リポジトリをクローン。
 </p>
@@ -333,10 +337,78 @@ $ cargo run
 </p>
 </div>
 </div>
+
+<div id="outline-container-orga02e7ac" class="outline-4">
+<h4 id="orga02e7ac"><span class="section-number-4">1.2.2</span> アプリを作成</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+クローンしたリポジトリを削除。
+</p>
+
+<pre class="example">
+$ cd ../../..
+$ rm -rf Rocket
+</pre>
+
+<p>
+バイナリプロジェクトを作成。
+</p>
+
+<pre class="example">
+$ mkdir Rocket
+$ cd Rocket
+$ cargo new hello-rocket --bin
+$ cd hello-rocket
+</pre>
+
+<p>
+依存関係を追加。
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Cargo.toml</label><pre class="src src-rust"><span style="color: #e91e63;">[</span>dependencies<span style="color: #e91e63;">]</span>
+rocket = <span style="color: #9ccc65;">"0.4.0"</span>
+</pre>
 </div>
 
-<div id="outline-container-org3036ec2" class="outline-2">
-<h2 id="org3036ec2"><span class="section-number-2">2</span> Bookmarks</h2>
+<p>
+ソースコードを変更。
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>src/main.rs</label><pre class="src src-rust"><span style="color: #ffd700;">#!</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">feature</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">proc_macro_hygiene, decl_macro</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
+
+<span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">macro_use</span><span style="color: #e91e63;">]</span> <span style="color: #fff59d;">extern</span> <span style="color: #fff59d;">crate</span> rocket;
+
+<span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">get</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"/"</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
+<span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">index</span><span style="color: #e91e63;">()</span> -&gt; &amp;'<span style="color: #fff59d;">static</span> <span style="color: #84ffff;">str</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #9ccc65;">"Hello, world!"</span>
+<span style="color: #e91e63;">}</span>
+
+<span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">main</span><span style="color: #e91e63;">()</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #8bc34a;">rocket</span>::ignite<span style="color: #2196F3;">()</span>.mount<span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"/"</span>, <span style="color: #ffd700;">routes!</span><span style="color: #EF6C00;">[</span>index<span style="color: #EF6C00;">]</span><span style="color: #2196F3;">)</span>.launch<span style="color: #2196F3;">()</span>;
+<span style="color: #e91e63;">}</span>
+</pre>
+</div>
+
+<p>
+アプリを起動。
+</p>
+
+<pre class="example">
+$ cargo run
+</pre>
+
+<p>
+<a href="http://localhost:8000/">http://localhost:8000/</a> でアプリが起動しているはず。
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org83cd3f3" class="outline-2">
+<h2 id="org83cd3f3"><span class="section-number-2">2</span> Bookmarks</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><a href="https://github.com/flosse/rust-web-framework-comparison">Rust web framework comparison</a></li>
@@ -348,7 +420,7 @@ $ cargo run
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-03-03 Sun 12:56</p>
+<p class="date">Created: 2019-03-03 Sun 13:59</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
