@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-03-09 Sat 18:17 -->
+<!-- 2019-03-09 Sat 19:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Android Apps</title>
@@ -254,32 +254,33 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org5a73e72">1. Preparation</a>
+<li><a href="#org3e52e4c">1. Preparation</a>
 <ul>
-<li><a href="#org5310045">1.1. Android Studio</a></li>
+<li><a href="#org261bef4">1.1. Android Studio</a></li>
+<li><a href="#org8481338">1.2. NDK(Native Development Kit)</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5a73e72" class="outline-2">
-<h2 id="org5a73e72"><span class="section-number-2">1</span> Preparation</h2>
+<div id="outline-container-org3e52e4c" class="outline-2">
+<h2 id="org3e52e4c"><span class="section-number-2">1</span> Preparation</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="https://mozilla.github.io/firefox-browser-architecture/experiments/2017-09-21-rust-on-android.html">Building and Deploying a Rust library on Android</a>
 </p>
 </div>
 
-<div id="outline-container-org5310045" class="outline-3">
-<h3 id="org5310045"><span class="section-number-3">1.1</span> <a href="https://developer.android.com/studio/?hl=ja">Android Studio</a></h3>
+<div id="outline-container-org261bef4" class="outline-3">
+<h3 id="org261bef4"><span class="section-number-3">1.1</span> <a href="https://developer.android.com/studio/?hl=ja">Android Studio</a></h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orgf0da560" class="outline-4">
-<h4 id="orgf0da560"><span class="section-number-4">1.1.1</span> Install</h4>
+<div id="outline-container-org72765c6" class="outline-4">
+<h4 id="org72765c6"><span class="section-number-4">1.1.1</span> Install</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
-'OK'をクリック。
+<code>OK</code> をクリック。
 </p>
 
 
@@ -289,7 +290,7 @@ for the JavaScript code in this tag.
 </div>
 
 <p>
-'Next'をクリック。
+<code>Next</code> をクリック。
 </p>
 
 
@@ -299,7 +300,7 @@ for the JavaScript code in this tag.
 </div>
 
 <p>
-'Next'をクリック。
+<code>Next</code> をクリック。
 </p>
 
 
@@ -309,7 +310,7 @@ for the JavaScript code in this tag.
 </div>
 
 <p>
-'Darcula'を選択して'Next'をクリック。
+<code>Darcula</code> を選択して <code>Next</code> をクリック。
 </p>
 
 
@@ -319,7 +320,7 @@ for the JavaScript code in this tag.
 </div>
 
 <p>
-'Finish'をクリック。
+<code>Finish</code> をクリック。
 </p>
 
 
@@ -350,11 +351,101 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
+
+<div id="outline-container-org8481338" class="outline-3">
+<h3 id="org8481338"><span class="section-number-3">1.2</span> NDK(Native Development Kit)</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org3b0bb7a" class="outline-4">
+<h4 id="org3b0bb7a"><span class="section-number-4">1.2.1</span> Install</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+メニューバーの <code>Android Studio</code> をクリックして、 <code>Preferences...</code> をクリック。
+</p>
+
+<ul class="org-ul">
+<li><code>Appearance &amp; Behaviour</code>
+<ul class="org-ul">
+<li><code>System Settings</code>
+<ul class="org-ul">
+<li><code>Android SDK</code>
+<ul class="org-ul">
+<li><code>SDK Tools</code> タブ</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+
+
+<div class="figure">
+<p><img src="../images/Rust/AndroidApps/008.png" alt="008.png" />
+</p>
+</div>
+
+<p>
+以下を選択して <code>OK</code> をクリック。
+</p>
+
+<ul class="org-ul">
+<li><code>CMake</code></li>
+<li><code>LLDB</code></li>
+<li><code>NDK</code></li>
+</ul>
+
+
+<div class="figure">
+<p><img src="../images/Rust/AndroidApps/009.png" alt="009.png" />
+</p>
+</div>
+
+<p>
+<code>OK</code> をクリック。
+</p>
+
+
+<div class="figure">
+<p><img src="../images/Rust/AndroidApps/010.png" alt="010.png" />
+</p>
+</div>
+
+<p>
+<code>Accept</code> を選択して <code>Next</code> をクリック。
+</p>
+
+
+<div class="figure">
+<p><img src="../images/Rust/AndroidApps/011.png" alt="011.png" />
+</p>
+</div>
+
+<p>
+インストール中・・・。
+</p>
+
+
+<div class="figure">
+<p><img src="../images/Rust/AndroidApps/012.png" alt="012.png" />
+</p>
+</div>
+
+<p>
+インストール完了。<br />
+<code>Finish</code> をクリック。
+</p>
+
+
+<div class="figure">
+<p><img src="../images/Rust/AndroidApps/013.png" alt="013.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-03-09 Sat 18:17</p>
+<p class="date">Created: 2019-03-09 Sat 19:10</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
