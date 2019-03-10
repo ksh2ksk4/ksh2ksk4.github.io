@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-03-09 Sat 19:10 -->
+<!-- 2019-03-10 Sun 18:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Android Apps</title>
@@ -254,31 +254,33 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org3e52e4c">1. Preparation</a>
+<li><a href="#org25809ef">1. Preparation</a>
 <ul>
-<li><a href="#org261bef4">1.1. Android Studio</a></li>
-<li><a href="#org8481338">1.2. NDK(Native Development Kit)</a></li>
+<li><a href="#org6c748ed">1.1. Install Android Studio</a></li>
+<li><a href="#orgb532de0">1.2. Install NDK(Native Development Kit)</a></li>
+<li><a href="#orgb352112">1.3. Set environment variables</a></li>
+<li><a href="#org7545868">1.4. Add targets</a></li>
+<li><a href="#orgf057bc4">1.5. Create Rust library</a></li>
+<li><a href="#org031d295">1.6. クロスコンパイル</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org3e52e4c" class="outline-2">
-<h2 id="org3e52e4c"><span class="section-number-2">1</span> Preparation</h2>
+<div id="outline-container-org25809ef" class="outline-2">
+<h2 id="org25809ef"><span class="section-number-2">1</span> Preparation</h2>
 <div class="outline-text-2" id="text-1">
-<p>
-<a href="https://mozilla.github.io/firefox-browser-architecture/experiments/2017-09-21-rust-on-android.html">Building and Deploying a Rust library on Android</a>
-</p>
+<ul class="org-ul">
+<li><a href="https://mozilla.github.io/firefox-browser-architecture/experiments/2017-09-21-rust-on-android.html">Building and Deploying a Rust library on Android</a></li>
+<li><a href="https://totechite.hatenablog.com/entry/2019/01/07/000000">https://totechite.hatenablog.com/entry/2019/01/07/000000</a></li>
+<li><a href="https://totechite.hatenablog.com/entry/2019/01/07/005327">https://totechite.hatenablog.com/entry/2019/01/07/005327</a></li>
+</ul>
 </div>
 
-<div id="outline-container-org261bef4" class="outline-3">
-<h3 id="org261bef4"><span class="section-number-3">1.1</span> <a href="https://developer.android.com/studio/?hl=ja">Android Studio</a></h3>
+<div id="outline-container-org6c748ed" class="outline-3">
+<h3 id="org6c748ed"><span class="section-number-3">1.1</span> Install <a href="https://developer.android.com/studio/?hl=ja">Android Studio</a></h3>
 <div class="outline-text-3" id="text-1-1">
-</div>
-<div id="outline-container-org72765c6" class="outline-4">
-<h4 id="org72765c6"><span class="section-number-4">1.1.1</span> Install</h4>
-<div class="outline-text-4" id="text-1-1-1">
 <p>
 <code>OK</code> をクリック。
 </p>
@@ -350,15 +352,10 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-</div>
 
-<div id="outline-container-org8481338" class="outline-3">
-<h3 id="org8481338"><span class="section-number-3">1.2</span> NDK(Native Development Kit)</h3>
+<div id="outline-container-orgb532de0" class="outline-3">
+<h3 id="orgb532de0"><span class="section-number-3">1.2</span> Install <a href="https://developer.android.com/ndk/?hl=ja">NDK(Native Development Kit)</a></h3>
 <div class="outline-text-3" id="text-1-2">
-</div>
-<div id="outline-container-org3b0bb7a" class="outline-4">
-<h4 id="org3b0bb7a"><span class="section-number-4">1.2.1</span> Install</h4>
-<div class="outline-text-4" id="text-1-2-1">
 <p>
 メニューバーの <code>Android Studio</code> をクリックして、 <code>Preferences...</code> をクリック。
 </p>
@@ -440,12 +437,146 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgb352112" class="outline-3">
+<h3 id="orgb352112"><span class="section-number-3">1.3</span> Set environment variables</h3>
+<div class="outline-text-3" id="text-1-3">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>~/.config/fish/config.fish</label><pre class="src src-fish"><span style="color: #fff59d;">set</span> <span style="color: #4dd0e1;">-x</span> <span style="color: #ffcc80;">ANDROID_HOME</span> ~/Library/Android/sdk
+<span style="color: #fff59d;">set</span> <span style="color: #4dd0e1;">-x</span> <span style="color: #ffcc80;">NDK_HOME</span> <span style="color: #9ccc65;">$</span><span style="color: #ffcc80;">ANDROID_HOME/ndk-bundle</span>
+</pre>
 </div>
 </div>
 </div>
+
+<div id="outline-container-org7545868" class="outline-3">
+<h3 id="org7545868"><span class="section-number-3">1.4</span> Add targets</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+仮想デバイスと対象デバイスのプラットフォーム<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>を追加。
+</p>
+
+<p>
+対象デバイスは<a href="https://ja.wikipedia.org/wiki/Pixel_3">Google Pixel 3</a>で、このデバイスに該当するプラットフォームは <code>armv7-linux-androideabi</code> (ARMv7 Android)。<br />
+仮想デバイスのプラットフォームは <code>x86_64-linux-android</code> 。
+</p>
+
+<pre class="example">
+$ rustup target add armv7-linux-androideabi x86_64-linux-android
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgf057bc4" class="outline-3">
+<h3 id="orgf057bc4"><span class="section-number-3">1.5</span> Create Rust library</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+プロジェクトを作成。
+</p>
+
+<pre class="example">
+$ mkdir ~/.own/srcs/Rust/Android
+$ cd ~/.own/srcs/Rust/Android
+$ cargo new greetings --lib
+$ cd greetings
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org031d295" class="outline-3">
+<h3 id="org031d295"><span class="section-number-3">1.6</span> クロスコンパイル</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+スタンドアローン版NDKを作成。
+</p>
+
+<pre class="example">
+$ mkdir NDK
+$ {$NDK_HOME}/build/tools/make_standalone_toolchain.py --api 28 --arch arm --install-dir NDK/arm
+$ {$NDK_HOME}/build/tools/make_standalone_toolchain.py --api 28 --arch x86 --install-dir NDK/x86
+</pre>
+
+<p>
+各々のコマンドで以下のワーニングが表示された。
+</p>
+<pre class="example">
+WARNING:__main__:make_standalone_toolchain.py is no longer necessary. The
+$NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin directory contains target-specific scripts that perform the same task. For example, instead of:
+
+    $ python $NDK/build/tools/make_standalone_toolchain.py \
+        --arch arm --api 28 --install-dir toolchain
+    $ toolchain/bin/clang++ src.cpp
+
+Instead use:
+
+    $ $NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/armv7a-linux-androideabi28-clang++ src.cpp
+</pre>
+
+<pre class="example">
+WARNING:__main__:make_standalone_toolchain.py is no longer necessary. The
+$NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin directory contains target-specific scripts that perform the same task. For example, instead of:
+
+    $ python $NDK/build/tools/make_standalone_toolchain.py \
+        --arch x86 --api 28 --install-dir toolchain
+    $ toolchain/bin/clang++ src.cpp
+
+Instead use:
+
+    $ $NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/i686-linux-android28-clang++ src.cpp
+</pre>
+
+<p>
+クロスコンパイルの設定。
+</p>
+
+<pre class="example">
+$ mkdir .cargo
+</pre>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>.cargo/config</label><pre class="src src-text">[target.armv7-linux-androideabi]
+ar = "NDK/arm/bin/arm-linux-androideabi-ar"
+linker = "NDK/arm/bin/arm-linux-androideabi-clang"
+
+[target.x86_64-linux-android]
+ar = "NDK/x86/bin/x86_64-linux-android-ar"
+linker = "NDK/x86/bin/x86_64-linux-android28-clang"
+</pre>
+</div>
+
+<p>
+パスはプロジェクトルートを基点とした相対パス。
+</p>
+
+<pre class="example">
+$ cargo build --target armv7-linux-androideabi --release
+$ cargo build --target x86_64-linux-android --release
+</pre>
+
+<pre class="example">
+$ cd ~/AndroidStudioProjects/Greetings/app/src/main
+$ mkdir -p jniLibs/{armeabi,x86}
+$ cd jniLibs/armeabi
+$ ln -sfv ~/.own/srcs/Rust/Android/greetings/target/armv7-linux-androideabi/release/libgreetings.so$ cd ../x86
+$ ln -sfv ~/.own/srcs/Rust/Android/greetings/target/x86_64-linux-android/release/libgreetings.so
+</pre>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://forge.rust-lang.org/platform-support.html">Rust Platform Support</a>
+</p></div></div>
+
+
+</div>
+</div></div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-03-09 Sat 19:10</p>
+<p class="date">Created: 2019-03-10 Sun 18:00</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
