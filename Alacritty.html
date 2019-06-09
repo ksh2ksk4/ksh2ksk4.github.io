@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-01-27 Sun 17:25 -->
+<!-- 2019-06-09 Sun 15:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title><a href="https://github.com/jwilm/alacritty">Alacritty</a></title>
@@ -205,7 +205,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -254,9 +254,9 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org584267f">1. Build</a></li>
-<li><a href="#org7604914">2. Manual</a></li>
-<li><a href="#orga983509">3. Shell completions</a></li>
+<li><a href="#org68ffcc0">1. Build</a></li>
+<li><a href="#org2392238">2. Manual</a></li>
+<li><a href="#orge40f2aa">3. Shell completions</a></li>
 </ul>
 </div>
 </div>
@@ -264,8 +264,8 @@ for the JavaScript code in this tag.
 <a href="https://github.com/jwilm/alacritty/blob/master/INSTALL.md">ここ</a>を参照。
 </p>
 
-<div id="outline-container-org584267f" class="outline-2">
-<h2 id="org584267f"><span class="section-number-2">1</span> Build</h2>
+<div id="outline-container-org68ffcc0" class="outline-2">
+<h2 id="org68ffcc0"><span class="section-number-2">1</span> Build</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 $ cd ~/tmp
@@ -279,27 +279,27 @@ $ cp -a target/release/osx/Alacritty.app /Applications/
 </div>
 </div>
 
-<div id="outline-container-org7604914" class="outline-2">
-<h2 id="org7604914"><span class="section-number-2">2</span> Manual</h2>
+<div id="outline-container-org2392238" class="outline-2">
+<h2 id="org2392238"><span class="section-number-2">2</span> Manual</h2>
 <div class="outline-text-2" id="text-2">
 <pre class="example">
-$ gzip -c alacritty.man |sudo tee /usr/local/share/man/man1/alacritty.1.gz &gt;/dev/null
+$ gzip -c extra/alacritty.man | tee /usr/local/share/man/man1/alacritty.1.gz &gt;/dev/null
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orga983509" class="outline-2">
-<h2 id="orga983509"><span class="section-number-2">3</span> Shell completions</h2>
+<div id="outline-container-orge40f2aa" class="outline-2">
+<h2 id="orge40f2aa"><span class="section-number-2">3</span> Shell completions</h2>
 <div class="outline-text-2" id="text-3">
 <pre class="example">
-$ sudo cp alacritty-completions.fish $__fish_data_dir/vendor_completions.d/alacritty.fish
+$ sudo cp extra/completions/alacritty.fish $__fish_data_dir/vendor_completions.d/alacritty.fish
 </pre>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-01-27 Sun 17:25</p>
+<p class="date">Created: 2019-06-09 Sun 15:27</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
