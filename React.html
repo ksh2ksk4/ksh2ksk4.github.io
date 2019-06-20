@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-06-20 Thu 00:23 -->
+<!-- 2019-06-20 Thu 23:22 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title><a href="https://reactjs.org/">React</a></title>
@@ -254,27 +254,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2c11b15">1. 入門React</a>
+<li><a href="#orgca99c21">1. 入門React</a>
 <ul>
-<li><a href="#org086dd1e">1.1. 第1章</a></li>
-<li><a href="#org0e91b52">1.2. 第2章</a></li>
+<li><a href="#org353e3f3">1.1. 第1章</a></li>
+<li><a href="#org2ccd1d8">1.2. 第2章</a></li>
+<li><a href="#org0febfde">1.3. 第3章</a></li>
 </ul>
 </li>
-<li><a href="#org76b9d76">2. Bookmarks</a></li>
+<li><a href="#org69c1348">2. Bookmarks</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2c11b15" class="outline-2">
-<h2 id="org2c11b15"><span class="section-number-2">1</span> 入門React</h2>
+<div id="outline-container-orgca99c21" class="outline-2">
+<h2 id="orgca99c21"><span class="section-number-2">1</span> 入門React</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 自分が気になったことをメモ。
 </p>
 </div>
 
-<div id="outline-container-org086dd1e" class="outline-3">
-<h3 id="org086dd1e"><span class="section-number-3">1.1</span> 第1章</h3>
+<div id="outline-container-org353e3f3" class="outline-3">
+<h3 id="org353e3f3"><span class="section-number-3">1.1</span> 第1章</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 割愛。
@@ -282,12 +283,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org0e91b52" class="outline-3">
-<h3 id="org0e91b52"><span class="section-number-3">1.2</span> 第2章</h3>
+<div id="outline-container-org2ccd1d8" class="outline-3">
+<h3 id="org2ccd1d8"><span class="section-number-3">1.2</span> 第2章</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-orge6e8b85" class="outline-4">
-<h4 id="orge6e8b85"><span class="section-number-4">1.2.1</span> どちらも同じ</h4>
+<div id="outline-container-orgb91d00b" class="outline-4">
+<h4 id="orgb91d00b"><span class="section-number-4">1.2.1</span> どちらも同じ</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <div class="org-src-container">
 <pre class="src src-js">ReactDOM.render<span style="color: #e91e63;">(</span>&lt;TodoApp /&gt;, document.querySelector<span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"#app"</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span>
@@ -302,8 +303,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgae58fa4" class="outline-4">
-<h4 id="orgae58fa4"><span class="section-number-4">1.2.2</span> 開始タグと終了タグの間にある子ノードは <code>this.props.children</code> で参照できる</h4>
+<div id="outline-container-org9c04db2" class="outline-4">
+<h4 id="org9c04db2"><span class="section-number-4">1.2.2</span> 開始タグと終了タグの間にある子ノードは <code>this.props.children</code> で参照できる</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #fff59d;">class</span> Foo <span style="color: #fff59d;">extends</span> React.Component <span style="color: #e91e63;">{</span>
@@ -322,8 +323,8 @@ ReactDOM.render<span style="color: #e91e63;">(</span>&lt;Foo&gt;foo&lt;/Foo&gt;,
 </div>
 </div>
 
-<div id="outline-container-org6abc106" class="outline-4">
-<h4 id="org6abc106"><span class="section-number-4">1.2.3</span> DOMに存在しない属性</h4>
+<div id="outline-container-orgeb45c27" class="outline-4">
+<h4 id="orgeb45c27"><span class="section-number-4">1.2.3</span> DOMに存在しない属性</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <ul class="org-ul">
 <li><code>key</code>
@@ -356,8 +357,8 @@ ReactDOM.render<span style="color: #e91e63;">(</span>&lt;Foo /&gt;, document.que
 </div>
 </div>
 
-<div id="outline-container-orgea36b76" class="outline-4">
-<h4 id="orgea36b76"><span class="section-number-4">1.2.4</span> イベント</h4>
+<div id="outline-container-orgff049b9" class="outline-4">
+<h4 id="orgff049b9"><span class="section-number-4">1.2.4</span> イベント</h4>
 <div class="outline-text-4" id="text-1-2-4">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #fff59d;">class</span> Foo <span style="color: #fff59d;">extends</span> React.Component <span style="color: #e91e63;">{</span>
@@ -378,8 +379,8 @@ ReactDOM.render<span style="color: #e91e63;">(</span>&lt;Foo /&gt;, document.que
 </div>
 </div>
 
-<div id="outline-container-orgec150bc" class="outline-4">
-<h4 id="orgec150bc"><span class="section-number-4">1.2.5</span> コメント</h4>
+<div id="outline-container-org541f374" class="outline-4">
+<h4 id="org541f374"><span class="section-number-4">1.2.5</span> コメント</h4>
 <div class="outline-text-4" id="text-1-2-5">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #fff59d;">class</span> Foo <span style="color: #fff59d;">extends</span> React.Component <span style="color: #e91e63;">{</span>
@@ -410,8 +411,8 @@ ReactDOM.render<span style="color: #e91e63;">(</span>&lt;Foo /&gt;, document.que
 </div>
 </div>
 
-<div id="outline-container-org54d6eca" class="outline-4">
-<h4 id="org54d6eca"><span class="section-number-4">1.2.6</span> 特別な属性</h4>
+<div id="outline-container-org209e111" class="outline-4">
+<h4 id="org209e111"><span class="section-number-4">1.2.6</span> 特別な属性</h4>
 <div class="outline-text-4" id="text-1-2-6">
 <p>
 HTMLにおける <code>for</code>, <code>class</code> はJSXでは <code>htmlFor</code>, <code>className</code> になる。
@@ -419,10 +420,74 @@ HTMLにおける <code>for</code>, <code>class</code> はJSXでは <code>htmlFor
 </div>
 </div>
 </div>
+
+<div id="outline-container-org0febfde" class="outline-3">
+<h3 id="org0febfde"><span class="section-number-3">1.3</span> 第3章</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-orga77b121" class="outline-4">
+<h4 id="orga77b121"><span class="section-number-4">1.3.1</span> ライフサイクルメソッド</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+コンポーネントにおいて <code>render</code> メソッドは必ず実装しなければならない。
+</p>
 </div>
 
-<div id="outline-container-org76b9d76" class="outline-2">
-<h2 id="org76b9d76"><span class="section-number-2">2</span> Bookmarks</h2>
+<div id="outline-container-org6f1f132" class="outline-5">
+<h5 id="org6f1f132"><span class="section-number-5">1.3.1.1</span> 最初のコンポーネントインスタンス生成時</h5>
+<div class="outline-text-5" id="text-1-3-1-1">
+<ul class="org-ul">
+<li><code>getDefaultProps</code>
+<ul class="org-ul">
+<li>このメソッドが実行されるのは最初だけ</li>
+</ul></li>
+<li><code>getInitialState</code></li>
+<li><code>componentWillMount</code></li>
+<li><code>render</code></li>
+<li><code>componentDidMount</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgab4b548" class="outline-5">
+<h5 id="orgab4b548"><span class="section-number-5">1.3.1.2</span> 以降のコンポーネントインスタンス生成時</h5>
+<div class="outline-text-5" id="text-1-3-1-2">
+<ul class="org-ul">
+<li><code>getInitialState</code></li>
+<li><code>componentWillMount</code></li>
+<li><code>render</code></li>
+<li><code>componentDidMount</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3ef918c" class="outline-5">
+<h5 id="org3ef918c"><span class="section-number-5">1.3.1.3</span> コンポーネントインスタンス更新時</h5>
+<div class="outline-text-5" id="text-1-3-1-3">
+<ul class="org-ul">
+<li><code>componentWillReceiveProps</code></li>
+<li><code>shouldComponentUpdate</code></li>
+<li><code>componentWillUpdate</code></li>
+<li><code>render</code></li>
+<li><code>componentDidUpdate</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0de635f" class="outline-5">
+<h5 id="org0de635f"><span class="section-number-5">1.3.1.4</span> コンポーネントインスタンス破棄時</h5>
+<div class="outline-text-5" id="text-1-3-1-4">
+<ul class="org-ul">
+<li><code>componentWillUnmount</code></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org69c1348" class="outline-2">
+<h2 id="org69c1348"><span class="section-number-2">2</span> Bookmarks</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><a href="https://facebook.github.io/jsx/">JSX</a></li>
@@ -432,7 +497,7 @@ HTMLにおける <code>for</code>, <code>class</code> はJSXでは <code>htmlFor
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-06-20 Thu 00:23</p>
+<p class="date">Created: 2019-06-20 Thu 23:22</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
