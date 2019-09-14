@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-03-05 Tue 02:09 -->
+<!-- 2019-09-14 Sat 17:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Frameworks</title>
@@ -254,41 +254,124 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf24a4a5">1. Rocket</a>
+<li><a href="#org02bdadb">1. IRON</a>
 <ul>
-<li><a href="#org644f45b">1.1. The Rocket Programming Guide</a></li>
-<li><a href="#orge92aa4e">1.2. Sample Apps</a></li>
+<li><a href="#org2b038b5">1.1. Hello world</a></li>
 </ul>
 </li>
-<li><a href="#orgde52ff2">2. Bookmarks</a></li>
+<li><a href="#orge813861">2. Rocket</a>
+<ul>
+<li><a href="#org5939339">2.1. The Rocket Programming Guide</a></li>
+<li><a href="#org694e6ba">2.2. Sample Apps</a></li>
+</ul>
+</li>
+<li><a href="#org355e34f">3. Bookmarks</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf24a4a5" class="outline-2">
-<h2 id="orgf24a4a5"><span class="section-number-2">1</span> <a href="https://rocket.rs/">Rocket</a></h2>
+<div id="outline-container-org02bdadb" class="outline-2">
+<h2 id="org02bdadb"><span class="section-number-2">1</span> <a href="http://ironframework.io/">IRON</a></h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org644f45b" class="outline-3">
-<h3 id="org644f45b"><span class="section-number-3">1.1</span> <a href="https://rocket.rs/v0.4/guide/#the-rocket-programming-guide">The Rocket Programming Guide</a></h3>
+<div id="outline-container-org2b038b5" class="outline-3">
+<h3 id="org2b038b5"><span class="section-number-3">1.1</span> Hello world</h3>
 <div class="outline-text-3" id="text-1-1">
+<p>
+プロジェクトルートディレクトリを作成。
+</p>
+
+<pre class="example">
+$ cd ~/.own/srcs/Rust
+$ mkdir IRON
+$ cd IRON
+</pre>
+
+<p>
+プロジェクトを作成。
+</p>
+
+<pre class="example">
+$ cargo new hello-world --bin
+$ cd hello-world
+</pre>
+
+<p>
+依存関係を追加。
+</p>
+
+<pre class="example">
+$ vi Cargo.toml
+</pre>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Cargo.toml</label><pre class="src src-rust"><span style="color: #e91e63;">[</span>dependencies<span style="color: #e91e63;">]</span>
+iron = <span style="color: #9ccc65;">"0.6.*"</span>
+</pre>
 </div>
-<div id="outline-container-orga5cfe7d" class="outline-4">
-<h4 id="orga5cfe7d"><span class="section-number-4">1.1.1</span> <a href="https://rocket.rs/v0.4/guide/introduction/">Introduction</a></h4>
-<div class="outline-text-4" id="text-1-1-1">
+
+<p>
+ソースコードを変更。
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>src/main.rs</label><pre class="src src-rust"><span style="color: #fff59d;">use</span> <span style="color: #8bc34a;">iron</span>::<span style="color: #8bc34a;">prelude</span>::*;
+<span style="color: #fff59d;">use</span> <span style="color: #8bc34a;">iron</span>::status;
+
+<span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">main</span><span style="color: #e91e63;">()</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">hello_world</span><span style="color: #2196F3;">(</span><span style="color: #ffcc80;">_</span>: &amp;<span style="color: #fff59d;">mut</span> <span style="color: #84ffff;">Request</span><span style="color: #2196F3;">)</span> -&gt; <span style="color: #84ffff;">IronResult</span><span style="color: #2196F3;">&lt;</span><span style="color: #84ffff;">Response</span><span style="color: #2196F3;">&gt;</span> <span style="color: #2196F3;">{</span>
+        <span style="color: #84ffff;">Ok</span><span style="color: #EF6C00;">(</span><span style="color: #84ffff;">Response</span>::with<span style="color: #B388FF;">(</span><span style="color: #76ff03;">(</span><span style="color: #8bc34a;">status</span>::<span style="color: #84ffff;">Ok</span>, <span style="color: #9ccc65;">"Hello world"</span><span style="color: #76ff03;">)</span><span style="color: #B388FF;">)</span><span style="color: #EF6C00;">)</span>
+    <span style="color: #2196F3;">}</span>
+
+    <span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">_server</span> = <span style="color: #84ffff;">Iron</span>::new<span style="color: #2196F3;">(</span>hello_world<span style="color: #2196F3;">)</span>.http<span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"localhost:3000"</span><span style="color: #2196F3;">)</span>.unwrap<span style="color: #2196F3;">()</span>;
+    <span style="color: #ff8A65;">println!</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"On 3000"</span><span style="color: #2196F3;">)</span>;
+<span style="color: #e91e63;">}</span>
+</pre>
+</div>
+
+<p>
+アプリを起動。
+</p>
+
+<pre class="example">
+$ cargo run
+</pre>
+
+<p>
+<a href="http://localhost:3000/">http://localhost:3000/</a> でアプリが起動しているはず。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge813861" class="outline-2">
+<h2 id="orge813861"><span class="section-number-2">2</span> <a href="https://rocket.rs/">Rocket</a></h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Rocketの利用は見送り。
+</p>
+</div>
+
+<div id="outline-container-org5939339" class="outline-3">
+<h3 id="org5939339"><span class="section-number-3">2.1</span> <a href="https://rocket.rs/v0.4/guide/#the-rocket-programming-guide">The Rocket Programming Guide</a></h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org85c5078" class="outline-4">
+<h4 id="org85c5078"><span class="section-number-4">2.1.1</span> <a href="https://rocket.rs/v0.4/guide/introduction/">Introduction</a></h4>
+<div class="outline-text-4" id="text-2-1-1">
 <p>
 割愛。
 </p>
 </div>
 </div>
 
-<div id="outline-container-org07336e9" class="outline-4">
-<h4 id="org07336e9"><span class="section-number-4">1.1.2</span> <a href="https://rocket.rs/v0.4/guide/quickstart/">Quickstart</a>と<a href="https://rocket.rs/v0.4/guide/getting-started/">Getting Started</a></h4>
-<div class="outline-text-4" id="text-1-1-2">
+<div id="outline-container-org2d4d6e2" class="outline-4">
+<h4 id="org2d4d6e2"><span class="section-number-4">2.1.2</span> <a href="https://rocket.rs/v0.4/guide/quickstart/">Quickstart</a>と<a href="https://rocket.rs/v0.4/guide/getting-started/">Getting Started</a></h4>
+<div class="outline-text-4" id="text-2-1-2">
 </div>
-<div id="outline-container-org6aadfcf" class="outline-5">
-<h5 id="org6aadfcf"><span class="section-number-5">1.1.2.1</span> サンプルアプリを起動</h5>
-<div class="outline-text-5" id="text-1-1-2-1">
+<div id="outline-container-org89d7663" class="outline-5">
+<h5 id="org89d7663"><span class="section-number-5">2.1.2.1</span> サンプルアプリを起動</h5>
+<div class="outline-text-5" id="text-2-1-2-1">
 <p>
 リポジトリをクローン。
 </p>
@@ -338,9 +421,9 @@ $ cargo run
 </div>
 </div>
 
-<div id="outline-container-org1efd08b" class="outline-5">
-<h5 id="org1efd08b"><span class="section-number-5">1.1.2.2</span> アプリを作成</h5>
-<div class="outline-text-5" id="text-1-1-2-2">
+<div id="outline-container-orgb2a4c94" class="outline-5">
+<h5 id="orgb2a4c94"><span class="section-number-5">2.1.2.2</span> アプリを作成</h5>
+<div class="outline-text-5" id="text-2-1-2-2">
 <p>
 クローンしたリポジトリを削除。
 </p>
@@ -366,7 +449,7 @@ $ cd hello-rocket
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 1: </span>Cargo.toml</label><pre class="src src-rust"><span style="color: #e91e63;">[</span>dependencies<span style="color: #e91e63;">]</span>
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>Cargo.toml</label><pre class="src src-rust"><span style="color: #e91e63;">[</span>dependencies<span style="color: #e91e63;">]</span>
 rocket = <span style="color: #9ccc65;">"0.4.0"</span>
 </pre>
 </div>
@@ -376,7 +459,7 @@ rocket = <span style="color: #9ccc65;">"0.4.0"</span>
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 2: </span>src/main.rs</label><pre class="src src-rust"><span style="color: #ffd700;">#!</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">feature</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">proc_macro_hygiene, decl_macro</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>src/main.rs</label><pre class="src src-rust"><span style="color: #ffd700;">#!</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">feature</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">proc_macro_hygiene, decl_macro</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
 
 <span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">macro_use</span><span style="color: #e91e63;">]</span> <span style="color: #fff59d;">extern</span> <span style="color: #fff59d;">crate</span> rocket;
 
@@ -407,15 +490,15 @@ $ cargo run
 </div>
 </div>
 
-<div id="outline-container-orge92aa4e" class="outline-3">
-<h3 id="orge92aa4e"><span class="section-number-3">1.2</span> Sample Apps<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-org694e6ba" class="outline-3">
+<h3 id="org694e6ba"><span class="section-number-3">2.2</span> Sample Apps<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></h3>
+<div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-org72a85e7" class="outline-4">
-<h4 id="org72a85e7"><span class="section-number-4">1.2.1</span> hello_world</h4>
-<div class="outline-text-4" id="text-1-2-1">
+<div id="outline-container-org7c08ba3" class="outline-4">
+<h4 id="org7c08ba3"><span class="section-number-4">2.2.1</span> hello_world</h4>
+<div class="outline-text-4" id="text-2-2-1">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 3: </span>src/main.rs</label><pre class="src src-rust"><span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">get</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"/"</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>src/main.rs</label><pre class="src src-rust"><span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">get</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"/"</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
 <span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">hello</span><span style="color: #e91e63;">()</span> -&gt; &amp;'<span style="color: #fff59d;">static</span> <span style="color: #84ffff;">str</span> <span style="color: #e91e63;">{</span>
     <span style="color: #9ccc65;">"Hello, world!"</span>
 <span style="color: #e91e63;">}</span>
@@ -457,20 +540,20 @@ $ cargo run
 </div>
 </div>
 
-<div id="outline-container-org8e97cab" class="outline-4">
-<h4 id="org8e97cab"><span class="section-number-4">1.2.2</span> hello_2018</h4>
-<div class="outline-text-4" id="text-1-2-2">
+<div id="outline-container-orga9bc1a5" class="outline-4">
+<h4 id="orga9bc1a5"><span class="section-number-4">2.2.2</span> hello_2018</h4>
+<div class="outline-text-4" id="text-2-2-2">
 <p>
 hello_worldと同様。
 </p>
 </div>
 </div>
 
-<div id="outline-container-org8d836db" class="outline-4">
-<h4 id="org8d836db"><span class="section-number-4">1.2.3</span> hello_person</h4>
-<div class="outline-text-4" id="text-1-2-3">
+<div id="outline-container-org55aa209" class="outline-4">
+<h4 id="org55aa209"><span class="section-number-4">2.2.3</span> hello_person</h4>
+<div class="outline-text-4" id="text-2-2-3">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 4: </span>src/main.rs</label><pre class="src src-rust"><span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">get</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"/hello/&lt;name&gt;/&lt;age&gt;"</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
+<label class="org-src-name"><span class="listing-number">Listing 6: </span>src/main.rs</label><pre class="src src-rust"><span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">get</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"/hello/&lt;name&gt;/&lt;age&gt;"</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
 <span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">hello</span><span style="color: #e91e63;">(</span><span style="color: #ffcc80;">name</span>: <span style="color: #84ffff;">String</span>, <span style="color: #ffcc80;">age</span>: <span style="color: #84ffff;">u8</span><span style="color: #e91e63;">)</span> -&gt; <span style="color: #84ffff;">String</span> <span style="color: #e91e63;">{</span>
     <span style="color: #ff8A65;">format!</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"Hello, </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;"> year old named </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;">!"</span>, age, name<span style="color: #2196F3;">)</span>
 <span style="color: #e91e63;">}</span>
@@ -536,13 +619,11 @@ hello_worldと同様。
 </div>
 </div>
 
-<div id="outline-container-orgde52ff2" class="outline-2">
-<h2 id="orgde52ff2"><span class="section-number-2">2</span> Bookmarks</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org355e34f" class="outline-2">
+<h2 id="org355e34f"><span class="section-number-2">3</span> Bookmarks</h2>
+<div class="outline-text-2" id="text-3">
 <ul class="org-ul">
-<li><a href="https://github.com/flosse/rust-web-framework-comparison">Rust web framework comparison</a></li>
-<li><a href="https://rocket.rs/">Rocket</a></li>
-<li><a href="http://ironframework.io/">IRON</a></li>
+<li><a href="https://github.com/flosse/rust-web-framework-comparison">flosse / rust-web-framework-comparison</a></li>
 </ul>
 </div>
 </div>
@@ -559,7 +640,7 @@ hello_worldと同様。
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-03-05 Tue 02:09</p>
+<p class="date">Created: 2019-09-14 Sat 17:06</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
