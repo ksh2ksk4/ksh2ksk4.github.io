@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-09-15 Sun 17:21 -->
+<!-- 2019-09-15 Sun 19:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Frameworks</title>
@@ -254,26 +254,26 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org98c2f2f">1. IRON</a>
+<li><a href="#org71b2abe">1. IRON</a>
 <ul>
-<li><a href="#orgd53d885">1.1. Samples</a></li>
-<li><a href="#org1f11350">1.2. About Crate iron</a></li>
-<li><a href="#org03d2e2a">1.3. About Crate router</a></li>
+<li><a href="#orgf1e5251">1.1. Samples</a></li>
+<li><a href="#orgecb61dc">1.2. About Crate iron</a></li>
+<li><a href="#org64bd4da">1.3. About Crate router</a></li>
 </ul>
 </li>
-<li><a href="#org4ee4c24">2. Rocket</a>
+<li><a href="#orgd55b2fe">2. Rocket</a>
 <ul>
-<li><a href="#org34f276b">2.1. The Rocket Programming Guide</a></li>
-<li><a href="#org42e2f62">2.2. Sample Apps</a></li>
+<li><a href="#orgf944130">2.1. The Rocket Programming Guide</a></li>
+<li><a href="#org5c13c52">2.2. Sample Apps</a></li>
 </ul>
 </li>
-<li><a href="#orgdd82e88">3. Bookmarks</a></li>
+<li><a href="#org281c33e">3. Bookmarks</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org98c2f2f" class="outline-2">
-<h2 id="org98c2f2f"><span class="section-number-2">1</span> <a href="http://ironframework.io/">IRON</a></h2>
+<div id="outline-container-org71b2abe" class="outline-2">
+<h2 id="org71b2abe"><span class="section-number-2">1</span> <a href="http://ironframework.io/">IRON</a></h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>高速で柔軟なミドルウェア指向のサーバサイドフレームワーク</li>
@@ -282,12 +282,12 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-orgd53d885" class="outline-3">
-<h3 id="orgd53d885"><span class="section-number-3">1.1</span> Samples</h3>
+<div id="outline-container-orgf1e5251" class="outline-3">
+<h3 id="orgf1e5251"><span class="section-number-3">1.1</span> Samples</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orgc1c84d7" class="outline-4">
-<h4 id="orgc1c84d7"><span class="section-number-4">1.1.1</span> Hello world</h4>
+<div id="outline-container-org6b7b298" class="outline-4">
+<h4 id="org6b7b298"><span class="section-number-4">1.1.1</span> Hello world</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 プロジェクトルートディレクトリを作成。
@@ -350,13 +350,13 @@ $ cargo run
 </pre>
 
 <p>
-<a href="http://localhost:3000/">http://localhost:3000/</a> でアプリが起動しているはず。
+<a href="http://localhost:3000/">http://localhost:3000/</a> へアクセス。
 </p>
 </div>
 </div>
 
-<div id="outline-container-orge356667" class="outline-4">
-<h4 id="orge356667"><span class="section-number-4">1.1.2</span> <a href="https://github.com/iron/iron/#response-timer-example">Response Time Example</a></h4>
+<div id="outline-container-org38fb39a" class="outline-4">
+<h4 id="org38fb39a"><span class="section-number-4">1.1.2</span> <a href="https://github.com/iron/iron/#response-timer-example">Response Time Example</a></h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
 プロジェクトを作成。
@@ -432,22 +432,91 @@ $ cargo run
 </pre>
 
 <p>
-<a href="http://localhost:3000/">http://localhost:3000/</a> でアプリが起動しているはず。
+<a href="http://localhost:3000/">http://localhost:3000/</a> へアクセス。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcbc2aa3" class="outline-4">
+<h4 id="orgcbc2aa3"><span class="section-number-4">1.1.3</span> Routing</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<p>
+<a href="https://github.com/iron/iron/blob/master/examples/simple_routing.rs">https://github.com/iron/iron/blob/master/examples/simple_routing.rs</a>
+</p>
+
+<p>
+プロジェクトを作成。
+</p>
+
+<pre class="example">
+$ cargo new routing --bin
+$ cd routing
+</pre>
+
+<p>
+依存関係を追加。
+</p>
+
+<pre class="example">
+$ vi Cargo.toml
+</pre>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>Cargo.toml</label><pre class="src src-rust"><span style="color: #e91e63;">[</span>dependencies<span style="color: #e91e63;">]</span>
+iron = <span style="color: #9ccc65;">"0.6.*"</span>
+router = <span style="color: #9ccc65;">"0.6.*"</span>
+</pre>
+</div>
+
+<p>
+ソースコードを変更。
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 6: </span>src/main.rs</label><pre class="src src-rust"><span style="color: #fff59d;">use</span> <span style="color: #8bc34a;">iron</span>::<span style="color: #8bc34a;">prelude</span>::*;
+<span style="color: #fff59d;">use</span> <span style="color: #8bc34a;">iron</span>::status;
+<span style="color: #fff59d;">use</span> <span style="color: #8bc34a;">router</span>::<span style="color: #84ffff;">Router</span>;
+
+<span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">main</span><span style="color: #e91e63;">()</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #fff59d;">let</span> <span style="color: #fff59d;">mut</span> <span style="color: #ffcc80;">router</span> = <span style="color: #84ffff;">Router</span>::new<span style="color: #2196F3;">()</span>;
+
+    router.get<span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"/"</span>, |<span style="color: #ffcc80;">_</span>: &amp;<span style="color: #fff59d;">mut</span> <span style="color: #84ffff;">Request</span>| -&gt; <span style="color: #84ffff;">IronResult</span><span style="color: #EF6C00;">&lt;</span><span style="color: #84ffff;">Response</span><span style="color: #EF6C00;">&gt;</span> <span style="color: #EF6C00;">{</span>
+        <span style="color: #84ffff;">Ok</span><span style="color: #B388FF;">(</span><span style="color: #84ffff;">Response</span>::with<span style="color: #76ff03;">(</span><span style="color: #26A69A;">(</span><span style="color: #8bc34a;">status</span>::<span style="color: #84ffff;">Ok</span>, <span style="color: #9ccc65;">"200,Ok"</span><span style="color: #26A69A;">)</span><span style="color: #76ff03;">)</span><span style="color: #B388FF;">)</span>
+    <span style="color: #EF6C00;">}</span>, <span style="color: #9ccc65;">"route_id_200"</span><span style="color: #2196F3;">)</span>;
+    router.get<span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"/404"</span>, |<span style="color: #ffcc80;">_</span>: &amp;<span style="color: #fff59d;">mut</span> <span style="color: #84ffff;">Request</span>| -&gt; <span style="color: #84ffff;">IronResult</span><span style="color: #EF6C00;">&lt;</span><span style="color: #84ffff;">Response</span><span style="color: #EF6C00;">&gt;</span> <span style="color: #EF6C00;">{</span>
+        <span style="color: #84ffff;">Ok</span><span style="color: #B388FF;">(</span><span style="color: #84ffff;">Response</span>::with<span style="color: #76ff03;">(</span><span style="color: #26A69A;">(</span><span style="color: #8bc34a;">status</span>::<span style="color: #84ffff;">NotFound</span>, <span style="color: #9ccc65;">"404,NotFound"</span><span style="color: #26A69A;">)</span><span style="color: #76ff03;">)</span><span style="color: #B388FF;">)</span>
+    <span style="color: #EF6C00;">}</span>, <span style="color: #9ccc65;">"route_id_404"</span><span style="color: #2196F3;">)</span>;
+
+    <span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">_server</span> = <span style="color: #84ffff;">Iron</span>::new<span style="color: #2196F3;">(</span>router<span style="color: #2196F3;">)</span>.http<span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"localhost:3000"</span><span style="color: #2196F3;">)</span>.unwrap<span style="color: #2196F3;">()</span>;
+<span style="color: #e91e63;">}</span>
+</pre>
+</div>
+
+<p>
+アプリを起動。
+</p>
+
+<pre class="example">
+$ cargo run
+</pre>
+
+<p>
+<a href="http://localhost:3000/">http://localhost:3000/</a> へアクセス。
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org1f11350" class="outline-3">
-<h3 id="org1f11350"><span class="section-number-3">1.2</span> About <a href="https://docs.rs/iron/0.6.1/iron/">Crate iron</a></h3>
+<div id="outline-container-orgecb61dc" class="outline-3">
+<h3 id="orgecb61dc"><span class="section-number-3">1.2</span> About <a href="https://docs.rs/iron/0.6.1/iron/">Crate iron</a></h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-orgc688656" class="outline-4">
-<h4 id="orgc688656"><span class="section-number-4">1.2.1</span> Structs</h4>
+<div id="outline-container-org9610ed2" class="outline-4">
+<h4 id="org9610ed2"><span class="section-number-4">1.2.1</span> Structs</h4>
 <div class="outline-text-4" id="text-1-2-1">
 </div>
-<div id="outline-container-orgc27d284" class="outline-5">
-<h5 id="orgc27d284"><span class="section-number-5">1.2.1.1</span> <a href="https://docs.rs/iron/0.6.1/iron/struct.Iron.html">Iron</a></h5>
+<div id="outline-container-org259cc32" class="outline-5">
+<h5 id="org259cc32"><span class="section-number-5">1.2.1.1</span> <a href="https://docs.rs/iron/0.6.1/iron/struct.Iron.html">Iron</a></h5>
 <div class="outline-text-5" id="text-1-2-1-1">
 <div class="org-src-container">
 <pre class="src src-rust"><span style="color: #fff59d;">pub</span> <span style="color: #fff59d;">struct</span> <span style="color: #84ffff;">Iron</span><span style="color: #e91e63;">&lt;</span><span style="color: #84ffff;">H</span><span style="color: #e91e63;">&gt;</span> <span style="color: #e91e63;">{</span>
@@ -463,8 +532,8 @@ $ cargo run
 </p>
 </div>
 
-<div id="outline-container-orgdcf2853" class="outline-6">
-<h6 id="orgdcf2853"><span class="section-number-6">1.2.1.1.1</span> Methods</h6>
+<div id="outline-container-org1136e1a" class="outline-6">
+<h6 id="org1136e1a"><span class="section-number-6">1.2.1.1.1</span> Methods</h6>
 <div class="outline-text-6" id="text-1-2-1-1-1">
 <ul class="org-ul">
 <li><a href="https://docs.rs/iron/0.6.1/iron/struct.Iron.html#method.new">pub fn new(handler: H) -&gt; Iron&lt;H&gt;</a>
@@ -503,12 +572,12 @@ $ cargo run
 </div>
 </div>
 
-<div id="outline-container-org87eba9f" class="outline-4">
-<h4 id="org87eba9f"><span class="section-number-4">1.2.2</span> Traits</h4>
+<div id="outline-container-orgd5557d9" class="outline-4">
+<h4 id="orgd5557d9"><span class="section-number-4">1.2.2</span> Traits</h4>
 <div class="outline-text-4" id="text-1-2-2">
 </div>
-<div id="outline-container-org734540b" class="outline-5">
-<h5 id="org734540b"><span class="section-number-5">1.2.2.1</span> <a href="https://docs.rs/iron/0.6.1/iron/middleware/trait.Handler.html">Handler</a></h5>
+<div id="outline-container-org8147441" class="outline-5">
+<h5 id="org8147441"><span class="section-number-5">1.2.2.1</span> <a href="https://docs.rs/iron/0.6.1/iron/middleware/trait.Handler.html">Handler</a></h5>
 <div class="outline-text-5" id="text-1-2-2-1">
 <div class="org-src-container">
 <pre class="src src-rust"><span style="color: #fff59d;">pub</span> <span style="color: #fff59d;">trait</span> <span style="color: #ffcc80;">Handler</span>: <span style="color: #84ffff;">Send</span> + <span style="color: #84ffff;">Sync</span> + '<span style="color: #fff59d;">static</span> <span style="color: #e91e63;">{</span>
@@ -525,12 +594,12 @@ $ cargo run
 </div>
 </div>
 
-<div id="outline-container-orge8717ed" class="outline-4">
-<h4 id="orge8717ed"><span class="section-number-4">1.2.3</span> Type Definitions</h4>
+<div id="outline-container-orge6b22dc" class="outline-4">
+<h4 id="orge6b22dc"><span class="section-number-4">1.2.3</span> Type Definitions</h4>
 <div class="outline-text-4" id="text-1-2-3">
 </div>
-<div id="outline-container-orgfe3cf91" class="outline-5">
-<h5 id="orgfe3cf91"><span class="section-number-5">1.2.3.1</span> <a href="https://docs.rs/iron/0.6.1/iron/type.IronResult.html">IronResult</a></h5>
+<div id="outline-container-org07f7ccc" class="outline-5">
+<h5 id="org07f7ccc"><span class="section-number-5">1.2.3.1</span> <a href="https://docs.rs/iron/0.6.1/iron/type.IronResult.html">IronResult</a></h5>
 <div class="outline-text-5" id="text-1-2-3-1">
 <div class="org-src-container">
 <pre class="src src-rust"><span style="color: #fff59d;">type</span> <span style="color: #84ffff;">IronResult</span><span style="color: #e91e63;">&lt;</span><span style="color: #84ffff;">T</span><span style="color: #e91e63;">&gt;</span> = <span style="color: #84ffff;">Result</span><span style="color: #e91e63;">&lt;</span><span style="color: #84ffff;">T</span>, <span style="color: #84ffff;">IronError</span><span style="color: #e91e63;">&gt;</span>;
@@ -540,61 +609,61 @@ $ cargo run
 </div>
 </div>
 
-<div id="outline-container-org5571943" class="outline-4">
-<h4 id="org5571943"><span class="section-number-4">1.2.4</span> Modules</h4>
+<div id="outline-container-org1ea34a6" class="outline-4">
+<h4 id="org1ea34a6"><span class="section-number-4">1.2.4</span> Modules</h4>
 <div class="outline-text-4" id="text-1-2-4">
 </div>
-<div id="outline-container-org345fca8" class="outline-5">
-<h5 id="org345fca8"><span class="section-number-5">1.2.4.1</span> error</h5>
+<div id="outline-container-orgf6c3ed7" class="outline-5">
+<h5 id="orgf6c3ed7"><span class="section-number-5">1.2.4.1</span> error</h5>
 <div class="outline-text-5" id="text-1-2-4-1">
 </div>
-<div id="outline-container-org8ce89dd" class="outline-6">
-<h6 id="org8ce89dd"><span class="section-number-6">1.2.4.1.1</span> Structs</h6>
+<div id="outline-container-org2db4f75" class="outline-6">
+<h6 id="org2db4f75"><span class="section-number-6">1.2.4.1.1</span> Structs</h6>
 <div class="outline-text-6" id="text-1-2-4-1-1">
 </div>
-<div id="outline-container-org154e223" class="outline-7">
-<h7 id="org154e223"><span class="section-number-7">1.2.4.1.1.1</span> <a href="https://docs.rs/iron/0.6.1/iron/error/struct.IronError.html">IronError</a></h7>
+<div id="outline-container-org42b8d67" class="outline-7">
+<h7 id="org42b8d67"><span class="section-number-7">1.2.4.1.1.1</span> <a href="https://docs.rs/iron/0.6.1/iron/error/struct.IronError.html">IronError</a></h7>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org7412c49" class="outline-5">
-<h5 id="org7412c49"><span class="section-number-5">1.2.4.2</span> <a href="https://docs.rs/iron/0.6.1/iron/request/index.html">request</a></h5>
+<div id="outline-container-orgfbff9e9" class="outline-5">
+<h5 id="orgfbff9e9"><span class="section-number-5">1.2.4.2</span> <a href="https://docs.rs/iron/0.6.1/iron/request/index.html">request</a></h5>
 <div class="outline-text-5" id="text-1-2-4-2">
 </div>
-<div id="outline-container-orgf4c323b" class="outline-6">
-<h6 id="orgf4c323b"><span class="section-number-6">1.2.4.2.1</span> Structs</h6>
+<div id="outline-container-orgbbc4682" class="outline-6">
+<h6 id="orgbbc4682"><span class="section-number-6">1.2.4.2.1</span> Structs</h6>
 <div class="outline-text-6" id="text-1-2-4-2-1">
 </div>
-<div id="outline-container-org589afd2" class="outline-7">
-<h7 id="org589afd2"><span class="section-number-7">1.2.4.2.1.1</span> <a href="https://docs.rs/iron/0.6.1/iron/request/struct.Request.html">Request</a></h7>
+<div id="outline-container-org888bc15" class="outline-7">
+<h7 id="org888bc15"><span class="section-number-7">1.2.4.2.1.1</span> <a href="https://docs.rs/iron/0.6.1/iron/request/struct.Request.html">Request</a></h7>
 </div>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org03d2e2a" class="outline-3">
-<h3 id="org03d2e2a"><span class="section-number-3">1.3</span> About <a href="https://docs.rs/router/0.6.0/router/">Crate router</a></h3>
+<div id="outline-container-org64bd4da" class="outline-3">
+<h3 id="org64bd4da"><span class="section-number-3">1.3</span> About <a href="https://docs.rs/router/0.6.0/router/">Crate router</a></h3>
 </div>
 </div>
 
 
 
-<div id="outline-container-org4ee4c24" class="outline-2">
-<h2 id="org4ee4c24"><span class="section-number-2">2</span> <a href="https://rocket.rs/">Rocket</a></h2>
+<div id="outline-container-orgd55b2fe" class="outline-2">
+<h2 id="orgd55b2fe"><span class="section-number-2">2</span> <a href="https://rocket.rs/">Rocket</a></h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Rocketの利用は見送り。
 </p>
 </div>
 
-<div id="outline-container-org34f276b" class="outline-3">
-<h3 id="org34f276b"><span class="section-number-3">2.1</span> <a href="https://rocket.rs/v0.4/guide/#the-rocket-programming-guide">The Rocket Programming Guide</a></h3>
+<div id="outline-container-orgf944130" class="outline-3">
+<h3 id="orgf944130"><span class="section-number-3">2.1</span> <a href="https://rocket.rs/v0.4/guide/#the-rocket-programming-guide">The Rocket Programming Guide</a></h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-org6beed9a" class="outline-4">
-<h4 id="org6beed9a"><span class="section-number-4">2.1.1</span> <a href="https://rocket.rs/v0.4/guide/introduction/">Introduction</a></h4>
+<div id="outline-container-orgf0af597" class="outline-4">
+<h4 id="orgf0af597"><span class="section-number-4">2.1.1</span> <a href="https://rocket.rs/v0.4/guide/introduction/">Introduction</a></h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 割愛。
@@ -602,12 +671,12 @@ Rocketの利用は見送り。
 </div>
 </div>
 
-<div id="outline-container-org151333f" class="outline-4">
-<h4 id="org151333f"><span class="section-number-4">2.1.2</span> <a href="https://rocket.rs/v0.4/guide/quickstart/">Quickstart</a>と<a href="https://rocket.rs/v0.4/guide/getting-started/">Getting Started</a></h4>
+<div id="outline-container-orge254ca3" class="outline-4">
+<h4 id="orge254ca3"><span class="section-number-4">2.1.2</span> <a href="https://rocket.rs/v0.4/guide/quickstart/">Quickstart</a>と<a href="https://rocket.rs/v0.4/guide/getting-started/">Getting Started</a></h4>
 <div class="outline-text-4" id="text-2-1-2">
 </div>
-<div id="outline-container-orga1c878f" class="outline-5">
-<h5 id="orga1c878f"><span class="section-number-5">2.1.2.1</span> サンプルアプリを起動</h5>
+<div id="outline-container-org9749d79" class="outline-5">
+<h5 id="org9749d79"><span class="section-number-5">2.1.2.1</span> サンプルアプリを起動</h5>
 <div class="outline-text-5" id="text-2-1-2-1">
 <p>
 リポジトリをクローン。
@@ -658,8 +727,8 @@ $ cargo run
 </div>
 </div>
 
-<div id="outline-container-org4e4e50d" class="outline-5">
-<h5 id="org4e4e50d"><span class="section-number-5">2.1.2.2</span> アプリを作成</h5>
+<div id="outline-container-org0f2151a" class="outline-5">
+<h5 id="org0f2151a"><span class="section-number-5">2.1.2.2</span> アプリを作成</h5>
 <div class="outline-text-5" id="text-2-1-2-2">
 <p>
 クローンしたリポジトリを削除。
@@ -686,7 +755,7 @@ $ cd hello-rocket
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 5: </span>Cargo.toml</label><pre class="src src-rust"><span style="color: #e91e63;">[</span>dependencies<span style="color: #e91e63;">]</span>
+<label class="org-src-name"><span class="listing-number">Listing 7: </span>Cargo.toml</label><pre class="src src-rust"><span style="color: #e91e63;">[</span>dependencies<span style="color: #e91e63;">]</span>
 rocket = <span style="color: #9ccc65;">"0.4.0"</span>
 </pre>
 </div>
@@ -696,7 +765,7 @@ rocket = <span style="color: #9ccc65;">"0.4.0"</span>
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 6: </span>src/main.rs</label><pre class="src src-rust"><span style="color: #ffd700;">#!</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">feature</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">proc_macro_hygiene, decl_macro</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
+<label class="org-src-name"><span class="listing-number">Listing 8: </span>src/main.rs</label><pre class="src src-rust"><span style="color: #ffd700;">#!</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">feature</span><span style="color: #2196F3;">(</span><span style="color: #ffd700;">proc_macro_hygiene, decl_macro</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
 
 <span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">macro_use</span><span style="color: #e91e63;">]</span> <span style="color: #fff59d;">extern</span> <span style="color: #fff59d;">crate</span> rocket;
 
@@ -727,15 +796,15 @@ $ cargo run
 </div>
 </div>
 
-<div id="outline-container-org42e2f62" class="outline-3">
-<h3 id="org42e2f62"><span class="section-number-3">2.2</span> Sample Apps<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></h3>
+<div id="outline-container-org5c13c52" class="outline-3">
+<h3 id="org5c13c52"><span class="section-number-3">2.2</span> Sample Apps<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-org051fb5e" class="outline-4">
-<h4 id="org051fb5e"><span class="section-number-4">2.2.1</span> hello_world</h4>
+<div id="outline-container-orgb9f7d49" class="outline-4">
+<h4 id="orgb9f7d49"><span class="section-number-4">2.2.1</span> hello_world</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 7: </span>src/main.rs</label><pre class="src src-rust"><span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">get</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"/"</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
+<label class="org-src-name"><span class="listing-number">Listing 9: </span>src/main.rs</label><pre class="src src-rust"><span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">get</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"/"</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
 <span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">hello</span><span style="color: #e91e63;">()</span> -&gt; &amp;'<span style="color: #fff59d;">static</span> <span style="color: #84ffff;">str</span> <span style="color: #e91e63;">{</span>
     <span style="color: #9ccc65;">"Hello, world!"</span>
 <span style="color: #e91e63;">}</span>
@@ -777,8 +846,8 @@ $ cargo run
 </div>
 </div>
 
-<div id="outline-container-orgc1e4706" class="outline-4">
-<h4 id="orgc1e4706"><span class="section-number-4">2.2.2</span> hello_2018</h4>
+<div id="outline-container-orgd5655e7" class="outline-4">
+<h4 id="orgd5655e7"><span class="section-number-4">2.2.2</span> hello_2018</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 hello_worldと同様。
@@ -786,11 +855,11 @@ hello_worldと同様。
 </div>
 </div>
 
-<div id="outline-container-org85fe6b7" class="outline-4">
-<h4 id="org85fe6b7"><span class="section-number-4">2.2.3</span> hello_person</h4>
+<div id="outline-container-orgd5f66ef" class="outline-4">
+<h4 id="orgd5f66ef"><span class="section-number-4">2.2.3</span> hello_person</h4>
 <div class="outline-text-4" id="text-2-2-3">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 8: </span>src/main.rs</label><pre class="src src-rust"><span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">get</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"/hello/&lt;name&gt;/&lt;age&gt;"</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
+<label class="org-src-name"><span class="listing-number">Listing 10: </span>src/main.rs</label><pre class="src src-rust"><span style="color: #ffd700;">#</span><span style="color: #e91e63;">[</span><span style="color: #ffd700;">get</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"/hello/&lt;name&gt;/&lt;age&gt;"</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">]</span>
 <span style="color: #fff59d;">fn</span> <span style="color: #84ffff;">hello</span><span style="color: #e91e63;">(</span><span style="color: #ffcc80;">name</span>: <span style="color: #84ffff;">String</span>, <span style="color: #ffcc80;">age</span>: <span style="color: #84ffff;">u8</span><span style="color: #e91e63;">)</span> -&gt; <span style="color: #84ffff;">String</span> <span style="color: #e91e63;">{</span>
     <span style="color: #ff8A65;">format!</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">"Hello, </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;"> year old named </span><span style="color: #9ccc65; font-style: italic;">{}</span><span style="color: #9ccc65;">!"</span>, age, name<span style="color: #2196F3;">)</span>
 <span style="color: #e91e63;">}</span>
@@ -856,8 +925,8 @@ hello_worldと同様。
 </div>
 </div>
 
-<div id="outline-container-orgdd82e88" class="outline-2">
-<h2 id="orgdd82e88"><span class="section-number-2">3</span> Bookmarks</h2>
+<div id="outline-container-org281c33e" class="outline-2">
+<h2 id="org281c33e"><span class="section-number-2">3</span> Bookmarks</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><a href="https://github.com/flosse/rust-web-framework-comparison">flosse / rust-web-framework-comparison</a></li>
@@ -877,7 +946,7 @@ hello_worldと同様。
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-09-15 Sun 17:21</p>
+<p class="date">Created: 2019-09-15 Sun 19:47</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
