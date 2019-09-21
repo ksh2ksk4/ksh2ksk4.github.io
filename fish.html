@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-02-05 Tue 13:59 -->
+<!-- 2019-09-22 Sun 03:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title><a href="https://fishshell.com/">fish</a></title>
@@ -248,37 +248,41 @@ for the JavaScript code in this tag.
 </script>
 </head>
 <body>
-<div id="content">
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="index.html"> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content">
 <h1 class="title"><a href="https://fishshell.com/">fish</a></h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org777fb80">1. Install</a></li>
-<li><a href="#org2c206fa">2. Change the login shell</a></li>
-<li><a href="#orgf38350f">3. fisherman</a>
+<li><a href="#orge8b79a3">1. Install</a></li>
+<li><a href="#org4085e2d">2. Change the login shell</a></li>
+<li><a href="#orgf1b14e9">3. fisherman</a>
 <ul>
-<li><a href="#org701e636">3.1. Install</a></li>
-<li><a href="#org6e4c70f">3.2. Plugins</a></li>
+<li><a href="#org10ff338">3.1. Install</a></li>
+<li><a href="#org431463a">3.2. Plugins</a></li>
 </ul>
 </li>
-<li><a href="#orgc1b3cdb">4. Customize</a>
+<li><a href="#org47ba0c6">4. Customize</a>
 <ul>
-<li><a href="#orge4b4619">4.1. Themes</a></li>
-<li><a href="#org3310884">4.2. Environment Variables</a></li>
-<li><a href="#orge92f472">4.3. Prompt</a></li>
-<li><a href="#org09611c4">4.4. Greeting message</a></li>
-<li><a href="#org28f57c4">4.5. ls command coloring</a></li>
-<li><a href="#orgb395717">4.6. Color</a></li>
+<li><a href="#org2902730">4.1. Themes</a></li>
+<li><a href="#org8aebcd8">4.2. Environment Variables</a></li>
+<li><a href="#org9a1de46">4.3. Prompt</a></li>
+<li><a href="#orgae48c87">4.4. Greeting message</a></li>
+<li><a href="#org4e45124">4.5. ls command coloring</a></li>
+<li><a href="#orgc81736a">4.6. Color</a></li>
 </ul>
 </li>
-<li><a href="#org82d8c02">5. クリーンアップ</a></li>
+<li><a href="#org764d5b5">5. クリーンアップ</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org777fb80" class="outline-2">
-<h2 id="org777fb80"><span class="section-number-2">1</span> Install</h2>
+<div id="outline-container-orge8b79a3" class="outline-2">
+<h2 id="orge8b79a3"><span class="section-number-2">1</span> Install</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 $ brew install fish
@@ -286,8 +290,8 @@ $ brew install fish
 </div>
 </div>
 
-<div id="outline-container-org2c206fa" class="outline-2">
-<h2 id="org2c206fa"><span class="section-number-2">2</span> Change the login shell</h2>
+<div id="outline-container-org4085e2d" class="outline-2">
+<h2 id="org4085e2d"><span class="section-number-2">2</span> Change the login shell</h2>
 <div class="outline-text-2" id="text-2">
 <pre class="example">
 $ echo /usr/local/bin/fish |sudo tee -a /etc/shells
@@ -296,12 +300,12 @@ $ chsh -s /usr/local/bin/fish
 </div>
 </div>
 
-<div id="outline-container-orgf38350f" class="outline-2">
-<h2 id="orgf38350f"><span class="section-number-2">3</span> <a href="https://github.com/jorgebucaran/fisher">fisherman</a></h2>
+<div id="outline-container-orgf1b14e9" class="outline-2">
+<h2 id="orgf1b14e9"><span class="section-number-2">3</span> <a href="https://github.com/jorgebucaran/fisher">fisherman</a></h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org701e636" class="outline-3">
-<h3 id="org701e636"><span class="section-number-3">3.1</span> Install</h3>
+<div id="outline-container-org10ff338" class="outline-3">
+<h3 id="org10ff338"><span class="section-number-3">3.1</span> Install</h3>
 <div class="outline-text-3" id="text-3-1">
 <pre class="example">
 $ curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
@@ -309,12 +313,12 @@ $ curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fis
 </div>
 </div>
 
-<div id="outline-container-org6e4c70f" class="outline-3">
-<h3 id="org6e4c70f"><span class="section-number-3">3.2</span> Plugins</h3>
+<div id="outline-container-org431463a" class="outline-3">
+<h3 id="org431463a"><span class="section-number-3">3.2</span> Plugins</h3>
 <div class="outline-text-3" id="text-3-2">
 </div>
-<div id="outline-container-org0d8b01d" class="outline-4">
-<h4 id="org0d8b01d"><span class="section-number-4">3.2.1</span> <a href="https://github.com/oh-my-fish/plugin-peco">peco</a></h4>
+<div id="outline-container-org7571290" class="outline-4">
+<h4 id="org7571290"><span class="section-number-4">3.2.1</span> <a href="https://github.com/oh-my-fish/plugin-peco">peco</a></h4>
 <div class="outline-text-4" id="text-3-2-1">
 <pre class="example">
 $ brew install peco
@@ -325,32 +329,32 @@ $ fisher add oh-my-fish/plugin-peco
 </div>
 </div>
 
-<div id="outline-container-orgc1b3cdb" class="outline-2">
-<h2 id="orgc1b3cdb"><span class="section-number-2">4</span> Customize</h2>
+<div id="outline-container-org47ba0c6" class="outline-2">
+<h2 id="org47ba0c6"><span class="section-number-2">4</span> Customize</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orge4b4619" class="outline-3">
-<h3 id="orge4b4619"><span class="section-number-3">4.1</span> <a href="https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md">Themes</a></h3>
+<div id="outline-container-org2902730" class="outline-3">
+<h3 id="org2902730"><span class="section-number-3">4.1</span> <a href="https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md">Themes</a></h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
-いまのところテーマはインストールしていない。
+いまのところテーマはインストールしていない。<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org3310884" class="outline-3">
-<h3 id="org3310884"><span class="section-number-3">4.2</span> Environment Variables</h3>
+<div id="outline-container-org8aebcd8" class="outline-3">
+<h3 id="org8aebcd8"><span class="section-number-3">4.2</span> Environment Variables</h3>
 <div class="outline-text-3" id="text-4-2">
 </div>
-<div id="outline-container-org73a78ce" class="outline-4">
-<h4 id="org73a78ce"><span class="section-number-4">4.2.1</span> <code>LANG</code> について</h4>
+<div id="outline-container-org2e6ce0f" class="outline-4">
+<h4 id="org2e6ce0f"><span class="section-number-4">4.2.1</span> <code>LANG</code> について</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <p>
-この<a href="https://fishshell.com/docs/current/faq.html#faq-exported-uvar">FAQ</a>にある事象が発生<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>した。
+この<a href="https://fishshell.com/docs/current/faq.html#faq-exported-uvar">FAQ</a>にある事象が発生<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>した。<br />
 </p>
 
 <p>
-どうやらfish起動前に <code>LANG</code> が定義されているらしく、
+どうやらfish起動前に <code>LANG</code> が定義されているらしく、<br />
 </p>
 
 <pre class="example">
@@ -362,7 +366,7 @@ LANG ''
 
 <p>
 という状態になっている。<br />
-(設定値が空のグローバル変数が存在している)
+(設定値が空のグローバル変数が存在している)<br />
 </p>
 
 <pre class="example">
@@ -376,8 +380,8 @@ $ set -qg LANG; or echo $LANG
 </pre>
 
 <p>
-ユニバーサル変数のエクスポートもできてはいるが、ユニバーサル変数よりもグローバル変数の方が
-スコープは優位であるため、設定値を参照できていない模様。
+ユニバーサル変数のエクスポートもできてはいるが、ユニバーサル変数よりもグローバル変数の方が<br />
+スコープは優位であるため、設定値を参照できていない模様。<br />
 </p>
 
 <pre class="example">
@@ -388,8 +392,8 @@ LANG ja_JP.UTF-8
 
 <p>
 グローバル変数を削除すると設定値を参照できる。<br />
-そもそも、ユニバーサル変数をエクスポートするのはあまり宜しくなさそうなので、 <code>config.fish</code> で
-設定する。
+そもそも、ユニバーサル変数をエクスポートするのはあまり宜しくなさそうなので、 <code>config.fish</code> で<br />
+設定する。<br />
 </p>
 
 <div class="org-src-container">
@@ -399,11 +403,11 @@ LANG ja_JP.UTF-8
 </div>
 </div>
 
-<div id="outline-container-org903952b" class="outline-4">
-<h4 id="org903952b"><span class="section-number-4">4.2.2</span> その他</h4>
+<div id="outline-container-org824eb88" class="outline-4">
+<h4 id="org824eb88"><span class="section-number-4">4.2.2</span> その他</h4>
 <div class="outline-text-4" id="text-4-2-2">
 <p>
-まだ未設定。
+まだ未設定。<br />
 </p>
 
 <div class="org-src-container">
@@ -414,8 +418,8 @@ LANG ja_JP.UTF-8
 </div>
 </div>
 
-<div id="outline-container-orge92f472" class="outline-3">
-<h3 id="orge92f472"><span class="section-number-3">4.3</span> Prompt</h3>
+<div id="outline-container-org9a1de46" class="outline-3">
+<h3 id="org9a1de46"><span class="section-number-3">4.3</span> Prompt</h3>
 <div class="outline-text-3" id="text-4-3">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 3: </span>~/.config/fish/functions/fish_prompt.fish</label><pre class="src src-fish">
@@ -429,11 +433,11 @@ LANG ja_JP.UTF-8
 </div>
 </div>
 
-<div id="outline-container-org09611c4" class="outline-3">
-<h3 id="org09611c4"><span class="section-number-3">4.4</span> Greeting message</h3>
+<div id="outline-container-orgae48c87" class="outline-3">
+<h3 id="orgae48c87"><span class="section-number-3">4.4</span> Greeting message</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
-邪魔なので消す。
+邪魔なので消す。<br />
 </p>
 
 <pre class="example">
@@ -442,24 +446,24 @@ $ set -U fish_greeting ''
 </div>
 </div>
 
-<div id="outline-container-org28f57c4" class="outline-3">
-<h3 id="org28f57c4"><span class="section-number-3">4.5</span> ls command coloring</h3>
+<div id="outline-container-org4e45124" class="outline-3">
+<h3 id="org4e45124"><span class="section-number-3">4.5</span> ls command coloring</h3>
 <div class="outline-text-3" id="text-4-5">
 <pre class="example">
 $ set -xU LSCOLORS gxcxxxxxfxxxxxxxxxgxgx
 </pre>
 
 <p>
-Alacrittyでは不要。
+Alacrittyでは不要。<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgb395717" class="outline-3">
-<h3 id="orgb395717"><span class="section-number-3">4.6</span> Color</h3>
+<div id="outline-container-orgc81736a" class="outline-3">
+<h3 id="orgc81736a"><span class="section-number-3">4.6</span> Color</h3>
 <div class="outline-text-3" id="text-4-6">
 <p>
-見難い色を変更。
+見難い色を変更。<br />
 </p>
 
 <pre class="example">
@@ -467,13 +471,13 @@ $ set -U fish_color_command b2d0e4
 </pre>
 
 <ul class="org-ul">
-<li>変更前
+<li>変更前<br />
 <ul class="org-ul">
-<li><a href="https://www.color-hex.com/color/005fd7">#005fd7</a></li>
+<li><a href="https://www.color-hex.com/color/005fd7">#005fd7</a><br /></li>
 </ul></li>
-<li>変更後
+<li>変更後<br />
 <ul class="org-ul">
-<li><a href="https://www.color-hex.com/color/b2d0e4">#b2d0e4</a></li>
+<li><a href="https://www.color-hex.com/color/b2d0e4">#b2d0e4</a><br /></li>
 </ul></li>
 </ul>
 
@@ -482,24 +486,24 @@ $ set -U fish_color_error d7858e
 </pre>
 
 <ul class="org-ul">
-<li>変更前
+<li>変更前<br />
 <ul class="org-ul">
-<li><a href="https://www.color-hex.com/color/ff0000">#ff0000</a></li>
+<li><a href="https://www.color-hex.com/color/ff0000">#ff0000</a><br /></li>
 </ul></li>
-<li>変更後
+<li>変更後<br />
 <ul class="org-ul">
-<li><a href="https://www.color-hex.com/color/d7858e">#d7858e</a></li>
+<li><a href="https://www.color-hex.com/color/d7858e">#d7858e</a><br /></li>
 </ul></li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org82d8c02" class="outline-2">
-<h2 id="org82d8c02"><span class="section-number-2">5</span> クリーンアップ</h2>
+<div id="outline-container-org764d5b5" class="outline-2">
+<h2 id="org764d5b5"><span class="section-number-2">5</span> クリーンアップ</h2>
 <div class="outline-text-2" id="text-5">
 <p>
-不要になったBashのファイルを削除する。
+不要になったBashのファイルを削除する。<br />
 </p>
 
 <pre class="example">
@@ -512,7 +516,7 @@ $ rm ~/.bash_history
 <div id="text-footnotes">
 
 <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
-macOS Mojave以降で発生?
+macOS Mojave以降で発生?<br />
 </p></div></div>
 
 
@@ -520,7 +524,7 @@ macOS Mojave以降で発生?
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-02-05 Tue 13:59</p>
+<p class="date">Created: 2019-09-22 Sun 03:42</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
