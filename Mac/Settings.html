@@ -1,0 +1,1144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-09-22 Sun 02:50 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Settings</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="KISHI Kousuke" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
+<style>div#content{max-width:none;}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
+<h1 class="title">Settings</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgfdecdab">1. PC</a></li>
+<li><a href="#orga663b15">2. システム環境設定</a>
+<ul>
+<li><a href="#org61cd82d">2.1. 一般</a></li>
+<li><a href="#org5d7d6b1">2.2. デスクトップとスクリーンセーバ</a></li>
+<li><a href="#orgbfc318f">2.3. Dock</a></li>
+<li><a href="#org779bf97">2.4. ディスプレイ</a></li>
+<li><a href="#orge7f5e10">2.5. 省エネルギー</a></li>
+<li><a href="#org7208203">2.6. キーボード</a></li>
+<li><a href="#org4a06b51">2.7. トラックパッド</a></li>
+<li><a href="#org6181d28">2.8. サウンド</a></li>
+<li><a href="#org0d6814b">2.9. Bluetooth</a></li>
+<li><a href="#orge9f9b67">2.10. 共有</a></li>
+<li><a href="#org410069c">2.11. ユーザとグループ</a></li>
+<li><a href="#org8678a1f">2.12. 日付と時刻</a></li>
+<li><a href="#org889221d">2.13. アクセシビリティ</a></li>
+</ul>
+</li>
+<li><a href="#org8c68a23">3. アプリケーション</a>
+<ul>
+<li><a href="#org2e46dd7">3.1. インストール</a></li>
+<li><a href="#org6614716">3.2. アンインストール</a></li>
+<li><a href="#orgb9f5fe8">3.3. Dock</a></li>
+<li><a href="#org33673e3">3.4. Finder</a></li>
+</ul>
+</li>
+<li><a href="#org1e731a8">4. その他</a>
+<ul>
+<li><a href="#org5109196">4.1. Retineディスプレイ以外ではフォントが汚い問題</a></li>
+<li><a href="#org5cc25df">4.2. 不可視ファイル</a></li>
+<li><a href="#orgb6c4040">4.3. .DS_Storeファイル</a></li>
+<li><a href="#orgf762e4d">4.4. ローカルネットワークの名前解決</a></li>
+<li><a href="#orgde39918">4.5. 不要なディレクトリを削除</a></li>
+</ul>
+</li>
+<li><a href="#org385c342">5. Tips</a>
+<ul>
+<li><a href="#org4bebd20">5.1. Finder</a></li>
+<li><a href="#org4108638">5.2. Time Machine</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfdecdab" class="outline-2">
+<h2 id="orgfdecdab"><span class="section-number-2">1</span> PC</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>MacBook Air (Retina, 13-inch, 2018)<br />
+<ul class="org-ul">
+<li>macOS Mojave(バージョン 10.14.6)<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga663b15" class="outline-2">
+<h2 id="orga663b15"><span class="section-number-2">2</span> システム環境設定</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org61cd82d" class="outline-3">
+<h3 id="org61cd82d"><span class="section-number-3">2.1</span> 一般</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>外観モード<br />
+<ul class="org-ul">
+<li>ダーク<br /></li>
+</ul></li>
+<li>アクセントカラー<br />
+<ul class="org-ul">
+<li>レッド<br /></li>
+</ul></li>
+<li>強調表示色<br />
+<ul class="org-ul">
+<li>レッド<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5d7d6b1" class="outline-3">
+<h3 id="org5d7d6b1"><span class="section-number-3">2.2</span> デスクトップとスクリーンセーバ</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-org7ab2118" class="outline-4">
+<h4 id="org7ab2118"><span class="section-number-4">2.2.1</span> デスクトップ</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<ul class="org-ul">
+<li>ピクチャを変更<br />
+<ul class="org-ul">
+<li>チェック<br /></li>
+<li>5分ごと<br /></li>
+</ul></li>
+<li>ランダムな順序<br />
+<ul class="org-ul">
+<li>チェック<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org13dbfac" class="outline-4">
+<h4 id="org13dbfac"><span class="section-number-4">2.2.2</span> スクリーンセーバ</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<ul class="org-ul">
+<li><code>今日の一言</code> を選択<br /></li>
+<li>開始までの時間<br />
+<ul class="org-ul">
+<li>5分<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbfc318f" class="outline-3">
+<h3 id="orgbfc318f"><span class="section-number-3">2.3</span> Dock</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>画面上の位置<br />
+<ul class="org-ul">
+<li>左<br /></li>
+</ul></li>
+<li>ウインドウをしまうときのエフェクト<br />
+<ul class="org-ul">
+<li>スケールエフェクト<br /></li>
+</ul></li>
+<li>ウインドウをアプリケーションアイコンにしまう<br />
+<ul class="org-ul">
+<li>チェック<br /></li>
+</ul></li>
+<li>Dockを自動的に表示/非表示<br />
+<ul class="org-ul">
+<li>チェック<br /></li>
+</ul></li>
+<li>最近使ったアプリケーションをDockに表示<br />
+<ul class="org-ul">
+<li>アンチェック<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org779bf97" class="outline-3">
+<h3 id="org779bf97"><span class="section-number-3">2.4</span> ディスプレイ</h3>
+<div class="outline-text-3" id="text-2-4">
+</div>
+<div id="outline-container-orgb79e568" class="outline-4">
+<h4 id="orgb79e568"><span class="section-number-4">2.4.1</span> ディスプレイ</h4>
+<div class="outline-text-4" id="text-2-4-1">
+<ul class="org-ul">
+<li>輝度<br />
+<ul class="org-ul">
+<li>最低輝度に変更<br /></li>
+<li>輝度を自動調整<br />
+<ul class="org-ul">
+<li>アンチェック<br /></li>
+</ul></li>
+<li>使用可能な場合はメニューバーにミラーリングオプションを表示<br />
+<ul class="org-ul">
+<li>アンチェック<br /></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge7f5e10" class="outline-3">
+<h3 id="orge7f5e10"><span class="section-number-3">2.5</span> 省エネルギー</h3>
+<div class="outline-text-3" id="text-2-5">
+</div>
+<div id="outline-container-org98c31e2" class="outline-4">
+<h4 id="org98c31e2"><span class="section-number-4">2.5.1</span> バッテリー</h4>
+<div class="outline-text-4" id="text-2-5-1">
+<ul class="org-ul">
+<li>ディスプレイをオフにするまでの時間<br />
+<ul class="org-ul">
+<li>15分<br /></li>
+</ul></li>
+<li>バッテリー電源使用時はディスプレイを少し暗くする<br />
+<ul class="org-ul">
+<li>アンチェック<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc94963e" class="outline-4">
+<h4 id="orgc94963e"><span class="section-number-4">2.5.2</span> 電源アダプタ</h4>
+<div class="outline-text-4" id="text-2-5-2">
+<ul class="org-ul">
+<li>ディスプレイをオフにするまでの時間<br />
+<ul class="org-ul">
+<li>15分<br /></li>
+</ul></li>
+<li>Wi-Fiネットワークアクセスによるスリープ解除<br />
+<ul class="org-ul">
+<li>アンチェック<br /></li>
+</ul></li>
+<li>電源アダプタに接続中にPower Napをオンにする<br />
+<ul class="org-ul">
+<li>アンチェック<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7208203" class="outline-3">
+<h3 id="org7208203"><span class="section-number-3">2.6</span> キーボード</h3>
+<div class="outline-text-3" id="text-2-6">
+</div>
+<div id="outline-container-org9d366fc" class="outline-4">
+<h4 id="org9d366fc"><span class="section-number-4">2.6.1</span> キーボード</h4>
+<div class="outline-text-4" id="text-2-6-1">
+<ul class="org-ul">
+<li>キーのリピート<br />
+<ul class="org-ul">
+<li>最速に変更<br /></li>
+</ul></li>
+<li>リピート入力認識までの時間<br />
+<ul class="org-ul">
+<li>最短に変更<br /></li>
+</ul></li>
+<li>環境光が暗い場合にキーボードの輝度を調整<br />
+<ul class="org-ul">
+<li>アンチェック<br /></li>
+</ul></li>
+<li>F1、F2などのキーを標準のファンクションキーとして使用<br />
+<ul class="org-ul">
+<li>チェック<br /></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-org753668f" class="outline-5">
+<h5 id="org753668f"><span class="section-number-5">2.6.1.1</span> 修飾キー</h5>
+<div class="outline-text-5" id="text-2-6-1-1">
+<ul class="org-ul">
+<li>Caps Lock (⇪) キー<br />
+<ul class="org-ul">
+<li><code>^ Control</code> に変更<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6616ab5" class="outline-4">
+<h4 id="org6616ab5"><span class="section-number-4">2.6.2</span> ユーザ辞書</h4>
+<div class="outline-text-4" id="text-2-6-2">
+<ul class="org-ul">
+<li><code>きららざか</code> を削除<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge1432d3" class="outline-4">
+<h4 id="orge1432d3"><span class="section-number-4">2.6.3</span> ショートカット</h4>
+<div class="outline-text-4" id="text-2-6-3">
+<ul class="org-ul">
+<li>入力ソース<br />
+<ul class="org-ul">
+<li>前の入力ソースを選択<br />
+<ul class="org-ul">
+<li>アンチェック<br /></li>
+</ul></li>
+<li>入力メニューの次のソースを選択<br />
+<ul class="org-ul">
+<li><code>^\</code> に変更<br /></li>
+</ul></li>
+</ul></li>
+<li>Spotlight<br />
+<ul class="org-ul">
+<li>Spotlight検索を表示<br />
+<ul class="org-ul">
+<li>アンチェック<br /></li>
+</ul></li>
+<li>Finderの検索ウインドウを表示<br />
+<ul class="org-ul">
+<li>アンチェック<br /></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2a93dc4" class="outline-4">
+<h4 id="org2a93dc4"><span class="section-number-4">2.6.4</span> 入力ソース</h4>
+<div class="outline-text-4" id="text-2-6-4">
+<ul class="org-ul">
+<li>下記以外を削除<br />
+<ul class="org-ul">
+<li>U.S.<br /></li>
+<li>ひらがな(Google)<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4a06b51" class="outline-3">
+<h3 id="org4a06b51"><span class="section-number-3">2.7</span> トラックパッド</h3>
+<div class="outline-text-3" id="text-2-7">
+</div>
+<div id="outline-container-org4d98253" class="outline-4">
+<h4 id="org4d98253"><span class="section-number-4">2.7.1</span> ポイントとクリック</h4>
+<div class="outline-text-4" id="text-2-7-1">
+<ul class="org-ul">
+<li>タップでクリック<br />
+<ul class="org-ul">
+<li>チェック<br /></li>
+</ul></li>
+<li>軌跡の速さ<br />
+<ul class="org-ul">
+<li>最速に変更<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4be3e26" class="outline-4">
+<h4 id="org4be3e26"><span class="section-number-4">2.7.2</span> スクロールとズーム</h4>
+<div class="outline-text-4" id="text-2-7-2">
+<ul class="org-ul">
+<li>スクロールの方向: ナチュラル<br />
+<ul class="org-ul">
+<li>アンチェック<br /></li>
+</ul></li>
+<li>拡大/縮小<br />
+<ul class="org-ul">
+<li>アンチェック<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6181d28" class="outline-3">
+<h3 id="org6181d28"><span class="section-number-3">2.8</span> サウンド</h3>
+<div class="outline-text-3" id="text-2-8">
+</div>
+<div id="outline-container-org66d6b0c" class="outline-4">
+<h4 id="org66d6b0c"><span class="section-number-4">2.8.1</span> サウンドエフェクト</h4>
+<div class="outline-text-4" id="text-2-8-1">
+<ul class="org-ul">
+<li>通知音を選択<br />
+<ul class="org-ul">
+<li><code>Submarine</code> に変更<br /></li>
+</ul></li>
+<li>通知音の音量<br />
+<ul class="org-ul">
+<li>適度に調整<br /></li>
+</ul></li>
+<li>音量を変更するときにフィードバックを再生<br />
+<ul class="org-ul">
+<li>チェック<br /></li>
+</ul></li>
+<li>主音量<br />
+<ul class="org-ul">
+<li>適度に調整<br /></li>
+</ul></li>
+<li>メニューバーに音量を表示<br />
+<ul class="org-ul">
+<li>チェック<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0d6814b" class="outline-3">
+<h3 id="org0d6814b"><span class="section-number-3">2.9</span> Bluetooth</h3>
+<div class="outline-text-3" id="text-2-9">
+<ul class="org-ul">
+<li>Bluetoothをオフにする<br /></li>
+<li>メニューバーにBluetoothを表示<br />
+<ul class="org-ul">
+<li>チェック<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge9f9b67" class="outline-3">
+<h3 id="orge9f9b67"><span class="section-number-3">2.10</span> 共有</h3>
+<div class="outline-text-3" id="text-2-10">
+<ul class="org-ul">
+<li>コンピュータ名<br />
+<ul class="org-ul">
+<li>holly<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org410069c" class="outline-3">
+<h3 id="org410069c"><span class="section-number-3">2.11</span> ユーザとグループ</h3>
+<div class="outline-text-3" id="text-2-11">
+</div>
+<div id="outline-container-org1872e78" class="outline-4">
+<h4 id="org1872e78"><span class="section-number-4">2.11.1</span> ログインオプション</h4>
+<div class="outline-text-4" id="text-2-11-1">
+<ul class="org-ul">
+<li>ファストユーザスイッチメニュー<br />
+<ul class="org-ul">
+<li><code>アイコン</code> に変更<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8678a1f" class="outline-3">
+<h3 id="org8678a1f"><span class="section-number-3">2.12</span> 日付と時刻</h3>
+<div class="outline-text-3" id="text-2-12">
+</div>
+<div id="outline-container-org61e5a0c" class="outline-4">
+<h4 id="org61e5a0c"><span class="section-number-4">2.12.1</span> 日付と時刻</h4>
+<div class="outline-text-4" id="text-2-12-1">
+<ul class="org-ul">
+<li>NTPサーバを下記に変更<br />
+<ul class="org-ul">
+<li>ntp.nict.jp<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8b3e368" class="outline-4">
+<h4 id="org8b3e368"><span class="section-number-4">2.12.2</span> 時計</h4>
+<div class="outline-text-4" id="text-2-12-2">
+<ul class="org-ul">
+<li>秒を表示<br />
+<ul class="org-ul">
+<li>チェック<br /></li>
+</ul></li>
+<li>日付を表示<br />
+<ul class="org-ul">
+<li>チェック<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org889221d" class="outline-3">
+<h3 id="org889221d"><span class="section-number-3">2.13</span> アクセシビリティ</h3>
+<div class="outline-text-3" id="text-2-13">
+</div>
+<div id="outline-container-org545ddaa" class="outline-4">
+<h4 id="org545ddaa"><span class="section-number-4">2.13.1</span> ディスプレイ</h4>
+<div class="outline-text-4" id="text-2-13-1">
+<ul class="org-ul">
+<li>カーソルのサイズ<br />
+<ul class="org-ul">
+<li>適度に調整<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8ce19a5" class="outline-4">
+<h4 id="org8ce19a5"><span class="section-number-4">2.13.2</span> マウスとトラックパッド</h4>
+<div class="outline-text-4" id="text-2-13-2">
+<ul class="org-ul">
+<li>トラックパッドオプション<br />
+<ul class="org-ul">
+<li><code>ドラッグを有効にする</code> をチェック<br />
+<ul class="org-ul">
+<li><code>３本指のドラッグ</code> を選択<br /></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8c68a23" class="outline-2">
+<h2 id="org8c68a23"><span class="section-number-2">3</span> アプリケーション</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org2e46dd7" class="outline-3">
+<h3 id="org2e46dd7"><span class="section-number-3">3.1</span> インストール</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li><a href="https://www.google.co.jp/intl/ja/chrome/">Google Chrome</a><br /></li>
+<li><a href="https://eset-info.canon-its.jp/">ESET</a><br /></li>
+<li><a href="https://1password.com/jp/">1Password</a><br /></li>
+<li><a href="https://www.google.co.jp/ime/">Google日本語入力</a><br /></li>
+<li><a href="https://www.mozilla.org/ja/firefox/">Firefox</a><br /></li>
+<li><a href="https://binarynights.com/">ForkLift</a><br /></li>
+<li><a href="https://www.google.com/intl/ja_ALL/drive/download/backup-and-sync/">Googleのバックアップと同期</a><br /></li>
+<li><a href="https://osxfuse.github.io/">FUSE for macOS</a><br /></li>
+<li><a href="https://www.veracrypt.fr/en/Home.html">VeraCrypt</a><br /></li>
+<li><a href="https://freemacsoft.net/appcleaner/">AppCleaner</a><br /></li>
+<li><a href="http://help.dmm.com/-/detail/=/qid=46524/">DMM Player v2</a><br /></li>
+<li><a href="http://www.videolan.org/">VLC</a><br /></li>
+<li><a href="https://www.amazon.co.jp/gp/digital/fiona/kcp-landing-page">Kindle for Mac</a><br /></li>
+<li><a href="https://docs.docker.com/docker-for-mac/">Docker</a><br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6614716" class="outline-3">
+<h3 id="org6614716"><span class="section-number-3">3.2</span> アンインストール</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li>iMovie<br /></li>
+<li>Keynote<br /></li>
+<li>Pages<br /></li>
+<li>Numbers<br /></li>
+<li>GarageBand<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb9f5fe8" class="outline-3">
+<h3 id="orgb9f5fe8"><span class="section-number-3">3.3</span> Dock</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+以下のアイコンを削除。<br />
+</p>
+
+<ul class="org-ul">
+<li>Siri<br /></li>
+<li>メール<br /></li>
+<li>連絡先<br /></li>
+<li>カレンダー<br /></li>
+<li>メモ<br /></li>
+<li>リマインダー<br /></li>
+<li>マップ<br /></li>
+<li>写真<br /></li>
+<li>メッセージ<br /></li>
+<li>FaceTime<br /></li>
+<li>iTunes<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org33673e3" class="outline-3">
+<h3 id="org33673e3"><span class="section-number-3">3.4</span> Finder</h3>
+<div class="outline-text-3" id="text-3-4">
+</div>
+<div id="outline-container-org463e73e" class="outline-4">
+<h4 id="org463e73e"><span class="section-number-4">3.4.1</span> 環境設定</h4>
+<div class="outline-text-4" id="text-3-4-1">
+</div>
+<div id="outline-container-orgd0038ba" class="outline-5">
+<h5 id="orgd0038ba"><span class="section-number-5">3.4.1.1</span> 一般</h5>
+<div class="outline-text-5" id="text-3-4-1-1">
+<ul class="org-ul">
+<li>新規Finderウインドウで次を表示<br />
+<ul class="org-ul">
+<li>ホームディレクトリを選択<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org48330e2" class="outline-5">
+<h5 id="org48330e2"><span class="section-number-5">3.4.1.2</span> サイドバー</h5>
+<div class="outline-text-5" id="text-3-4-1-2">
+<ul class="org-ul">
+<li>サイドバーに表示する項目<br />
+<ul class="org-ul">
+<li>よく使う項目<br />
+<ul class="org-ul">
+<li>下記のみを選択<br />
+<ul class="org-ul">
+<li>Applications<br /></li>
+<li>Desktop<br /></li>
+<li>Downloads<br /></li>
+<li>ホームディレクトリ<br /></li>
+</ul></li>
+</ul></li>
+<li>場所<br />
+<ul class="org-ul">
+<li>iCloud Drive<br />
+<ul class="org-ul">
+<li>アンチェック<br /></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7001a1f" class="outline-5">
+<h5 id="org7001a1f"><span class="section-number-5">3.4.1.3</span> 詳細</h5>
+<div class="outline-text-5" id="text-3-4-1-3">
+<ul class="org-ul">
+<li>すべてのファイル名拡張子を表示<br />
+<ul class="org-ul">
+<li>チェック<br /></li>
+</ul></li>
+<li>拡張子を変更する前に警告を表示<br />
+<ul class="org-ul">
+<li>アンチェック<br /></li>
+</ul></li>
+<li>フォルダを常に先頭に表示する場所<br />
+<ul class="org-ul">
+<li>名前順で表示しているウインドウ<br />
+<ul class="org-ul">
+<li>チェック<br /></li>
+</ul></li>
+<li>デスクトップ<br />
+<ul class="org-ul">
+<li>チェック<br /></li>
+</ul></li>
+</ul></li>
+<li>検索実行時<br />
+<ul class="org-ul">
+<li><code>現在のフォルダ内を検索</code> を選択<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc116455" class="outline-4">
+<h4 id="orgc116455"><span class="section-number-4">3.4.2</span> 「表示」メニュー</h4>
+<div class="outline-text-4" id="text-3-4-2">
+<ul class="org-ul">
+<li>パスバーを表示<br /></li>
+<li>ステータスバーを表示<br /></li>
+</ul>
+</div>
+
+<div id="outline-container-orgc03d013" class="outline-5">
+<h5 id="orgc03d013"><span class="section-number-5">3.4.2.1</span> 表示オプション</h5>
+<div class="outline-text-5" id="text-3-4-2-1">
+<ol class="org-ol">
+<li>任意のフォルダで表示オプションを表示(<code>command</code> + <code>J</code>)<br /></li>
+<li><p>
+下記の設定に変更<br />
+</p>
+
+
+<div class="figure">
+<p><img src="images/MacBookAir/001.png" alt="001.png" /><br />
+</p>
+</div></li>
+
+<li>Finderのタブで表示項目を並べ替える<br />
+<ul class="org-ul">
+<li>名前<br /></li>
+<li>サイズ<br /></li>
+<li>作成日<br /></li>
+<li>変更日<br /></li>
+</ul></li>
+<li><code>デフォルトとして使用</code> をクリック<br /></li>
+</ol>
+
+<p>
+この設定が適用されないフォルダでは下記を実行。<br />
+</p>
+
+<ol class="org-ol">
+<li>表示オプションを表示(<code>command</code> + <code>J</code>)<br /></li>
+<li><code>option</code> を押す<br />
+<code>デフォルトとして使用</code> が <code>デフォルトに戻す</code> になる。<br /></li>
+<li><code>デフォルトに戻す</code> をクリック<br /></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1e731a8" class="outline-2">
+<h2 id="org1e731a8"><span class="section-number-2">4</span> その他</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org5109196" class="outline-3">
+<h3 id="org5109196"><span class="section-number-3">4.1</span> Retineディスプレイ以外ではフォントが汚い問題</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+フォントスムージング処理を復活させる。<br />
+</p>
+
+<pre class="example">
+$ defaults write -g CGFontRenderingFontSmoothingDisabled -bool FALSE
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org5cc25df" class="outline-3">
+<h3 id="org5cc25df"><span class="section-number-3">4.2</span> 不可視ファイル</h3>
+<div class="outline-text-3" id="text-4-2">
+</div>
+<div id="outline-container-org6c4d552" class="outline-4">
+<h4 id="org6c4d552"><span class="section-number-4">4.2.1</span> 可視化</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<pre class="example">
+$ defaults write com.apple.finder AppleShowAllFiles -bool TRUE
+$ killall Finder
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org5e27bb8" class="outline-4">
+<h4 id="org5e27bb8"><span class="section-number-4">4.2.2</span> 不可視化</h4>
+<div class="outline-text-4" id="text-4-2-2">
+<pre class="example">
+$ defaults delete com.apple.finder AppleShowAllFile
+$ killall Finder
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb6c4040" class="outline-3">
+<h3 id="orgb6c4040"><span class="section-number-3">4.3</span> .DS_Storeファイル</h3>
+<div class="outline-text-3" id="text-4-3">
+</div>
+<div id="outline-container-org89f0bf5" class="outline-4">
+<h4 id="org89f0bf5"><span class="section-number-4">4.3.1</span> ネットワークドライブに作成しない</h4>
+<div class="outline-text-4" id="text-4-3-1">
+<pre class="example">
+$ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool TRUE
+$ killall Finder
+</pre>
+
+<p>
+元に戻すには下記の通り。<br />
+</p>
+
+<pre class="example">
+$ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool FALSE
+$ killall Finder
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgbc833d1" class="outline-4">
+<h4 id="orgbc833d1"><span class="section-number-4">4.3.2</span> USBドライブに作成しない</h4>
+<div class="outline-text-4" id="text-4-3-2">
+<pre class="example">
+$ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool TRUE
+$ killall Finder
+</pre>
+
+<p>
+元に戻すには下記の通り。<br />
+</p>
+
+<pre class="example">
+$ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool FALSE
+$ killall Finder
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf762e4d" class="outline-3">
+<h3 id="orgf762e4d"><span class="section-number-3">4.4</span> ローカルネットワークの名前解決</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+<a href="NVR510.html">NVR510</a>で設定した静的DNSで名前解決できないため、hostsファイルにレコードを追加する。<br />
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>/private/etc/hosts</label><pre class="src src-text">192.168.126.2 airmac.home
+192.168.126.3 ds216j.home
+192.168.126.4 landisk.home
+192.168.126.5 maple.home
+192.168.126.6 baobab.home
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgde39918" class="outline-3">
+<h3 id="orgde39918"><span class="section-number-3">4.5</span> 不要なディレクトリ<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>を削除</h3>
+<div class="outline-text-3" id="text-4-5">
+<pre class="example">
+$ sudo rm -rf Documents Movies Music Public
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org385c342" class="outline-2">
+<h2 id="org385c342"><span class="section-number-2">5</span> Tips</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org4bebd20" class="outline-3">
+<h3 id="org4bebd20"><span class="section-number-3">5.1</span> Finder</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li>ファイルのコピー<br />
+<ul class="org-ul">
+<li><code>command</code> + <code>V</code><br /></li>
+</ul></li>
+<li>ファイルの移動<br />
+<ul class="org-ul">
+<li><code>option</code> + <code>command</code> + <code>V</code><br /></li>
+</ul></li>
+<li>ファイルパスの取得<br />
+<ul class="org-ul">
+<li>対象ファイルを選択して <code>option</code> + <code>command</code> + <code>C</code><br /></li>
+</ul></li>
+<li>不可視ファイルの表示・非表示を切り替え<br />
+<ul class="org-ul">
+<li><code>command</code> + <code>shift</code> + <code>.</code><br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4108638" class="outline-3">
+<h3 id="org4108638"><span class="section-number-3">5.2</span> Time Machine</h3>
+<div class="outline-text-3" id="text-5-2">
+</div>
+<div id="outline-container-org3e89adb" class="outline-4">
+<h4 id="org3e89adb"><span class="section-number-4">5.2.1</span> バックアップに時間が掛かる場合</h4>
+<div class="outline-text-4" id="text-5-2-1">
+<ul class="org-ul">
+<li>セキュリティソフトのリアルタイムファイルシステム保護を一時的に無効にする<br />
+<ul class="org-ul">
+<li>この間はネットワーク接続も切断しておく<br /></li>
+</ul></li>
+<li><p>
+バックアップファイルのインデックスを作成しないようにする<br />
+状態を確認。<br />
+</p>
+<pre class="example">
+$ mdutil -sa
+</pre>
+<p>
+インデックスを作成しないように設定を変更。<br />
+</p>
+<pre class="example">
+$ sudo mdutil -i off /Volumes/SSD/Backups.backupdb
+</pre>
+<p>
+状態を再確認。<br />
+</p>
+<pre class="example">
+$ mdutil -sa
+</pre>
+<p>
+多分、設定は変わっていないはず。<br />
+ただ、 <code>mdworker</code> プロセスが動かなくなるため処理は早くなる。<br />
+</p></li>
+<li><p>
+バックアップの優先順位を一時的に上げる<br />
+</p>
+<pre class="example">
+$ sudo sysctl debug.lowpri_throttle_enabled=0
+</pre>
+<p>
+バックアップが完了したら元に戻す。<br />
+</p>
+<pre class="example">
+$ sudo sysctl debug.lowpri_throttle_enabled=1
+</pre></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+Picturesディレクトリは削除できない。<br />
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: KISHI Kousuke</p>
+<p class="date">Created: 2019-09-22 Sun 02:50</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

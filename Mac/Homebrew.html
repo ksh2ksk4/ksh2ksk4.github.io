@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-09-22 Sun 02:50 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title><a href="https://brew.sh/index_ja">Homebrew</a></title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="KISHI Kousuke" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
+<style>div#content{max-width:none;}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
+<h1 class="title"><a href="https://brew.sh/index_ja">Homebrew</a></h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5a0d02b">1. Install</a></li>
+<li><a href="#org11401f6">2. Packages</a>
+<ul>
+<li><a href="#orgfa31e7d">2.1. fish</a></li>
+<li><a href="#orga1484d2">2.2. Coreutils</a></li>
+<li><a href="#orgbb87a93">2.3. Spacemacs</a></li>
+<li><a href="#orgb38aef3">2.4. less</a></li>
+<li><a href="#org5e4d6fd">2.5. iproute2mac</a></li>
+<li><a href="#org0289d9b">2.6. OpenSSH</a></li>
+<li><a href="#org21cec65">2.7. tmux</a></li>
+<li><a href="#org0b44939">2.8. git</a></li>
+<li><a href="#org90b4c07">2.9. tree</a></li>
+<li><a href="#org0f8c681">2.10. cmigemo</a></li>
+<li><a href="#org01a9783">2.11. MySQL client</a></li>
+<li><a href="#org4a5092c">2.12. PlantUML</a></li>
+<li><a href="#orgc030db6">2.13. OpenSSL</a></li>
+<li><a href="#org37de788">2.14. SQLite</a></li>
+</ul>
+</li>
+<li><a href="#orgf53896b">3. Troubles</a>
+<ul>
+<li><a href="#org034d54c">3.1. Python</a></li>
+</ul>
+</li>
+<li><a href="#org14c4f1b">4. Commands</a>
+<ul>
+<li><a href="#org829ba67">4.1. Show dependencies for specified formulae</a></li>
+<li><a href="#org9896198">4.2. Show the formulae that uses specified formulae</a></li>
+<li><a href="#orga47ceae">4.3. Show the dependencies between installed formulae</a></li>
+<li><a href="#orga180017">4.4. Uninstall</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5a0d02b" class="outline-2">
+<h2 id="org5a0d02b"><span class="section-number-2">1</span> Install</h2>
+<div class="outline-text-2" id="text-1">
+<pre class="example">
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+</pre>
+
+<p>
+<code>/usr/local/sbin</code> にパスを通す。<br />
+</p>
+
+<pre class="example">
+$ set -U fish_user_paths /usr/local/sbin $fish_user_paths
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org11401f6" class="outline-2">
+<h2 id="org11401f6"><span class="section-number-2">2</span> Packages</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgfa31e7d" class="outline-3">
+<h3 id="orgfa31e7d"><span class="section-number-3">2.1</span> <a href="fish.html">fish</a><sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></h3>
+</div>
+
+<div id="outline-container-orga1484d2" class="outline-3">
+<h3 id="orga1484d2"><span class="section-number-3">2.2</span> <a href="https://www.gnu.org/software/coreutils/">Coreutils</a></h3>
+<div class="outline-text-3" id="text-2-2">
+<pre class="example">
+$ brew install coreutils
+</pre>
+</div>
+
+<div id="outline-container-orgdda3474" class="outline-4">
+<h4 id="orgdda3474"><span class="section-number-4">2.2.1</span> 注意点</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<ul class="org-ul">
+<li><code>g</code> プレフィックスのコマンドを使う場合<br />
+<ul class="org-ul">
+<li><code>/usr/local/bin</code> にパスを通す<br />
+デフォルトでパスは通っているはず。<br /></li>
+</ul></li>
+<li><code>g</code> プレフィックスのないコマンドを使う場合<br />
+<ul class="org-ul">
+<li><p>
+<code>/usr/local/opt/coreutils/libexec/gnubin</code> にパスを通す<br />
+</p>
+<pre class="example">
+$ set -U fish_user_paths (brew --prefix coreutils)/libexec/gnubin $fish_user_paths
+</pre></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbb87a93" class="outline-3">
+<h3 id="orgbb87a93"><span class="section-number-3">2.3</span> <a href="Spacemacs.html">Spacemacs</a><sup><a id="fnr.1.100" class="footref" href="#fn.1">1</a></sup></h3>
+</div>
+
+<div id="outline-container-orgb38aef3" class="outline-3">
+<h3 id="orgb38aef3"><span class="section-number-3">2.4</span> <a href="https://www.gnu.org/software/less/">less</a></h3>
+<div class="outline-text-3" id="text-2-4">
+<pre class="example">
+$ brew install less
+$ brew install lesspipe
+</pre>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>~/.config/fish/config.fish</label><pre class="src src-fish"><span style="color: #fff59d;">set</span> <span style="color: #4dd0e1;">-x</span> <span style="color: #ffcc80;">PAGER</span> less
+<span style="color: #fff59d;">set</span> <span style="color: #4dd0e1;">-x</span> <span style="color: #ffcc80;">LESS</span> -ij5gFMRSWX
+<span style="color: #fff59d;">set</span> <span style="color: #4dd0e1;">-x</span> <span style="color: #ffcc80;">LESSOPEN</span> <span style="color: #9ccc65;">'|/usr/local/bin/lesspipe.sh %s'</span>
+<span style="color: #fff59d;">set</span> <span style="color: #4dd0e1;">-x</span> <span style="color: #ffcc80;">LESS_ADVANCED_PREPROCESSOR</span> <span style="color: #9ccc65;">1</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5e4d6fd" class="outline-3">
+<h3 id="org5e4d6fd"><span class="section-number-3">2.5</span> <a href="https://github.com/brona/iproute2mac">iproute2mac</a></h3>
+<div class="outline-text-3" id="text-2-5">
+<pre class="example">
+$ brew install iproute2mac
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0289d9b" class="outline-3">
+<h3 id="org0289d9b"><span class="section-number-3">2.6</span> <a href="https://www.openssh.com/">OpenSSH</a></h3>
+<div class="outline-text-3" id="text-2-6">
+<pre class="example">
+$ brew install openssh
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org21cec65" class="outline-3">
+<h3 id="org21cec65"><span class="section-number-3">2.7</span> <a href="https://github.com/tmux/tmux">tmux</a></h3>
+<div class="outline-text-3" id="text-2-7">
+<pre class="example">
+$ brew install tmux
+</pre>
+
+<p>
+バックアップしやすいように。<br />
+</p>
+
+<pre class="example">
+$ mv ~/.tmux.conf ~/.config/tmux/
+$ ln -sfv ~/.config/tmux/.tmux.conf
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0b44939" class="outline-3">
+<h3 id="org0b44939"><span class="section-number-3">2.8</span> <a href="https://git-scm.com/">git</a></h3>
+<div class="outline-text-3" id="text-2-8">
+<pre class="example">
+$ brew install git --with-curl --with-openssl
+$ set -U fish_user_paths /usr/local/share/git-core/contrib/diff-highlight $fish_user_paths
+</pre>
+
+<p>
+依存関係で <code>cURL</code> がインストールされるため、以下のようにパスを通しておく。<br />
+</p>
+
+<pre class="example">
+$ set -U fish_user_paths (brew --prefix curl)/bin $fish_user_paths
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org90b4c07" class="outline-3">
+<h3 id="org90b4c07"><span class="section-number-3">2.9</span> tree</h3>
+<div class="outline-text-3" id="text-2-9">
+<pre class="example">
+$ brew install tree
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0f8c681" class="outline-3">
+<h3 id="org0f8c681"><span class="section-number-3">2.10</span> <a href="https://github.com/koron/cmigemo">cmigemo</a></h3>
+<div class="outline-text-3" id="text-2-10">
+<pre class="example">
+$ brew install cmigemo
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org01a9783" class="outline-3">
+<h3 id="org01a9783"><span class="section-number-3">2.11</span> MySQL client</h3>
+<div class="outline-text-3" id="text-2-11">
+<pre class="example">
+$ brew install mysql-client
+$ set -U fish_user_paths (brew --prefix mysql-client)/bin $fish_user_paths
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org4a5092c" class="outline-3">
+<h3 id="org4a5092c"><span class="section-number-3">2.12</span> <a href="http://plantuml.com/">PlantUML</a></h3>
+<div class="outline-text-3" id="text-2-12">
+<pre class="example">
+$ brew install plantuml
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgc030db6" class="outline-3">
+<h3 id="orgc030db6"><span class="section-number-3">2.13</span> <a href="https://openssl.org/">OpenSSL</a></h3>
+<div class="outline-text-3" id="text-2-13">
+<pre class="example">
+$ brew install openssl
+$ set -U fish_user_paths (brew --prefix openssl)/bin $fish_user_paths
+$ set -S fish_user_paths
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org37de788" class="outline-3">
+<h3 id="org37de788"><span class="section-number-3">2.14</span> <a href="https://sqlite.org/">SQLite</a></h3>
+<div class="outline-text-3" id="text-2-14">
+<pre class="example">
+$ brew install sqlite
+$ set -U fish_user_paths (brew --prefix sqlite)/bin $fish_user_paths
+$ set -S fish_user_paths
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf53896b" class="outline-2">
+<h2 id="orgf53896b"><span class="section-number-2">3</span> Troubles</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org034d54c" class="outline-3">
+<h3 id="org034d54c"><span class="section-number-3">3.1</span> Python</h3>
+<div class="outline-text-3" id="text-3-1">
+<pre class="example">
+$ brew doctor
+Warning: You have unlinked kegs in your Cellar
+Leaving kegs unlinked can lead to build-trouble and cause brews that depend on
+those kegs to fail to run properly once built. Run `brew link` on these:
+  python
+</pre>
+
+<pre class="example">
+$ brew link python
+Linking /usr/local/Cellar/python/3.7.3... Error: Permission denied @ dir_s_mkdir - /usr/local/Frameworks
+</pre>
+
+<p>
+<code>/usr/local/Frameworks</code> というディレクトリが存在しない・・・。<br />
+ディレクトリを作成して <code>brew link python</code> を再実行する。<br />
+</p>
+
+<pre class="example">
+$ sudo mkdir /usr/local/Frameworks
+$ sudo chown (whoami):admin /usr/local/Frameworks
+$ brew link python
+Linking /usr/local/Cellar/python/3.7.3... 1 symlinks created
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org14c4f1b" class="outline-2">
+<h2 id="org14c4f1b"><span class="section-number-2">4</span> Commands</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org829ba67" class="outline-3">
+<h3 id="org829ba67"><span class="section-number-3">4.1</span> Show dependencies for specified formulae</h3>
+<div class="outline-text-3" id="text-4-1">
+<pre class="example">
+$ brew deps --tree formulae
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org9896198" class="outline-3">
+<h3 id="org9896198"><span class="section-number-3">4.2</span> Show the formulae that uses specified formulae</h3>
+<div class="outline-text-3" id="text-4-2">
+<pre class="example">
+$ brew uses --installed formulae
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orga47ceae" class="outline-3">
+<h3 id="orga47ceae"><span class="section-number-3">4.3</span> Show the dependencies between installed formulae</h3>
+<div class="outline-text-3" id="text-4-3">
+<pre class="example">
+$ for i in $(brew list); do echo "[${i}]"; brew uses --installed ${i}; echo ""; done
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orga180017" class="outline-3">
+<h3 id="orga180017"><span class="section-number-3">4.4</span> Uninstall</h3>
+<div class="outline-text-3" id="text-4-4">
+<pre class="example">
+$ brew uninstall formulae $(brew uses --installed formulae)
+</pre>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+詳細はリンク先を参照。<br />
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: KISHI Kousuke</p>
+<p class="date">Created: 2019-09-22 Sun 02:50</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
