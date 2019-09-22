@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-02-06 Wed 12:29 -->
+<!-- 2019-09-23 Mon 03:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title><a href="https://bitbucket.org/">Bitbucket</a></title>
+<title>Tips</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="KISHI Kousuke" />
 <style type="text/css">
@@ -248,58 +248,28 @@ for the JavaScript code in this tag.
 </script>
 </head>
 <body>
-<div id="content">
-<h1 class="title"><a href="https://bitbucket.org/">Bitbucket</a></h1>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
+<h1 class="title">Tips</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org96a4560">1. Resolve merge conflicts</a></li>
+<li><a href="#org9f99446">1. Bitbucket</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org96a4560" class="outline-2">
-<h2 id="org96a4560"><span class="section-number-2">1</span> <a href="https://confluence.atlassian.com/bitbucket/resolve-merge-conflicts-704414003.html">Resolve merge conflicts</a></h2>
-<div class="outline-text-2" id="text-1">
-<p>
-developブランチにfeature_miscブランチをマージするプルリクエストでコンフリクトが発生した場合。
-</p>
-
-<ul class="org-ul">
-<li><p>
-ローカルのdevelopブランチを最新化
-</p>
-<pre class="example">
-$ git pull origin develop
-</pre></li>
-<li><p>
-feature_miscブランチにdevelopブランチをpull<br />
-fast-forwardはしない(というかできない)。
-</p>
-<pre class="example">
-$ git checkout feature_misc
-$ git pull origin develop --no-ff
-</pre></li>
-<li><p>
-発生したコンフリクトを解消し、変更をpush
-</p>
-<pre class="example">
-$ git add filename
-$ git commit
-$ git push origin feature_misc
-</pre></li>
-</ul>
-
-<p>
-プルリクエストのコンフリクトが解消できているはず。
-</p>
-</div>
+<div id="outline-container-org9f99446" class="outline-2">
+<h2 id="org9f99446"><span class="section-number-2">1</span> <a href="Bitbucket.html">Bitbucket</a></h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-02-06 Wed 12:29</p>
+<p class="date">Created: 2019-09-23 Mon 03:14</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

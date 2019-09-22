@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-09-23 Mon 03:12 -->
+<!-- 2019-09-23 Mon 03:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Index</title>
+<title><a href="https://bitbucket.org/">Bitbucket</a></title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="KISHI Kousuke" />
 <style type="text/css">
@@ -248,85 +248,62 @@ for the JavaScript code in this tag.
 </script>
 </head>
 <body>
-<div id="content">
-<h1 class="title">Index</h1>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
+<h1 class="title"><a href="https://bitbucket.org/">Bitbucket</a></h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org49d6851">1. Mac</a></li>
-<li><a href="#orgd4bbfa1">2. fish</a></li>
-<li><a href="#orgc10e12a">3. Amazon Corretto</a></li>
-<li><a href="#org464e401">4. Alacritty</a></li>
-<li><a href="#org1d7bf9b">5. Git</a></li>
-<li><a href="#org0e9fefe">6. Spacemacs</a></li>
-<li><a href="#orgd16a382">7. Programming Languages</a></li>
-<li><a href="#orgfac44bf">8. IntelliJ IDEA</a></li>
-<li><a href="#org19fd703">9. DeepLearning</a></li>
-<li><a href="#orga5351b5">10. Composer</a></li>
-<li><a href="#org73d7917">11. Bitbucket</a></li>
-<li><a href="#orged2ea06">12. Mozc Helper</a></li>
-<li><a href="#orge4230df">13. React</a></li>
-<li><a href="#org8fedc75">14. HTML5</a></li>
-<li><a href="#org683e0f2">15. Tips</a></li>
+<li><a href="#org8837f02">1. Resolve merge conflicts</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org49d6851" class="outline-2">
-<h2 id="org49d6851"><span class="section-number-2">1</span> <a href="Mac/index.html">Mac</a></h2>
-</div>
-<div id="outline-container-orgd4bbfa1" class="outline-2">
-<h2 id="orgd4bbfa1"><span class="section-number-2">2</span> <a href="fish.html">fish</a></h2>
-</div>
-<div id="outline-container-orgc10e12a" class="outline-2">
-<h2 id="orgc10e12a"><span class="section-number-2">3</span> <a href="Amazon_Corretto.html">Amazon Corretto</a></h2>
-</div>
-<div id="outline-container-org464e401" class="outline-2">
-<h2 id="org464e401"><span class="section-number-2">4</span> <a href="Alacritty.html">Alacritty</a></h2>
-</div>
-<div id="outline-container-org1d7bf9b" class="outline-2">
-<h2 id="org1d7bf9b"><span class="section-number-2">5</span> <a href="Git.html">Git</a></h2>
-</div>
-<div id="outline-container-org0e9fefe" class="outline-2">
-<h2 id="org0e9fefe"><span class="section-number-2">6</span> <a href="Spacemacs/index.html">Spacemacs</a></h2>
-</div>
-<div id="outline-container-orgd16a382" class="outline-2">
-<h2 id="orgd16a382"><span class="section-number-2">7</span> <a href="ProgrammingLanguages/index.html">Programming Languages</a></h2>
-</div>
-<div id="outline-container-orgfac44bf" class="outline-2">
-<h2 id="orgfac44bf"><span class="section-number-2">8</span> <a href="IntelliJ_IDEA/index.html">IntelliJ IDEA</a></h2>
-</div>
+<div id="outline-container-org8837f02" class="outline-2">
+<h2 id="org8837f02"><span class="section-number-2">1</span> <a href="https://confluence.atlassian.com/bitbucket/resolve-merge-conflicts-704414003.html">Resolve merge conflicts</a></h2>
+<div class="outline-text-2" id="text-1">
+<p>
+developブランチにfeature_miscブランチをマージするプルリクエストでコンフリクトが発生した場合。<br />
+</p>
 
-<div id="outline-container-org19fd703" class="outline-2">
-<h2 id="org19fd703"><span class="section-number-2">9</span> <a href="DeepLearning.html">DeepLearning</a></h2>
-</div>
+<ul class="org-ul">
+<li><p>
+ローカルのdevelopブランチを最新化<br />
+</p>
+<pre class="example">
+$ git pull origin develop
+</pre></li>
+<li><p>
+feature_miscブランチにdevelopブランチをpull<br />
+fast-forwardはしない(というかできない)。<br />
+</p>
+<pre class="example">
+$ git checkout feature_misc
+$ git pull origin develop --no-ff
+</pre></li>
+<li><p>
+発生したコンフリクトを解消し、変更をpush<br />
+</p>
+<pre class="example">
+$ git add filename
+$ git commit
+$ git push origin feature_misc
+</pre></li>
+</ul>
 
-<div id="outline-container-orga5351b5" class="outline-2">
-<h2 id="orga5351b5"><span class="section-number-2">10</span> <a href="Composer.html">Composer</a></h2>
+<p>
+プルリクエストのコンフリクトが解消できているはず。<br />
+</p>
 </div>
-
-<div id="outline-container-org73d7917" class="outline-2">
-<h2 id="org73d7917"><span class="section-number-2">11</span> <a href="Bitbucket.html">Bitbucket</a></h2>
-</div>
-
-<div id="outline-container-orged2ea06" class="outline-2">
-<h2 id="orged2ea06"><span class="section-number-2">12</span> <a href="MozcHelper/index.html">Mozc Helper</a></h2>
-</div>
-
-<div id="outline-container-orge4230df" class="outline-2">
-<h2 id="orge4230df"><span class="section-number-2">13</span> <a href="React.html">React</a></h2>
-</div>
-<div id="outline-container-org8fedc75" class="outline-2">
-<h2 id="org8fedc75"><span class="section-number-2">14</span> <a href="HTML5.html">HTML5</a></h2>
-</div>
-<div id="outline-container-org683e0f2" class="outline-2">
-<h2 id="org683e0f2"><span class="section-number-2">15</span> <a href="Tips/index.html">Tips</a></h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-09-23 Mon 03:12</p>
+<p class="date">Created: 2019-09-23 Mon 03:15</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
