@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-09-23 Mon 03:40 -->
+<!-- 2019-09-23 Mon 03:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Programming Languages</title>
+<title><a href="https://clojure.org/">Clojure</a></title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="KISHI Kousuke" />
 <style type="text/css">
@@ -249,51 +249,196 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="org-div-home-and-up">
- <a accesskey="h" href="../index.html"> UP </a>
+ <a accesskey="h" href="index.html"> UP </a>
  |
  <a accesskey="H" href="../index.html"> HOME </a>
 </div><div id="content">
-<h1 class="title">Programming Languages</h1>
+<h1 class="title"><a href="https://clojure.org/">Clojure</a></h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9a40a79">1. PHP</a></li>
-<li><a href="#org3ca8e89">2. Rust</a></li>
-<li><a href="#org9b278de">3. Clojure</a></li>
-<li><a href="#org172d2f3">4. ClojureScript</a></li>
-<li><a href="#org6939b9c">5. HTML5</a></li>
-<li><a href="#orgeabed25">6. React</a></li>
-<li><a href="#org5491462">7. Kotlin</a></li>
+<li><a href="#orgda5a36e">1. Clojureの日本語ガイド</a>
+<ul>
+<li><a href="#org93c40b6">1.1. 作業ログ</a></li>
+<li><a href="#org0825e06">1.2. 注意事項</a></li>
+</ul>
+</li>
+<li><a href="#org6d8a012">2. Spacemacs</a>
+<ul>
+<li><a href="#org96c0e05">2.1. CIDER</a></li>
+</ul>
+</li>
+<li><a href="#org309453d">3. Making command line tools in Clojure</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org9a40a79" class="outline-2">
-<h2 id="org9a40a79"><span class="section-number-2">1</span> <a href="PHP.html">PHP</a></h2>
+<div id="outline-container-orgda5a36e" class="outline-2">
+<h2 id="orgda5a36e"><span class="section-number-2">1</span> <a href="http://ayato-p.github.io/clojure-beginner/intro_web_development/index.html">Clojureの日本語ガイド</a></h2>
+<div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org3ca8e89" class="outline-2">
-<h2 id="org3ca8e89"><span class="section-number-2">2</span> <a href="Rust/index.html">Rust</a></h2>
+<div id="outline-container-org93c40b6" class="outline-3">
+<h3 id="org93c40b6"><span class="section-number-3">1.1</span> 作業ログ</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+プロジェクトディレクトリを作成。<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell-script">$ cd MyGoogleDrive/Clojure
+$ mkdir clj_todo
+$ cd clj_todo
+$ mkdir -p resource src/<span style="color: #e91e63;">{</span>clj,cljs<span style="color: #e91e63;">}</span>/todo
+</pre>
 </div>
-<div id="outline-container-org9b278de" class="outline-2">
-<h2 id="org9b278de"><span class="section-number-2">3</span> <a href="Clojure.html">Clojure</a></h2>
+
+<p>
+<a href="http://boot-clj.com">Boot</a>の設定。<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell-script">$ boot -h
+$ boot -V
+$ boot -V &gt;boot.properties
+$ vim boot.properties
+</pre>
 </div>
-<div id="outline-container-org172d2f3" class="outline-2">
-<h2 id="org172d2f3"><span class="section-number-2">4</span> <a href="ClojureScript.html">ClojureScript</a></h2>
+
+<p>
+BOOT_CLOJURE_VERSION=1.8.0 -&gt; BOOT_CLOJURE_VERSION=1.9.0<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell-script">$ vim build.boot
+</pre>
 </div>
-<div id="outline-container-org6939b9c" class="outline-2">
-<h2 id="org6939b9c"><span class="section-number-2">5</span> <a href="HTML5.html">HTML5</a></h2>
+
+<div class="org-src-container">
+<pre class="src src-clojure"><span style="color: #e91e63;">(</span>set-env!
+ <span style="color: #ff8A65;">:source-paths</span> #<span style="color: #2196F3;">{</span><span style="color: #9ccc65;">"src/clj"</span> <span style="color: #9ccc65;">"src/cljs"</span><span style="color: #2196F3;">}</span>
+ <span style="color: #ff8A65;">:resource-paths</span> #<span style="color: #2196F3;">{</span><span style="color: #9ccc65;">"resource"</span><span style="color: #2196F3;">}</span>
+ <span style="color: #ff8A65;">:dependencies</span> '<span style="color: #2196F3;">[</span><span style="color: #EF6C00;">[</span><span style="color: #84ffff;">org.clojure</span>/clojure <span style="color: #9ccc65;">"1.9.0"</span><span style="color: #EF6C00;">]</span>
+                 <span style="color: #EF6C00;">[</span><span style="color: #84ffff;">org.clojure</span>/clojurescript <span style="color: #9ccc65;">"1.9.946"</span><span style="color: #EF6C00;">]</span><span style="color: #2196F3;">]</span><span style="color: #e91e63;">)</span>
+
+<span style="color: #e91e63;">(</span>task-options!
+ target <span style="color: #2196F3;">{</span><span style="color: #ff8A65;">:dir</span> #<span style="color: #EF6C00;">{</span><span style="color: #9ccc65;">"target"</span><span style="color: #EF6C00;">}</span><span style="color: #2196F3;">}</span><span style="color: #e91e63;">)</span>
+
+<span style="color: #e91e63;">(</span><span style="color: #fff59d;">deftask</span> <span style="color: #84ffff;">dev</span>
+  <span style="color: #ffe4b5;">"Build clj-todo project."</span>
+  <span style="color: #2196F3;">[]</span>
+  <span style="color: #2196F3;">(</span>comp <span style="color: #EF6C00;">(</span>jar<span style="color: #EF6C00;">)</span> <span style="color: #EF6C00;">(</span>target<span style="color: #EF6C00;">)</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span>
+</pre>
 </div>
-<div id="outline-container-orgeabed25" class="outline-2">
-<h2 id="orgeabed25"><span class="section-number-2">6</span> <a href="React.html">React</a></h2>
+
+<div class="org-src-container">
+<pre class="src src-shell-script">$ vim src/clj/todo/core.clj
+</pre>
 </div>
-<div id="outline-container-org5491462" class="outline-2">
-<h2 id="org5491462"><span class="section-number-2">7</span> <a href="Kotlin/index.html">Kotlin</a></h2>
+
+<div class="org-src-container">
+<pre class="src src-clojure"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">ns</span> <span style="color: #84ffff;">todo.core</span><span style="color: #e91e63;">)</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-shell-script">$ boot dev
+</pre>
+</div>
+
+<p>
+あとは進めていく。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0825e06" class="outline-3">
+<h3 id="org0825e06"><span class="section-number-3">1.2</span> 注意事項</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="https://github.com/magnars/prone">prone</a>はBoot環境でも動くが、プロジェクトルートディレクトリにproject.cljファイルがないとエラーになる<br />
+<ul class="org-ul">
+<li>空のファイルでOK<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6d8a012" class="outline-2">
+<h2 id="org6d8a012"><span class="section-number-2">2</span> Spacemacs</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org96c0e05" class="outline-3">
+<h3 id="org96c0e05"><span class="section-number-3">2.1</span> CIDER</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>cider-jack-in<br />
+<ul class="org-ul">
+<li>M-RET '<br /></li>
+<li>nREPLへ接続する<br /></li>
+</ul></li>
+<li>cider-jack-in-clojurescript<br />
+<ul class="org-ul">
+<li>M-RET "<br /></li>
+<li>nREPLへ接続する<br /></li>
+</ul></li>
+<li>cider-eval-last-sexp<br />
+<ul class="org-ul">
+<li>C-x C-e<br /></li>
+<li>S式の評価結果をインライン表示する<br /></li>
+</ul></li>
+<li>cider-eval-print-last-sexp<br />
+<ul class="org-ul">
+<li>S式の評価結果を表示する(ソースファイルへ書き込む)<br /></li>
+</ul></li>
+<li>cider-eval-last-sexp-to-repl<br />
+<ul class="org-ul">
+<li>C-c M-e<br /></li>
+<li>S式の評価結果をnREPLへ送る<br /></li>
+</ul></li>
+<li>cider-insert-last-sexp-in-repl<br />
+<ul class="org-ul">
+<li>C-c M-p<br /></li>
+<li>S式をnREPLへ送る<br />
+<ul class="org-ul">
+<li>評価はしない<br /></li>
+</ul></li>
+</ul></li>
+<li>cider-pprint-eval-last-sexp-to-repl<br />
+<ul class="org-ul">
+<li>S式の評価結果をpretty-printedでnREPLに表示する<br /></li>
+<li>pprint -&gt; pretty-printed<br />
+<ul class="org-ul">
+<li>どういうことかは不明<br /></li>
+</ul></li>
+</ul></li>
+<li>cider-pprint-eval-last-sexp<br />
+<ul class="org-ul">
+<li>C-c C-p<br /></li>
+<li>S式の評価結果をpretty-printedで表示する<br />
+<ul class="org-ul">
+<li>個別バッファ(<b>cider-result</b>)に表示された<br /></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org309453d" class="outline-2">
+<h2 id="org309453d"><span class="section-number-2">3</span> Making command line tools in Clojure</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-fish">$ brew install clojure
+</pre>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-09-23 Mon 03:40</p>
+<p class="date">Created: 2019-09-23 Mon 03:42</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

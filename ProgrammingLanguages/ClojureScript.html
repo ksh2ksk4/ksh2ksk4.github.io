@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-09-23 Mon 03:40 -->
+<!-- 2019-09-23 Mon 03:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Programming Languages</title>
+<title><a href="https://clojurescript.org/">ClojureScript</a></title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="KISHI Kousuke" />
 <style type="text/css">
@@ -249,51 +249,117 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="org-div-home-and-up">
- <a accesskey="h" href="../index.html"> UP </a>
+ <a accesskey="h" href="index.html"> UP </a>
  |
  <a accesskey="H" href="../index.html"> HOME </a>
 </div><div id="content">
-<h1 class="title">Programming Languages</h1>
+<h1 class="title"><a href="https://clojurescript.org/">ClojureScript</a></h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9a40a79">1. PHP</a></li>
-<li><a href="#org3ca8e89">2. Rust</a></li>
-<li><a href="#org9b278de">3. Clojure</a></li>
-<li><a href="#org172d2f3">4. ClojureScript</a></li>
-<li><a href="#org6939b9c">5. HTML5</a></li>
-<li><a href="#orgeabed25">6. React</a></li>
-<li><a href="#org5491462">7. Kotlin</a></li>
+<li><a href="#org3d3b025">1. 書き方</a>
+<ul>
+<li><a href="#org4e6fa7e">1.1. 同じ</a></li>
+</ul>
+</li>
+<li><a href="#org7281de6">2. Reagnet</a>
+<ul>
+<li><a href="#org058e3c0">2.1. 特殊文字の入力</a></li>
+</ul>
+</li>
+<li><a href="#orgb7b941f">3. Modern ClojureScript</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org9a40a79" class="outline-2">
-<h2 id="org9a40a79"><span class="section-number-2">1</span> <a href="PHP.html">PHP</a></h2>
+<div id="outline-container-org3d3b025" class="outline-2">
+<h2 id="org3d3b025"><span class="section-number-2">1</span> 書き方</h2>
+<div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org3ca8e89" class="outline-2">
-<h2 id="org3ca8e89"><span class="section-number-2">2</span> <a href="Rust/index.html">Rust</a></h2>
+<div id="outline-container-org4e6fa7e" class="outline-3">
+<h3 id="org4e6fa7e"><span class="section-number-3">1.1</span> 同じ</h3>
+<div class="outline-text-3" id="text-1-1">
+<div class="org-src-container">
+<pre class="src src-clojure"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">.</span> <span style="color: #84ffff;">js</span>/$ blockUI params<span style="color: #e91e63;">)</span>
+<span style="color: #e91e63;">(</span>.blockUI <span style="color: #84ffff;">js</span>/$ params<span style="color: #e91e63;">)</span>
+</pre>
 </div>
-<div id="outline-container-org9b278de" class="outline-2">
-<h2 id="org9b278de"><span class="section-number-2">3</span> <a href="Clojure.html">Clojure</a></h2>
+
+<div class="org-src-container">
+<pre class="src src-clojure"><span style="color: #e91e63;">(</span><span style="color: #fff59d;">defn-</span> <span style="color: #84ffff;">top-handler</span>
+  <span style="color: #2196F3;">[</span>request<span style="color: #2196F3;">]</span>
+  <span style="color: #b0bec5;">;;</span><span style="color: #b0bec5;">(r/file-response "resource/public/index.html")</span>
+  <span style="color: #2196F3;">(</span><span style="color: #84ffff;">r</span>/file-response <span style="color: #9ccc65;">"index.html"</span> <span style="color: #EF6C00;">{</span><span style="color: #ff8A65;">:root</span> <span style="color: #9ccc65;">"target/public"</span><span style="color: #EF6C00;">}</span><span style="color: #2196F3;">)</span>
+  <span style="color: #b0bec5;">;;</span><span style="color: #b0bec5;">(r/resource-response "public/index.html")</span>
+  <span style="color: #b0bec5;">;;</span><span style="color: #b0bec5;">(r/resource-response "index.html" {:root "public"})</span>
+  <span style="color: #e91e63;">)</span>
+</pre>
 </div>
-<div id="outline-container-org172d2f3" class="outline-2">
-<h2 id="org172d2f3"><span class="section-number-2">4</span> <a href="ClojureScript.html">ClojureScript</a></h2>
 </div>
-<div id="outline-container-org6939b9c" class="outline-2">
-<h2 id="org6939b9c"><span class="section-number-2">5</span> <a href="HTML5.html">HTML5</a></h2>
 </div>
-<div id="outline-container-orgeabed25" class="outline-2">
-<h2 id="orgeabed25"><span class="section-number-2">6</span> <a href="React.html">React</a></h2>
 </div>
-<div id="outline-container-org5491462" class="outline-2">
-<h2 id="org5491462"><span class="section-number-2">7</span> <a href="Kotlin/index.html">Kotlin</a></h2>
+
+<div id="outline-container-org7281de6" class="outline-2">
+<h2 id="org7281de6"><span class="section-number-2">2</span> <a href="https://reagent-project.github.io/">Reagnet</a></h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org058e3c0" class="outline-3">
+<h3 id="org058e3c0"><span class="section-number-3">2.1</span> 特殊文字の入力</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li><a href="https://github.com/reagent-project/reagent/issues/104">https://github.com/reagent-project/reagent/issues/104</a><br /></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-clojure"><span style="color: #e91e63;">[</span><span style="color: #ff8A65;">:div</span> <span style="color: #9ccc65;">"&amp;copy; 2018 "</span> <span style="color: #2196F3;">[</span><span style="color: #ff8A65;">:a</span> <span style="color: #EF6C00;">{</span><span style="color: #ff8A65;">:href</span> <span style="color: #9ccc65;">"https://example.com/"</span> <span style="color: #ff8A65;">:target</span> <span style="color: #9ccc65;">"_blank"</span><span style="color: #EF6C00;">}</span> <span style="color: #9ccc65;">"example corp."</span><span style="color: #2196F3;">]</span><span style="color: #e91e63;">]</span>
+</pre>
+</div>
+
+<p>
+<code>&amp;copy;</code> の <code>&amp;</code> がエスケープされるため、コピーライトマークが表示されない。<br />
+</p>
+</div>
+
+<div id="outline-container-orge5e0a75" class="outline-4">
+<h4 id="orge5e0a75"><span class="section-number-4">2.1.1</span> 方法1</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<div class="org-src-container">
+<pre class="src src-clojure"><span style="color: #e91e63;">[</span><span style="color: #ff8A65;">:div</span> <span style="color: #2196F3;">{</span><span style="color: #ff8A65;">:dangerouslySetInnerHTML</span> <span style="color: #EF6C00;">{</span><span style="color: #ff8A65;">:__html</span> <span style="color: #9ccc65;">"&amp;copy; 2018 "</span><span style="color: #EF6C00;">}</span><span style="color: #2196F3;">}</span><span style="color: #e91e63;">]</span>
+</pre>
+</div>
+
+<p>
+<code>dangerouslySetInnerHTML</code> を利用する。<br />
+ただし、この場合は元のようにタグを含めることができない。<br />
+(タグを含めるとエラーになる)<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org052cc28" class="outline-4">
+<h4 id="org052cc28"><span class="section-number-4">2.1.2</span> 方法2</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<div class="org-src-container">
+<pre class="src src-clojure"><span style="color: #e91e63;">[</span><span style="color: #ff8A65;">:div</span> <span style="color: #2196F3;">(</span>str <span style="color: #9ccc65;">"</span><span style="color: #9ccc65; font-weight: bold;">\u</span><span style="color: #9ccc65;">00a9"</span> <span style="color: #9ccc65;">" 2018 "</span><span style="color: #2196F3;">)</span> <span style="color: #2196F3;">[</span><span style="color: #ff8A65;">:a</span> <span style="color: #EF6C00;">{</span><span style="color: #ff8A65;">:href</span> <span style="color: #9ccc65;">"https://example.com/"</span> <span style="color: #ff8A65;">:target</span> <span style="color: #9ccc65;">"_blank"</span><span style="color: #EF6C00;">}</span> <span style="color: #9ccc65;">"example corp."</span><span style="color: #2196F3;">]</span><span style="color: #e91e63;">]</span>
+</pre>
+</div>
+
+<p>
+特殊文字をUnicodeで入力する。<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb7b941f" class="outline-2">
+<h2 id="orgb7b941f"><span class="section-number-2">3</span> <a href="https://github.com/magomimmo/modern-cljs">Modern ClojureScript</a></h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-09-23 Mon 03:40</p>
+<p class="date">Created: 2019-09-23 Mon 03:43</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
