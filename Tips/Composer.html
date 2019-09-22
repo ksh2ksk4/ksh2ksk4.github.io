@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-02-05 Tue 14:07 -->
+<!-- 2019-09-23 Mon 03:18 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title><a href="https://getcomposer.org/">Composer</a></title>
@@ -193,6 +193,13 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
+<style>div#content{max-width:none;}</style>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -241,47 +248,46 @@ for the JavaScript code in this tag.
 </script>
 </head>
 <body>
-<div id="content">
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
 <h1 class="title"><a href="https://getcomposer.org/">Composer</a></h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org3632184">1. <code>install</code> と <code>update</code> について</a>
+<li><a href="#org4753256">1. <code>install</code> と <code>update</code> について</a>
 <ul>
-<li><a href="#org6ca04b3">1.1. <code>php -f composer.phar install</code></a>
-<ul>
-<li><a href="#orge5d8e28">1.1.1. composer.lockファイルが存在する場合</a></li>
-<li><a href="#orgb1d829f">1.1.2. composer.lockファイルが存在しない場合</a></li>
+<li><a href="#org5259db5">1.1. <code>php -f composer.phar install</code></a></li>
+<li><a href="#org5f50f71">1.2. <code>php -f composer.phar update</code></a></li>
 </ul>
 </li>
-<li><a href="#org100576c">1.2. <code>php -f composer.phar update</code></a></li>
-</ul>
-</li>
-<li><a href="#org9c44a32">2. その他</a></li>
+<li><a href="#org7644c73">2. その他</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org3632184" class="outline-2">
-<h2 id="org3632184"><span class="section-number-2">1</span> <code>install</code> と <code>update</code> について</h2>
+<div id="outline-container-org4753256" class="outline-2">
+<h2 id="org4753256"><span class="section-number-2">1</span> <code>install</code> と <code>update</code> について</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org6ca04b3" class="outline-3">
-<h3 id="org6ca04b3"><span class="section-number-3">1.1</span> <code>php -f composer.phar install</code></h3>
+<div id="outline-container-org5259db5" class="outline-3">
+<h3 id="org5259db5"><span class="section-number-3">1.1</span> <code>php -f composer.phar install</code></h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orge5d8e28" class="outline-4">
-<h4 id="orge5d8e28"><span class="section-number-4">1.1.1</span> composer.lockファイルが存在する場合</h4>
+<div id="outline-container-org32d7c74" class="outline-4">
+<h4 id="org32d7c74"><span class="section-number-4">1.1.1</span> composer.lockファイルが存在する場合</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <ul class="org-ul">
-<li>composer.lockファイルに記録されているバージョンのパッケージをインストールする
+<li>composer.lockファイルに記録されているバージョンのパッケージをインストールする<br />
 <ul class="org-ul">
-<li>この挙動を利用すれば、すべての環境で同一バージョンのパッケージを利用することが保証できる
+<li>この挙動を利用すれば、すべての環境で同一バージョンのパッケージを利用することが保証できる<br />
 <ul class="org-ul">
-<li>ただし、すべての環境が同一OS、同一バージョンであることが前提条件
+<li>ただし、すべての環境が同一OS、同一バージョンであることが前提条件<br />
 <ul class="org-ul">
-<li>そうでなければ、環境(OS)依存のパッケージによりcomposer.lockの依存関係が解決できないことがごく稀に発生する</li>
+<li>そうでなければ、環境(OS)依存のパッケージによりcomposer.lockの依存関係が解決できないことがごく稀に発生する<br /></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -289,39 +295,39 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgb1d829f" class="outline-4">
-<h4 id="orgb1d829f"><span class="section-number-4">1.1.2</span> composer.lockファイルが存在しない場合</h4>
+<div id="outline-container-org102fe94" class="outline-4">
+<h4 id="org102fe94"><span class="section-number-4">1.1.2</span> composer.lockファイルが存在しない場合</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <ul class="org-ul">
-<li>composer.jsonファイルの内容を元に依存関係を解決し、最新バージョンのパッケージをインストールする</li>
-<li>インストール後、composer.lockファイルを生成する</li>
+<li>composer.jsonファイルの内容を元に依存関係を解決し、最新バージョンのパッケージをインストールする<br /></li>
+<li>インストール後、composer.lockファイルを生成する<br /></li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org100576c" class="outline-3">
-<h3 id="org100576c"><span class="section-number-3">1.2</span> <code>php -f composer.phar update</code></h3>
+<div id="outline-container-org5f50f71" class="outline-3">
+<h3 id="org5f50f71"><span class="section-number-3">1.2</span> <code>php -f composer.phar update</code></h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
-<li>composer.lockファイルの有無に関わらず、挙動は <code>php composer.phar install</code> の「composer.lockファイルが存在しない場合」と同様</li>
+<li>composer.lockファイルの有無に関わらず、挙動は <code>php composer.phar install</code> の「composer.lockファイルが存在しない場合」と同様<br /></li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org9c44a32" class="outline-2">
-<h2 id="org9c44a32"><span class="section-number-2">2</span> その他</h2>
+<div id="outline-container-org7644c73" class="outline-2">
+<h2 id="org7644c73"><span class="section-number-2">2</span> その他</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
-<li><code>-vvv</code> オプションを付けると良い</li>
+<li><code>-vvv</code> オプションを付けると良い<br /></li>
 </ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-02-05 Tue 14:07</p>
+<p class="date">Created: 2019-09-23 Mon 03:18</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
