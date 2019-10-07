@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-10-08 Tue 05:59 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title><a href="https://developer.chrome.com/extensions">Chrome Extensions</a></title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="KISHI Kousuke" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
+<style>div#content{max-width:none;}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="index.html"> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content">
+<h1 class="title"><a href="https://developer.chrome.com/extensions">Chrome Extensions</a></h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgee487cb">1. Getting Started Tutorial</a>
+<ul>
+<li><a href="#org946d32a">1.1. 拡張機能のインストール</a></li>
+<li><a href="#orgcb52f1b">1.2. 機能追加</a></li>
+<li><a href="#org6b7a460">1.3. UI追加</a></li>
+<li><a href="#org92ac8d5">1.4. 機能追加</a></li>
+<li><a href="#org9d11cb4">1.5. ユーザオプション</a></li>
+</ul>
+</li>
+<li><a href="#org3750a3d">2. Bookmarks</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgee487cb" class="outline-2">
+<h2 id="orgee487cb"><span class="section-number-2">1</span> <a href="https://developer.chrome.com/extensions/getstarted">Getting Started Tutorial</a></h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org946d32a" class="outline-3">
+<h3 id="org946d32a"><span class="section-number-3">1.1</span> 拡張機能のインストール</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org3af7d2d" class="outline-4">
+<h4 id="org3af7d2d"><span class="section-number-4">1.1.1</span> マニフェストファイルを作成</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>manifest.json</label><pre class="src src-json"><span style="color: #e91e63;">{</span>
+  <span style="color: #fff59d;">"manifest_version"</span>: <span style="color: #9ccc65;">2</span>,
+  <span style="color: #fff59d;">"name"</span>: <span style="color: #9ccc65;">"Getting Started Example"</span>,
+  <span style="color: #fff59d;">"version"</span>: "<span style="color: #9ccc65;">1</span>.<span style="color: #9ccc65;">0</span>",
+
+  <span style="color: #fff59d;">"description"</span>: <span style="color: #9ccc65;">"Build an Extension!"</span>
+<span style="color: #e91e63;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1e1180e" class="outline-4">
+<h4 id="org1e1180e"><span class="section-number-4">1.1.2</span> Chromeにインストール</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li><code>chrome://extensions</code> をオープン<br /></li>
+<li><code>デベロッパー モード</code> を有効化<br /></li>
+<li><code>パッケージ化されていない拡張機能を読み込む</code> でインストール<br /></li>
+</ul>
+
+<p>
+ツールバーにアイコン(デフォルト)が表示される。<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcb52f1b" class="outline-3">
+<h3 id="orgcb52f1b"><span class="section-number-3">1.2</span> 機能追加</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org26cded3" class="outline-4">
+<h4 id="org26cded3"><span class="section-number-4">1.2.1</span> バックグラウンドスクリプトを作成</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<ul class="org-ul">
+<li>ストレージに <code>color</code> を設定する<br /></li>
+<li>コンソールログを出力する<br /></li>
+</ul>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>background.js</label><pre class="src src-js"><span style="color: #9ccc65;">'use strict'</span>;
+
+chrome.runtime.onInstalled.addListener<span style="color: #e91e63;">(</span><span style="color: #fff59d;">function</span><span style="color: #2196F3;">()</span> <span style="color: #2196F3;">{</span>
+  chrome.storage.sync.set<span style="color: #EF6C00;">(</span><span style="color: #B388FF;">{</span>color: <span style="color: #9ccc65;">'#3aa757'</span><span style="color: #B388FF;">}</span>, <span style="color: #fff59d;">function</span><span style="color: #B388FF;">()</span> <span style="color: #B388FF;">{</span>
+    console.log<span style="color: #76ff03;">(</span><span style="color: #9ccc65;">'The color is #3aa757.'</span><span style="color: #76ff03;">)</span>;
+  <span style="color: #B388FF;">}</span><span style="color: #EF6C00;">)</span>;
+<span style="color: #2196F3;">}</span><span style="color: #e91e63;">)</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org618b12d" class="outline-4">
+<h4 id="org618b12d"><span class="section-number-4">1.2.2</span> マニフェストファイルを更新</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<ul class="org-ul">
+<li>storage APIの利用を許可する<br /></li>
+<li>バックグラウンドスクリプトを登録する<br /></li>
+</ul>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>manifest.json</label><pre class="src src-json"><span style="color: #e91e63;">{</span>
+  <span style="color: #fff59d;">"manifest_version"</span>: <span style="color: #9ccc65;">2</span>,
+  <span style="color: #fff59d;">"name"</span>: <span style="color: #9ccc65;">"Getting Started Example"</span>,
+  <span style="color: #fff59d;">"version"</span>: "<span style="color: #9ccc65;">1</span>.<span style="color: #9ccc65;">0</span>",
+
+  <span style="color: #fff59d;">"description"</span>: <span style="color: #9ccc65;">"Build an Extension!"</span>,
+
+  <span style="color: #fff59d;">"background"</span>: <span style="color: #2196F3;">{</span>
+    <span style="color: #fff59d;">"scripts"</span>: <span style="color: #EF6C00;">[</span><span style="color: #9ccc65;">"background.js"</span><span style="color: #EF6C00;">]</span>,
+    <span style="color: #fff59d;">"persistent"</span>: <span style="color: #8bc34a;">false</span>
+  <span style="color: #2196F3;">}</span>,
+  <span style="color: #fff59d;">"permissions"</span>: <span style="color: #2196F3;">[</span><span style="color: #9ccc65;">"storage"</span><span style="color: #2196F3;">]</span>
+<span style="color: #e91e63;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6a3d401" class="outline-4">
+<h4 id="org6a3d401"><span class="section-number-4">1.2.3</span> 拡張機能をリロード</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<p>
+拡張機能の <code>バックグラウンド ページ</code> をクリックするとバックグラウンドスクリプトの挙動を確認できる。<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6b7a460" class="outline-3">
+<h3 id="org6b7a460"><span class="section-number-3">1.3</span> UI追加</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-orgc2c6ad1" class="outline-4">
+<h4 id="orgc2c6ad1"><span class="section-number-4">1.3.1</span> ポップアップを作成</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>popup.html</label><pre class="src src-html"><span style="color: #9ccc65;">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color: #84ffff;">html</span>&gt;
+  &lt;<span style="color: #84ffff;">head</span>&gt;
+    &lt;<span style="color: #84ffff;">style</span>&gt;
+      button {
+        height: 30px;
+        width: 30px;
+        outline: none;
+      }
+    &lt;/<span style="color: #84ffff;">style</span>&gt;
+  &lt;/<span style="color: #84ffff;">head</span>&gt;
+  &lt;<span style="color: #84ffff;">body</span>&gt;
+    &lt;<span style="color: #84ffff;">button</span> <span style="color: #ffcc80;">id</span>=<span style="color: #9ccc65;">"changeColor"</span>&gt;&lt;/<span style="color: #84ffff;">button</span>&gt;
+  &lt;/<span style="color: #84ffff;">body</span>&gt;
+&lt;/<span style="color: #84ffff;">html</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf5e4b5c" class="outline-4">
+<h4 id="orgf5e4b5c"><span class="section-number-4">1.3.2</span> マニフェストファイルを更新</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<ul class="org-ul">
+<li>ポップアップを登録する<br /></li>
+<li>アイコンを設定する<br />
+<dl class="org-dl">
+<dt><code>default_icon</code></dt><dd>ツールバーのアイコン<br /></dd>
+<dt><code>icons</code></dt><dd>拡張機能ページのアイコン<br /></dd>
+</dl></li>
+</ul>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>manifest.json</label><pre class="src src-json"><span style="color: #e91e63;">{</span>
+  <span style="color: #fff59d;">"manifest_version"</span>: <span style="color: #9ccc65;">2</span>,
+  <span style="color: #fff59d;">"name"</span>: <span style="color: #9ccc65;">"Getting Started Example"</span>,
+  <span style="color: #fff59d;">"version"</span>: "<span style="color: #9ccc65;">1</span>.<span style="color: #9ccc65;">0</span>",
+
+  <span style="color: #fff59d;">"description"</span>: <span style="color: #9ccc65;">"Build an Extension!"</span>,
+  <span style="color: #fff59d;">"icons"</span>: <span style="color: #2196F3;">{</span>
+    "<span style="color: #9ccc65;">16</span>": <span style="color: #9ccc65;">"images/get_started16.png"</span>,
+    "<span style="color: #9ccc65;">32</span>": <span style="color: #9ccc65;">"images/get_started32.png"</span>,
+    "<span style="color: #9ccc65;">48</span>": <span style="color: #9ccc65;">"images/get_started48.png"</span>,
+    "<span style="color: #9ccc65;">128</span>": <span style="color: #9ccc65;">"images/get_started128.png"</span>
+  <span style="color: #2196F3;">}</span>,
+
+  <span style="color: #fff59d;">"page_action"</span>: <span style="color: #2196F3;">{</span>
+    <span style="color: #fff59d;">"default_popup"</span>: <span style="color: #9ccc65;">"popup.html"</span>,
+    <span style="color: #fff59d;">"default_icon"</span>: <span style="color: #EF6C00;">{</span>
+      "<span style="color: #9ccc65;">16</span>": <span style="color: #9ccc65;">"images/get_started16.png"</span>,
+      "<span style="color: #9ccc65;">32</span>": <span style="color: #9ccc65;">"images/get_started32.png"</span>,
+      "<span style="color: #9ccc65;">48</span>": <span style="color: #9ccc65;">"images/get_started48.png"</span>,
+      "<span style="color: #9ccc65;">128</span>": <span style="color: #9ccc65;">"images/get_started128.png"</span>
+    <span style="color: #EF6C00;">}</span>
+  <span style="color: #2196F3;">}</span>,
+
+  <span style="color: #fff59d;">"background"</span>: <span style="color: #2196F3;">{</span>
+    <span style="color: #fff59d;">"scripts"</span>: <span style="color: #EF6C00;">[</span><span style="color: #9ccc65;">"background.js"</span><span style="color: #EF6C00;">]</span>,
+    <span style="color: #fff59d;">"persistent"</span>: <span style="color: #8bc34a;">false</span>
+  <span style="color: #2196F3;">}</span>,
+  <span style="color: #fff59d;">"permissions"</span>: <span style="color: #2196F3;">[</span><span style="color: #9ccc65;">"storage"</span><span style="color: #2196F3;">]</span>
+<span style="color: #e91e63;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8c6218c" class="outline-4">
+<h4 id="org8c6218c"><span class="section-number-4">1.3.3</span> 拡張機能をリロード</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<ul class="org-ul">
+<li>アイコンが変化する<br /></li>
+<li>ツールバーのアイコンをクリックするとポップアップを表示する<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd18996f" class="outline-4">
+<h4 id="orgd18996f"><span class="section-number-4">1.3.4</span> バックグラウンドスクリプトにdeclarativeContent APIのスクリプトを追加</h4>
+<div class="outline-text-4" id="text-1-3-4">
+<p>
+この内容がよくわからない。<br />
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 6: </span>background.js</label><pre class="src src-js"><span style="color: #9ccc65;">'use strict'</span>;
+
+chrome.runtime.onInstalled.addListener<span style="color: #e91e63;">(</span><span style="color: #fff59d;">function</span><span style="color: #2196F3;">()</span> <span style="color: #2196F3;">{</span>
+  chrome.storage.sync.set<span style="color: #EF6C00;">(</span><span style="color: #B388FF;">{</span>color: <span style="color: #9ccc65;">'#3aa757'</span><span style="color: #B388FF;">}</span>, <span style="color: #fff59d;">function</span><span style="color: #B388FF;">()</span> <span style="color: #B388FF;">{</span>
+    console.log<span style="color: #76ff03;">(</span><span style="color: #9ccc65;">'The color is #3aa757.'</span><span style="color: #76ff03;">)</span>;
+  <span style="color: #B388FF;">}</span><span style="color: #EF6C00;">)</span>;
+  chrome.declarativeContent.onPageChanged.removeRules<span style="color: #EF6C00;">(</span><span style="color: #8bc34a;">undefined</span>, <span style="color: #fff59d;">function</span><span style="color: #B388FF;">()</span> <span style="color: #B388FF;">{</span>
+    chrome.declarativeContent.onPageChanged.addRules<span style="color: #76ff03;">(</span><span style="color: #26A69A;">[</span><span style="color: #FFCDD2;">{</span>
+      conditions: <span style="color: #795548;">[</span><span style="color: #fff59d;">new</span> <span style="color: #84ffff;">chrome.declarativeContent.PageStateMatcher</span><span style="color: #DCE775;">(</span><span style="color: #e91e63;">{</span>
+        pageUrl: <span style="color: #2196F3;">{</span>hostEquals: <span style="color: #9ccc65;">'developer.chrome.com'</span><span style="color: #2196F3;">}</span>,
+      <span style="color: #e91e63;">}</span><span style="color: #DCE775;">)</span><span style="color: #795548;">]</span>,
+      actions: <span style="color: #795548;">[</span><span style="color: #fff59d;">new</span> <span style="color: #84ffff;">chrome.declarativeContent.ShowPageAction</span><span style="color: #DCE775;">()</span><span style="color: #795548;">]</span>
+    <span style="color: #FFCDD2;">}</span><span style="color: #26A69A;">]</span><span style="color: #76ff03;">)</span>;
+  <span style="color: #B388FF;">}</span><span style="color: #EF6C00;">)</span>;
+<span style="color: #2196F3;">}</span><span style="color: #e91e63;">)</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga206208" class="outline-4">
+<h4 id="orga206208"><span class="section-number-4">1.3.5</span> マニフェストファイルを更新</h4>
+<div class="outline-text-4" id="text-1-3-5">
+<ul class="org-ul">
+<li>パーミッションを追加する<br /></li>
+</ul>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 7: </span>manifest.json</label><pre class="src src-json"><span style="color: #e91e63;">{</span>
+  <span style="color: #fff59d;">"manifest_version"</span>: <span style="color: #9ccc65;">2</span>,
+  <span style="color: #fff59d;">"name"</span>: <span style="color: #9ccc65;">"Getting Started Example"</span>,
+  <span style="color: #fff59d;">"version"</span>: "<span style="color: #9ccc65;">1</span>.<span style="color: #9ccc65;">0</span>",
+
+  <span style="color: #fff59d;">"description"</span>: <span style="color: #9ccc65;">"Build an Extension!"</span>,
+  <span style="color: #fff59d;">"icons"</span>: <span style="color: #2196F3;">{</span>
+    "<span style="color: #9ccc65;">16</span>": <span style="color: #9ccc65;">"images/get_started16.png"</span>,
+    "<span style="color: #9ccc65;">32</span>": <span style="color: #9ccc65;">"images/get_started32.png"</span>,
+    "<span style="color: #9ccc65;">48</span>": <span style="color: #9ccc65;">"images/get_started48.png"</span>,
+    "<span style="color: #9ccc65;">128</span>": <span style="color: #9ccc65;">"images/get_started128.png"</span>
+  <span style="color: #2196F3;">}</span>,
+
+  <span style="color: #fff59d;">"page_action"</span>: <span style="color: #2196F3;">{</span>
+    <span style="color: #fff59d;">"default_popup"</span>: <span style="color: #9ccc65;">"popup.html"</span>,
+    <span style="color: #fff59d;">"default_icon"</span>: <span style="color: #EF6C00;">{</span>
+      "<span style="color: #9ccc65;">16</span>": <span style="color: #9ccc65;">"images/get_started16.png"</span>,
+      "<span style="color: #9ccc65;">32</span>": <span style="color: #9ccc65;">"images/get_started32.png"</span>,
+      "<span style="color: #9ccc65;">48</span>": <span style="color: #9ccc65;">"images/get_started48.png"</span>,
+      "<span style="color: #9ccc65;">128</span>": <span style="color: #9ccc65;">"images/get_started128.png"</span>
+    <span style="color: #EF6C00;">}</span>
+  <span style="color: #2196F3;">}</span>,
+
+  <span style="color: #fff59d;">"background"</span>: <span style="color: #2196F3;">{</span>
+    <span style="color: #fff59d;">"scripts"</span>: <span style="color: #EF6C00;">[</span><span style="color: #9ccc65;">"background.js"</span><span style="color: #EF6C00;">]</span>,
+    <span style="color: #fff59d;">"persistent"</span>: <span style="color: #8bc34a;">false</span>
+  <span style="color: #2196F3;">}</span>,
+  <span style="color: #fff59d;">"permissions"</span>: <span style="color: #2196F3;">[</span><span style="color: #9ccc65;">"declarativeContent"</span>, <span style="color: #9ccc65;">"storage"</span><span style="color: #2196F3;">]</span>
+<span style="color: #e91e63;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org087b642" class="outline-4">
+<h4 id="org087b642"><span class="section-number-4">1.3.6</span> 拡張機能をリロード</h4>
+<div class="outline-text-4" id="text-1-3-6">
+<p>
+<code>developer.chrome.com</code> のみで拡張機能が動くようになる。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2eb257d" class="outline-4">
+<h4 id="org2eb257d"><span class="section-number-4">1.3.7</span> ポップアップの処理を実装</h4>
+<div class="outline-text-4" id="text-1-3-7">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 8: </span>popup.html</label><pre class="src src-html"><span style="color: #9ccc65;">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color: #84ffff;">html</span>&gt;
+  &lt;<span style="color: #84ffff;">head</span>&gt;
+    &lt;<span style="color: #84ffff;">style</span>&gt;
+      button {
+        height: 30px;
+        width: 30px;
+        outline: none;
+      }
+    &lt;/<span style="color: #84ffff;">style</span>&gt;
+  &lt;/<span style="color: #84ffff;">head</span>&gt;
+  &lt;<span style="color: #84ffff;">body</span>&gt;
+    &lt;<span style="color: #84ffff;">button</span> <span style="color: #ffcc80;">id</span>=<span style="color: #9ccc65;">"changeColor"</span>&gt;&lt;/<span style="color: #84ffff;">button</span>&gt;
+    &lt;<span style="color: #84ffff;">script</span> <span style="color: #ffcc80;">src</span>=<span style="color: #9ccc65;">"popup.js"</span>&gt;&lt;/<span style="color: #84ffff;">script</span>&gt;
+  &lt;/<span style="color: #84ffff;">body</span>&gt;
+&lt;/<span style="color: #84ffff;">html</span>&gt;
+</pre>
+</div>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 9: </span>popup.js</label><pre class="src src-js"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">changeColor</span> = document.getElementById<span style="color: #e91e63;">(</span><span style="color: #9ccc65;">'changeColor'</span><span style="color: #e91e63;">)</span>;
+
+chrome.storage.sync.get<span style="color: #e91e63;">(</span><span style="color: #9ccc65;">'color'</span>, <span style="color: #fff59d;">function</span><span style="color: #2196F3;">(</span><span style="color: #ffcc80;">data</span><span style="color: #2196F3;">)</span> <span style="color: #2196F3;">{</span>
+  changeColor.style.backgroundColor = data.color;
+  changeColor.setAttribute<span style="color: #EF6C00;">(</span><span style="color: #9ccc65;">'value'</span>, data.color<span style="color: #EF6C00;">)</span>;
+<span style="color: #2196F3;">}</span><span style="color: #e91e63;">)</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1988a4c" class="outline-4">
+<h4 id="org1988a4c"><span class="section-number-4">1.3.8</span> 拡張機能をリロード</h4>
+<div class="outline-text-4" id="text-1-3-8">
+<p>
+ポップアップのボタンの色が緑になる。<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org92ac8d5" class="outline-3">
+<h3 id="org92ac8d5"><span class="section-number-3">1.4</span> 機能追加</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-org82525af" class="outline-4">
+<h4 id="org82525af"><span class="section-number-4">1.4.1</span> ポップアップのボタンをクリックしたときの処理を実装</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 10: </span>popup.js</label><pre class="src src-js"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">changeColor</span> = document.getElementById<span style="color: #e91e63;">(</span><span style="color: #9ccc65;">'changeColor'</span><span style="color: #e91e63;">)</span>;
+
+chrome.storage.sync.get<span style="color: #e91e63;">(</span><span style="color: #9ccc65;">'color'</span>, <span style="color: #fff59d;">function</span><span style="color: #2196F3;">(</span><span style="color: #ffcc80;">data</span><span style="color: #2196F3;">)</span> <span style="color: #2196F3;">{</span>
+  changeColor.style.backgroundColor = data.color;
+  changeColor.setAttribute<span style="color: #EF6C00;">(</span><span style="color: #9ccc65;">'value'</span>, data.color<span style="color: #EF6C00;">)</span>;
+<span style="color: #2196F3;">}</span><span style="color: #e91e63;">)</span>;
+
+changeColor.onclick = <span style="color: #fff59d;">function</span><span style="color: #e91e63;">(</span><span style="color: #ffcc80;">element</span><span style="color: #e91e63;">)</span> <span style="color: #e91e63;">{</span>
+  <span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">color</span> = element.target.value;
+
+  chrome.tabs.query<span style="color: #2196F3;">(</span><span style="color: #EF6C00;">{</span>active: <span style="color: #8bc34a;">true</span>,
+                     currentWindow: <span style="color: #8bc34a;">true</span><span style="color: #EF6C00;">}</span>, <span style="color: #fff59d;">function</span><span style="color: #EF6C00;">(</span><span style="color: #ffcc80;">tabs</span><span style="color: #EF6C00;">)</span> <span style="color: #EF6C00;">{</span>
+                       chrome.tabs.executeScript<span style="color: #B388FF;">(</span>
+                         tabs<span style="color: #76ff03;">[</span><span style="color: #9ccc65;">0</span><span style="color: #76ff03;">]</span>.id,
+                         <span style="color: #76ff03;">{</span>code: <span style="color: #9ccc65;">'document.body.style.backgroundColor = "'</span> + color + <span style="color: #9ccc65;">'";'</span><span style="color: #76ff03;">}</span><span style="color: #B388FF;">)</span>;
+                     <span style="color: #EF6C00;">}</span><span style="color: #2196F3;">)</span>;
+<span style="color: #e91e63;">}</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5d519ba" class="outline-4">
+<h4 id="org5d519ba"><span class="section-number-4">1.4.2</span> マニフェストファイルを更新</h4>
+<div class="outline-text-4" id="text-1-4-2">
+<ul class="org-ul">
+<li>パーミッションを追加する<br /></li>
+</ul>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 11: </span>manifest.json</label><pre class="src src-json"><span style="color: #e91e63;">{</span>
+  <span style="color: #fff59d;">"manifest_version"</span>: <span style="color: #9ccc65;">2</span>,
+  <span style="color: #fff59d;">"name"</span>: <span style="color: #9ccc65;">"Getting Started Example"</span>,
+  <span style="color: #fff59d;">"version"</span>: "<span style="color: #9ccc65;">1</span>.<span style="color: #9ccc65;">0</span>",
+
+  <span style="color: #fff59d;">"description"</span>: <span style="color: #9ccc65;">"Build an Extension!"</span>,
+  <span style="color: #fff59d;">"icons"</span>: <span style="color: #2196F3;">{</span>
+    "<span style="color: #9ccc65;">16</span>": <span style="color: #9ccc65;">"images/get_started16.png"</span>,
+    "<span style="color: #9ccc65;">32</span>": <span style="color: #9ccc65;">"images/get_started32.png"</span>,
+    "<span style="color: #9ccc65;">48</span>": <span style="color: #9ccc65;">"images/get_started48.png"</span>,
+    "<span style="color: #9ccc65;">128</span>": <span style="color: #9ccc65;">"images/get_started128.png"</span>
+  <span style="color: #2196F3;">}</span>,
+
+  <span style="color: #fff59d;">"page_action"</span>: <span style="color: #2196F3;">{</span>
+    <span style="color: #fff59d;">"default_popup"</span>: <span style="color: #9ccc65;">"popup.html"</span>,
+    <span style="color: #fff59d;">"default_icon"</span>: <span style="color: #EF6C00;">{</span>
+      "<span style="color: #9ccc65;">16</span>": <span style="color: #9ccc65;">"images/get_started16.png"</span>,
+      "<span style="color: #9ccc65;">32</span>": <span style="color: #9ccc65;">"images/get_started32.png"</span>,
+      "<span style="color: #9ccc65;">48</span>": <span style="color: #9ccc65;">"images/get_started48.png"</span>,
+      "<span style="color: #9ccc65;">128</span>": <span style="color: #9ccc65;">"images/get_started128.png"</span>
+    <span style="color: #EF6C00;">}</span>
+  <span style="color: #2196F3;">}</span>,
+
+  <span style="color: #fff59d;">"background"</span>: <span style="color: #2196F3;">{</span>
+    <span style="color: #fff59d;">"scripts"</span>: <span style="color: #EF6C00;">[</span><span style="color: #9ccc65;">"background.js"</span><span style="color: #EF6C00;">]</span>,
+    <span style="color: #fff59d;">"persistent"</span>: <span style="color: #8bc34a;">false</span>
+  <span style="color: #2196F3;">}</span>,
+  <span style="color: #fff59d;">"permissions"</span>: <span style="color: #2196F3;">[</span><span style="color: #9ccc65;">"activeTab"</span>, <span style="color: #9ccc65;">"declarativeContent"</span>, <span style="color: #9ccc65;">"storage"</span><span style="color: #2196F3;">]</span>
+<span style="color: #e91e63;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org03d3200" class="outline-4">
+<h4 id="org03d3200"><span class="section-number-4">1.4.3</span> 拡張機能をリロード</h4>
+<div class="outline-text-4" id="text-1-4-3">
+<p>
+これで完成。<br />
+ポップアップのボタンをクリックすると背景色が緑に変化する。<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9d11cb4" class="outline-3">
+<h3 id="org9d11cb4"><span class="section-number-3">1.5</span> ユーザオプション</h3>
+<div class="outline-text-3" id="text-1-5">
+</div>
+<div id="outline-container-orgfbc65ae" class="outline-4">
+<h4 id="orgfbc65ae"><span class="section-number-4">1.5.1</span> オプションページを作成</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 12: </span>options.html</label><pre class="src src-html"><span style="color: #9ccc65;">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color: #84ffff;">html</span>&gt;
+  &lt;<span style="color: #84ffff;">head</span>&gt;
+    &lt;<span style="color: #84ffff;">style</span>&gt;
+      button {
+        height: 30px;
+        width: 30px;
+        outline: none;
+        margin: 10px;
+      }
+    &lt;/<span style="color: #84ffff;">style</span>&gt;
+  &lt;/<span style="color: #84ffff;">head</span>&gt;
+  &lt;<span style="color: #84ffff;">body</span>&gt;
+    &lt;<span style="color: #84ffff;">div</span> <span style="color: #ffcc80;">id</span>=<span style="color: #9ccc65;">"buttonDiv"</span>&gt;&lt;/<span style="color: #84ffff;">div</span>&gt;
+    &lt;<span style="color: #84ffff;">div</span>&gt;
+      &lt;<span style="color: #84ffff;">p</span>&gt;Choose a different background color&lt;/<span style="color: #84ffff;">p</span>&gt;
+    &lt;/<span style="color: #84ffff;">div</span>&gt;
+  &lt;/<span style="color: #84ffff;">body</span>&gt;
+  &lt;<span style="color: #84ffff;">script</span> <span style="color: #ffcc80;">src</span>=<span style="color: #9ccc65;">"options.js"</span>&gt;&lt;/<span style="color: #84ffff;">script</span>&gt;
+&lt;/<span style="color: #84ffff;">html</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd1b8a54" class="outline-4">
+<h4 id="orgd1b8a54"><span class="section-number-4">1.5.2</span> オプションの処理を実装</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 13: </span>options.js</label><pre class="src src-js"><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">page</span> = document.getElementById<span style="color: #e91e63;">(</span><span style="color: #9ccc65;">'buttonDiv'</span><span style="color: #e91e63;">)</span>;
+<span style="color: #fff59d;">const</span> <span style="color: #ffcc80;">kButtonColors</span> = <span style="color: #e91e63;">[</span><span style="color: #9ccc65;">'#3aa757'</span>, <span style="color: #9ccc65;">'#e8453c'</span>, <span style="color: #9ccc65;">'#f9bb2d'</span>, <span style="color: #9ccc65;">'#4688f1'</span><span style="color: #e91e63;">]</span>;
+
+<span style="color: #fff59d;">function</span> <span style="color: #84ffff;">constructOptions</span><span style="color: #e91e63;">(</span><span style="color: #ffcc80;">kButtonColors</span><span style="color: #e91e63;">)</span> <span style="color: #e91e63;">{</span>
+  <span style="color: #fff59d;">for</span> <span style="color: #2196F3;">(</span><span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">item</span> of kButtonColors<span style="color: #2196F3;">)</span> <span style="color: #2196F3;">{</span>
+    <span style="color: #fff59d;">let</span> <span style="color: #ffcc80;">button</span> = document.createElement<span style="color: #EF6C00;">(</span><span style="color: #9ccc65;">'button'</span><span style="color: #EF6C00;">)</span>;
+    button.style.backgroundColor = item;
+    button.addEventListener<span style="color: #EF6C00;">(</span><span style="color: #9ccc65;">'click'</span>, <span style="color: #fff59d;">function</span><span style="color: #B388FF;">()</span> <span style="color: #B388FF;">{</span>
+      chrome.storage.sync.set<span style="color: #76ff03;">(</span><span style="color: #26A69A;">{</span>color: item<span style="color: #26A69A;">}</span>, <span style="color: #fff59d;">function</span><span style="color: #26A69A;">()</span> <span style="color: #26A69A;">{</span>
+        console.log<span style="color: #FFCDD2;">(</span><span style="color: #9ccc65;">'color is '</span> + item<span style="color: #FFCDD2;">)</span>;
+      <span style="color: #26A69A;">}</span><span style="color: #76ff03;">)</span>;
+    <span style="color: #B388FF;">}</span><span style="color: #EF6C00;">)</span>;
+    page.appendChild<span style="color: #EF6C00;">(</span>button<span style="color: #EF6C00;">)</span>;
+  <span style="color: #2196F3;">}</span>
+<span style="color: #e91e63;">}</span>
+
+constructOptions<span style="color: #e91e63;">(</span>kButtonColors<span style="color: #e91e63;">)</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org204ea2d" class="outline-4">
+<h4 id="org204ea2d"><span class="section-number-4">1.5.3</span> マニフェストファイルを更新</h4>
+<div class="outline-text-4" id="text-1-5-3">
+<ul class="org-ul">
+<li>オプションページを追加する<br /></li>
+</ul>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 14: </span>manifest.json</label><pre class="src src-json"><span style="color: #e91e63;">{</span>
+  <span style="color: #fff59d;">"manifest_version"</span>: <span style="color: #9ccc65;">2</span>,
+  <span style="color: #fff59d;">"name"</span>: <span style="color: #9ccc65;">"Getting Started Example"</span>,
+  <span style="color: #fff59d;">"version"</span>: "<span style="color: #9ccc65;">1</span>.<span style="color: #9ccc65;">0</span>",
+
+  <span style="color: #fff59d;">"description"</span>: <span style="color: #9ccc65;">"Build an Extension!"</span>,
+  <span style="color: #fff59d;">"icons"</span>: <span style="color: #2196F3;">{</span>
+    "<span style="color: #9ccc65;">16</span>": <span style="color: #9ccc65;">"images/get_started16.png"</span>,
+    "<span style="color: #9ccc65;">32</span>": <span style="color: #9ccc65;">"images/get_started32.png"</span>,
+    "<span style="color: #9ccc65;">48</span>": <span style="color: #9ccc65;">"images/get_started48.png"</span>,
+    "<span style="color: #9ccc65;">128</span>": <span style="color: #9ccc65;">"images/get_started128.png"</span>
+  <span style="color: #2196F3;">}</span>,
+
+  <span style="color: #fff59d;">"page_action"</span>: <span style="color: #2196F3;">{</span>
+    <span style="color: #fff59d;">"default_popup"</span>: <span style="color: #9ccc65;">"popup.html"</span>,
+    <span style="color: #fff59d;">"default_icon"</span>: <span style="color: #EF6C00;">{</span>
+      "<span style="color: #9ccc65;">16</span>": <span style="color: #9ccc65;">"images/get_started16.png"</span>,
+      "<span style="color: #9ccc65;">32</span>": <span style="color: #9ccc65;">"images/get_started32.png"</span>,
+      "<span style="color: #9ccc65;">48</span>": <span style="color: #9ccc65;">"images/get_started48.png"</span>,
+      "<span style="color: #9ccc65;">128</span>": <span style="color: #9ccc65;">"images/get_started128.png"</span>
+    <span style="color: #EF6C00;">}</span>
+  <span style="color: #2196F3;">}</span>,
+
+  <span style="color: #fff59d;">"background"</span>: <span style="color: #2196F3;">{</span>
+    <span style="color: #fff59d;">"scripts"</span>: <span style="color: #EF6C00;">[</span><span style="color: #9ccc65;">"background.js"</span><span style="color: #EF6C00;">]</span>,
+    <span style="color: #fff59d;">"persistent"</span>: <span style="color: #8bc34a;">false</span>
+  <span style="color: #2196F3;">}</span>,
+  <span style="color: #fff59d;">"permissions"</span>: <span style="color: #2196F3;">[</span><span style="color: #9ccc65;">"activeTab"</span>, <span style="color: #9ccc65;">"declarativeContent"</span>, <span style="color: #9ccc65;">"storage"</span><span style="color: #2196F3;">]</span>,
+  <span style="color: #fff59d;">"options_page"</span>: <span style="color: #9ccc65;">"options.html"</span>
+<span style="color: #e91e63;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb7caafe" class="outline-4">
+<h4 id="orgb7caafe"><span class="section-number-4">1.5.4</span> 拡張機能をリロード</h4>
+<div class="outline-text-4" id="text-1-5-4">
+<p>
+拡張機能の <code>詳細</code> の <code>拡張機能のオプション</code> でオプションを設定できる。<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3750a3d" class="outline-2">
+<h2 id="org3750a3d"><span class="section-number-2">2</span> Bookmarks</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li><a href="https://developer.chrome.com/extensions/manifest">Manifest File Format</a><br /></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: KISHI Kousuke</p>
+<p class="date">Created: 2019-10-08 Tue 05:59</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
