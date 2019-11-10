@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-11-10 Sun 23:33 -->
+<!-- 2019-11-11 Mon 00:19 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title><a href="https://www.rust-lang.org/">Rust</a></title>
+<title>Crates</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="KISHI Kousuke" />
 <style type="text/css">
@@ -248,64 +248,193 @@ for the JavaScript code in this tag.
 </script>
 </head>
 <body>
-<div id="org-div-home-and-up">
- <a accesskey="h" href="../index.html"> UP </a>
- |
- <a accesskey="H" href="/index.html"> HOME </a>
-</div><div id="content">
-<h1 class="title"><a href="https://www.rust-lang.org/">Rust</a></h1>
+<div id="content">
+<h1 class="title">Crates</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org43a6546">1. Install</a></li>
-<li><a href="#orgbf7cd66">2. Language Specification</a></li>
-<li><a href="#org48a6cbb">3. WebAssembly</a></li>
-<li><a href="#org0bad474">4. Chrome Extensions</a></li>
-<li><a href="#org6fc99ee">5. Frameworks</a></li>
-<li><a href="#orge751a0b">6. Crates</a></li>
-<li><a href="#org1f5328f">7. Web Apps</a></li>
-<li><a href="#org1dcd168">8. Android Apps</a></li>
-<li><a href="#orgb327092">9. AWS Lambda</a></li>
-<li><a href="#orga9b38c9">10. Bookmarks</a></li>
+<li><a href="#org65d9aac">1. Diesel</a>
+<ul>
+<li><a href="#orgb4a08cf">1.1. 事前準備</a></li>
+<li><a href="#orgcec3d6b">1.2. Getting Started</a></li>
+</ul>
+</li>
+<li><a href="#org8797689">2. Bookmarks</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org43a6546" class="outline-2">
-<h2 id="org43a6546"><span class="section-number-2">1</span> <a href="Install.html">Install</a></h2>
+<div id="outline-container-org65d9aac" class="outline-2">
+<h2 id="org65d9aac"><span class="section-number-2">1</span> <a href="https://diesel.rs/">Diesel</a></h2>
+<div class="outline-text-2" id="text-1">
+<p>
+他にDBライブラリが見当たらない。<br />
+</p>
 </div>
-<div id="outline-container-orgbf7cd66" class="outline-2">
-<h2 id="orgbf7cd66"><span class="section-number-2">2</span> <a href="LanguageSpecification.html">Language Specification</a></h2>
+
+<div id="outline-container-orgb4a08cf" class="outline-3">
+<h3 id="orgb4a08cf"><span class="section-number-3">1.1</span> 事前準備</h3>
+<div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org48a6cbb" class="outline-2">
-<h2 id="org48a6cbb"><span class="section-number-2">3</span> <a href="WebAssembly.html">WebAssembly</a></h2>
-</div>
-<div id="outline-container-org0bad474" class="outline-2">
-<h2 id="org0bad474"><span class="section-number-2">4</span> <a href="ChromeExtensions.html">Chrome Extensions</a></h2>
-</div>
-<div id="outline-container-org6fc99ee" class="outline-2">
-<h2 id="org6fc99ee"><span class="section-number-2">5</span> <a href="Frameworks.html">Frameworks</a></h2>
-</div>
-<div id="outline-container-orge751a0b" class="outline-2">
-<h2 id="orge751a0b"><span class="section-number-2">6</span> <a href="Crates.html">Crates</a></h2>
-</div>
-<div id="outline-container-org1f5328f" class="outline-2">
-<h2 id="org1f5328f"><span class="section-number-2">7</span> <a href="WebApps.html">Web Apps</a></h2>
-</div>
-<div id="outline-container-org1dcd168" class="outline-2">
-<h2 id="org1dcd168"><span class="section-number-2">8</span> <a href="AndroidApps.html">Android Apps</a></h2>
-</div>
-<div id="outline-container-orgb327092" class="outline-2">
-<h2 id="orgb327092"><span class="section-number-2">9</span> <a href="AWSLambda.html">AWS Lambda</a></h2>
-</div>
-<div id="outline-container-orga9b38c9" class="outline-2">
-<h2 id="orga9b38c9"><span class="section-number-2">10</span> <a href="Bookmarks.html">Bookmarks</a></h2>
+<div id="outline-container-orgffff2b5" class="outline-4">
+<h4 id="orgffff2b5"><span class="section-number-4">1.1.1</span> 開発用コンテナ</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+<a href="https://hub.docker.com/repository/docker/ksh2ksk4/archlinux-rust">https://hub.docker.com/repository/docker/ksh2ksk4/archlinux-rust</a><br />
+</p>
+
+<p>
+このコンテナで開発する。<br />
+</p>
+
+<pre class="example">
+$ docker run \
+    --detach \
+    --name rust-dev-server \
+    --publish 13306:3306 \
+    --volume ~/.own/srcs/Rust/diesel_demo:/root/srcs/Rust/diesel_demo \
+    archlinux-rust
+$ docker exec -it rust-dev-server fish
+</pre>
 </div>
 </div>
+</div>
+
+<div id="outline-container-orgcec3d6b" class="outline-3">
+<h3 id="orgcec3d6b"><span class="section-number-3">1.2</span> <a href="https://diesel.rs/guides/getting-started/">Getting Started</a></h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+これをやってみる<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>。<br />
+</p>
+
+<p>
+プロジェクトルートへ移動。<br />
+</p>
+
+<pre class="example">
+# cd srcs/Rust/diesel_demo
+</pre>
+
+<p>
+DBを作成。<br />
+<code>diesel setup</code> コマンドでDBは作成できるが、 <code>CHARACTER SET</code> と <code>COLLATE</code> を指定するため手動で作成する。<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #fff59d;">CREATE</span> DATABASE IF <span style="color: #fff59d;">NOT</span> <span style="color: #fff59d;">EXISTS</span> diesel_demo
+  <span style="color: #84ffff;">CHARACTER</span> <span style="color: #fff59d;">SET</span> utf8mb4 <span style="color: #fff59d;">COLLATE</span> utf8mb4_bin;
+</pre>
+</div>
+
+<p>
+<code>diesel setup</code> コマンドでセットアップ。<br />
+<code>migrations</code> ディレクトリと <code>__diesel_schema_migrations</code> テーブル(マイグレーション管理用テーブル)を作成してくれる。<br />
+すでにマイグレーションファイルがあればマイグレーションを実行してくれる。<br />
+</p>
+
+<pre class="example">
+# env DATABASE_URL='mysql://root:replace_your_own_password@localhost/diesel_demo' diesel setup
+</pre>
+
+<p>
+このコマンドでもOK。<br />
+</p>
+
+<pre class="example">
+# diesel --database-url='mysql://root:replace_your_own_password@localhost/diesel_demo' setup
+</pre>
+
+<p>
+環境変数 <code>DATABASE_URL</code> を設定しておけばコマンドで指定する必要はない。<br />
+</p>
+
+<pre class="example">
+# set -x DATABASE_URL mysql://root:replace_your_own_password@localhost/diesel_demo
+</pre>
+
+<p>
+以降は環境変数を設定してある前提でコマンドを実行する。<br />
+</p>
+
+<p>
+マイグレーションファイルを作成。<br />
+</p>
+
+<pre class="example">
+# diesel migration generate create_posts
+</pre>
+
+<p>
+マイグレーションファイルは素のSQLで記述する。<br />
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>migrations/2019-11-08-120455_create_posts/up.sql</label><pre class="src src-sql"><span style="color: #fff59d;">CREATE</span> <span style="color: #fff59d;">TABLE</span> IF <span style="color: #fff59d;">NOT</span> <span style="color: #fff59d;">EXISTS</span> <span style="color: #84ffff;">posts</span> <span style="color: #e91e63;">(</span>
+  id <span style="color: #84ffff;">INT</span> UNSIGNED <span style="color: #fff59d;">NOT</span> <span style="color: #fff59d;">NULL</span> AUTO_INCREMENT,
+  title <span style="color: #84ffff;">VARCHAR</span><span style="color: #2196F3;">(</span><span style="color: #9ccc65;">128</span><span style="color: #2196F3;">)</span> <span style="color: #fff59d;">NOT</span> <span style="color: #fff59d;">NULL</span>,
+  body TEXT <span style="color: #fff59d;">NOT</span> <span style="color: #fff59d;">NULL</span>,
+  published TINYINT <span style="color: #fff59d;">NOT</span> <span style="color: #fff59d;">NULL</span> <span style="color: #fff59d;">DEFAULT</span> <span style="color: #9ccc65;">0</span>,
+  <span style="color: #fff59d;">PRIMARY</span> <span style="color: #fff59d;">KEY</span> <span style="color: #2196F3;">(</span>id<span style="color: #2196F3;">)</span>
+<span style="color: #e91e63;">)</span> <span style="color: #fff59d;">DEFAULT</span> CHARSET=utf8mb4 <span style="color: #fff59d;">COLLATE</span>=utf8mb4_bin;
+</pre>
+</div>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>migrations/2019-11-08-120455_create_posts/down.sql</label><pre class="src src-sql"><span style="color: #fff59d;">DROP</span> <span style="color: #fff59d;">TABLE</span> <span style="color: #84ffff;">posts</span>;
+</pre>
+</div>
+
+<p>
+マイグレーションを実行。<br />
+</p>
+
+<pre class="example">
+# diesel migration run
+</pre>
+
+<p>
+マイグレーションを再実行。<br />
+(down -&gt; up)<br />
+</p>
+
+<pre class="example">
+# diesel migration redo
+</pre>
+
+<p>
+マイグレーションをロールバック。<br />
+</p>
+
+<pre class="example">
+# diesel migration revert
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8797689" class="outline-2">
+<h2 id="org8797689"><span class="section-number-2">2</span> Bookmarks</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li><a href="https://crates.io/">crates.io</a><br /></li>
+</ul>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+元のチュートリアルはPostgreSQLを前提に書かれているが、私はMariaDBを利用しているため、内容の一部が異なっている。<br />
+</p></div></div>
+
+
+</div>
+</div></div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-11-10 Sun 23:33</p>
+<p class="date">Created: 2019-11-11 Mon 00:19</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
