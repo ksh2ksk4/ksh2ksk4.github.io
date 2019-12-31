@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-12-31 Tue 18:25 -->
+<!-- 2019-12-31 Tue 21:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Index</title>
+<title>NASサーバ</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="KISHI Kousuke" />
 <style type="text/css">
@@ -248,72 +248,314 @@ for the JavaScript code in this tag.
 </script>
 </head>
 <body>
-<div id="content">
-<h1 class="title">Index</h1>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="index.html"> UP </a>
+ |
+ <a accesskey="H" href="/index.html"> HOME </a>
+</div><div id="content">
+<h1 class="title">NASサーバ</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb1d5042">1. Programming Languages</a></li>
-<li><a href="#orgb79f881">2. Mac</a></li>
-<li><a href="#org0e07f50">3. fish</a></li>
-<li><a href="#org3daec71">4. Amazon Corretto</a></li>
-<li><a href="#orge04e65c">5. Alacritty</a></li>
-<li><a href="#org3bfb8c3">6. Git</a></li>
-<li><a href="#org84c5fcd">7. Spacemacs</a></li>
-<li><a href="#org7008528">8. IntelliJ IDEA</a></li>
-<li><a href="#orge0c33e6">9. Chrome Extensions</a></li>
-<li><a href="#orgf043c7d">10. Mozc Helper</a></li>
-<li><a href="#orge3f4bc7">11. DeepLearning</a></li>
-<li><a href="#org6de8b02">12. Raspberry Pi</a></li>
-<li><a href="#org7bc7cff">13. Tips</a></li>
+<li><a href="#org05221fa">1. 概要</a></li>
+<li><a href="#org10f6b6a">2. Raspbian</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgb1d5042" class="outline-2">
-<h2 id="orgb1d5042"><span class="section-number-2">1</span> <a href="ProgrammingLanguages/index.html">Programming Languages</a></h2>
+<div id="outline-container-org05221fa" class="outline-2">
+<h2 id="org05221fa"><span class="section-number-2">1</span> 概要</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4</a> (Memory: 2GB)に <a href="https://www.openmediavault.org/">openmediavault</a> をインストールして構築する。<br />
+</p>
 </div>
-<div id="outline-container-orgb79f881" class="outline-2">
-<h2 id="orgb79f881"><span class="section-number-2">2</span> <a href="Mac/index.html">Mac</a></h2>
 </div>
-<div id="outline-container-org0e07f50" class="outline-2">
-<h2 id="org0e07f50"><span class="section-number-2">3</span> <a href="fish.html">fish</a></h2>
+
+<div id="outline-container-org10f6b6a" class="outline-2">
+<h2 id="org10f6b6a"><span class="section-number-2">2</span> <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a></h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<code>Raspbian Buster Lite</code> (Version: September 2019) をインストールしてヘッドレスで利用する。<br />
+</p>
 </div>
-<div id="outline-container-org3daec71" class="outline-2">
-<h2 id="org3daec71"><span class="section-number-2">4</span> <a href="Amazon_Corretto.html">Amazon Corretto</a></h2>
+
+<div id="outline-container-org69fb7f6" class="outline-4">
+<h4 id="org69fb7f6"><span class="section-number-4">2.0.1</span> Install</h4>
+<div class="outline-text-4" id="text-2-0-1">
+<ul class="org-ul">
+<li>imgファイルをダウンロード<br /></li>
+<li><a href="https://www.balena.io/etcher/">balenaEtcher</a> でマイクロSDカードへ書き込む<br /></li>
+</ul>
 </div>
-<div id="outline-container-orge04e65c" class="outline-2">
-<h2 id="orge04e65c"><span class="section-number-2">5</span> <a href="Alacritty.html">Alacritty</a></h2>
 </div>
-<div id="outline-container-org3bfb8c3" class="outline-2">
-<h2 id="org3bfb8c3"><span class="section-number-2">6</span> <a href="Git.html">Git</a></h2>
+
+<div id="outline-container-org25c65fc" class="outline-4">
+<h4 id="org25c65fc"><span class="section-number-4">2.0.2</span> Settings</h4>
+<div class="outline-text-4" id="text-2-0-2">
 </div>
-<div id="outline-container-org84c5fcd" class="outline-2">
-<h2 id="org84c5fcd"><span class="section-number-2">7</span> <a href="Spacemacs/index.html">Spacemacs</a></h2>
+<div id="outline-container-orgb3651ab" class="outline-5">
+<h5 id="orgb3651ab"><span class="section-number-5">2.0.2.1</span> <code>raspi-config</code></h5>
+<div class="outline-text-5" id="text-2-0-2-1">
+<pre class="example">
+$ sudo raspi-config nonint do_expand_rootfs
+$ sudo raspi-config nonint do_hostname apricot
+$ sudo raspi-config nonint do_change_timezone Asia/Tokyo
+$ sudo raspi-config nonint do_change_locale ja_JP.UTF-8
+$ sudo raspi-config nonint do_wifi_country Japan
+$ sudo raspi-config nonint do_memory_split 16
+$ sudo reboot
+</pre>
 </div>
-<div id="outline-container-org7008528" class="outline-2">
-<h2 id="org7008528"><span class="section-number-2">8</span> <a href="IntelliJ_IDEA/index.html">IntelliJ IDEA</a></h2>
 </div>
-<div id="outline-container-orge0c33e6" class="outline-2">
-<h2 id="orge0c33e6"><span class="section-number-2">9</span> <a href="Chrome_Extensions.html">Chrome Extensions</a></h2>
+
+<div id="outline-container-org5bc17b7" class="outline-5">
+<h5 id="org5bc17b7"><span class="section-number-5">2.0.2.2</span> <code>apt-get</code></h5>
+<div class="outline-text-5" id="text-2-0-2-2">
+<pre class="example">
+$ sudo apt-get update
+$ sudo apt-get upgrade
+$ sudo reboot
+</pre>
 </div>
-<div id="outline-container-orgf043c7d" class="outline-2">
-<h2 id="orgf043c7d"><span class="section-number-2">10</span> <a href="MozcHelper/index.html">Mozc Helper</a></h2>
 </div>
-<div id="outline-container-orge3f4bc7" class="outline-2">
-<h2 id="orge3f4bc7"><span class="section-number-2">11</span> <a href="DeepLearning.html">DeepLearning</a></h2>
+
+<div id="outline-container-org232fd80" class="outline-5">
+<h5 id="org232fd80"><span class="section-number-5">2.0.2.3</span> DHCP</h5>
+<div class="outline-text-5" id="text-2-0-2-3">
+<p>
+ネットワーク設定はDHCPを利用するが、スタティックIPアドレスになるようルータ(NVR510)を設定する。<br />
+</p>
+
+<pre class="example">
+dhcp scope bind 1 192.168.126.10 ethernet dc:a6:32:xx:xx:xx
+ip host apricot.home 192.168.126.10
+</pre>
+
+<p>
+<code>dc:a6:32</code> は <code>Raspberry Pi Trading Ltd</code> のベンダID。<br />
+</p>
 </div>
-<div id="outline-container-org6de8b02" class="outline-2">
-<h2 id="org6de8b02"><span class="section-number-2">12</span> <a href="RaspberryPi/index.html">Raspberry Pi</a></h2>
 </div>
-<div id="outline-container-org7bc7cff" class="outline-2">
-<h2 id="org7bc7cff"><span class="section-number-2">13</span> <a href="Tips/index.html">Tips</a></h2>
+
+<div id="outline-container-org33fe0d1" class="outline-5">
+<h5 id="org33fe0d1"><span class="section-number-5">2.0.2.4</span> SSH</h5>
+<div class="outline-text-5" id="text-2-0-2-4">
+</div>
+<div id="outline-container-orga02b20b" class="outline-6">
+<h6 id="orga02b20b"><span class="section-number-6">2.0.2.4.1</span> <code>ssh</code> グループへの追加</h6>
+<div class="outline-text-6" id="text-2-0-2-4-1">
+<p>
+ OMVをインストールするとユーザ <code>pi</code> でログインできなくなる。<br />
+(インストール後はOMVがSSHを管理するようになり、 <code>ssh</code> グループに属していないユーザのログインを許可していない模様)<br />
+</p>
+
+<p>
+OMVインストール後もユーザ <code>pi</code> でログインできるよう、予め以下を実行しておく。<br />
+</p>
+
+<pre class="example">
+$ sudo usermod -a -G ssh pi
+</pre>
+
+<p>
+これを実行せずOMVをインストールした場合、OMVの管理ページでユーザ <code>pi</code> を <code>ssh</code> グループに追加する。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org233b05d" class="outline-6">
+<h6 id="org233b05d"><span class="section-number-6">2.0.2.4.2</span> パスワードレスでログイン</h6>
+<div class="outline-text-6" id="text-2-0-2-4-2">
+<p>
+作業用PCで以下を実行する。<br />
+</p>
+
+<pre class="example">
+$ vi ~/.ssh/config
+</pre>
+
+<p>
+以下を追記。<br />
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>~/.ssh/config</label><pre class="src src-text">Host apricot.home
+  HostName apricot.home
+  User pi
+  IdentityFile ~/.ssh/keys/apricot.home.key
+</pre>
+</div>
+
+<pre class="example">
+$ ssh-keygen -t ecdsa -b 521 -f ./apricot.home.key -C 'apricot.home'
+$ ssh-copy-id -i ./apricot.home.key pi@apricot.home
+</pre>
+
+<p>
+これでパスワードレスにログインできるはず。<br />
+</p>
+
+<pre class="example">
+$ ssh apricot.home
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org33c4cff" class="outline-6">
+<h6 id="org33c4cff"><span class="section-number-6">2.0.2.4.3</span> パスワードログインを不許可</h6>
+<div class="outline-text-6" id="text-2-0-2-4-3">
+<pre class="example">
+$ sudo vi /etc/ssh/ssh_config
+$ sudo systemctl restart ssh
+</pre>
+
+<p>
+<code>ssh_config</code> の変更内容はBookmarksを参照。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org320f7df" class="outline-6">
+<h6 id="org320f7df"><span class="section-number-6">2.0.2.4.4</span> Bookmarks</h6>
+<div class="outline-text-6" id="text-2-0-2-4-4">
+<ul class="org-ul">
+<li><a href="https://linuxize.com/post/how-to-setup-passwordless-ssh-login/">How to Setup Passwordless SSH Login</a><br /></li>
+<li><a href="https://www.ssh.com/ssh/keygen">ssh-keygen - Generate a New SSH Key</a><br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8138ab1" class="outline-6">
+<h6 id="org8138ab1"><span class="section-number-6">2.0.2.4.5</span> ユーザ <code>pi</code> のパスワードを変更</h6>
+<div class="outline-text-6" id="text-2-0-2-4-5">
+<p>
+パスワードをデフォルトから変更しておく。<br />
+(あまり意味はないがログイン時のメッセージが鬱陶しいので)<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgadf6b67" class="outline-5">
+<h5 id="orgadf6b67"><span class="section-number-5">2.0.2.5</span> ログインメッセージ</h5>
+<div class="outline-text-5" id="text-2-0-2-5">
+<p>
+これも鬱陶しいので消しておく。<br />
+</p>
+
+<pre class="example">
+$ sudo vi /etc/motd
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgcfbe609" class="outline-5">
+<h5 id="orgcfbe609"><span class="section-number-5">2.0.2.6</span> Swap</h5>
+<div class="outline-text-5" id="text-2-0-2-6">
+<p>
+スワップを無効化。<br />
+</p>
+
+<pre class="example">
+$ free -h
+$ sudo swapoff --all
+$ free -h
+</pre>
+
+<pre class="example">
+$ sudo systemctl status dphys-swapfile
+$ sudo systemctl stop dphys-swapfile
+$ sudo systemctl disable dphys-swapfile
+$ sudo systemctl status dphys-swapfile
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgb6a4d40" class="outline-5">
+<h5 id="orgb6a4d40"><span class="section-number-5">2.0.2.7</span> Wifi</h5>
+<div class="outline-text-5" id="text-2-0-2-7">
+<p>
+利用しないので無効化。<br />
+</p>
+
+<pre class="example">
+$ sudo vi /boot/config.txt
+</pre>
+
+<p>
+以下を追記。<br />
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>/boot/config.txt</label><pre class="src src-text">dtoverlay=disable-wifi
+</pre>
+</div>
+
+<pre class="example">
+$ sudo reboot
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org4cb91cd" class="outline-5">
+<h5 id="org4cb91cd"><span class="section-number-5">2.0.2.8</span> Buletooth</h5>
+<div class="outline-text-5" id="text-2-0-2-8">
+<p>
+利用しないので無効化。<br />
+</p>
+
+<pre class="example">
+$ sudo vi /boot/config.txt
+</pre>
+
+<p>
+以下を追記。<br />
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>/boot/config.txt</label><pre class="src src-text">dtoverlay=disable-bt
+</pre>
+</div>
+
+<pre class="example">
+$ sudo reboot
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgb6c07b8" class="outline-5">
+<h5 id="orgb6c07b8"><span class="section-number-5">2.0.2.9</span> Avahi</h5>
+<div class="outline-text-5" id="text-2-0-2-9">
+<pre class="example">
+$ sudo systemctl stop avahi-daemon
+$ sudo systemctl disable avahi-daemon
+$ sudo systemctl status avahi-daemon
+$ sudo reboot
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4322035" class="outline-4">
+<h4 id="org4322035"><span class="section-number-4">2.0.3</span> Backup</h4>
+<div class="outline-text-4" id="text-2-0-3">
+<p>
+マイクロSDカードを作業用PCへ接続して以下を実行する。<br />
+(デバイスは環境によって異なる)<br />
+</p>
+
+<pre class="example">
+$ sudo dd if=/dev/disk2 of=./apricot.img bs=16M
+</pre>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-12-31 Tue 18:25</p>
+<p class="date">Created: 2019-12-31 Tue 21:16</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
