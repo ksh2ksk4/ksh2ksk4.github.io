@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-12-31 Tue 21:16 -->
+<!-- 2019-12-31 Tue 21:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>NASサーバ</title>
@@ -258,14 +258,20 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org05221fa">1. 概要</a></li>
-<li><a href="#org10f6b6a">2. Raspbian</a></li>
+<li><a href="#org2522e76">1. 概要</a></li>
+<li><a href="#org6840c13">2. Raspbian</a></li>
+<li><a href="#org33cfa37">3. openmediavault</a>
+<ul>
+<li><a href="#org7c6d7fa">3.1. Install</a></li>
+<li><a href="#orgf83ec15">3.2. Settings</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org05221fa" class="outline-2">
-<h2 id="org05221fa"><span class="section-number-2">1</span> 概要</h2>
+<div id="outline-container-org2522e76" class="outline-2">
+<h2 id="org2522e76"><span class="section-number-2">1</span> 概要</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4</a> (Memory: 2GB)に <a href="https://www.openmediavault.org/">openmediavault</a> をインストールして構築する。<br />
@@ -273,16 +279,16 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org10f6b6a" class="outline-2">
-<h2 id="org10f6b6a"><span class="section-number-2">2</span> <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a></h2>
+<div id="outline-container-org6840c13" class="outline-2">
+<h2 id="org6840c13"><span class="section-number-2">2</span> <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a></h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <code>Raspbian Buster Lite</code> (Version: September 2019) をインストールしてヘッドレスで利用する。<br />
 </p>
 </div>
 
-<div id="outline-container-org69fb7f6" class="outline-4">
-<h4 id="org69fb7f6"><span class="section-number-4">2.0.1</span> Install</h4>
+<div id="outline-container-org9ffe92d" class="outline-4">
+<h4 id="org9ffe92d"><span class="section-number-4">2.0.1</span> Install</h4>
 <div class="outline-text-4" id="text-2-0-1">
 <ul class="org-ul">
 <li>imgファイルをダウンロード<br /></li>
@@ -291,12 +297,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org25c65fc" class="outline-4">
-<h4 id="org25c65fc"><span class="section-number-4">2.0.2</span> Settings</h4>
+<div id="outline-container-org527562f" class="outline-4">
+<h4 id="org527562f"><span class="section-number-4">2.0.2</span> Settings</h4>
 <div class="outline-text-4" id="text-2-0-2">
 </div>
-<div id="outline-container-orgb3651ab" class="outline-5">
-<h5 id="orgb3651ab"><span class="section-number-5">2.0.2.1</span> <code>raspi-config</code></h5>
+<div id="outline-container-orgb0530c6" class="outline-5">
+<h5 id="orgb0530c6"><span class="section-number-5">2.0.2.1</span> <code>raspi-config</code></h5>
 <div class="outline-text-5" id="text-2-0-2-1">
 <pre class="example">
 $ sudo raspi-config nonint do_expand_rootfs
@@ -310,8 +316,8 @@ $ sudo reboot
 </div>
 </div>
 
-<div id="outline-container-org5bc17b7" class="outline-5">
-<h5 id="org5bc17b7"><span class="section-number-5">2.0.2.2</span> <code>apt-get</code></h5>
+<div id="outline-container-org31261c6" class="outline-5">
+<h5 id="org31261c6"><span class="section-number-5">2.0.2.2</span> <code>apt-get</code></h5>
 <div class="outline-text-5" id="text-2-0-2-2">
 <pre class="example">
 $ sudo apt-get update
@@ -321,8 +327,8 @@ $ sudo reboot
 </div>
 </div>
 
-<div id="outline-container-org232fd80" class="outline-5">
-<h5 id="org232fd80"><span class="section-number-5">2.0.2.3</span> DHCP</h5>
+<div id="outline-container-orgfe16867" class="outline-5">
+<h5 id="orgfe16867"><span class="section-number-5">2.0.2.3</span> DHCP</h5>
 <div class="outline-text-5" id="text-2-0-2-3">
 <p>
 ネットワーク設定はDHCPを利用するが、スタティックIPアドレスになるようルータ(NVR510)を設定する。<br />
@@ -339,12 +345,12 @@ ip host apricot.home 192.168.126.10
 </div>
 </div>
 
-<div id="outline-container-org33fe0d1" class="outline-5">
-<h5 id="org33fe0d1"><span class="section-number-5">2.0.2.4</span> SSH</h5>
+<div id="outline-container-org6a4032b" class="outline-5">
+<h5 id="org6a4032b"><span class="section-number-5">2.0.2.4</span> SSH</h5>
 <div class="outline-text-5" id="text-2-0-2-4">
 </div>
-<div id="outline-container-orga02b20b" class="outline-6">
-<h6 id="orga02b20b"><span class="section-number-6">2.0.2.4.1</span> <code>ssh</code> グループへの追加</h6>
+<div id="outline-container-org428e60e" class="outline-6">
+<h6 id="org428e60e"><span class="section-number-6">2.0.2.4.1</span> <code>ssh</code> グループへの追加</h6>
 <div class="outline-text-6" id="text-2-0-2-4-1">
 <p>
  OMVをインストールするとユーザ <code>pi</code> でログインできなくなる。<br />
@@ -365,8 +371,8 @@ $ sudo usermod -a -G ssh pi
 </div>
 </div>
 
-<div id="outline-container-org233b05d" class="outline-6">
-<h6 id="org233b05d"><span class="section-number-6">2.0.2.4.2</span> パスワードレスでログイン</h6>
+<div id="outline-container-org89d9c5f" class="outline-6">
+<h6 id="org89d9c5f"><span class="section-number-6">2.0.2.4.2</span> パスワードレスでログイン</h6>
 <div class="outline-text-6" id="text-2-0-2-4-2">
 <p>
 作業用PCで以下を実行する。<br />
@@ -403,8 +409,8 @@ $ ssh apricot.home
 </div>
 </div>
 
-<div id="outline-container-org33c4cff" class="outline-6">
-<h6 id="org33c4cff"><span class="section-number-6">2.0.2.4.3</span> パスワードログインを不許可</h6>
+<div id="outline-container-org059d1b4" class="outline-6">
+<h6 id="org059d1b4"><span class="section-number-6">2.0.2.4.3</span> パスワードログインを不許可</h6>
 <div class="outline-text-6" id="text-2-0-2-4-3">
 <pre class="example">
 $ sudo vi /etc/ssh/ssh_config
@@ -417,8 +423,8 @@ $ sudo systemctl restart ssh
 </div>
 </div>
 
-<div id="outline-container-org320f7df" class="outline-6">
-<h6 id="org320f7df"><span class="section-number-6">2.0.2.4.4</span> Bookmarks</h6>
+<div id="outline-container-org5fe3045" class="outline-6">
+<h6 id="org5fe3045"><span class="section-number-6">2.0.2.4.4</span> Bookmarks</h6>
 <div class="outline-text-6" id="text-2-0-2-4-4">
 <ul class="org-ul">
 <li><a href="https://linuxize.com/post/how-to-setup-passwordless-ssh-login/">How to Setup Passwordless SSH Login</a><br /></li>
@@ -427,8 +433,8 @@ $ sudo systemctl restart ssh
 </div>
 </div>
 
-<div id="outline-container-org8138ab1" class="outline-6">
-<h6 id="org8138ab1"><span class="section-number-6">2.0.2.4.5</span> ユーザ <code>pi</code> のパスワードを変更</h6>
+<div id="outline-container-org8c1bea6" class="outline-6">
+<h6 id="org8c1bea6"><span class="section-number-6">2.0.2.4.5</span> ユーザ <code>pi</code> のパスワードを変更</h6>
 <div class="outline-text-6" id="text-2-0-2-4-5">
 <p>
 パスワードをデフォルトから変更しておく。<br />
@@ -438,8 +444,8 @@ $ sudo systemctl restart ssh
 </div>
 </div>
 
-<div id="outline-container-orgadf6b67" class="outline-5">
-<h5 id="orgadf6b67"><span class="section-number-5">2.0.2.5</span> ログインメッセージ</h5>
+<div id="outline-container-org838b31d" class="outline-5">
+<h5 id="org838b31d"><span class="section-number-5">2.0.2.5</span> ログインメッセージ</h5>
 <div class="outline-text-5" id="text-2-0-2-5">
 <p>
 これも鬱陶しいので消しておく。<br />
@@ -451,8 +457,8 @@ $ sudo vi /etc/motd
 </div>
 </div>
 
-<div id="outline-container-orgcfbe609" class="outline-5">
-<h5 id="orgcfbe609"><span class="section-number-5">2.0.2.6</span> Swap</h5>
+<div id="outline-container-org2a7d4c5" class="outline-5">
+<h5 id="org2a7d4c5"><span class="section-number-5">2.0.2.6</span> Swap</h5>
 <div class="outline-text-5" id="text-2-0-2-6">
 <p>
 スワップを無効化。<br />
@@ -473,8 +479,8 @@ $ sudo systemctl status dphys-swapfile
 </div>
 </div>
 
-<div id="outline-container-orgb6a4d40" class="outline-5">
-<h5 id="orgb6a4d40"><span class="section-number-5">2.0.2.7</span> Wifi</h5>
+<div id="outline-container-org01d48b2" class="outline-5">
+<h5 id="org01d48b2"><span class="section-number-5">2.0.2.7</span> Wifi</h5>
 <div class="outline-text-5" id="text-2-0-2-7">
 <p>
 利用しないので無効化。<br />
@@ -499,8 +505,8 @@ $ sudo reboot
 </div>
 </div>
 
-<div id="outline-container-org4cb91cd" class="outline-5">
-<h5 id="org4cb91cd"><span class="section-number-5">2.0.2.8</span> Buletooth</h5>
+<div id="outline-container-orgeeb0b51" class="outline-5">
+<h5 id="orgeeb0b51"><span class="section-number-5">2.0.2.8</span> Buletooth</h5>
 <div class="outline-text-5" id="text-2-0-2-8">
 <p>
 利用しないので無効化。<br />
@@ -525,8 +531,8 @@ $ sudo reboot
 </div>
 </div>
 
-<div id="outline-container-orgb6c07b8" class="outline-5">
-<h5 id="orgb6c07b8"><span class="section-number-5">2.0.2.9</span> Avahi</h5>
+<div id="outline-container-orgf60fd2e" class="outline-5">
+<h5 id="orgf60fd2e"><span class="section-number-5">2.0.2.9</span> Avahi</h5>
 <div class="outline-text-5" id="text-2-0-2-9">
 <pre class="example">
 $ sudo systemctl stop avahi-daemon
@@ -538,8 +544,8 @@ $ sudo reboot
 </div>
 </div>
 
-<div id="outline-container-org4322035" class="outline-4">
-<h4 id="org4322035"><span class="section-number-4">2.0.3</span> Backup</h4>
+<div id="outline-container-orgc0e99c2" class="outline-4">
+<h4 id="orgc0e99c2"><span class="section-number-4">2.0.3</span> Backup</h4>
 <div class="outline-text-4" id="text-2-0-3">
 <p>
 マイクロSDカードを作業用PCへ接続して以下を実行する。<br />
@@ -552,10 +558,192 @@ $ sudo dd if=/dev/disk2 of=./apricot.img bs=16M
 </div>
 </div>
 </div>
+
+<div id="outline-container-org33cfa37" class="outline-2">
+<h2 id="org33cfa37"><span class="section-number-2">3</span> <a href="https://www.openmediavault.org/">openmediavault</a></h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org7c6d7fa" class="outline-3">
+<h3 id="org7c6d7fa"><span class="section-number-3">3.1</span> Install</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+<a href="https://github.com/OpenMediaVault-Plugin-Developers/docs">ここ</a> にある <a href="https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Adden-A-Installing_OMV5_on_Armbian.pdf">このドキュメント</a> を参照。<br />
+こんな感じ。<br />
+</p>
+
+<pre class="example">
+$ wget -O - https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install | sudo bash
+$ sudo reboot
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgf83ec15" class="outline-3">
+<h3 id="orgf83ec15"><span class="section-number-3">3.2</span> Settings</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-orgf7cfae4" class="outline-4">
+<h4 id="orgf7cfae4"><span class="section-number-4">3.2.1</span> システム</h4>
+<div class="outline-text-4" id="text-3-2-1">
+</div>
+<div id="outline-container-org0d2cc1f" class="outline-5">
+<h5 id="org0d2cc1f"><span class="section-number-5">3.2.1.1</span> 一般設定</h5>
+<div class="outline-text-5" id="text-3-2-1-1">
+</div>
+<div id="outline-container-orgb79b48a" class="outline-6">
+<h6 id="orgb79b48a"><span class="section-number-6">3.2.1.1.1</span> Web管理</h6>
+<div class="outline-text-6" id="text-3-2-1-1-1">
+<ul class="org-ul">
+<li>一般設定<br />
+<ul class="org-ul">
+<li>自動的にログアウト<br />
+<ul class="org-ul">
+<li><code>無効</code><br /></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1c507b9" class="outline-6">
+<h6 id="org1c507b9"><span class="section-number-6">3.2.1.1.2</span> Web管理者パスワード</h6>
+<div class="outline-text-6" id="text-3-2-1-1-2">
+<p>
+任意のパスワードへ変更。<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgef09c10" class="outline-4">
+<h4 id="orgef09c10"><span class="section-number-4">3.2.2</span> サービス</h4>
+<div class="outline-text-4" id="text-3-2-2">
+</div>
+<div id="outline-container-orgc4d12c2" class="outline-5">
+<h5 id="orgc4d12c2"><span class="section-number-5">3.2.2.1</span> SSH</h5>
+<div class="outline-text-5" id="text-3-2-2-1">
+<ul class="org-ul">
+<li>rootアカウントでのログインの許可<br />
+<ul class="org-ul">
+<li>Check off<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org82a7898" class="outline-5">
+<h5 id="org82a7898"><span class="section-number-5">3.2.2.2</span> SMB/CIFS</h5>
+<div class="outline-text-5" id="text-3-2-2-2">
+</div>
+<div id="outline-container-orgc998518" class="outline-6">
+<h6 id="orgc998518"><span class="section-number-6">3.2.2.2.1</span> 設定</h6>
+<div class="outline-text-6" id="text-3-2-2-2-1">
+<ul class="org-ul">
+<li>一般設定<br />
+<ul class="org-ul">
+<li>有効<br />
+<ul class="org-ul">
+<li>On<br /></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4153951" class="outline-6">
+<h6 id="org4153951"><span class="section-number-6">3.2.2.2.2</span> 共有</h6>
+<div class="outline-text-6" id="text-3-2-2-2-2">
+<p>
+このあと作成する共有フォルダを共有する。<br />
+<code>パーミッションを継承</code> を On<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb0ab138" class="outline-4">
+<h4 id="orgb0ab138"><span class="section-number-4">3.2.3</span> ストレージ</h4>
+<div class="outline-text-4" id="text-3-2-3">
+</div>
+<div id="outline-container-org031b0cd" class="outline-5">
+<h5 id="org031b0cd"><span class="section-number-5">3.2.3.1</span> ファイルシステム</h5>
+<div class="outline-text-5" id="text-3-2-3-1">
+</div>
+<div id="outline-container-org3e0b5d7" class="outline-6">
+<h6 id="org3e0b5d7"><span class="section-number-6">3.2.3.1.1</span> 作成</h6>
+<div class="outline-text-6" id="text-3-2-3-1-1">
+<p>
+デバイスを選択して ファイルシステム ext4 で作成。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9a013ea" class="outline-6">
+<h6 id="org9a013ea"><span class="section-number-6">3.2.3.1.2</span> マウント</h6>
+<div class="outline-text-6" id="text-3-2-3-1-2">
+<p>
+作成したファイルシステムを選択して マウント ボタンをクリック。<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org145435a" class="outline-4">
+<h4 id="org145435a"><span class="section-number-4">3.2.4</span> アクセス権の管理</h4>
+<div class="outline-text-4" id="text-3-2-4">
+</div>
+<div id="outline-container-orgc05d2bc" class="outline-5">
+<h5 id="orgc05d2bc"><span class="section-number-5">3.2.4.1</span> 共有フォルダ</h5>
+<div class="outline-text-5" id="text-3-2-4-1">
+</div>
+<div id="outline-container-org7a09465" class="outline-6">
+<h6 id="org7a09465"><span class="section-number-6">3.2.4.1.1</span> 追加</h6>
+<div class="outline-text-6" id="text-3-2-4-1-1">
+<ul class="org-ul">
+<li>名前<br />
+<ul class="org-ul">
+<li>share<br /></li>
+</ul></li>
+<li>デバイス<br />
+<ul class="org-ul">
+<li>選択する<br /></li>
+</ul></li>
+<li>パス<br />
+<ul class="org-ul">
+<li>/share<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org978820f" class="outline-6">
+<h6 id="org978820f"><span class="section-number-6">3.2.4.1.2</span> 特権</h6>
+<div class="outline-text-6" id="text-3-2-4-1-2">
+<p>
+pi ユーザと pi グループに read/write 権限を付与。<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9e391d1" class="outline-6">
+<h6 id="org9e391d1"><span class="section-number-6">3.2.4.1.3</span> ACL</h6>
+<div class="outline-text-6" id="text-3-2-4-1-3">
+<p>
+pi ユーザと pi グループに read/write 権限を付与。<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-12-31 Tue 21:16</p>
+<p class="date">Created: 2019-12-31 Tue 21:39</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
