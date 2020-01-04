@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-11-13 Wed 01:52 -->
+<!-- 2020-01-04 Sat 23:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Crates</title>
@@ -254,31 +254,31 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgae6cb0c">1. Diesel</a>
+<li><a href="#org360d462">1. Diesel</a>
 <ul>
-<li><a href="#org108610d">1.1. 事前準備</a></li>
-<li><a href="#org00b3997">1.2. Getting Started</a></li>
+<li><a href="#org7845c37">1.1. 事前準備</a></li>
+<li><a href="#orge6f0069">1.2. Getting Started</a></li>
 </ul>
 </li>
-<li><a href="#org6306044">2. Bookmarks</a></li>
+<li><a href="#org0c10ef5">2. Bookmarks</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgae6cb0c" class="outline-2">
-<h2 id="orgae6cb0c"><span class="section-number-2">1</span> <a href="https://diesel.rs/">Diesel</a></h2>
+<div id="outline-container-org360d462" class="outline-2">
+<h2 id="org360d462"><span class="section-number-2">1</span> <a href="https://diesel.rs/">Diesel</a></h2>
 <div class="outline-text-2" id="text-1">
 <p>
 他にDBライブラリが見当たらない。<br />
 </p>
 </div>
 
-<div id="outline-container-org108610d" class="outline-3">
-<h3 id="org108610d"><span class="section-number-3">1.1</span> 事前準備</h3>
+<div id="outline-container-org7845c37" class="outline-3">
+<h3 id="org7845c37"><span class="section-number-3">1.1</span> 事前準備</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orgabab3f0" class="outline-4">
-<h4 id="orgabab3f0"><span class="section-number-4">1.1.1</span> PC(Mac)</h4>
+<div id="outline-container-org2f40aee" class="outline-4">
+<h4 id="org2f40aee"><span class="section-number-4">1.1.1</span> PC(Mac)</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 プロジェクトを作成。<br />
@@ -294,8 +294,8 @@ $ cargo new diesel_demo --lib
 </div>
 </div>
 
-<div id="outline-container-org142020a" class="outline-4">
-<h4 id="org142020a"><span class="section-number-4">1.1.2</span> 開発用コンテナ</h4>
+<div id="outline-container-org6524d97" class="outline-4">
+<h4 id="org6524d97"><span class="section-number-4">1.1.2</span> 開発用コンテナ</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
 <a href="https://hub.docker.com/repository/docker/ksh2ksk4/archlinux-rust">https://hub.docker.com/repository/docker/ksh2ksk4/archlinux-rust</a><br />
@@ -324,11 +324,11 @@ $ docker exec -it rust-dev-server fish
 </div>
 </div>
 
-<div id="outline-container-org00b3997" class="outline-3">
-<h3 id="org00b3997"><span class="section-number-3">1.2</span> <a href="https://diesel.rs/guides/getting-started/">Getting Started</a></h3>
+<div id="outline-container-orge6f0069" class="outline-3">
+<h3 id="orge6f0069"><span class="section-number-3">1.2</span> <a href="https://diesel.rs/guides/getting-started/">Getting Started</a></h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
-これをやってみる<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>。<br />
+これをやってみる<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup><sup>, </sup><sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>。<br />
 </p>
 
 <p>
@@ -382,6 +382,7 @@ DBを作成。<br />
 
 <p>
 マイグレーションファイルを作成。<br />
+<code>diesel.toml</code> ファイルも作成してくれる。<br />
 </p>
 
 <pre class="example">
@@ -432,12 +433,24 @@ DBを作成。<br />
 <pre class="example">
 # diesel migration revert
 </pre>
+
+
+
+<p>
+直近5件の投稿を表示するコード。<br />
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>src/lib.rs</label><pre class="src src-rust">
+</pre>
+</div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org6306044" class="outline-2">
-<h2 id="org6306044"><span class="section-number-2">2</span> Bookmarks</h2>
+
+<div id="outline-container-org0c10ef5" class="outline-2">
+<h2 id="org0c10ef5"><span class="section-number-2">2</span> Bookmarks</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><a href="https://crates.io/">crates.io</a><br /></li>
@@ -452,12 +465,16 @@ DBを作成。<br />
 元のチュートリアルはPostgreSQLを前提に書かれているが、私はMariaDBを利用しているため、内容の一部が異なっている。<br />
 </p></div></div>
 
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+<code>dotenv</code> クレートは使用しない。<br />
+</p></div></div>
+
 
 </div>
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-11-13 Wed 01:52</p>
+<p class="date">Created: 2020-01-04 Sat 23:34</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
