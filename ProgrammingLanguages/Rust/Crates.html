@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-01-04 Sat 23:42 -->
+<!-- 2020-01-05 Sun 14:57 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Crates</title>
@@ -254,56 +254,62 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9f3561f">1. 標準の代替コマンド</a>
+<li><a href="#orge21db0e">1. 標準コマンドの代替</a>
 <ul>
-<li><a href="#org728756c">1.1. fd</a></li>
-<li><a href="#org8ba0df5">1.2. ripgrep</a></li>
+<li><a href="#org1d49491">1.1. fd</a></li>
+<li><a href="#orga867d03">1.2. ripgrep</a></li>
 </ul>
 </li>
-<li><a href="#org502973b">2. Diesel</a>
+<li><a href="#org704ce13">2. Diesel</a>
 <ul>
-<li><a href="#orgce84c78">2.1. 事前準備</a></li>
-<li><a href="#org4e365dc">2.2. Getting Started</a></li>
+<li><a href="#orgf9ae0c6">2.1. 事前準備</a></li>
+<li><a href="#org7c5493b">2.2. Getting Started</a></li>
 </ul>
 </li>
-<li><a href="#orge5ca248">3. Bookmarks</a></li>
+<li><a href="#org6eb0d96">3. Bookmarks</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org9f3561f" class="outline-2">
-<h2 id="org9f3561f"><span class="section-number-2">1</span> 標準の代替コマンド</h2>
+<div id="outline-container-orge21db0e" class="outline-2">
+<h2 id="orge21db0e"><span class="section-number-2">1</span> 標準コマンドの代替</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Rustで作成されているコマンドはbrewではなくcargoでインストールする。<br />
 </p>
 </div>
 
-<div id="outline-container-org728756c" class="outline-3">
-<h3 id="org728756c"><span class="section-number-3">1.1</span> <a href="https://github.com/sharkdp/fd">fd</a></h3>
+<div id="outline-container-org1d49491" class="outline-3">
+<h3 id="org1d49491"><span class="section-number-3">1.1</span> <a href="https://github.com/sharkdp/fd">fd</a></h3>
 <div class="outline-text-3" id="text-1-1">
 <pre class="example">
 $ cargo install fd-find
 </pre>
 </div>
 
-<div id="outline-container-orgea0152b" class="outline-4">
-<h4 id="orgea0152b"><span class="section-number-4">1.1.1</span> コマンド例</h4>
+<div id="outline-container-org42ed2be" class="outline-4">
+<h4 id="org42ed2be"><span class="section-number-4">1.1.1</span> コマンド例</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <ul class="org-ul">
 <li><p>
 不要なファイルを削除<br />
 </p>
 <pre class="example">
-$ fd -H .DS_Store -x rm {}
+$ fd -H -F '.DS_Store' -tf -X rm
+</pre></li>
+<li><p>
+不要なディレクトリを削除<br />
+</p>
+<pre class="example">
+$ fd -F '@eaDir' -td -X rm -rf
 </pre></li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org8ba0df5" class="outline-3">
-<h3 id="org8ba0df5"><span class="section-number-3">1.2</span> <a href="https://github.com/BurntSushi/ripgrep">ripgrep</a></h3>
+<div id="outline-container-orga867d03" class="outline-3">
+<h3 id="orga867d03"><span class="section-number-3">1.2</span> <a href="https://github.com/BurntSushi/ripgrep">ripgrep</a></h3>
 <div class="outline-text-3" id="text-1-2">
 <pre class="example">
 $ cargo install fd-find
@@ -312,20 +318,20 @@ $ cargo install fd-find
 </div>
 </div>
 
-<div id="outline-container-org502973b" class="outline-2">
-<h2 id="org502973b"><span class="section-number-2">2</span> <a href="https://diesel.rs/">Diesel</a></h2>
+<div id="outline-container-org704ce13" class="outline-2">
+<h2 id="org704ce13"><span class="section-number-2">2</span> <a href="https://diesel.rs/">Diesel</a></h2>
 <div class="outline-text-2" id="text-2">
 <p>
 他にDBライブラリが見当たらない。<br />
 </p>
 </div>
 
-<div id="outline-container-orgce84c78" class="outline-3">
-<h3 id="orgce84c78"><span class="section-number-3">2.1</span> 事前準備</h3>
+<div id="outline-container-orgf9ae0c6" class="outline-3">
+<h3 id="orgf9ae0c6"><span class="section-number-3">2.1</span> 事前準備</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-org68e598f" class="outline-4">
-<h4 id="org68e598f"><span class="section-number-4">2.1.1</span> PC(Mac)</h4>
+<div id="outline-container-org765e56f" class="outline-4">
+<h4 id="org765e56f"><span class="section-number-4">2.1.1</span> PC(Mac)</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 プロジェクトを作成。<br />
@@ -341,8 +347,8 @@ $ cargo new diesel_demo --lib
 </div>
 </div>
 
-<div id="outline-container-org2837503" class="outline-4">
-<h4 id="org2837503"><span class="section-number-4">2.1.2</span> 開発用コンテナ</h4>
+<div id="outline-container-org7f15158" class="outline-4">
+<h4 id="org7f15158"><span class="section-number-4">2.1.2</span> 開発用コンテナ</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <p>
 <a href="https://hub.docker.com/repository/docker/ksh2ksk4/archlinux-rust">https://hub.docker.com/repository/docker/ksh2ksk4/archlinux-rust</a><br />
@@ -371,8 +377,8 @@ $ docker exec -it rust-dev-server fish
 </div>
 </div>
 
-<div id="outline-container-org4e365dc" class="outline-3">
-<h3 id="org4e365dc"><span class="section-number-3">2.2</span> <a href="https://diesel.rs/guides/getting-started/">Getting Started</a></h3>
+<div id="outline-container-org7c5493b" class="outline-3">
+<h3 id="org7c5493b"><span class="section-number-3">2.2</span> <a href="https://diesel.rs/guides/getting-started/">Getting Started</a></h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 これをやってみる<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup><sup>, </sup><sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>。<br />
@@ -496,8 +502,8 @@ DBを作成。<br />
 </div>
 
 
-<div id="outline-container-orge5ca248" class="outline-2">
-<h2 id="orge5ca248"><span class="section-number-2">3</span> Bookmarks</h2>
+<div id="outline-container-org6eb0d96" class="outline-2">
+<h2 id="org6eb0d96"><span class="section-number-2">3</span> Bookmarks</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><a href="https://crates.io/">crates.io</a><br /></li>
@@ -521,7 +527,7 @@ DBを作成。<br />
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2020-01-04 Sat 23:42</p>
+<p class="date">Created: 2020-01-05 Sun 14:57</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
