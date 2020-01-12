@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-01-12 Sun 17:51 -->
+<!-- 2020-01-12 Sun 20:22 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>開発用サーバ</title>
@@ -258,39 +258,39 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org81d92d9">1. 概要</a>
+<li><a href="#org2af9c10">1. 概要</a>
 <ul>
-<li><a href="#org5288209">1.1. Arch Linux</a></li>
-<li><a href="#orgbf23fa8">1.2. Bookmarks</a></li>
+<li><a href="#orgab8726a">1.1. Arch Linux</a></li>
+<li><a href="#orgc28d62f">1.2. Bookmarks</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org81d92d9" class="outline-2">
-<h2 id="org81d92d9"><span class="section-number-2">1</span> 概要</h2>
+<div id="outline-container-org2af9c10" class="outline-2">
+<h2 id="org2af9c10"><span class="section-number-2">1</span> 概要</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4</a> (Memory: 4GB)に <a href="https://www.archlinux.org/">Arch Linux</a> をインストールして構築する。<br />
 </p>
 </div>
 
-<div id="outline-container-org5288209" class="outline-3">
-<h3 id="org5288209"><span class="section-number-3">1.1</span> <a href="https://www.archlinux.org/">Arch Linux</a></h3>
+<div id="outline-container-orgab8726a" class="outline-3">
+<h3 id="orgab8726a"><span class="section-number-3">1.1</span> <a href="https://www.archlinux.org/">Arch Linux</a></h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org4795b19" class="outline-4">
-<h4 id="org4795b19"><span class="section-number-4">1.1.1</span> Install</h4>
+<div id="outline-container-orgd54d05c" class="outline-4">
+<h4 id="orgd54d05c"><span class="section-number-4">1.1.1</span> Install</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 Arch Linuxのディスクを作成する。<br />
-<code>acacia</code> (NASサーバ)で作業する。<br />
+acacia(NASサーバ)で作業する。<br />
 </p>
 </div>
 
-<div id="outline-container-orgaecf56c" class="outline-5">
-<h5 id="orgaecf56c"><span class="section-number-5">1.1.1.1</span> ダウンロード</h5>
+<div id="outline-container-orge203eb9" class="outline-5">
+<h5 id="orge203eb9"><span class="section-number-5">1.1.1.1</span> ダウンロード</h5>
 <div class="outline-text-5" id="text-1-1-1-1">
 <pre class="example">
 $ curl -LO 'http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz'
@@ -300,8 +300,8 @@ $ md5sum -c ArchLinuxARM-rpi-4-latest.tar.gz.md5
 </div>
 </div>
 
-<div id="outline-container-orgeb5ca64" class="outline-5">
-<h5 id="orgeb5ca64"><span class="section-number-5">1.1.1.2</span> パーティショニング</h5>
+<div id="outline-container-org9f604e4" class="outline-5">
+<h5 id="org9f604e4"><span class="section-number-5">1.1.1.2</span> パーティショニング</h5>
 <div class="outline-text-5" id="text-1-1-1-2">
 <pre class="example">
 $ lsblk
@@ -352,8 +352,8 @@ $ sudo mkfs.ext4 -F /dev/sda2
 </div>
 </div>
 
-<div id="outline-container-orgd934058" class="outline-5">
-<h5 id="orgd934058"><span class="section-number-5">1.1.1.3</span> ファイルコピー</h5>
+<div id="outline-container-org7d7efa5" class="outline-5">
+<h5 id="org7d7efa5"><span class="section-number-5">1.1.1.3</span> ファイルコピー</h5>
 <div class="outline-text-5" id="text-1-1-1-3">
 <pre class="example">
 $ sudo mkdir -p /mnt/arch/{boot,root}
@@ -373,10 +373,30 @@ $ sudo umount /mnt/arch/boot /mnt/arch/root
 </div>
 </div>
 </div>
+
+<div id="outline-container-org1e4ffcf" class="outline-4">
+<h4 id="org1e4ffcf"><span class="section-number-4">1.1.2</span> Settings</h4>
+<div class="outline-text-4" id="text-1-1-2">
+</div>
+<div id="outline-container-org808352a" class="outline-5">
+<h5 id="org808352a"><span class="section-number-5">1.1.2.1</span> アップデート</h5>
+<div class="outline-text-5" id="text-1-1-2-1">
+<pre class="example">
+$ su -
+</pre>
+
+<pre class="example">
+# pacman-key --init
+# pacman-key --populate archlinuxarm
+# pacman -Syu
+</pre>
+</div>
+</div>
+</div>
 </div>
 
-<div id="outline-container-orgbf23fa8" class="outline-3">
-<h3 id="orgbf23fa8"><span class="section-number-3">1.2</span> Bookmarks</h3>
+<div id="outline-container-orgc28d62f" class="outline-3">
+<h3 id="orgc28d62f"><span class="section-number-3">1.2</span> Bookmarks</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li><a href="https://linuxize.com/post/how-to-install-arch-linux-on-raspberry-pi/">https://linuxize.com/post/how-to-install-arch-linux-on-raspberry-pi/</a><br /></li>
@@ -388,7 +408,7 @@ $ sudo umount /mnt/arch/boot /mnt/arch/root
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2020-01-12 Sun 17:51</p>
+<p class="date">Created: 2020-01-12 Sun 20:22</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
