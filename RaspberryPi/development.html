@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-12-31 Tue 21:23 -->
+<!-- 2020-01-12 Sun 17:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>開発用サーバ</title>
@@ -258,26 +258,126 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga35e62f">1. 概要</a>
+<li><a href="#org81d92d9">1. 概要</a>
 <ul>
-<li><a href="#org1f11e2a">1.1. Arch Linux</a></li>
+<li><a href="#org5288209">1.1. Arch Linux</a></li>
+<li><a href="#orgbf23fa8">1.2. Bookmarks</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga35e62f" class="outline-2">
-<h2 id="orga35e62f"><span class="section-number-2">1</span> 概要</h2>
+<div id="outline-container-org81d92d9" class="outline-2">
+<h2 id="org81d92d9"><span class="section-number-2">1</span> 概要</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4</a> (Memory: 4GB)に <a href="https://www.archlinux.org/">Arch Linux</a> をインストールして構築する。<br />
 </p>
 </div>
 
-<div id="outline-container-org1f11e2a" class="outline-3">
-<h3 id="org1f11e2a"><span class="section-number-3">1.1</span> <a href="https://www.archlinux.org/">Arch Linux</a></h3>
+<div id="outline-container-org5288209" class="outline-3">
+<h3 id="org5288209"><span class="section-number-3">1.1</span> <a href="https://www.archlinux.org/">Arch Linux</a></h3>
 <div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org4795b19" class="outline-4">
+<h4 id="org4795b19"><span class="section-number-4">1.1.1</span> Install</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+Arch Linuxのディスクを作成する。<br />
+<code>acacia</code> (NASサーバ)で作業する。<br />
+</p>
+</div>
+
+<div id="outline-container-orgaecf56c" class="outline-5">
+<h5 id="orgaecf56c"><span class="section-number-5">1.1.1.1</span> ダウンロード</h5>
+<div class="outline-text-5" id="text-1-1-1-1">
+<pre class="example">
+$ curl -LO 'http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz'
+$ curl -LO 'http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz.md5'
+$ md5sum -c ArchLinuxARM-rpi-4-latest.tar.gz.md5
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgeb5ca64" class="outline-5">
+<h5 id="orgeb5ca64"><span class="section-number-5">1.1.1.2</span> パーティショニング</h5>
+<div class="outline-text-5" id="text-1-1-1-2">
+<pre class="example">
+$ lsblk
+NAME          MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda             8:0    1 58.9G  0 disk
+└─sda1        8:1    1 58.9G  0 part
+mmcblk0       179:0    0  7.5G  0 disk
+├─mmcblk0p1 179:1    0  256M  0 part /boot
+└─mmcblk0p2 179:2    0  7.2G  0 part /
+</pre>
+
+<p>
+<code>/dev/sda</code> が作業対象のマイクロSDカード。<br />
+</p>
+
+<pre class="example">
+$ sudo parted /dev/sda --script -- mklabel msdos
+$ sudo parted /dev/sda --script -- mkpart primary fat32 1 128
+$ sudo parted /dev/sda --script -- mkpart primary ext4 128 100%
+$ sudo parted /dev/sda --script -- set 1 boot on
+</pre>
+
+<p>
+確認。<br />
+</p>
+
+<pre class="example">
+$ sudo parted /dev/sda --script print
+Model: TS-RDF5 SD Transcend (scsi)
+Disk /dev/sda: 63.2GB
+Sector size (logical/physical): 512B/512B
+Partition Table: msdos
+Disk Flags:
+
+Number  Start   End     Size    Type     File system  Flags
+ 1      1049kB  128MB   127MB   primary               boot, lba
+ 2      128MB   63.2GB  63.1GB  primary
+</pre>
+
+<p>
+フォーマット。<br />
+</p>
+
+<pre class="example">
+$ sudo mkfs.vfat -F32 /dev/sda1
+$ sudo mkfs.ext4 -F /dev/sda2
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgd934058" class="outline-5">
+<h5 id="orgd934058"><span class="section-number-5">1.1.1.3</span> ファイルコピー</h5>
+<div class="outline-text-5" id="text-1-1-1-3">
+<pre class="example">
+$ sudo mkdir -p /mnt/arch/{boot,root}
+$ sudo mount /dev/sda1 /mnt/arch/boot
+$ sudo mount /dev/sda2 /mnt/arch/root
+</pre>
+
+<pre class="example">
+$ sudo tar -xf ArchLinuxARM-rpi-4-latest.tar.gz -C /mnt/arch/root
+$ sudo mv /mnt/arch/root/boot/* /mnt/arch/boot
+$ sudo umount /mnt/arch/boot /mnt/arch/root
+</pre>
+
+<p>
+以上でArch Linuxのディスクは完成したので、このディスクでRPiを起動する。<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbf23fa8" class="outline-3">
+<h3 id="orgbf23fa8"><span class="section-number-3">1.2</span> Bookmarks</h3>
+<div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li><a href="https://linuxize.com/post/how-to-install-arch-linux-on-raspberry-pi/">https://linuxize.com/post/how-to-install-arch-linux-on-raspberry-pi/</a><br /></li>
 <li><a href="https://archlinuxarm.org/platforms/armv6/raspberry-pi">https://archlinuxarm.org/platforms/armv6/raspberry-pi</a><br /></li>
@@ -288,7 +388,7 @@ for the JavaScript code in this tag.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-12-31 Tue 21:23</p>
+<p class="date">Created: 2020-01-12 Sun 17:51</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
