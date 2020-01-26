@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-01-17 Fri 01:34 -->
+<!-- 2020-01-26 Sun 16:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>開発用サーバ</title>
@@ -258,40 +258,43 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org40a0f07">1. 概要</a>
+<li><a href="#orgbff0b1b">1. 概要</a></li>
+<li><a href="#org29e2d20">2. Arch Linux</a>
 <ul>
-<li><a href="#org5fc2700">1.1. Arch Linux</a></li>
-<li><a href="#org50dd5af">1.2. Bookmarks</a></li>
+<li><a href="#org1f9fda9">2.1. Install</a></li>
+<li><a href="#orgb01c072">2.2. Settings</a></li>
 </ul>
 </li>
+<li><a href="#org9c29792">3. Bookmarks</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org40a0f07" class="outline-2">
-<h2 id="org40a0f07"><span class="section-number-2">1</span> 概要</h2>
+<div id="outline-container-orgbff0b1b" class="outline-2">
+<h2 id="orgbff0b1b"><span class="section-number-2">1</span> 概要</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4</a> (Memory: 4GB)に <a href="https://www.archlinux.org/">Arch Linux</a> をインストールして構築する。<br />
 </p>
 </div>
-
-<div id="outline-container-org5fc2700" class="outline-3">
-<h3 id="org5fc2700"><span class="section-number-3">1.1</span> <a href="https://www.archlinux.org/">Arch Linux</a></h3>
-<div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org337d63d" class="outline-4">
-<h4 id="org337d63d"><span class="section-number-4">1.1.1</span> Install</h4>
-<div class="outline-text-4" id="text-1-1-1">
+
+<div id="outline-container-org29e2d20" class="outline-2">
+<h2 id="org29e2d20"><span class="section-number-2">2</span> <a href="https://www.archlinux.org/">Arch Linux</a></h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org1f9fda9" class="outline-3">
+<h3 id="org1f9fda9"><span class="section-number-3">2.1</span> Install</h3>
+<div class="outline-text-3" id="text-2-1">
 <p>
 Arch Linuxのディスクを作成する。<br />
 acacia(NASサーバ)で作業する。<br />
 </p>
 </div>
 
-<div id="outline-container-org62635a7" class="outline-5">
-<h5 id="org62635a7"><span class="section-number-5">1.1.1.1</span> ダウンロード</h5>
-<div class="outline-text-5" id="text-1-1-1-1">
+<div id="outline-container-orgd1ef8b2" class="outline-4">
+<h4 id="orgd1ef8b2"><span class="section-number-4">2.1.1</span> ダウンロード</h4>
+<div class="outline-text-4" id="text-2-1-1">
 <pre class="example">
 $ curl -LO 'http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz'
 $ curl -LO 'http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz.md5'
@@ -300,9 +303,9 @@ $ md5sum -c ArchLinuxARM-rpi-4-latest.tar.gz.md5
 </div>
 </div>
 
-<div id="outline-container-org5e45a5e" class="outline-5">
-<h5 id="org5e45a5e"><span class="section-number-5">1.1.1.2</span> パーティショニング</h5>
-<div class="outline-text-5" id="text-1-1-1-2">
+<div id="outline-container-org0c84100" class="outline-4">
+<h4 id="org0c84100"><span class="section-number-4">2.1.2</span> パーティショニング</h4>
+<div class="outline-text-4" id="text-2-1-2">
 <pre class="example">
 $ lsblk
 NAME          MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
@@ -352,9 +355,9 @@ $ sudo mkfs.ext4 -F /dev/sda2
 </div>
 </div>
 
-<div id="outline-container-org4c7e4d5" class="outline-5">
-<h5 id="org4c7e4d5"><span class="section-number-5">1.1.1.3</span> ファイルコピー</h5>
-<div class="outline-text-5" id="text-1-1-1-3">
+<div id="outline-container-org5b34791" class="outline-4">
+<h4 id="org5b34791"><span class="section-number-4">2.1.3</span> ファイルコピー</h4>
+<div class="outline-text-4" id="text-2-1-3">
 <pre class="example">
 $ sudo mkdir -p /mnt/arch/{boot,root}
 $ sudo mount /dev/sda1 /mnt/arch/boot
@@ -374,13 +377,13 @@ $ sudo umount /mnt/arch/boot /mnt/arch/root
 </div>
 </div>
 
-<div id="outline-container-org1628fb5" class="outline-4">
-<h4 id="org1628fb5"><span class="section-number-4">1.1.2</span> Settings</h4>
-<div class="outline-text-4" id="text-1-1-2">
+<div id="outline-container-orgb01c072" class="outline-3">
+<h3 id="orgb01c072"><span class="section-number-3">2.2</span> Settings</h3>
+<div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-org777463f" class="outline-5">
-<h5 id="org777463f"><span class="section-number-5">1.1.2.1</span> アップデート</h5>
-<div class="outline-text-5" id="text-1-1-2-1">
+<div id="outline-container-orgbc2b196" class="outline-4">
+<h4 id="orgbc2b196"><span class="section-number-4">2.2.1</span> アップデート</h4>
+<div class="outline-text-4" id="text-2-2-1">
 <pre class="example">
 $ su -
 </pre>
@@ -393,9 +396,9 @@ $ su -
 </div>
 </div>
 
-<div id="outline-container-org8cb54ef" class="outline-5">
-<h5 id="org8cb54ef"><span class="section-number-5">1.1.2.2</span> DHCP</h5>
-<div class="outline-text-5" id="text-1-1-2-2">
+<div id="outline-container-org42b2f31" class="outline-4">
+<h4 id="org42b2f31"><span class="section-number-4">2.2.2</span> DHCP</h4>
+<div class="outline-text-4" id="text-2-2-2">
 <p>
 ネットワーク設定はDHCPを利用するが、IPアドレスを固定するようルータ(YAMAHA NVR510)を設定する。<br />
 </p>
@@ -467,9 +470,9 @@ ClientIdentifier=mac
 </p>
 </div>
 
-<div id="outline-container-orgdf7cbb5" class="outline-6">
-<h6 id="orgdf7cbb5"><span class="section-number-6">1.1.2.2.1</span> Bookmarks</h6>
-<div class="outline-text-6" id="text-1-1-2-2-1">
+<div id="outline-container-org5f7d649" class="outline-5">
+<h5 id="org5f7d649"><span class="section-number-5">2.2.2.1</span> Bookmarks</h5>
+<div class="outline-text-5" id="text-2-2-2-1">
 <ul class="org-ul">
 <li><a href="https://manpages.debian.org/buster/systemd/systemd.network.5.en.html">systemd.network</a><br />
 <ul class="org-ul">
@@ -482,9 +485,9 @@ ClientIdentifier=mac
 </div>
 </div>
 
-<div id="outline-container-org50dd5af" class="outline-3">
-<h3 id="org50dd5af"><span class="section-number-3">1.2</span> Bookmarks</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-org9c29792" class="outline-2">
+<h2 id="org9c29792"><span class="section-number-2">3</span> Bookmarks</h2>
+<div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><a href="https://linuxize.com/post/how-to-install-arch-linux-on-raspberry-pi/">https://linuxize.com/post/how-to-install-arch-linux-on-raspberry-pi/</a><br /></li>
 <li><a href="https://archlinuxarm.org/platforms/armv6/raspberry-pi">https://archlinuxarm.org/platforms/armv6/raspberry-pi</a><br /></li>
@@ -492,10 +495,9 @@ ClientIdentifier=mac
 </div>
 </div>
 </div>
-</div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2020-01-17 Fri 01:34</p>
+<p class="date">Created: 2020-01-26 Sun 16:44</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
