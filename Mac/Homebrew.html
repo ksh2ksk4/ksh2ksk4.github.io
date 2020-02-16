@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-09-22 Sun 03:41 -->
+<!-- 2020-02-17 Mon 02:57 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title><a href="https://brew.sh/index_ja">Homebrew</a></title>
@@ -205,7 +205,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -251,91 +251,87 @@ for the JavaScript code in this tag.
 <div id="org-div-home-and-up">
  <a accesskey="h" href="index.html"> UP </a>
  |
- <a accesskey="H" href="../index.html"> HOME </a>
+ <a accesskey="H" href="/index.html"> HOME </a>
 </div><div id="content">
 <h1 class="title"><a href="https://brew.sh/index_ja">Homebrew</a></h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org75607b1">1. Install</a></li>
-<li><a href="#orge7590ea">2. Packages</a>
+<li><a href="#org3f12e59">1. Install</a></li>
+<li><a href="#org83bb817">2. Packages</a>
 <ul>
-<li><a href="#orgd549c47">2.1. fish</a></li>
-<li><a href="#orgd405b4a">2.2. Coreutils</a></li>
-<li><a href="#orgb334491">2.3. Spacemacs</a></li>
-<li><a href="#org8a13be8">2.4. less</a></li>
-<li><a href="#orgb84e22c">2.5. iproute2mac</a></li>
-<li><a href="#org3033b62">2.6. OpenSSH</a></li>
-<li><a href="#orga6d8835">2.7. tmux</a></li>
-<li><a href="#org130d957">2.8. git</a></li>
-<li><a href="#orgc593cc5">2.9. tree</a></li>
-<li><a href="#org429443a">2.10. cmigemo</a></li>
-<li><a href="#orgcd468c8">2.11. MySQL client</a></li>
-<li><a href="#orga21fb37">2.12. PlantUML</a></li>
-<li><a href="#org394aced">2.13. OpenSSL</a></li>
-<li><a href="#orga1ca451">2.14. SQLite</a></li>
-<li><a href="#org2fa6d29">2.15. jq</a></li>
-<li><a href="#org22fc71a">2.16. ripgrep</a></li>
+<li><a href="#orgfb92e27">2.1. fish </a></li>
+<li><a href="#orgdbc57b3">2.2. Coreutils</a></li>
+<li><a href="#orgb81d5aa">2.3. Spacemacs </a></li>
+<li><a href="#orgfa95f84">2.4. less</a></li>
+<li><a href="#orge6c3620">2.5. iproute2mac</a></li>
+<li><a href="#org70d4559">2.6. OpenSSH</a></li>
+<li><a href="#orgf564b85">2.7. tmux</a></li>
+<li><a href="#org669200d">2.8. git</a></li>
+<li><a href="#orgd5e9677">2.9. tree</a></li>
+<li><a href="#orgf1dcead">2.10. cmigemo</a></li>
+<li><a href="#org93b4e23">2.11. jq</a></li>
 </ul>
 </li>
-<li><a href="#orgf871ace">3. Troubles</a>
+<li><a href="#orga0663fc">3. Commands</a>
 <ul>
-<li><a href="#orgae27835">3.1. Python</a></li>
-</ul>
-</li>
-<li><a href="#orgaf66512">4. Commands</a>
-<ul>
-<li><a href="#org5bd317c">4.1. Show dependencies for specified formulae</a></li>
-<li><a href="#org282fa7a">4.2. Show the formulae that uses specified formulae</a></li>
-<li><a href="#org3598a1e">4.3. Show the dependencies between installed formulae</a></li>
-<li><a href="#orgc4ad132">4.4. Uninstall</a></li>
+<li><a href="#org1697136">3.1. Show dependencies for specified formulae</a></li>
+<li><a href="#org4332e9d">3.2. Show the formulae that uses specified formulae</a></li>
+<li><a href="#org7840bd1">3.3. Show the dependencies between installed formulae</a></li>
+<li><a href="#org8b97008">3.4. Uninstall</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org75607b1" class="outline-2">
-<h2 id="org75607b1"><span class="section-number-2">1</span> Install</h2>
+<div id="outline-container-org3f12e59" class="outline-2">
+<h2 id="org3f12e59"><span class="section-number-2">1</span> Install</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 </pre>
 
 <p>
-<code>/usr/local/sbin</code> にパスを通す。<br />
+<code>/usr/local/sbin</code> にパスを通す<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>。<br />
 </p>
 
 <pre class="example">
 $ set -U fish_user_paths /usr/local/sbin $fish_user_paths
+$ set -S fish_user_paths
+</pre>
+
+<p>
+HomebrewのAnalyticsをオフ。<br />
+</p>
+
+<pre class="example">
+$ brew analytics state
+$ brew analytics off
+$ brew analytics state
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orge7590ea" class="outline-2">
-<h2 id="orge7590ea"><span class="section-number-2">2</span> Packages</h2>
+<div id="outline-container-org83bb817" class="outline-2">
+<h2 id="org83bb817"><span class="section-number-2">2</span> Packages</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgd549c47" class="outline-3">
-<h3 id="orgd549c47"><span class="section-number-3">2.1</span> <a href="../fish.html">fish</a></h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-詳細はリンク先を参照。<br />
-</p>
-</div>
+<div id="outline-container-orgfb92e27" class="outline-3">
+<h3 id="orgfb92e27"><span class="section-number-3">2.1</span> <a href="../fish.html">fish</a> <sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup></h3>
 </div>
 
-<div id="outline-container-orgd405b4a" class="outline-3">
-<h3 id="orgd405b4a"><span class="section-number-3">2.2</span> <a href="https://www.gnu.org/software/coreutils/">Coreutils</a></h3>
+<div id="outline-container-orgdbc57b3" class="outline-3">
+<h3 id="orgdbc57b3"><span class="section-number-3">2.2</span> <a href="https://www.gnu.org/software/coreutils/">Coreutils</a></h3>
 <div class="outline-text-3" id="text-2-2">
 <pre class="example">
 $ brew install coreutils
 </pre>
 </div>
 
-<div id="outline-container-orgb376dd3" class="outline-4">
-<h4 id="orgb376dd3"><span class="section-number-4">2.2.1</span> 注意点</h4>
+<div id="outline-container-org7077d64" class="outline-4">
+<h4 id="org7077d64"><span class="section-number-4">2.2.1</span> 注意点</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <ul class="org-ul">
 <li><code>g</code> プレフィックスのコマンドを使う場合<br />
@@ -357,21 +353,24 @@ $ set -U fish_user_paths (brew --prefix coreutils)/libexec/gnubin $fish_user_pat
 </div>
 </div>
 
-<div id="outline-container-orgb334491" class="outline-3">
-<h3 id="orgb334491"><span class="section-number-3">2.3</span> <a href="../Spacemacs/index.html">Spacemacs</a></h3>
+<div id="outline-container-orgb81d5aa" class="outline-3">
+<h3 id="orgb81d5aa"><span class="section-number-3">2.3</span> <a href="../Spacemacs/index.html">Spacemacs</a> <sup><a id="fnr.2.100" class="footref" href="#fn.2">2</a></sup></h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
-詳細はリンク先を参照。<br />
+依存関係で <a href="https://sqlite.org/">SQLite</a> がインストールされるため、以下を実行しておく。<br />
 </p>
+
+<pre class="example">
+$ set -U fish_user_paths (brew --prefix sqlite)/bin $fish_user_paths
+</pre>
 </div>
 </div>
 
-<div id="outline-container-org8a13be8" class="outline-3">
-<h3 id="org8a13be8"><span class="section-number-3">2.4</span> <a href="https://www.gnu.org/software/less/">less</a></h3>
+<div id="outline-container-orgfa95f84" class="outline-3">
+<h3 id="orgfa95f84"><span class="section-number-3">2.4</span> <a href="https://www.gnu.org/software/less/">less</a></h3>
 <div class="outline-text-3" id="text-2-4">
 <pre class="example">
-$ brew install less
-$ brew install lesspipe
+$ brew install less lesspipe
 </pre>
 
 <div class="org-src-container">
@@ -384,8 +383,8 @@ $ brew install lesspipe
 </div>
 </div>
 
-<div id="outline-container-orgb84e22c" class="outline-3">
-<h3 id="orgb84e22c"><span class="section-number-3">2.5</span> <a href="https://github.com/brona/iproute2mac">iproute2mac</a></h3>
+<div id="outline-container-orge6c3620" class="outline-3">
+<h3 id="orge6c3620"><span class="section-number-3">2.5</span> <a href="https://github.com/brona/iproute2mac">iproute2mac</a></h3>
 <div class="outline-text-3" id="text-2-5">
 <pre class="example">
 $ brew install iproute2mac
@@ -393,8 +392,8 @@ $ brew install iproute2mac
 </div>
 </div>
 
-<div id="outline-container-org3033b62" class="outline-3">
-<h3 id="org3033b62"><span class="section-number-3">2.6</span> <a href="https://www.openssh.com/">OpenSSH</a></h3>
+<div id="outline-container-org70d4559" class="outline-3">
+<h3 id="org70d4559"><span class="section-number-3">2.6</span> <a href="https://www.openssh.com/">OpenSSH</a></h3>
 <div class="outline-text-3" id="text-2-6">
 <pre class="example">
 $ brew install openssh
@@ -402,8 +401,8 @@ $ brew install openssh
 </div>
 </div>
 
-<div id="outline-container-orga6d8835" class="outline-3">
-<h3 id="orga6d8835"><span class="section-number-3">2.7</span> <a href="https://github.com/tmux/tmux">tmux</a></h3>
+<div id="outline-container-orgf564b85" class="outline-3">
+<h3 id="orgf564b85"><span class="section-number-3">2.7</span> <a href="https://github.com/tmux/tmux">tmux</a></h3>
 <div class="outline-text-3" id="text-2-7">
 <pre class="example">
 $ brew install tmux
@@ -420,26 +419,18 @@ $ ln -sfv ~/.config/tmux/.tmux.conf
 </div>
 </div>
 
-<div id="outline-container-org130d957" class="outline-3">
-<h3 id="org130d957"><span class="section-number-3">2.8</span> <a href="https://git-scm.com/">git</a></h3>
+<div id="outline-container-org669200d" class="outline-3">
+<h3 id="org669200d"><span class="section-number-3">2.8</span> <a href="https://git-scm.com/">git</a></h3>
 <div class="outline-text-3" id="text-2-8">
 <pre class="example">
-$ brew install git --with-curl --with-openssl
+$ brew install git
 $ set -U fish_user_paths /usr/local/share/git-core/contrib/diff-highlight $fish_user_paths
 </pre>
-
-<p>
-依存関係で <code>cURL</code> がインストールされるため、以下のようにパスを通しておく。<br />
-</p>
-
-<pre class="example">
-$ set -U fish_user_paths (brew --prefix curl)/bin $fish_user_paths
-</pre>
 </div>
 </div>
 
-<div id="outline-container-orgc593cc5" class="outline-3">
-<h3 id="orgc593cc5"><span class="section-number-3">2.9</span> tree</h3>
+<div id="outline-container-orgd5e9677" class="outline-3">
+<h3 id="orgd5e9677"><span class="section-number-3">2.9</span> tree</h3>
 <div class="outline-text-3" id="text-2-9">
 <pre class="example">
 $ brew install tree
@@ -447,8 +438,8 @@ $ brew install tree
 </div>
 </div>
 
-<div id="outline-container-org429443a" class="outline-3">
-<h3 id="org429443a"><span class="section-number-3">2.10</span> <a href="https://github.com/koron/cmigemo">cmigemo</a></h3>
+<div id="outline-container-orgf1dcead" class="outline-3">
+<h3 id="orgf1dcead"><span class="section-number-3">2.10</span> <a href="https://github.com/koron/cmigemo">cmigemo</a></h3>
 <div class="outline-text-3" id="text-2-10">
 <pre class="example">
 $ brew install cmigemo
@@ -456,145 +447,74 @@ $ brew install cmigemo
 </div>
 </div>
 
-<div id="outline-container-orgcd468c8" class="outline-3">
-<h3 id="orgcd468c8"><span class="section-number-3">2.11</span> MySQL client</h3>
+<div id="outline-container-org93b4e23" class="outline-3">
+<h3 id="org93b4e23"><span class="section-number-3">2.11</span> jq</h3>
 <div class="outline-text-3" id="text-2-11">
-<pre class="example">
-$ brew install mysql-client
-$ set -U fish_user_paths (brew --prefix mysql-client)/bin $fish_user_paths
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orga21fb37" class="outline-3">
-<h3 id="orga21fb37"><span class="section-number-3">2.12</span> <a href="http://plantuml.com/">PlantUML</a></h3>
-<div class="outline-text-3" id="text-2-12">
-<pre class="example">
-$ brew install plantuml
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org394aced" class="outline-3">
-<h3 id="org394aced"><span class="section-number-3">2.13</span> <a href="https://openssl.org/">OpenSSL</a></h3>
-<div class="outline-text-3" id="text-2-13">
-<pre class="example">
-$ brew install openssl
-$ set -U fish_user_paths (brew --prefix openssl)/bin $fish_user_paths
-$ set -S fish_user_paths
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orga1ca451" class="outline-3">
-<h3 id="orga1ca451"><span class="section-number-3">2.14</span> <a href="https://sqlite.org/">SQLite</a></h3>
-<div class="outline-text-3" id="text-2-14">
-<pre class="example">
-$ brew install sqlite
-$ set -U fish_user_paths (brew --prefix sqlite)/bin $fish_user_paths
-$ set -S fish_user_paths
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org2fa6d29" class="outline-3">
-<h3 id="org2fa6d29"><span class="section-number-3">2.15</span> jq</h3>
-<div class="outline-text-3" id="text-2-15">
 <pre class="example">
 $ brew install jq
 </pre>
 </div>
 </div>
-
-<div id="outline-container-org22fc71a" class="outline-3">
-<h3 id="org22fc71a"><span class="section-number-3">2.16</span> ripgrep</h3>
-<div class="outline-text-3" id="text-2-16">
-<pre class="example">
-$ brew install ripgrep
-</pre>
-</div>
-</div>
 </div>
 
-<div id="outline-container-orgf871ace" class="outline-2">
-<h2 id="orgf871ace"><span class="section-number-2">3</span> Troubles</h2>
+<div id="outline-container-orga0663fc" class="outline-2">
+<h2 id="orga0663fc"><span class="section-number-2">3</span> Commands</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgae27835" class="outline-3">
-<h3 id="orgae27835"><span class="section-number-3">3.1</span> Python</h3>
+<div id="outline-container-org1697136" class="outline-3">
+<h3 id="org1697136"><span class="section-number-3">3.1</span> Show dependencies for specified formulae</h3>
 <div class="outline-text-3" id="text-3-1">
-<pre class="example">
-$ brew doctor
-Warning: You have unlinked kegs in your Cellar
-Leaving kegs unlinked can lead to build-trouble and cause brews that depend on
-those kegs to fail to run properly once built. Run `brew link` on these:
-  python
-</pre>
-
-<pre class="example">
-$ brew link python
-Linking /usr/local/Cellar/python/3.7.3... Error: Permission denied @ dir_s_mkdir - /usr/local/Frameworks
-</pre>
-
-<p>
-<code>/usr/local/Frameworks</code> というディレクトリが存在しない・・・。<br />
-ディレクトリを作成して <code>brew link python</code> を再実行する。<br />
-</p>
-
-<pre class="example">
-$ sudo mkdir /usr/local/Frameworks
-$ sudo chown (whoami):admin /usr/local/Frameworks
-$ brew link python
-Linking /usr/local/Cellar/python/3.7.3... 1 symlinks created
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgaf66512" class="outline-2">
-<h2 id="orgaf66512"><span class="section-number-2">4</span> Commands</h2>
-<div class="outline-text-2" id="text-4">
-</div>
-<div id="outline-container-org5bd317c" class="outline-3">
-<h3 id="org5bd317c"><span class="section-number-3">4.1</span> Show dependencies for specified formulae</h3>
-<div class="outline-text-3" id="text-4-1">
 <pre class="example">
 $ brew deps --tree formulae
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org282fa7a" class="outline-3">
-<h3 id="org282fa7a"><span class="section-number-3">4.2</span> Show the formulae that uses specified formulae</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-org4332e9d" class="outline-3">
+<h3 id="org4332e9d"><span class="section-number-3">3.2</span> Show the formulae that uses specified formulae</h3>
+<div class="outline-text-3" id="text-3-2">
 <pre class="example">
 $ brew uses --installed formulae
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org3598a1e" class="outline-3">
-<h3 id="org3598a1e"><span class="section-number-3">4.3</span> Show the dependencies between installed formulae</h3>
-<div class="outline-text-3" id="text-4-3">
+<div id="outline-container-org7840bd1" class="outline-3">
+<h3 id="org7840bd1"><span class="section-number-3">3.3</span> Show the dependencies between installed formulae</h3>
+<div class="outline-text-3" id="text-3-3">
 <pre class="example">
 $ for i in $(brew list); do echo "[${i}]"; brew uses --installed ${i}; echo ""; done
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orgc4ad132" class="outline-3">
-<h3 id="orgc4ad132"><span class="section-number-3">4.4</span> Uninstall</h3>
-<div class="outline-text-3" id="text-4-4">
+<div id="outline-container-org8b97008" class="outline-3">
+<h3 id="org8b97008"><span class="section-number-3">3.4</span> Uninstall</h3>
+<div class="outline-text-3" id="text-3-4">
 <pre class="example">
 $ brew uninstall formulae $(brew uses --installed formulae)
 </pre>
 </div>
 </div>
 </div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+これ以降は <a href="../fish.html">fish</a> での作業を前提にしているため、まずは <a href="../fish.html">fish</a> をインストールする。<br />
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+詳細はリンク先を参照。<br />
+</p></div></div>
+
+
 </div>
+</div></div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2019-09-22 Sun 03:41</p>
+<p class="date">Created: 2020-02-17 Mon 02:57</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
