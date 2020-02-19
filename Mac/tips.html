@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-02-20 Thu 00:30 -->
+<!-- 2020-02-20 Thu 00:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Index</title>
+<title>Tips</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="KISHI Kousuke" />
 <style type="text/css">
@@ -249,35 +249,243 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="org-div-home-and-up">
- <a accesskey="h" href="../index.html"> UP </a>
+ <a accesskey="h" href="index.html"> UP </a>
  |
  <a accesskey="H" href="/index.html"> HOME </a>
 </div><div id="content">
-<h1 class="title">Index</h1>
+<h1 class="title">Tips</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgccf2a84">1. Settings</a></li>
-<li><a href="#org32d933c">2. Tips</a></li>
-<li><a href="#org17f5ea6">3. Homebrew</a></li>
+<li><a href="#org3232f08">1. 不可視ファイル</a>
+<ul>
+<li><a href="#org875899b">1.1. 可視化</a></li>
+<li><a href="#org618b866">1.2. 不可視化</a></li>
+</ul>
+</li>
+<li><a href="#org23111f5">2. .DS_Storeファイル</a>
+<ul>
+<li><a href="#orgd693491">2.1. ネットワークドライブに作成しない</a></li>
+<li><a href="#org56e0442">2.2. USBドライブに作成しない</a></li>
+</ul>
+</li>
+<li><a href="#orged6f24a">3. 不要なディレクトリを削除</a></li>
+<li><a href="#orgfc3107b">4. Finder</a></li>
+<li><a href="#org8695d48">5. Time Machine</a>
+<ul>
+<li><a href="#org6c5c2c8">5.1. バックアップに時間が掛かる場合</a></li>
+</ul>
+</li>
+<li><a href="#org47b03cb">6. スクリーンショットに影を付けない</a>
+<ul>
+<li><a href="#org2f26f34">6.1. Bookmarks</a></li>
+</ul>
+</li>
+<li><a href="#org68c12ec">7. OSアップデートの通知を非表示にする</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgccf2a84" class="outline-2">
-<h2 id="orgccf2a84"><span class="section-number-2">1</span> <a href="settings/index.html">Settings</a></h2>
+<div id="outline-container-org3232f08" class="outline-2">
+<h2 id="org3232f08"><span class="section-number-2">1</span> 不可視ファイル</h2>
+<div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org32d933c" class="outline-2">
-<h2 id="org32d933c"><span class="section-number-2">2</span> <a href="tips.html">Tips</a></h2>
+<div id="outline-container-org875899b" class="outline-3">
+<h3 id="org875899b"><span class="section-number-3">1.1</span> 可視化</h3>
+<div class="outline-text-3" id="text-1-1">
+<pre class="example">
+$ defaults write com.apple.finder AppleShowAllFiles -bool TRUE
+$ killall Finder
+</pre>
 </div>
-<div id="outline-container-org17f5ea6" class="outline-2">
-<h2 id="org17f5ea6"><span class="section-number-2">3</span> <a href="Homebrew.html">Homebrew</a></h2>
+</div>
+
+<div id="outline-container-org618b866" class="outline-3">
+<h3 id="org618b866"><span class="section-number-3">1.2</span> 不可視化</h3>
+<div class="outline-text-3" id="text-1-2">
+<pre class="example">
+$ defaults delete com.apple.finder AppleShowAllFile
+$ killall Finder
+</pre>
 </div>
 </div>
+</div>
+
+<div id="outline-container-org23111f5" class="outline-2">
+<h2 id="org23111f5"><span class="section-number-2">2</span> .DS_Storeファイル</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgd693491" class="outline-3">
+<h3 id="orgd693491"><span class="section-number-3">2.1</span> ネットワークドライブに作成しない</h3>
+<div class="outline-text-3" id="text-2-1">
+<pre class="example">
+$ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool TRUE
+$ killall Finder
+</pre>
+
+<p>
+元に戻すには下記の通り。<br />
+</p>
+
+<pre class="example">
+$ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool FALSE
+$ killall Finder
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org56e0442" class="outline-3">
+<h3 id="org56e0442"><span class="section-number-3">2.2</span> USBドライブに作成しない</h3>
+<div class="outline-text-3" id="text-2-2">
+<pre class="example">
+$ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool TRUE
+$ killall Finder
+</pre>
+
+<p>
+元に戻すには下記の通り。<br />
+</p>
+
+<pre class="example">
+$ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool FALSE
+$ killall Finder
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orged6f24a" class="outline-2">
+<h2 id="orged6f24a"><span class="section-number-2">3</span> 不要なディレクトリ<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>を削除</h2>
+<div class="outline-text-2" id="text-3">
+<pre class="example">
+$ sudo rm -rf Documents Movies Music Public
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgfc3107b" class="outline-2">
+<h2 id="orgfc3107b"><span class="section-number-2">4</span> Finder</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>ファイルのコピー<br />
+<ul class="org-ul">
+<li><code>command</code> + <code>V</code><br /></li>
+</ul></li>
+<li>ファイルの移動<br />
+<ul class="org-ul">
+<li><code>option</code> + <code>command</code> + <code>V</code><br /></li>
+</ul></li>
+<li>ファイルパスの取得<br />
+<ul class="org-ul">
+<li>対象ファイルを選択して <code>option</code> + <code>command</code> + <code>C</code><br /></li>
+</ul></li>
+<li>不可視ファイルの表示・非表示を切り替え<br />
+<ul class="org-ul">
+<li><code>command</code> + <code>shift</code> + <code>.</code><br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8695d48" class="outline-2">
+<h2 id="org8695d48"><span class="section-number-2">5</span> Time Machine</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org6c5c2c8" class="outline-3">
+<h3 id="org6c5c2c8"><span class="section-number-3">5.1</span> バックアップに時間が掛かる場合</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li>セキュリティソフトのリアルタイムファイルシステム保護を一時的に無効にする<br />
+<ul class="org-ul">
+<li>この間はネットワーク接続も切断しておく<br /></li>
+</ul></li>
+<li><p>
+バックアップファイルのインデックスを作成しないようにする<br />
+状態を確認。<br />
+</p>
+<pre class="example">
+$ mdutil -sa
+</pre>
+<p>
+インデックスを作成しないように設定を変更。<br />
+</p>
+<pre class="example">
+$ sudo mdutil -i off /Volumes/SSD/Backups.backupdb
+</pre>
+<p>
+状態を再確認。<br />
+</p>
+<pre class="example">
+$ mdutil -sa
+</pre>
+<p>
+多分、設定は変わっていないはず。<br />
+ただ、 <code>mdworker</code> プロセスが動かなくなるため処理は早くなる。<br />
+</p></li>
+<li><p>
+バックアップの優先順位を一時的に上げる<br />
+</p>
+<pre class="example">
+$ sudo sysctl debug.lowpri_throttle_enabled=0
+</pre>
+<p>
+バックアップが完了したら元に戻す。<br />
+</p>
+<pre class="example">
+$ sudo sysctl debug.lowpri_throttle_enabled=1
+</pre></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org47b03cb" class="outline-2">
+<h2 id="org47b03cb"><span class="section-number-2">6</span> スクリーンショットに影を付けない</h2>
+<div class="outline-text-2" id="text-6">
+<pre class="example">
+$ defaults write com.apple.screencapture disable-shadow -bool true
+</pre>
+</div>
+
+<div id="outline-container-org2f26f34" class="outline-3">
+<h3 id="org2f26f34"><span class="section-number-3">6.1</span> Bookmarks</h3>
+<div class="outline-text-3" id="text-6-1">
+<ul class="org-ul">
+<li><a href="https://www.lifehacker.jp/2020/02/customize-your-mac-screenshots-with-these-hotkeys.html">https://www.lifehacker.jp/2020/02/customize-your-mac-screenshots-with-these-hotkeys.html</a><br /></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org68c12ec" class="outline-2">
+<h2 id="org68c12ec"><span class="section-number-2">7</span> OSアップデートの通知を非表示にする</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Catalinaのアップデート通知を非表示にする。<br />
+</p>
+
+<pre class="example">
+$ sudo /usr/sbin/softwareupdate --ignore "macOS Catalina"
+$ defaults write com.apple.systempreferences AttentionPrefBundleIDs -dict com.apple.preferences.softwareupdate 0
+$ killall Dock
+</pre>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+Picturesディレクトリは削除できない。<br />
+</p></div></div>
+
+
+</div>
+</div></div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2020-02-20 Thu 00:30</p>
+<p class="date">Created: 2020-02-20 Thu 00:38</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
