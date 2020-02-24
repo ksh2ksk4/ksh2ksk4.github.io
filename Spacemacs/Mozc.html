@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-02-24 Mon 19:16 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title><a href="https://github.com/google/mozc.git">Mozc</a></title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="KISHI Kousuke" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
+<style>div#content{max-width:none;}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="index.html"> UP </a>
+ |
+ <a accesskey="H" href="/index.html"> HOME </a>
+</div><div id="content">
+<h1 class="title"><a href="https://github.com/google/mozc.git">Mozc</a></h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org642bef9">1. MacOSの場合</a>
+<ul>
+<li><a href="#org3aa7bde">1.1. mozc_emacs_helper</a></li>
+<li><a href="#org361e212">1.2. Spacemacs</a></li>
+<li><a href="#org5a51262">1.3. Karabiner-Elements</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org642bef9" class="outline-2">
+<h2 id="org642bef9"><span class="section-number-2">1</span> MacOSの場合</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+MacOSでSpacemacsを使用する場合、 <a href="https://www.google.co.jp/ime/">Google 日本語入力</a> をインストールすれば日本語を入力できるが、これだとMacOSのIMを経由してGoogle 日本語入力を使うことになる。<br />
+この場合、日本語入力状態で <code>C-w</code> とかすると <code>ｗ</code> (全角文字の <code>w</code>)がバッファに入力されてしまいとても煩わしい。<br />
+</p>
+
+<p>
+SpacemacsのIM(LEIM)からGoogle 日本語入力を使うとこの現象を回避できるうえ、Spacemacsの日本語入力用パッケージも使えるようになる。<br />
+LEIM経由でGoogle 日本語入力を使えるようにするためmozc_emacs_helperを導入する。<br />
+</p>
+</div>
+
+<div id="outline-container-org3aa7bde" class="outline-3">
+<h3 id="org3aa7bde"><span class="section-number-3">1.1</span> mozc_emacs_helper</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org302f059" class="outline-4">
+<h4 id="org302f059"><span class="section-number-4">1.1.1</span> 事前準備</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+ビルドにはXcodeとNinjaが必要。<br />
+XcodeはApp Storeからインストール。<br />
+</p>
+
+<p>
+Ninjaは以下の通り。<br />
+</p>
+
+<pre class="example">
+$ brew install ninja
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org28262d6" class="outline-4">
+<h4 id="org28262d6"><span class="section-number-4">1.1.2</span> ビルド</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<pre class="example">
+$ git clone https://github.com/google/mozc.git -b master --single-branch --recursive
+$ cd mozc
+$ vi mozc_emacs_helper.patch
+</pre>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>mozc_emacs_helper.patch</label><pre class="src src-diff"><span style="color: #dddddd;">diff</span><span style="color: #999999;"> </span><span style="color: #dddddd;">--git</span><span style="color: #999999;"> </span><span style="color: #dddddd;">a/src/mac/mac.gyp</span><span style="color: #999999;"> </span><span style="color: #dddddd;">b/src/mac/mac.gyp</span>
+<span style="color: #dddddd;">index</span><span style="color: #999999;"> </span><span style="color: #dddddd;">9cf0cf4f..435f8765</span><span style="color: #999999;"> </span><span style="color: #dddddd;">100644</span>
+<span style="color: #81d4fa;">---</span><span style="color: #999999;"> </span><span style="color: #4dd0e1;">a/src/mac/mac.gyp</span>
+<span style="color: #81d4fa;">+++</span><span style="color: #999999;"> </span><span style="color: #4dd0e1;">b/src/mac/mac.gyp</span>
+<span style="color: #b39ddb;">@@</span><span style="color: #999999;"> </span><span style="color: #b39ddb;">-49,6</span><span style="color: #999999;"> </span><span style="color: #b39ddb;">+49,7</span><span style="color: #999999;"> </span><span style="color: #b39ddb;">@@</span>
+<span style="color: #81d4fa;">        </span><span style="color: #999999;"> </span><span style="color: #dddddd;">'../renderer/renderer.gyp:renderer_client',</span>
+<span style="color: #81d4fa;">        </span><span style="color: #999999;"> </span><span style="color: #dddddd;">'../session/session_base.gyp:ime_switch_util',</span>
+<span style="color: #81d4fa;">        </span><span style="color: #999999;"> </span><span style="color: #dddddd;">'../testing/testing.gyp:gtest_main',</span>
+<span style="color: #8bc34a;">+</span><span style="color: #999999;">        </span><span style="color: #8bc34a;">'../unix/emacs/emacs.gyp:mozc_emacs_helper',</span>
+<span style="color: #81d4fa;">        </span><span style="color: #999999;"> </span><span style="color: #dddddd;">'gen_key_mappings',</span>
+<span style="color: #81d4fa;">      </span><span style="color: #999999;"> </span><span style="color: #dddddd;">],</span>
+<span style="color: #81d4fa;">      </span><span style="color: #999999;"> </span><span style="color: #dddddd;">'variables':</span><span style="color: #999999;"> </span><span style="color: #dddddd;">{</span>
+<span style="color: #b39ddb;">@@</span><span style="color: #999999;"> </span><span style="color: #b39ddb;">-585,7</span><span style="color: #999999;"> </span><span style="color: #b39ddb;">+586,6</span><span style="color: #999999;"> </span><span style="color: #b39ddb;">@@</span>
+<span style="color: #81d4fa;">            </span><span style="color: #999999;"> </span><span style="color: #dddddd;">['branding=="GoogleJapaneseInput"',</span><span style="color: #999999;"> </span><span style="color: #dddddd;">{</span>
+<span style="color: #81d4fa;">              </span><span style="color: #999999;"> </span><span style="color: #dddddd;">'dependencies':</span><span style="color: #999999;"> </span><span style="color: #dddddd;">[</span>
+<span style="color: #81d4fa;">                </span><span style="color: #999999;"> </span><span style="color: #dddddd;">'DevConfirmPane',</span>
+<span style="color: #ff9800;">-</span><span style="color: #999999;">                </span><span style="color: #ff9800;">'codesign_client',</span>
+<span style="color: #81d4fa;">              </span><span style="color: #999999;"> </span><span style="color: #dddddd;">],</span>
+<span style="color: #81d4fa;">            </span><span style="color: #999999;"> </span><span style="color: #dddddd;">}],</span>
+<span style="color: #81d4fa;">          </span><span style="color: #999999;"> </span>],
+</pre>
+</div>
+
+<pre class="example">
+$ patch -p1 &lt;mozc_emacs_helper.patch
+</pre>
+
+<ul class="org-ul">
+<li><code>mac_sdk</code><br />
+<ul class="org-ul">
+<li>Xcodeをインストールした時点のSDKは10.15(Catalina)<br /></li>
+</ul></li>
+<li><code>mac_deployment_target</code><br />
+<ul class="org-ul">
+<li>使用中のMacOSは10.14.x(Mojave)<br /></li>
+</ul></li>
+</ul>
+
+<pre class="example">
+$ cd src
+$ env GYP_DEFINES='mac_sdk=10.15 mac_deployment_target=10.14' python build_mozc.py gyp --noqt --branding=GoogleJapaneseInput
+$ python build_mozc.py build -c Release unix/emacs/emacs.gyp:mozc_emacs_helper
+</pre>
+
+<p>
+Xcodeで以下のエラーになった場合、<br />
+</p>
+
+<pre class="example">
+xcode-select: error: tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance
+</pre>
+
+<p>
+以下のコマンドを実行してから再実行する。<br />
+</p>
+
+<pre class="example">
+$ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org04be983" class="outline-4">
+<h4 id="org04be983"><span class="section-number-4">1.1.3</span> 動作確認</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<pre class="example">
+$ echo -e '(0 CreateSession)\n(1 SendKey 1 hiragana)\n(2 SendKey 1 hiragana)\n(3 SendKey 1 97)' |out_mac/Release/mozc_emacs_helper
+</pre>
+
+<p>
+以下のような実行結果であればGoogle日本語入力と通信できているのでOK。<br />
+</p>
+
+<pre class="example">
+((mozc-emacs-helper . t)(version . "2.19.2623.102")(config . ((preedit-method . roman))))
+((emacs-event-id . 0)(emacs-session-id . 1)(output . ()))
+((emacs-event-id . 1)(emacs-session-id . 1)(output . ((id . "356457409820468470")(mode . hiragana)(consumed . t)(status . ((activated . t)(mode . hiragana)(comeback-mode . hiragana))))))
+((emacs-event-id . 2)(emacs-session-id . 1)(output . ((id . "356457409820468470")(mode . hiragana)(consumed . t)(status . ((activated . t)(mode . hiragana)(comeback-mode . hiragana))))))
+((emacs-event-id . 3)(emacs-session-id . 1)(output . ((id . "356457409820468470")(mode . hiragana)(consumed . t)(preedit . ((cursor . 1)(segment ((annotation . underline)(value . "あ")(value-length . 1)(key . "あ")))))(candidates . ((size . 1)(candidate ((index . 0)(value . "あ")(annotation . ((description . "ひらがな")))(id . 0)))(position . 0)(category . suggestion)(display-type . main)(footer . ((label . "Tabキーで選択")))(page-size . 9)))(status . ((activated . t)(mode . hiragana)(comeback-mode . hiragana)))(all-candidate-words . ((candidates ((id . 0)(index . 0)(value . "あ")(annotation . ((description . "ひらがな")))))(category . suggestion))))))
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgc9887b3" class="outline-4">
+<h4 id="orgc9887b3"><span class="section-number-4">1.1.4</span> インストール</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<p>
+パスの通っているディレクトリへ手動でコピーする。<br />
+</p>
+
+<pre class="example">
+$ cp -a out_mac/Release/mozc_emacs_helper ~/.own/bin/
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org361e212" class="outline-3">
+<h3 id="org361e212"><span class="section-number-3">1.2</span> Spacemacs</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Spacemacsには以下を設定する。<br />
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>~/.spacemacs</label><pre class="src src-elisp"><span style="color: #b0bec5;">;;</span>
+<span style="color: #b0bec5;">;; </span><span style="color: #b0bec5;">Mozc</span>
+<span style="color: #b0bec5;">;; </span><span style="color: #b0bec5;">https://github.com/google/mozc</span>
+<span style="color: #b0bec5;">;;</span>
+<span style="color: #b0bec5;">;; </span><span style="color: #b0bec5;">MacOS&#12391;IM&#12398;&#26085;&#26412;&#35486;&#20837;&#21147;&#29366;&#24907;&#12434;&#35299;&#38500;&#12377;&#12427;&#12383;&#12417;&#12398;&#35373;&#23450;</span>
+<span style="color: #e91e63;">(</span><span style="color: #fff59d;">when</span> <span style="color: #2196F3;">(</span>eq system-type 'darwin<span style="color: #2196F3;">)</span>
+  <span style="color: #2196F3;">(</span><span style="color: #fff59d;">defun</span> <span style="color: #84ffff;">my/eisuu-key</span> <span style="color: #EF6C00;">()</span>
+    <span style="color: #ffe4b5;">"&#33521;&#25968;&#12461;&#12540;&#12434;&#12456;&#12511;&#12517;&#12524;&#12540;&#12488;&#12377;&#12427;"</span>
+    <span style="color: #EF6C00;">(</span><span style="color: #fff59d;">interactive</span><span style="color: #EF6C00;">)</span>
+    <span style="color: #EF6C00;">(</span>call-process <span style="color: #9ccc65;">"osascript"</span> nil t nil <span style="color: #9ccc65;">"-e"</span> <span style="color: #9ccc65;">"tell application \"System Events\" to key code 102"</span><span style="color: #EF6C00;">)</span><span style="color: #2196F3;">)</span>
+  <span style="color: #b0bec5;">;; </span><span style="color: #b0bec5;">Spacemacs&#12395;&#12501;&#12457;&#12540;&#12459;&#12473;&#12434;&#24403;&#12390;&#12383;&#12425;&#33521;&#25968;&#12461;&#12540;&#12434;&#25276;&#12377;</span>
+  <span style="color: #2196F3;">(</span>add-hook 'focus-in-hook 'my/eisuu-key<span style="color: #2196F3;">)</span>
+  <span style="color: #b0bec5;">;; </span><span style="color: #b0bec5;">Mozc&#12434;&#36215;&#21205;&#12375;&#12383;&#12425;&#33521;&#25968;&#12461;&#12540;&#12434;&#25276;&#12377;</span>
+  <span style="color: #2196F3;">(</span>add-hook 'mozc-mode-hook 'my/eisuu-key<span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span>
+
+<span style="color: #e91e63;">(</span><span style="color: #fff59d;">use-package</span> <span style="color: #8bc34a;">mozc</span>
+  <span style="color: #ff8A65;">:init</span>
+  <span style="color: #2196F3;">(</span><span style="color: #fff59d;">setq</span> default-input-method <span style="color: #9ccc65;">"japanese-mozc"</span><span style="color: #2196F3;">)</span>
+  <span style="color: #2196F3;">(</span><span style="color: #fff59d;">setq</span> mozc-helper-program-name <span style="color: #EF6C00;">(</span><span style="color: #fff59d;">cond</span> <span style="color: #B388FF;">(</span><span style="color: #76ff03;">(</span>eq system-type 'darwin<span style="color: #76ff03;">)</span> <span style="color: #9ccc65;">"~/.own/bin/mozc_emacs_helper"</span><span style="color: #B388FF;">)</span>
+                                       <span style="color: #B388FF;">(</span><span style="color: #76ff03;">(</span>eq system-type 'gnu/linux<span style="color: #76ff03;">)</span> <span style="color: #9ccc65;">"/usr/bin/mozc_emacs_helper"</span><span style="color: #B388FF;">)</span><span style="color: #EF6C00;">)</span><span style="color: #2196F3;">)</span>
+  <span style="color: #ff8A65;">:custom</span>
+  <span style="color: #2196F3;">(</span>mozc-candidate-style 'echo-area<span style="color: #2196F3;">)</span>
+  <span style="color: #2196F3;">(</span>mozc-leim-title <span style="color: #9ccc65;">"[&#12418;]"</span><span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span>
+
+<span style="color: #e91e63;">(</span><span style="color: #fff59d;">use-package</span> <span style="color: #8bc34a;">mozc-temp</span>
+  <span style="color: #ff8A65;">:init</span>
+  <span style="color: #2196F3;">(</span>global-set-key <span style="color: #EF6C00;">(</span>kbd <span style="color: #9ccc65;">"M-n"</span><span style="color: #EF6C00;">)</span> 'mozc-temp-convert<span style="color: #2196F3;">)</span><span style="color: #e91e63;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5a51262" class="outline-3">
+<h3 id="org5a51262"><span class="section-number-3">1.3</span> <a href="https://pqrs.org/osx/karabiner/">Karabiner-Elements</a></h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+ここまでの設定によりSpacemacsでは <code>C-\</code> で日本語入力できるようになるが、MacOSのIMのキーバインディングを <code>C-\</code> にしてしまうとLEIMは使えなくなってしまう。<br />
+(<code>C-\</code> のキー入力をMacOSに取られてしまいSpacemacsには渡らなくなってしまうため)<br />
+</p>
+
+<p>
+ただ、Spacemacsとそれ以外のアプリでキーバインディングを変えるのは非常に煩わしいので、Karabiner-Elementsを使ってMacOSと同じキーバインディングでLEIMも使えるように設定する。<br />
+</p>
+</div>
+
+<div id="outline-container-org5ad12c0" class="outline-4">
+<h4 id="org5ad12c0"><span class="section-number-4">1.3.1</span> 設定</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+MacOSは <code>C-\</code> 以外のキーバインディングにしておく。<br />
+(この場合は <code>Control + Option + Space</code> に設定してある)<br />
+</p>
+
+<p>
+以下のJSONファイルを作成してからKarabiner-Elementsで当該ルールを有効化する。<br />
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>~/.config/karabiner/assets/complex_modifications/leim.json</label><pre class="src src-json"><span style="color: #e91e63;">{</span>
+  <span style="color: #fff59d;">"title"</span>: <span style="color: #9ccc65;">"IM"</span>,
+  <span style="color: #fff59d;">"rules"</span>: <span style="color: #2196F3;">[</span>
+    <span style="color: #EF6C00;">{</span>
+      <span style="color: #fff59d;">"description"</span>: <span style="color: #9ccc65;">"Spacemacs&#20197;&#22806;&#12391;&#12418;C-\\&#12391;&#20837;&#21147;&#12514;&#12540;&#12489;&#12434;&#20999;&#12426;&#26367;&#12360;&#12427;"</span>,
+      <span style="color: #fff59d;">"manipulators"</span>: <span style="color: #B388FF;">[</span>
+        <span style="color: #76ff03;">{</span>
+          <span style="color: #fff59d;">"type"</span>: <span style="color: #9ccc65;">"basic"</span>,
+          <span style="color: #fff59d;">"from"</span>: <span style="color: #26A69A;">{</span>
+            <span style="color: #fff59d;">"key_code"</span>: <span style="color: #9ccc65;">"backslash"</span>,
+            <span style="color: #fff59d;">"modifiers"</span>: <span style="color: #FFCDD2;">{</span>
+              <span style="color: #fff59d;">"mandatory"</span>: <span style="color: #795548;">[</span>
+                <span style="color: #9ccc65;">"left_control"</span>
+              <span style="color: #795548;">]</span>
+            <span style="color: #FFCDD2;">}</span>
+          <span style="color: #26A69A;">}</span>,
+          <span style="color: #fff59d;">"to"</span>: <span style="color: #26A69A;">[</span>
+            <span style="color: #FFCDD2;">{</span>
+              <span style="color: #fff59d;">"key_code"</span>: <span style="color: #9ccc65;">"spacebar"</span>,
+              <span style="color: #fff59d;">"modifiers"</span>: <span style="color: #795548;">[</span>
+                <span style="color: #9ccc65;">"left_control"</span>,
+                <span style="color: #9ccc65;">"left_option"</span>
+              <span style="color: #795548;">]</span>
+            <span style="color: #FFCDD2;">}</span>
+          <span style="color: #26A69A;">]</span>,
+          <span style="color: #fff59d;">"conditions"</span>: <span style="color: #26A69A;">[</span>
+            <span style="color: #FFCDD2;">{</span>
+              <span style="color: #fff59d;">"type"</span>: <span style="color: #9ccc65;">"frontmost_application_unless"</span>,
+              <span style="color: #fff59d;">"bundle_identifiers"</span>: <span style="color: #795548;">[</span>
+                <span style="color: #9ccc65;">"Emacs"</span>
+              <span style="color: #795548;">]</span>
+            <span style="color: #FFCDD2;">}</span>
+          <span style="color: #26A69A;">]</span>
+        <span style="color: #76ff03;">}</span>
+      <span style="color: #B388FF;">]</span>
+    <span style="color: #EF6C00;">}</span>
+  <span style="color: #2196F3;">]</span>
+<span style="color: #e91e63;">}</span>
+</pre>
+</div>
+
+<p>
+これでSpacemacs以外のアプリでも <code>C-\</code> でIMの切り替えができるようになる。<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: KISHI Kousuke</p>
+<p class="date">Created: 2020-02-24 Mon 19:16</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
