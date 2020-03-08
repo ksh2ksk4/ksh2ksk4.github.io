@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-03-08 Sun 15:54 -->
+<!-- 2020-03-08 Sun 15:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chromebook</title>
+<title>Crostini</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="KISHI Kousuke" />
 <style type="text/css">
@@ -249,35 +249,71 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="org-div-home-and-up">
- <a accesskey="h" href="../index.html"> UP </a>
+ <a accesskey="h" href="index.html"> UP </a>
  |
  <a accesskey="H" href="/index.html"> HOME </a>
 </div><div id="content">
-<h1 class="title">Chromebook</h1>
+<h1 class="title">Crostini</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org58cf146">1. Acer Chromebook 11</a></li>
-<li><a href="#orga49c092">2. Crostini</a></li>
-<li><a href="#orgd5fedf3">3. Tips</a></li>
+<li><a href="#orgfcf3c42">1. apt update</a></li>
+<li><a href="#orgacf9135">2. Bookmarks</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org58cf146" class="outline-2">
-<h2 id="org58cf146"><span class="section-number-2">1</span> <a href="Acer_Chromebook_11.html">Acer Chromebook 11</a></h2>
+<div id="outline-container-orgfcf3c42" class="outline-2">
+<h2 id="orgfcf3c42"><span class="section-number-2">1</span> apt update</h2>
+<div class="outline-text-2" id="text-1">
+<pre class="example">
+$ sudo apt update
+Ign:1 https://deb.debian.org/debian stretch InRelease
+Hit:2 https://deb.debian.org/debian-security stretch/updates InRelease
+Hit:3 https://deb.debian.org/debian stretch-backports InRelease
+Hit:4 https://deb.debian.org/debian stretch Release
+Ign:5 https://storage.googleapis.com/cros-packages/79 stretch InRelease
+Get:6 https://storage.googleapis.com/cros-packages/79 stretch Release [3,114 B]
+Hit:7 https://apt.llvm.org/stretch llvm-toolchain-stretch-7 InRelease
+Get:8 https://storage.googleapis.com/cros-packages/79 stretch Release.gpg [819 B]
+Ign:8 https://storage.googleapis.com/cros-packages/79 stretch Release.gpg
+Reading package lists... Done
+W: GPG error: https://storage.googleapis.com/cros-packages/79 stretch Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 78BD65473CB3BD13
+E: The repository 'https://storage.googleapis.com/cros-packages/79 stretch Release' is not signed.
+N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+N: See apt-secure(8) manpage for repository creation and user configuration details.
+</pre>
+
+<p>
+2020-02-20時点で <code>apt update</code> がエラーになる。<br />
+<code>78BD65473CB3BD13</code> の公開鍵がないらしい・・・。<br />
+</p>
+
+<p>
+<a href="https://chromeunboxed.com/chromebook-crostini-linux-key-expired-not-signed-canary-dev-fix-repository/">https://chromeunboxed.com/chromebook-crostini-linux-key-expired-not-signed-canary-dev-fix-repository/</a><br />
+</p>
+
+<pre class="example">
+$ sudo apt-key adv --refresh-keys --keyserver keyserver.ubuntu.com
+$ sudo apt update
+$ sudo apt upgrade
+</pre>
 </div>
-<div id="outline-container-orga49c092" class="outline-2">
-<h2 id="orga49c092"><span class="section-number-2">2</span> <a href="Crostini.html">Crostini</a></h2>
 </div>
-<div id="outline-container-orgd5fedf3" class="outline-2">
-<h2 id="orgd5fedf3"><span class="section-number-2">3</span> <a href="Tips.html">Tips</a></h2>
+
+<div id="outline-container-orgacf9135" class="outline-2">
+<h2 id="orgacf9135"><span class="section-number-2">2</span> Bookmarks</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li><a href="https://www.xda-developers.com/chromebooks-linux-app-support">Here's a list of Chromebooks with Linux app support</a><br /></li>
+</ul>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2020-03-08 Sun 15:54</p>
+<p class="date">Created: 2020-03-08 Sun 15:52</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
