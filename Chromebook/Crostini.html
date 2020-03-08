@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-03-08 Sun 15:52 -->
+<!-- 2020-03-08 Sun 20:35 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Crostini</title>
@@ -258,14 +258,22 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgfcf3c42">1. apt update</a></li>
-<li><a href="#orgacf9135">2. Bookmarks</a></li>
+<li><a href="#orgf25a36e">1. apt update</a></li>
+<li><a href="#org4c544ac">2. fish</a>
+<ul>
+<li><a href="#orgb2bdce7">2.1. Install</a></li>
+<li><a href="#org9cf253b">2.2. Change the login shell</a></li>
+<li><a href="#org3ae0357">2.3. Customize</a></li>
+<li><a href="#org82dd9cc">2.4. Cleanup</a></li>
+</ul>
+</li>
+<li><a href="#orgda6aea3">3. Bookmarks</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgfcf3c42" class="outline-2">
-<h2 id="orgfcf3c42"><span class="section-number-2">1</span> apt update</h2>
+<div id="outline-container-orgf25a36e" class="outline-2">
+<h2 id="orgf25a36e"><span class="section-number-2">1</span> apt update</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 $ sudo apt update
@@ -302,9 +310,185 @@ $ sudo apt upgrade
 </div>
 </div>
 
-<div id="outline-container-orgacf9135" class="outline-2">
-<h2 id="orgacf9135"><span class="section-number-2">2</span> Bookmarks</h2>
+<div id="outline-container-org4c544ac" class="outline-2">
+<h2 id="org4c544ac"><span class="section-number-2">2</span> <a href="https://fishshell.com/">fish</a></h2>
 <div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgb2bdce7" class="outline-3">
+<h3 id="orgb2bdce7"><span class="section-number-3">2.1</span> Install</h3>
+<div class="outline-text-3" id="text-2-1">
+<pre class="example">
+$ sudo apt install fish
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org9cf253b" class="outline-3">
+<h3 id="org9cf253b"><span class="section-number-3">2.2</span> Change the login shell</h3>
+<div class="outline-text-3" id="text-2-2">
+<pre class="example">
+$ less /etc/shells
+$ chsh -s /usr/bin/fish
+Password:
+chsh: PAM: Authentication failure
+</pre>
+
+<p>
+ログインシェルを変更しようとするとこうなる。<br />
+(パスワード未設定だからっぽい)<br />
+</p>
+
+<p>
+こうする。<br />
+</p>
+
+<pre class="example">
+$ sudo su -
+# chsh -s /usr/bin/fish ksh2ksk4
+</pre>
+
+<p>
+ログインシェル変更後はChromebookを再起動する。<br />
+(再起動しないと挙動がおかしい)<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3ae0357" class="outline-3">
+<h3 id="org3ae0357"><span class="section-number-3">2.3</span> Customize</h3>
+<div class="outline-text-3" id="text-2-3">
+</div>
+<div id="outline-container-orge8790b7" class="outline-4">
+<h4 id="orge8790b7"><span class="section-number-4">2.3.1</span> <a href="https://github.com/jorgebucaran/fisher">Fisher</a></h4>
+<div class="outline-text-4" id="text-2-3-1">
+</div>
+<div id="outline-container-org79803f5" class="outline-5">
+<h5 id="org79803f5"><span class="section-number-5">2.3.1.1</span> Install</h5>
+<div class="outline-text-5" id="text-2-3-1-1">
+<pre class="example">
+$ curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org52997b3" class="outline-5">
+<h5 id="org52997b3"><span class="section-number-5">2.3.1.2</span> Plugins</h5>
+<div class="outline-text-5" id="text-2-3-1-2">
+</div>
+<div id="outline-container-org416e2f8" class="outline-6">
+<h6 id="org416e2f8"><span class="section-number-6">2.3.1.2.1</span> peco</h6>
+<div class="outline-text-6" id="text-2-3-1-2-1">
+<pre class="example">
+$ sudo apt install peco
+$ fisher add oh-my-fish/plugin-peco
+</pre>
+
+<pre class="example">
+$ vi ~/.config/fish/functions/fish_user_key_bindings.fish
+</pre>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>~/.config/fish/functions/fish_user_key_bindings.fish</label><pre class="src src-fish"><span style="color: #fff59d;">function</span> <span style="color: #84ffff;">fish_user_key_bindings</span> <span style="color: #4dd0e1;">-d</span> <span style="color: #9ccc65;">'Define own key bindings'</span>
+  <span style="color: #ff8A65;">bind</span> <span style="color: #4dd0e1;">\</span>cr <span style="color: #9ccc65;">'peco_select_history (commandline -b)'</span>
+<span style="color: #fff59d;">end</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge5114fe" class="outline-4">
+<h4 id="orge5114fe"><span class="section-number-4">2.3.2</span> Environment variables</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>~/.config/fish/config.fish</label><pre class="src src-fish"><span style="color: #fff59d;">set</span> <span style="color: #4dd0e1;">-x</span> <span style="color: #ffcc80;">LANG</span> ja_JP.UTF-8
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org989d87f" class="outline-4">
+<h4 id="org989d87f"><span class="section-number-4">2.3.3</span> Prompt</h4>
+<div class="outline-text-4" id="text-2-3-3">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>~/.config/fish/functions/fish_prompt.fish</label><pre class="src src-fish">
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org494603d" class="outline-4">
+<h4 id="org494603d"><span class="section-number-4">2.3.4</span> Greeting message</h4>
+<div class="outline-text-4" id="text-2-3-4">
+<p>
+邪魔なので消す。<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-fish">$ <span style="color: #fff59d;">set</span> <span style="color: #4dd0e1;">-U</span> <span style="color: #ffcc80;">fish_greeting</span> <span style="color: #9ccc65;">''</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf94cfd8" class="outline-4">
+<h4 id="orgf94cfd8"><span class="section-number-4">2.3.5</span> Color</h4>
+<div class="outline-text-4" id="text-2-3-5">
+<p>
+見難い色を変更。<br />
+</p>
+
+<pre class="example">
+$ set -U fish_color_command b2d0e4
+</pre>
+
+<ul class="org-ul">
+<li>変更前<br />
+<ul class="org-ul">
+<li><a href="https://www.color-hex.com/color/005fd7">#005fd7</a><br /></li>
+</ul></li>
+<li>変更後<br />
+<ul class="org-ul">
+<li><a href="https://www.color-hex.com/color/b2d0e4">#b2d0e4</a><br /></li>
+</ul></li>
+</ul>
+
+<pre class="example">
+$ set -U fish_color_error d7858e
+</pre>
+
+<ul class="org-ul">
+<li>変更前<br />
+<ul class="org-ul">
+<li><a href="https://www.color-hex.com/color/ff0000">#ff0000</a><br /></li>
+</ul></li>
+<li>変更後<br />
+<ul class="org-ul">
+<li><a href="https://www.color-hex.com/color/d7858e">#d7858e</a><br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org82dd9cc" class="outline-3">
+<h3 id="org82dd9cc"><span class="section-number-3">2.4</span> Cleanup</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+不要なファイルを削除。<br />
+</p>
+
+<pre class="example">
+$ rm -f ~/.bash* ~/.profile
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgda6aea3" class="outline-2">
+<h2 id="orgda6aea3"><span class="section-number-2">3</span> Bookmarks</h2>
+<div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><a href="https://www.xda-developers.com/chromebooks-linux-app-support">Here's a list of Chromebooks with Linux app support</a><br /></li>
 </ul>
@@ -313,7 +497,7 @@ $ sudo apt upgrade
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2020-03-08 Sun 15:52</p>
+<p class="date">Created: 2020-03-08 Sun 20:35</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
