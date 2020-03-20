@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-03-21 Sat 06:44 -->
+<!-- 2020-03-21 Sat 06:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>開発用サーバ</title>
@@ -258,36 +258,36 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org58797e7">1. 概要</a></li>
-<li><a href="#orge1a03f9">2. Arch Linux</a>
+<li><a href="#org7aedbe7">1. 概要</a></li>
+<li><a href="#org6c15fa8">2. Arch Linux</a>
 <ul>
-<li><a href="#org3506c37">2.1. Install</a></li>
-<li><a href="#orgcbcb7e2">2.2. Settings</a></li>
-<li><a href="#orgfefbd44">2.3. Backup</a></li>
+<li><a href="#org0f3ba4c">2.1. Install</a></li>
+<li><a href="#orge3a8439">2.2. Settings</a></li>
+<li><a href="#org520de0d">2.3. Backup</a></li>
 </ul>
 </li>
-<li><a href="#orga384219">3. 外部HDD共有</a>
+<li><a href="#orgb7e52a0">3. 外部HDD共有</a>
 <ul>
-<li><a href="#orgfbf21e9">3.1. Cryptsetup</a></li>
-<li><a href="#org7be09d9">3.2. Samba</a></li>
+<li><a href="#org7598aa9">3.1. Cryptsetup</a></li>
+<li><a href="#org547c042">3.2. Samba</a></li>
 </ul>
 </li>
-<li><a href="#org21912bc">4. Clojure</a>
+<li><a href="#org2d07221">4. Clojure</a>
 <ul>
-<li><a href="#org3cd23c3">4.1. Install</a></li>
+<li><a href="#org2076a2f">4.1. Install</a></li>
 </ul>
 </li>
-<li><a href="#orgb150f05">5. Rust</a>
+<li><a href="#org0f06cfe">5. Rust</a>
 <ul>
-<li><a href="#orgba2c86a">5.1. Install</a></li>
+<li><a href="#orgcdf5ab4">5.1. Install</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org58797e7" class="outline-2">
-<h2 id="org58797e7"><span class="section-number-2">1</span> 概要</h2>
+<div id="outline-container-org7aedbe7" class="outline-2">
+<h2 id="org7aedbe7"><span class="section-number-2">1</span> 概要</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4</a> (Memory: 4GB)に <a href="https://www.archlinux.org/">Arch Linux</a> をインストールして構築する。<br />
@@ -295,12 +295,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orge1a03f9" class="outline-2">
-<h2 id="orge1a03f9"><span class="section-number-2">2</span> <a href="https://www.archlinux.org/">Arch Linux</a></h2>
+<div id="outline-container-org6c15fa8" class="outline-2">
+<h2 id="org6c15fa8"><span class="section-number-2">2</span> <a href="https://www.archlinux.org/">Arch Linux</a></h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org3506c37" class="outline-3">
-<h3 id="org3506c37"><span class="section-number-3">2.1</span> Install</h3>
+<div id="outline-container-org0f3ba4c" class="outline-3">
+<h3 id="org0f3ba4c"><span class="section-number-3">2.1</span> Install</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li><a href="https://linuxize.com/post/how-to-install-arch-linux-on-raspberry-pi/">https://linuxize.com/post/how-to-install-arch-linux-on-raspberry-pi/</a><br /></li>
@@ -316,8 +316,8 @@ acacia(NASサーバ)で作業する。<br />
 </p>
 </div>
 
-<div id="outline-container-org3b50d3c" class="outline-4">
-<h4 id="org3b50d3c"><span class="section-number-4">2.1.1</span> ダウンロード</h4>
+<div id="outline-container-org56b3574" class="outline-4">
+<h4 id="org56b3574"><span class="section-number-4">2.1.1</span> ダウンロード</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <pre class="example">
 $ curl -LO 'http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz'
@@ -327,8 +327,8 @@ $ md5sum -c ArchLinuxARM-rpi-4-latest.tar.gz.md5
 </div>
 </div>
 
-<div id="outline-container-orgc944c73" class="outline-4">
-<h4 id="orgc944c73"><span class="section-number-4">2.1.2</span> パーティショニング</h4>
+<div id="outline-container-orge71805f" class="outline-4">
+<h4 id="orge71805f"><span class="section-number-4">2.1.2</span> パーティショニング</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <pre class="example">
 $ lsblk
@@ -379,8 +379,8 @@ $ sudo mkfs.ext4 -F /dev/sda2
 </div>
 </div>
 
-<div id="outline-container-orgcc06db0" class="outline-4">
-<h4 id="orgcc06db0"><span class="section-number-4">2.1.3</span> ファイルコピー</h4>
+<div id="outline-container-org2e0e99a" class="outline-4">
+<h4 id="org2e0e99a"><span class="section-number-4">2.1.3</span> ファイルコピー</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <pre class="example">
 $ sudo mkdir -p /mnt/arch/{boot,root}
@@ -401,12 +401,12 @@ $ sudo umount /mnt/arch/boot /mnt/arch/root
 </div>
 </div>
 
-<div id="outline-container-orgcbcb7e2" class="outline-3">
-<h3 id="orgcbcb7e2"><span class="section-number-3">2.2</span> Settings</h3>
+<div id="outline-container-orge3a8439" class="outline-3">
+<h3 id="orge3a8439"><span class="section-number-3">2.2</span> Settings</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-orgb2b59f4" class="outline-4">
-<h4 id="orgb2b59f4"><span class="section-number-4">2.2.1</span> Update</h4>
+<div id="outline-container-org3a28c23" class="outline-4">
+<h4 id="org3a28c23"><span class="section-number-4">2.2.1</span> Update</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <pre class="example">
 $ su -
@@ -420,8 +420,8 @@ $ su -
 </div>
 </div>
 
-<div id="outline-container-org53a5e66" class="outline-4">
-<h4 id="org53a5e66"><span class="section-number-4">2.2.2</span> DHCP</h4>
+<div id="outline-container-orgcc7d1af" class="outline-4">
+<h4 id="orgcc7d1af"><span class="section-number-4">2.2.2</span> DHCP</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 ネットワーク設定はDHCPを利用するが、IPアドレスを固定するようルータ(YAMAHA NVR510)を設定する。<br />
@@ -502,8 +502,8 @@ ClientIdentifier=mac
 </div>
 </div>
 
-<div id="outline-container-org97ef42e" class="outline-4">
-<h4 id="org97ef42e"><span class="section-number-4">2.2.3</span> Timezone</h4>
+<div id="outline-container-org630df0b" class="outline-4">
+<h4 id="org630df0b"><span class="section-number-4">2.2.3</span> Timezone</h4>
 <div class="outline-text-4" id="text-2-2-3">
 <pre class="example">
 # ln -sfv /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
@@ -511,8 +511,8 @@ ClientIdentifier=mac
 </div>
 </div>
 
-<div id="outline-container-orgbf3db82" class="outline-4">
-<h4 id="orgbf3db82"><span class="section-number-4">2.2.4</span> Locale</h4>
+<div id="outline-container-org4793c71" class="outline-4">
+<h4 id="org4793c71"><span class="section-number-4">2.2.4</span> Locale</h4>
 <div class="outline-text-4" id="text-2-2-4">
 <pre class="example">
 # vi /etc/locale.gen
@@ -522,8 +522,8 @@ ClientIdentifier=mac
 </div>
 </div>
 
-<div id="outline-container-org6f0f96f" class="outline-4">
-<h4 id="org6f0f96f"><span class="section-number-4">2.2.5</span> Hostname</h4>
+<div id="outline-container-org73c2f7f" class="outline-4">
+<h4 id="org73c2f7f"><span class="section-number-4">2.2.5</span> Hostname</h4>
 <div class="outline-text-4" id="text-2-2-5">
 <pre class="example">
 # echo cypress &gt;/etc/hostname
@@ -535,8 +535,8 @@ ClientIdentifier=mac
 </div>
 </div>
 
-<div id="outline-container-org2e7b04e" class="outline-4">
-<h4 id="org2e7b04e"><span class="section-number-4">2.2.6</span> Shell</h4>
+<div id="outline-container-org4f10e23" class="outline-4">
+<h4 id="org4f10e23"><span class="section-number-4">2.2.6</span> Shell</h4>
 <div class="outline-text-4" id="text-2-2-6">
 <p>
 <a href="https://fishshell.com/">fish</a> に変更する。<br />
@@ -549,12 +549,12 @@ ClientIdentifier=mac
 </div>
 </div>
 
-<div id="outline-container-org3d82e8b" class="outline-4">
-<h4 id="org3d82e8b"><span class="section-number-4">2.2.7</span> User</h4>
+<div id="outline-container-org01068c1" class="outline-4">
+<h4 id="org01068c1"><span class="section-number-4">2.2.7</span> User</h4>
 <div class="outline-text-4" id="text-2-2-7">
 </div>
-<div id="outline-container-orgfff86b9" class="outline-5">
-<h5 id="orgfff86b9"><span class="section-number-5">2.2.7.1</span> デフォルトユーザ(<code>alarm</code>)とは別のユーザを追加</h5>
+<div id="outline-container-org76b47ff" class="outline-5">
+<h5 id="org76b47ff"><span class="section-number-5">2.2.7.1</span> デフォルトユーザ(<code>alarm</code>)とは別のユーザを追加</h5>
 <div class="outline-text-5" id="text-2-2-7-1">
 <pre class="example">
 # useradd -m -s /usr/bin/fish kishi
@@ -578,8 +578,8 @@ $ ssh kishi@cypress.home
 </div>
 </div>
 
-<div id="outline-container-org104d509" class="outline-5">
-<h5 id="org104d509"><span class="section-number-5">2.2.7.2</span> sudoを使えるようにする</h5>
+<div id="outline-container-orga9b6c20" class="outline-5">
+<h5 id="orga9b6c20"><span class="section-number-5">2.2.7.2</span> sudoを使えるようにする</h5>
 <div class="outline-text-5" id="text-2-2-7-2">
 <ul class="org-ul">
 <li><a href="https://wiki.archlinux.jp/index.php/Sudo">https://wiki.archlinux.jp/index.php/Sudo</a><br /></li>
@@ -625,8 +625,8 @@ $ sudo su -
 </div>
 </div>
 
-<div id="outline-container-org93c1f52" class="outline-5">
-<h5 id="org93c1f52"><span class="section-number-5">2.2.7.3</span> <code>root</code> アカウントをロック</h5>
+<div id="outline-container-orgb154eb5" class="outline-5">
+<h5 id="orgb154eb5"><span class="section-number-5">2.2.7.3</span> <code>root</code> アカウントをロック</h5>
 <div class="outline-text-5" id="text-2-2-7-3">
 <p>
 sudoできるようになったので、 <code>root</code> アカウントをロックしておく。<br />
@@ -647,8 +647,8 @@ $ sudo vi /etc/shadow
 </div>
 </div>
 
-<div id="outline-container-orgd2e1005" class="outline-5">
-<h5 id="orgd2e1005"><span class="section-number-5">2.2.7.4</span> デフォルトユーザ(<code>alarm</code>)をロック</h5>
+<div id="outline-container-orgaaaf8eb" class="outline-5">
+<h5 id="orgaaaf8eb"><span class="section-number-5">2.2.7.4</span> デフォルトユーザ(<code>alarm</code>)をロック</h5>
 <div class="outline-text-5" id="text-2-2-7-4">
 <p>
 <code>root</code> アカウントと同様にアカウントをロックする。<br />
@@ -662,12 +662,12 @@ $ sudo vi /etc/shadow
 </div>
 </div>
 
-<div id="outline-container-org74f313a" class="outline-4">
-<h4 id="org74f313a"><span class="section-number-4">2.2.8</span> SSH</h4>
+<div id="outline-container-org074a88d" class="outline-4">
+<h4 id="org074a88d"><span class="section-number-4">2.2.8</span> SSH</h4>
 <div class="outline-text-4" id="text-2-2-8">
 </div>
-<div id="outline-container-orge07e4ac" class="outline-5">
-<h5 id="orge07e4ac"><span class="section-number-5">2.2.8.1</span> パスワードレスにログインできるようにする。</h5>
+<div id="outline-container-org0896dc4" class="outline-5">
+<h5 id="org0896dc4"><span class="section-number-5">2.2.8.1</span> パスワードレスにログインできるようにする。</h5>
 <div class="outline-text-5" id="text-2-2-8-1">
 <p>
 作業用PCで以下を実行する。<br />
@@ -700,8 +700,8 @@ $ vi ~/.ssh/config
 </div>
 </div>
 
-<div id="outline-container-org0a3a26b" class="outline-5">
-<h5 id="org0a3a26b"><span class="section-number-5">2.2.8.2</span> 追加したユーザのテンポラリパスワードを削除</h5>
+<div id="outline-container-org99484f4" class="outline-5">
+<h5 id="org99484f4"><span class="section-number-5">2.2.8.2</span> 追加したユーザのテンポラリパスワードを削除</h5>
 <div class="outline-text-5" id="text-2-2-8-2">
 <pre class="example">
 $ sudo vi /etc/shadow
@@ -709,10 +709,60 @@ $ sudo vi /etc/shadow
 </div>
 </div>
 </div>
+
+<div id="outline-container-org88174a1" class="outline-4">
+<h4 id="org88174a1"><span class="section-number-4">2.2.9</span> System configuration</h4>
+<div class="outline-text-4" id="text-2-2-9">
+<ul class="org-ul">
+<li><a href="https://www.raspberrypi.org/documentation/configuration/config-txt/">https://www.raspberrypi.org/documentation/configuration/config-txt/</a><br /></li>
+<li><a href="https://elinux.org/RPI_vcgencmd_usage">https://elinux.org/RPI_vcgencmd_usage</a><br /></li>
+</ul>
+
+<pre class="example">
+$ sudo vi /boot/config.txt
+</pre>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>/boot/config.txt</label><pre class="src src-text"># See /boot/overlays/README for all available options
+
+#gpu_mem=64
+initramfs initramfs-linux.img followkernel
+
+include extraconfig.txt
+</pre>
 </div>
 
-<div id="outline-container-orgfefbd44" class="outline-3">
-<h3 id="orgfefbd44"><span class="section-number-3">2.3</span> Backup</h3>
+<ul class="org-ul">
+<li><code>gpu_mem</code> をコメントアウト<br /></li>
+<li><code>include extraconfig.txt</code> を追記<br /></li>
+</ul>
+
+<pre class="example">
+$ sudo vi /boot/extraconfig.txt
+</pre>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>/boot/extraconfig.txt</label><pre class="src src-text">gpu_mem=16
+
+dtoverlay=disable-bt
+dtoverlay=disable-wifi
+temp_limit=75
+</pre>
+</div>
+
+<p>
+設定を反映するようリブート。<br />
+</p>
+
+<pre class="example">
+$ sudo reboot
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org520de0d" class="outline-3">
+<h3 id="org520de0d"><span class="section-number-3">2.3</span> Backup</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 マイクロSDカードを作業用PCへ接続して以下を実行する。<br />
@@ -727,16 +777,16 @@ $ bzip2 cypressYYYYMMDD.img
 </div>
 </div>
 
-<div id="outline-container-orga384219" class="outline-2">
-<h2 id="orga384219"><span class="section-number-2">3</span> 外部HDD共有</h2>
+<div id="outline-container-orgb7e52a0" class="outline-2">
+<h2 id="orgb7e52a0"><span class="section-number-2">3</span> 外部HDD共有</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 ローカルネットワークでHDDを共有する。<br />
 </p>
 </div>
 
-<div id="outline-container-orgfbf21e9" class="outline-3">
-<h3 id="orgfbf21e9"><span class="section-number-3">3.1</span> <a href="https://gitlab.com/cryptsetup/cryptsetup">Cryptsetup</a></h3>
+<div id="outline-container-org7598aa9" class="outline-3">
+<h3 id="org7598aa9"><span class="section-number-3">3.1</span> <a href="https://gitlab.com/cryptsetup/cryptsetup">Cryptsetup</a></h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li><a href="https://wiki.archlinux.jp/index.php/Dm-crypt">https://wiki.archlinux.jp/index.php/Dm-crypt</a><br /></li>
@@ -744,8 +794,8 @@ $ bzip2 cypressYYYYMMDD.img
 </ul>
 </div>
 
-<div id="outline-container-org2bde1bd" class="outline-4">
-<h4 id="org2bde1bd"><span class="section-number-4">3.1.1</span> <a href="https://www.veracrypt.fr/en/Home.html">VeraCrypt</a></h4>
+<div id="outline-container-orgfe13ae6" class="outline-4">
+<h4 id="orgfe13ae6"><span class="section-number-4">3.1.1</span> <a href="https://www.veracrypt.fr/en/Home.html">VeraCrypt</a></h4>
 <div class="outline-text-4" id="text-3-1-1">
 <ul class="org-ul">
 <li><a href="https://wiki.archlinux.jp/index.php/TrueCrypt">https://wiki.archlinux.jp/index.php/TrueCrypt</a><br /></li>
@@ -806,8 +856,8 @@ $ sudo cryptsetup close vc-disk-b
 </div>
 </div>
 
-<div id="outline-container-org9f3912e" class="outline-4">
-<h4 id="org9f3912e"><span class="section-number-4">3.1.2</span> LUKS</h4>
+<div id="outline-container-org544ab4e" class="outline-4">
+<h4 id="org544ab4e"><span class="section-number-4">3.1.2</span> LUKS</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <ul class="org-ul">
 <li><a href="https://gitlab.com/cryptsetup/cryptsetup/-/wikis/FrequentlyAskedQuestions">https://gitlab.com/cryptsetup/cryptsetup/-/wikis/FrequentlyAskedQuestions</a><br /></li>
@@ -883,8 +933,8 @@ $ sudo cryptsetup luksClose luks-disk-b
 </div>
 </div>
 
-<div id="outline-container-org7be09d9" class="outline-3">
-<h3 id="org7be09d9"><span class="section-number-3">3.2</span> <a href="https://www.samba.org/">Samba</a></h3>
+<div id="outline-container-org547c042" class="outline-3">
+<h3 id="org547c042"><span class="section-number-3">3.2</span> <a href="https://www.samba.org/">Samba</a></h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li><a href="https://wiki.archlinux.jp/index.php/Samba">https://wiki.archlinux.jp/index.php/Samba</a><br /></li>
@@ -907,7 +957,7 @@ $ sudo pacman -S samba
 </pre>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 3: </span>/etc/samba/smb.conf</label><pre class="src src-text">[global]
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>/etc/samba/smb.conf</label><pre class="src src-text">[global]
   log file = /var/log/samba/%m.log
   security = user
   map to guest = bad user
@@ -942,12 +992,12 @@ $ sudo pacman -S samba
 </div>
 </div>
 
-<div id="outline-container-org21912bc" class="outline-2">
-<h2 id="org21912bc"><span class="section-number-2">4</span> <a href="https://clojure.org/">Clojure</a></h2>
+<div id="outline-container-org2d07221" class="outline-2">
+<h2 id="org2d07221"><span class="section-number-2">4</span> <a href="https://clojure.org/">Clojure</a></h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org3cd23c3" class="outline-3">
-<h3 id="org3cd23c3"><span class="section-number-3">4.1</span> Install</h3>
+<div id="outline-container-org2076a2f" class="outline-3">
+<h3 id="org2076a2f"><span class="section-number-3">4.1</span> Install</h3>
 <div class="outline-text-3" id="text-4-1">
 <pre class="example">
 $ sudo pacman -S clojure
@@ -956,12 +1006,12 @@ $ sudo pacman -S clojure
 </div>
 </div>
 
-<div id="outline-container-orgb150f05" class="outline-2">
-<h2 id="orgb150f05"><span class="section-number-2">5</span> <a href="https://www.rust-lang.org/">Rust</a></h2>
+<div id="outline-container-org0f06cfe" class="outline-2">
+<h2 id="org0f06cfe"><span class="section-number-2">5</span> <a href="https://www.rust-lang.org/">Rust</a></h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orgba2c86a" class="outline-3">
-<h3 id="orgba2c86a"><span class="section-number-3">5.1</span> Install</h3>
+<div id="outline-container-orgcdf5ab4" class="outline-3">
+<h3 id="orgcdf5ab4"><span class="section-number-3">5.1</span> Install</h3>
 <div class="outline-text-3" id="text-5-1">
 <pre class="example">
 $ sudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -972,7 +1022,7 @@ $ sudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2020-03-21 Sat 06:44</p>
+<p class="date">Created: 2020-03-21 Sat 06:59</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
