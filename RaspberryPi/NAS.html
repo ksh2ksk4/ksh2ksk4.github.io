@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-01-29 Wed 02:25 -->
+<!-- 2020-03-26 Thu 01:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>NASサーバ</title>
@@ -205,7 +205,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -258,41 +258,39 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org599364c">1. 概要</a></li>
-<li><a href="#orgc98e7cc">2. Raspbian</a></li>
-<li><a href="#org8c03e61">3. openmediavault</a>
+<li><a href="#orgdd3ba33">1. 概要</a></li>
+<li><a href="#orgba74276">2. Raspbian Buster Lite(Version: Februrary 2020)</a>
 <ul>
-<li><a href="#org58cf11c">3.1. Install</a></li>
-<li><a href="#orgb0db0cc">3.2. Settings</a></li>
-<li><a href="#orgd557261">3.3. 不要なサービスを無効化</a></li>
-<li><a href="#org10c7684">3.4. omv-extras</a></li>
-<li><a href="#org2547bc5">3.5. ToDo</a></li>
+<li><a href="#org7096dd2">2.1. Install</a></li>
+<li><a href="#org12f1fce">2.2. Settings</a></li>
+</ul>
+</li>
+<li><a href="#orgeb1ecfa">3. Backup</a></li>
+<li><a href="#orgdac681f">4. ToDo</a>
+<ul>
+<li><a href="#orgebd0878">4.1. 効率的なバックアップ</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org599364c" class="outline-2">
-<h2 id="org599364c"><span class="section-number-2">1</span> 概要</h2>
+<div id="outline-container-orgdd3ba33" class="outline-2">
+<h2 id="orgdd3ba33"><span class="section-number-2">1</span> 概要</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-<a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4</a> (Memory: 2GB)に <a href="https://www.openmediavault.org/">openmediavault</a> をインストールして構築する。<br />
+<a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4</a> (Memory: 2GB)にRaspbian Buster Liteをインストールしてヘッドレスで運用。<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgc98e7cc" class="outline-2">
-<h2 id="orgc98e7cc"><span class="section-number-2">2</span> <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a></h2>
+<div id="outline-container-orgba74276" class="outline-2">
+<h2 id="orgba74276"><span class="section-number-2">2</span> Raspbian Buster Lite(Version: Februrary 2020)</h2>
 <div class="outline-text-2" id="text-2">
-<p>
-Raspbian Buster Lite(Version: September 2019)をインストールしてヘッドレスで利用する。<br />
-</p>
 </div>
-
-<div id="outline-container-org7562c53" class="outline-4">
-<h4 id="org7562c53"><span class="section-number-4">2.0.1</span> Install</h4>
-<div class="outline-text-4" id="text-2-0-1">
+<div id="outline-container-org7096dd2" class="outline-3">
+<h3 id="org7096dd2"><span class="section-number-3">2.1</span> Install<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></h3>
+<div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li><a href="https://www.raspberrypi.org/downloads/raspbian/">ここ</a> からイメージファイルをダウンロード<br />
 <ul class="org-ul">
@@ -300,34 +298,34 @@ Raspbian Buster Lite(Version: September 2019)をインストールしてヘッ�
 ファイルハッシュをチェック<br />
 </p>
 <pre class="example">
-$ sha256sum 2019-09-26-raspbian-buster-lite.zip
-a50237c2f718bd8d806b96df5b9d2174ce8b789eda1f03434ed2213bbca6c6ff  2019-09-26-raspbian-buster-lite.zip
+$ sha256sum 2020-02-13-raspbian-buster-lite.zip
+12ae6e17bf95b6ba83beca61e7394e7411b45eba7e6a520f434b0748ea7370e8  2020-02-13-raspbian-buster-lite.zip
 </pre></li>
 </ul></li>
 <li><a href="https://www.balena.io/etcher/">balenaEtcher</a> でイメージファイルをマイクロSDカードへ書き込む<br />
 <ul class="org-ul">
 <li>zipファイルを伸長する必要はない<br /></li>
 </ul></li>
-<li>マイクロSDカードの <code>/boot</code> に <code>ssh</code> という空のファイルを作成<br />
+<li><b>マイクロSDカードの <code>/boot</code> に <code>ssh</code> という空のファイルを作成</b><br />
 <ul class="org-ul">
-<li>このファイルがあるとSSHDが起動する<br /></li>
+<li><b>このファイルがあるとSSHDが起動する</b><br /></li>
 </ul></li>
 <li>作成したマイクロSDカードでRPiを起動<br /></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgbfdde59" class="outline-4">
-<h4 id="orgbfdde59"><span class="section-number-4">2.0.2</span> Settings</h4>
-<div class="outline-text-4" id="text-2-0-2">
+<div id="outline-container-org12f1fce" class="outline-3">
+<h3 id="org12f1fce"><span class="section-number-3">2.2</span> Settings</h3>
+<div class="outline-text-3" id="text-2-2">
 <p>
-ユーザ <code>pi</code> でssh<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>してログインする。<br />
+ユーザ <code>pi</code> でssh<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>してログイン。<br />
 </p>
 </div>
 
-<div id="outline-container-org4ad1406" class="outline-5">
-<h5 id="org4ad1406"><span class="section-number-5">2.0.2.1</span> raspi-config</h5>
-<div class="outline-text-5" id="text-2-0-2-1">
+<div id="outline-container-org91f9635" class="outline-4">
+<h4 id="org91f9635"><span class="section-number-4">2.2.1</span> raspi-config</h4>
+<div class="outline-text-4" id="text-2-2-1">
 <pre class="example">
 $ sudo raspi-config nonint do_expand_rootfs
 $ sudo raspi-config nonint do_hostname acacia
@@ -339,9 +337,9 @@ $ sudo reboot
 </div>
 </div>
 
-<div id="outline-container-org3abb78a" class="outline-5">
-<h5 id="org3abb78a"><span class="section-number-5">2.0.2.2</span> apt</h5>
-<div class="outline-text-5" id="text-2-0-2-2">
+<div id="outline-container-org344be71" class="outline-4">
+<h4 id="org344be71"><span class="section-number-4">2.2.2</span> apt</h4>
+<div class="outline-text-4" id="text-2-2-2">
 <pre class="example">
 $ sudo apt update
 $ sudo apt upgrade
@@ -350,11 +348,11 @@ $ sudo reboot
 </div>
 </div>
 
-<div id="outline-container-org213b923" class="outline-5">
-<h5 id="org213b923"><span class="section-number-5">2.0.2.3</span> DHCP</h5>
-<div class="outline-text-5" id="text-2-0-2-3">
+<div id="outline-container-orgc90a2b2" class="outline-4">
+<h4 id="orgc90a2b2"><span class="section-number-4">2.2.3</span> DHCP</h4>
+<div class="outline-text-4" id="text-2-2-3">
 <p>
-ネットワーク設定はDHCPを利用するが、IPアドレスを固定するようルータ(YAMAHA NVR510)を設定する。<br />
+ネットワーク設定はDHCPを利用するが、IPアドレスを固定するようルータ(YAMAHA NVR510)を設定。<br />
 </p>
 
 <pre class="example">
@@ -368,38 +366,28 @@ ip host acacia.home 192.168.126.10
 </div>
 </div>
 
-<div id="outline-container-org6099909" class="outline-5">
-<h5 id="org6099909"><span class="section-number-5">2.0.2.4</span> SSH</h5>
-<div class="outline-text-5" id="text-2-0-2-4">
+<div id="outline-container-orgd1a7d42" class="outline-4">
+<h4 id="orgd1a7d42"><span class="section-number-4">2.2.4</span> SSH</h4>
+<div class="outline-text-4" id="text-2-2-4">
 </div>
-<div id="outline-container-orgc3908ad" class="outline-6">
-<h6 id="orgc3908ad"><span class="section-number-6">2.0.2.4.1</span> <code>ssh</code> グループへの追加</h6>
-<div class="outline-text-6" id="text-2-0-2-4-1">
+<div id="outline-container-orgd9580ee" class="outline-5">
+<h5 id="orgd9580ee"><span class="section-number-5">2.2.4.1</span> <code>ssh</code> グループへの追加</h5>
+<div class="outline-text-5" id="text-2-2-4-1">
 <p>
-<del>OMVをインストールするとユーザ <code>pi</code> でログインできなくなる。</del><br />
-<del>(インストール後はOMVがSSHを管理するようになり、 <code>ssh</code> グループに属していないユーザのログインを許可していない模様)</del><br />
-</p>
-
-<p>
-<del>OMVインストール後もユーザ <code>pi</code> でログインできるよう、予め以下を実行しておく。</del><br />
 念のため以下を実行しておく。<br />
 </p>
 
 <pre class="example">
 $ sudo usermod -a -G ssh pi
 </pre>
-
-<p>
-<del>これを実行せずOMVをインストールした場合、OMVの管理ページでユーザ <code>pi</code> を <code>ssh</code> グループに追加する。</del><br />
-</p>
 </div>
 </div>
 
-<div id="outline-container-orgac9cd48" class="outline-6">
-<h6 id="orgac9cd48"><span class="section-number-6">2.0.2.4.2</span> パスワードレスでログイン</h6>
-<div class="outline-text-6" id="text-2-0-2-4-2">
+<div id="outline-container-orge38f6dd" class="outline-5">
+<h5 id="orge38f6dd"><span class="section-number-5">2.2.4.2</span> パスワードレスでログイン</h5>
+<div class="outline-text-5" id="text-2-2-4-2">
 <p>
-作業用PCで以下を実行する。<br />
+作業用PCで以下を実行。<br />
 </p>
 
 <pre class="example">
@@ -433,32 +421,42 @@ $ ssh acacia.home
 </div>
 </div>
 
-<div id="outline-container-orgd6a08af" class="outline-6">
-<h6 id="orgd6a08af"><span class="section-number-6">2.0.2.4.3</span> パスワードログインを不許可</h6>
-<div class="outline-text-6" id="text-2-0-2-4-3">
+<div id="outline-container-orgffe467a" class="outline-5">
+<h5 id="orgffe467a"><span class="section-number-5">2.2.4.3</span> パスワードログインを禁止</h5>
+<div class="outline-text-5" id="text-2-2-4-3">
 <pre class="example">
 $ sudo vi /etc/ssh/ssh_config
-$ sudo systemctl restart ssh
 </pre>
 
 <p>
-<code>ssh_config</code> の変更内容はBookmarksを参照。<br />
+以下を追記。<br />
 </p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>/etc/ssh/ssh_config</label><pre class="src src-text">PasswordAuthentication no
+ChallengeResponseAuthentication no
+UsePAM no
+</pre>
+</div>
+
+<pre class="example">
+$ sudo systemctl restart ssh
+</pre>
 </div>
 </div>
 
-<div id="outline-container-orgd367d49" class="outline-6">
-<h6 id="orgd367d49"><span class="section-number-6">2.0.2.4.4</span> ユーザ <code>pi</code> のパスワードを破棄</h6>
-<div class="outline-text-6" id="text-2-0-2-4-4">
+<div id="outline-container-org9e7aa1b" class="outline-5">
+<h5 id="org9e7aa1b"><span class="section-number-5">2.2.4.4</span> ユーザ <code>pi</code> のパスワードを破棄</h5>
+<div class="outline-text-5" id="text-2-2-4-4">
 <pre class="example">
 $ sudo passwd -d pi
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org3fd6c13" class="outline-6">
-<h6 id="org3fd6c13"><span class="section-number-6">2.0.2.4.5</span> Bookmarks</h6>
-<div class="outline-text-6" id="text-2-0-2-4-5">
+<div id="outline-container-org7596e35" class="outline-5">
+<h5 id="org7596e35"><span class="section-number-5">2.2.4.5</span> Bookmarks</h5>
+<div class="outline-text-5" id="text-2-2-4-5">
 <ul class="org-ul">
 <li><a href="https://linuxize.com/post/how-to-setup-passwordless-ssh-login/">How to Setup Passwordless SSH Login</a><br /></li>
 <li><a href="https://www.ssh.com/ssh/keygen">ssh-keygen - Generate a New SSH Key</a><br /></li>
@@ -467,9 +465,9 @@ $ sudo passwd -d pi
 </div>
 </div>
 
-<div id="outline-container-org3139157" class="outline-5">
-<h5 id="org3139157"><span class="section-number-5">2.0.2.5</span> ログインメッセージ</h5>
-<div class="outline-text-5" id="text-2-0-2-5">
+<div id="outline-container-org8c3d13d" class="outline-4">
+<h4 id="org8c3d13d"><span class="section-number-4">2.2.5</span> ログインメッセージ</h4>
+<div class="outline-text-4" id="text-2-2-5">
 <p>
 これも鬱陶しいので消しておく。<br />
 </p>
@@ -480,9 +478,9 @@ $ sudo vi /etc/motd
 </div>
 </div>
 
-<div id="outline-container-orgc71fb7a" class="outline-5">
-<h5 id="orgc71fb7a"><span class="section-number-5">2.0.2.6</span> Swap</h5>
-<div class="outline-text-5" id="text-2-0-2-6">
+<div id="outline-container-org6e21517" class="outline-4">
+<h4 id="org6e21517"><span class="section-number-4">2.2.6</span> Swap</h4>
+<div class="outline-text-4" id="text-2-2-6">
 <p>
 スワップは利用しない。<br />
 </p>
@@ -502,9 +500,9 @@ $ sudo systemctl status dphys-swapfile
 </div>
 </div>
 
-<div id="outline-container-org2190197" class="outline-5">
-<h5 id="org2190197"><span class="section-number-5">2.0.2.7</span> Avahi</h5>
-<div class="outline-text-5" id="text-2-0-2-7">
+<div id="outline-container-org3723741" class="outline-4">
+<h4 id="org3723741"><span class="section-number-4">2.2.7</span> Avahi</h4>
+<div class="outline-text-4" id="text-2-2-7">
 <p>
 不要なので無効化。<br />
 </p>
@@ -518,25 +516,24 @@ $ sudo systemctl status avahi-daemon
 </div>
 </div>
 
-<div id="outline-container-org919235e" class="outline-5">
-<h5 id="org919235e"><span class="section-number-5">2.0.2.8</span> /boot/config.txt</h5>
-<div class="outline-text-5" id="text-2-0-2-8">
+<div id="outline-container-orge259e93" class="outline-4">
+<h4 id="orge259e93"><span class="section-number-4">2.2.8</span> /boot/config.txt</h4>
+<div class="outline-text-4" id="text-2-2-8">
 <p>
 以下を追記。<br />
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 2: </span>/boot/config.txt</label><pre class="src src-text">include extraconfig.txt
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>/boot/config.txt</label><pre class="src src-text">include extraconfig.txt
 </pre>
 </div>
 
 <pre class="example">
-$ sudo touch /boot/extraconfig.txt
+$ sudo vi /boot/extraconfig.txt
 </pre>
 
 <p>
-追加設定は <code>/boot/extraconfig.txt</code> に記述する。<br />
-設定変更後はリブート。<br />
+追加設定を <code>/boot/extraconfig.txt</code> に記述してからリブート。<br />
 </p>
 
 <p>
@@ -544,66 +541,66 @@ $ sudo touch /boot/extraconfig.txt
 </p>
 </div>
 
-<div id="outline-container-org62744bd" class="outline-6">
-<h6 id="org62744bd"><span class="section-number-6">2.0.2.8.1</span> GPU memory</h6>
-<div class="outline-text-6" id="text-2-0-2-8-1">
+<div id="outline-container-org3012afd" class="outline-5">
+<h5 id="org3012afd"><span class="section-number-5">2.2.8.1</span> GPU memory</h5>
+<div class="outline-text-5" id="text-2-2-8-1">
 <p>
 GPUに割り当てるメモリを最小限(16MB)にしておく。<br />
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 3: </span>/boot/extraconfig.txt</label><pre class="src src-text">gpu_mem=16
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>/boot/extraconfig.txt</label><pre class="src src-text">gpu_mem=16
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org9b9a5e2" class="outline-6">
-<h6 id="org9b9a5e2"><span class="section-number-6">2.0.2.8.2</span> Buletooth</h6>
-<div class="outline-text-6" id="text-2-0-2-8-2">
+<div id="outline-container-org3c22023" class="outline-5">
+<h5 id="org3c22023"><span class="section-number-5">2.2.8.2</span> Buletooth</h5>
+<div class="outline-text-5" id="text-2-2-8-2">
 <p>
 利用しないので無効化。<br />
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 4: </span>/boot/config.txt</label><pre class="src src-text">dtoverlay=disable-bt
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>/boot/extraconfig.txt</label><pre class="src src-text">dtoverlay=disable-bt
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org76aee66" class="outline-6">
-<h6 id="org76aee66"><span class="section-number-6">2.0.2.8.3</span> Wifi</h6>
-<div class="outline-text-6" id="text-2-0-2-8-3">
+<div id="outline-container-org2bcd4af" class="outline-5">
+<h5 id="org2bcd4af"><span class="section-number-5">2.2.8.3</span> Wifi</h5>
+<div class="outline-text-5" id="text-2-2-8-3">
 <p>
 利用しないので無効化。<br />
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 5: </span>/boot/extraconfig.txt</label><pre class="src src-text">dtoverlay=disable-wifi
+<label class="org-src-name"><span class="listing-number">Listing 6: </span>/boot/extraconfig.txt</label><pre class="src src-text">dtoverlay=disable-wifi
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org86d128f" class="outline-6">
-<h6 id="org86d128f"><span class="section-number-6">2.0.2.8.4</span> Overheat protection</h6>
-<div class="outline-text-6" id="text-2-0-2-8-4">
+<div id="outline-container-orgfbe720d" class="outline-5">
+<h5 id="orgfbe720d"><span class="section-number-5">2.2.8.4</span> Overheat protection</h5>
+<div class="outline-text-5" id="text-2-2-8-4">
 <p>
 SoCの温度が75℃を超えないようにする。<br />
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 6: </span>/boot/extraconfig.txt</label><pre class="src src-text">temp_limit=75
+<label class="org-src-name"><span class="listing-number">Listing 7: </span>/boot/extraconfig.txt</label><pre class="src src-text">temp_limit=75
 </pre>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org6687b3d" class="outline-5">
-<h5 id="org6687b3d"><span class="section-number-5">2.0.2.9</span> vcgencmd</h5>
-<div class="outline-text-5" id="text-2-0-2-9">
+<div id="outline-container-org9d0ead9" class="outline-4">
+<h4 id="org9d0ead9"><span class="section-number-4">2.2.9</span> vcgencmd</h4>
+<div class="outline-text-4" id="text-2-2-9">
 <p>
 ディスプレイ出力をOffにする。<br />
 </p>
@@ -618,12 +615,10 @@ $ vcgencmd display_power 0
 </div>
 </div>
 
-<div id="outline-container-orgd55218f" class="outline-5">
-<h5 id="orgd55218f"><span class="section-number-5">2.0.2.10</span> NTP</h5>
-<div class="outline-text-5" id="text-2-0-2-10">
+<div id="outline-container-orga2a8906" class="outline-4">
+<h4 id="orga2a8906"><span class="section-number-4">2.2.10</span> NTP</h4>
+<div class="outline-text-4" id="text-2-2-10">
 <p>
-<del>別途対応。</del><br />
-<del>(OMVインストール後、OMV管理下でChronyが稼動するため)</del><br />
 <code>systemd-timesyncd</code> で時刻同期するようになっているはず。<br />
 </p>
 
@@ -632,7 +627,8 @@ $ sudo systemctl status systemd-timesyncd
 </pre>
 
 <p>
-サービスが起動しているか、ブート時にサービスが起動するようになっているか確認する。<br />
+サービスが起動しているか、ブート時にサービスが起動するようになっているか確認。<br />
+(<code>NTP service</code> が <code>active</code> になっているか)<br />
 </p>
 
 <pre class="example">
@@ -647,10 +643,6 @@ System clock synchronized: yes
 </pre>
 
 <p>
-<code>NTP service</code> が <code>active</code> になっているか確認する。<br />
-</p>
-
-<p>
 設定変更。<br />
 </p>
 
@@ -659,7 +651,7 @@ $ sudo vi /etc/systemd/timesyncd.conf
 </pre>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 7: </span>/etc/systemd/timesyncd.conf</label><pre class="src src-text">NTP=ntp.jst.mfeed.ad.jp
+<label class="org-src-name"><span class="listing-number">Listing 8: </span>/etc/systemd/timesyncd.conf</label><pre class="src src-text">NTP=ntp.jst.mfeed.ad.jp
 FallbackNTP=ntp.nict.jp
 </pre>
 </div>
@@ -670,9 +662,9 @@ $ sudo systemctl restart systemd-timesyncd
 </div>
 </div>
 
-<div id="outline-container-org2f73ff3" class="outline-5">
-<h5 id="org2f73ff3"><span class="section-number-5">2.0.2.11</span> fish</h5>
-<div class="outline-text-5" id="text-2-0-2-11">
+<div id="outline-container-orgf7aca06" class="outline-4">
+<h4 id="orgf7aca06"><span class="section-number-4">2.2.11</span> fish</h4>
+<div class="outline-text-4" id="text-2-2-11">
 <pre class="example">
 $ sudo apt install fish
 $ sudo chsh -s /usr/bin/fish pi
@@ -697,10 +689,11 @@ $ sudo chsh -s /usr/bin/fish
 </div>
 </div>
 </div>
+</div>
 
-<div id="outline-container-orgb48cb42" class="outline-4">
-<h4 id="orgb48cb42"><span class="section-number-4">2.0.3</span> Backup</h4>
-<div class="outline-text-4" id="text-2-0-3">
+<div id="outline-container-orgeb1ecfa" class="outline-2">
+<h2 id="orgeb1ecfa"><span class="section-number-2">3</span> Backup</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 マイクロSDカードを作業用PCへ接続して以下を実行する。<br />
 (デバイスは環境によって異なる)<br />
@@ -712,406 +705,14 @@ $ bzip2 acaciaYYYYMMDD.img
 </pre>
 </div>
 </div>
-</div>
 
-<div id="outline-container-org8c03e61" class="outline-2">
-<h2 id="org8c03e61"><span class="section-number-2">3</span> <a href="https://www.openmediavault.org/">openmediavault</a></h2>
-<div class="outline-text-2" id="text-3">
-<div class="attention">
-<p>
-<b>openmediavaultは挙動が怪しいので利用を中止した。</b><br />
-<b>(以下は記録として残しておくだけ)</b><br />
-</p>
-
-</div>
-</div>
-
-<div id="outline-container-org58cf11c" class="outline-3">
-<h3 id="org58cf11c"><span class="section-number-3">3.1</span> Install</h3>
-<div class="outline-text-3" id="text-3-1">
-<p>
-<a href="https://github.com/OpenMediaVault-Plugin-Developers/docs">ここ</a> にある <a href="https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Adden-A-Installing_OMV5_on_Armbian.pdf">このドキュメント</a> を参照。<br />
-こんな感じ。<br />
-</p>
-
-<pre class="example">
-$ wget -O - https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install | sudo bash
-$ sudo reboot
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgb0db0cc" class="outline-3">
-<h3 id="orgb0db0cc"><span class="section-number-3">3.2</span> Settings</h3>
-<div class="outline-text-3" id="text-3-2">
-</div>
-<div id="outline-container-org5d99243" class="outline-4">
-<h4 id="org5d99243"><span class="section-number-4">3.2.1</span> システム</h4>
-<div class="outline-text-4" id="text-3-2-1">
-</div>
-<div id="outline-container-org48fcd70" class="outline-5">
-<h5 id="org48fcd70"><span class="section-number-5">3.2.1.1</span> 一般設定</h5>
-<div class="outline-text-5" id="text-3-2-1-1">
-</div>
-<div id="outline-container-orga3e2f50" class="outline-6">
-<h6 id="orga3e2f50"><span class="section-number-6">3.2.1.1.1</span> Web管理</h6>
-<div class="outline-text-6" id="text-3-2-1-1-1">
-<ul class="org-ul">
-<li>一般設定<br />
-<ul class="org-ul">
-<li>自動的にログアウト<br />
-<ul class="org-ul">
-<li><code>無効</code> へ変更<br /></li>
-</ul></li>
-</ul></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org8934bd9" class="outline-6">
-<h6 id="org8934bd9"><span class="section-number-6">3.2.1.1.2</span> Web管理者パスワード</h6>
-<div class="outline-text-6" id="text-3-2-1-1-2">
-<p>
-任意のパスワードへ変更。<br />
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org6b28cbe" class="outline-5">
-<h5 id="org6b28cbe"><span class="section-number-5">3.2.1.2</span> 日付と時刻</h5>
-<div class="outline-text-5" id="text-3-2-1-2">
-<ul class="org-ul">
-<li>設定<br />
-<ul class="org-ul">
-<li>時刻サーバ<br />
-<ul class="org-ul">
-<li><code>ntp.jst.mfeed.ad.jp</code> へ変更<br /></li>
-</ul></li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgd7a28f5" class="outline-4">
-<h4 id="orgd7a28f5"><span class="section-number-4">3.2.2</span> ストレージ</h4>
-<div class="outline-text-4" id="text-3-2-2">
-</div>
-<div id="outline-container-org8e92b52" class="outline-5">
-<h5 id="org8e92b52"><span class="section-number-5">3.2.2.1</span> ディスク</h5>
-<div class="outline-text-5" id="text-3-2-2-1">
-</div>
-<div id="outline-container-orgfdff87a" class="outline-6">
-<h6 id="orgfdff87a"><span class="section-number-6">3.2.2.1.1</span> 編集</h6>
-<div class="outline-text-6" id="text-3-2-2-1-1">
-<p>
-対象のディスクを選択して <code>編集</code> ボタンをクリック。<br />
-</p>
-
-<ul class="org-ul">
-<li>高度な電源管理(APM)<br />
-<ul class="org-ul">
-<li><code>1 - スタンバイ(スピンダウン)を使った最小の消費電力</code><br /></li>
-</ul></li>
-<li>スピンダウンタイム<br />
-<ul class="org-ul">
-<li><code>10分</code><br /></li>
-</ul></li>
-<li>ライトキャッシュ<br />
-<ul class="org-ul">
-<li>On<br /></li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org45822b1" class="outline-5">
-<h5 id="org45822b1"><span class="section-number-5">3.2.2.2</span> ファイルシステム</h5>
-<div class="outline-text-5" id="text-3-2-2-2">
-</div>
-<div id="outline-container-orgb472e8a" class="outline-6">
-<h6 id="orgb472e8a"><span class="section-number-6">3.2.2.2.1</span> 作成</h6>
-<div class="outline-text-6" id="text-3-2-2-2-1">
-<ul class="org-ul">
-<li>デバイス<br />
-<ul class="org-ul">
-<li>対象のデバイスを選択<br /></li>
-</ul></li>
-<li>ファイルシステム<br />
-<ul class="org-ul">
-<li><code>EXT4</code><br /></li>
-</ul></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org6a20a96" class="outline-6">
-<h6 id="org6a20a96"><span class="section-number-6">3.2.2.2.2</span> マウント</h6>
-<div class="outline-text-6" id="text-3-2-2-2-2">
-<p>
-作成したファイルシステムを選択して <code>マウント</code> ボタンをクリック。<br />
-</p>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgc54295d" class="outline-4">
-<h4 id="orgc54295d"><span class="section-number-4">3.2.3</span> アクセス権の管理</h4>
-<div class="outline-text-4" id="text-3-2-3">
-</div>
-<div id="outline-container-orgc014cd7" class="outline-5">
-<h5 id="orgc014cd7"><span class="section-number-5">3.2.3.1</span> ユーザー</h5>
-<div class="outline-text-5" id="text-3-2-3-1">
-</div>
-<div id="outline-container-org3449714" class="outline-6">
-<h6 id="org3449714"><span class="section-number-6">3.2.3.1.1</span> ユーザー</h6>
-<div class="outline-text-6" id="text-3-2-3-1-1">
-</div>
-<div id="outline-container-org6468338" class="outline-7">
-<h7 id="org6468338"><span class="section-number-7">3.2.3.1.1.1</span> 追加</h7>
-<div class="outline-text-7" id="text-3-2-3-1-1-1">
-<ul class="org-ul">
-<li>一般<br />
-<ul class="org-ul">
-<li>名前<br />
-<ul class="org-ul">
-<li><code>samba</code><br /></li>
-</ul></li>
-<li>パスワード<br />
-<ul class="org-ul">
-<li>任意のパスワード<br /></li>
-</ul></li>
-<li>シェル<br />
-<ul class="org-ul">
-<li><code>/usr/sbin/nologin</code><br /></li>
-</ul></li>
-</ul></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org2ec035f" class="outline-7">
-<h7 id="org2ec035f"><span class="section-number-7">3.2.3.1.1.2</span> 特権</h7>
-<div class="outline-text-7" id="text-3-2-3-1-1-2">
-<p>
-ユーザ <code>samba</code> を選択してからクリック。<br />
-<code>共有フォルダ</code> で追加した共有フォルダにread/write権限を付与。<br />
-</p>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org5fee2a9" class="outline-5">
-<h5 id="org5fee2a9"><span class="section-number-5">3.2.3.2</span> 共有フォルダ</h5>
-<div class="outline-text-5" id="text-3-2-3-2">
-</div>
-<div id="outline-container-org2c7c1c9" class="outline-6">
-<h6 id="org2c7c1c9"><span class="section-number-6">3.2.3.2.1</span> 追加</h6>
-<div class="outline-text-6" id="text-3-2-3-2-1">
-<ul class="org-ul">
-<li>名前<br />
-<ul class="org-ul">
-<li>任意の名称<br /></li>
-</ul></li>
-<li>デバイス<br />
-<ul class="org-ul">
-<li>対象のデバイスを選択<br /></li>
-</ul></li>
-<li>パス<br />
-<ul class="org-ul">
-<li>任意のパス<br /></li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orge68457e" class="outline-4">
-<h4 id="orge68457e"><span class="section-number-4">3.2.4</span> サービス</h4>
-<div class="outline-text-4" id="text-3-2-4">
-</div>
-<div id="outline-container-orgbee9c44" class="outline-5">
-<h5 id="orgbee9c44"><span class="section-number-5">3.2.4.1</span> SMB/CIFS</h5>
-<div class="outline-text-5" id="text-3-2-4-1">
-</div>
-<div id="outline-container-org78657e5" class="outline-6">
-<h6 id="org78657e5"><span class="section-number-6">3.2.4.1.1</span> 設定</h6>
-<div class="outline-text-6" id="text-3-2-4-1-1">
-<ul class="org-ul">
-<li>一般設定<br />
-<ul class="org-ul">
-<li>有効<br />
-<ul class="org-ul">
-<li>On<br /></li>
-</ul></li>
-</ul></li>
-<li>高度な設定<br />
-<ul class="org-ul">
-<li>追加オプション<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup><br />
-<ul class="org-ul">
-<li><code>veto files = /._*/</code><br /></li>
-<li><code>delete veto files = yes</code><br /></li>
-</ul></li>
-</ul></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org093f1b7" class="outline-6">
-<h6 id="org093f1b7"><span class="section-number-6">3.2.4.1.2</span> 共有</h6>
-<div class="outline-text-6" id="text-3-2-4-1-2">
-</div>
-<div id="outline-container-orgc0494ef" class="outline-7">
-<h7 id="orgc0494ef"><span class="section-number-7">3.2.4.1.2.1</span> 追加</h7>
-<div class="outline-text-7" id="text-3-2-4-1-2-1">
-<ul class="org-ul">
-<li>共有フォルダ<br />
-<ul class="org-ul">
-<li><code>アクセス権の管理</code> で作成した共有フォルダを選択<br /></li>
-</ul></li>
-<li>ドットで始まるファイルを隠す<br />
-<ul class="org-ul">
-<li>Off<br /></li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org6a5b608" class="outline-5">
-<h5 id="org6a5b608"><span class="section-number-5">3.2.4.2</span> SSH</h5>
-<div class="outline-text-5" id="text-3-2-4-2">
-<ul class="org-ul">
-<li>rootアカウントでのログインの許可<br />
-<ul class="org-ul">
-<li>Off<br /></li>
-</ul></li>
-<li>パスワード認証<br />
-<ul class="org-ul">
-<li>Off<br /></li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgd557261" class="outline-3">
-<h3 id="orgd557261"><span class="section-number-3">3.3</span> 不要なサービスを無効化</h3>
-<div class="outline-text-3" id="text-3-3">
-</div>
-<div id="outline-container-org40c40a3" class="outline-4">
-<h4 id="org40c40a3"><span class="section-number-4">3.3.1</span> FTP</h4>
-<div class="outline-text-4" id="text-3-3-1">
-<pre class="example">
-$ sudo systemctl status proftpd
-$ sudo systemctl stop proftpd
-$ sudo systemctl disable proftpd
-$ sudo systemctl status proftpd
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org14ef50d" class="outline-4">
-<h4 id="org14ef50d"><span class="section-number-4">3.3.2</span> NFS</h4>
-<div class="outline-text-4" id="text-3-3-2">
-<pre class="example">
-$ sudo systemctl status nfs-kernel-server
-$ sudo systemctl stop nfs-kernel-server
-$ sudo systemctl disable nfs-kernel-server
-$ sudo systemctl status nfs-kernel-server
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org10c7684" class="outline-3">
-<h3 id="org10c7684"><span class="section-number-3">3.4</span> omv-extras</h3>
-<div class="outline-text-3" id="text-3-4">
-</div>
-<div id="outline-container-orga561472" class="outline-4">
-<h4 id="orga561472"><span class="section-number-4">3.4.1</span> Install</h4>
-<div class="outline-text-4" id="text-3-4-1">
-<p>
-<a href="http://www.omv-extras.org/">ここ</a> を参照。<br />
-こんな感じ。<br />
-</p>
-
-<pre class="example">
-$ wget -O - https://github.com/OpenMediaVault-Plugin-Developers/packages/raw/master/install |sudo bash
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgb1a5796" class="outline-4">
-<h4 id="orgb1a5796"><span class="section-number-4">3.4.2</span> ディスク暗号化</h4>
-<div class="outline-text-4" id="text-3-4-2">
-</div>
-<div id="outline-container-org2a3945d" class="outline-5">
-<h5 id="org2a3945d"><span class="section-number-5">3.4.2.1</span> Install</h5>
-<div class="outline-text-5" id="text-3-4-2-1">
-<p>
-<code>システム</code> -&gt; <code>プラグイン</code> で <code>openmediavault-luksencryption</code> を選択してインストールする。<br />
-</p>
-</div>
-</div>
-
-<div id="outline-container-org425a898" class="outline-5">
-<h5 id="org425a898"><span class="section-number-5">3.4.2.2</span> Settings</h5>
-<div class="outline-text-5" id="text-3-4-2-2">
-</div>
-<div id="outline-container-orgef64353" class="outline-6">
-<h6 id="orgef64353"><span class="section-number-6">3.4.2.2.1</span> <code>ストレージ</code> -&gt; <code>暗号化</code> -&gt; <code>作成</code></h6>
-<div class="outline-text-6" id="text-3-4-2-2-1">
-<ul class="org-ul">
-<li>デバイス<br />
-<ul class="org-ul">
-<li>対象のデバイスを選択<br /></li>
-</ul></li>
-<li>パスフレーズ<br />
-<ul class="org-ul">
-<li>任意のパスフレーズ<br /></li>
-</ul></li>
-</ul>
-
-<p>
-暗号化したデバイスはアンロックしてから操作する。<br />
-(自動的にアンロックする機能は今のところないらしい)<br />
-</p>
-
-<p>
-サーバを再起動した場合、デバイスをアンロックしてから共有フォルダをマウントする。<br />
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgc484dde" class="outline-5">
-<h5 id="orgc484dde"><span class="section-number-5">3.4.2.3</span> Bookmarks</h5>
-<div class="outline-text-5" id="text-3-4-2-3">
-<ul class="org-ul">
-<li><a href="https://github.com/OpenMediaVault-Plugin-Developers/openmediavault-luksencryption">https://github.com/OpenMediaVault-Plugin-Developers/openmediavault-luksencryption</a><br /></li>
-<li><a href="https://forum.openmediavault.org/index.php/Thread/11592-LUKS-disk-encryption-plugin/">https://forum.openmediavault.org/index.php/Thread/11592-LUKS-disk-encryption-plugin/</a><br /></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org2547bc5" class="outline-3">
-<h3 id="org2547bc5"><span class="section-number-3">3.5</span> ToDo</h3>
-<div class="outline-text-3" id="text-3-5">
-</div>
-<div id="outline-container-org5e21a55" class="outline-4">
-<h4 id="org5e21a55"><span class="section-number-4">3.5.1</span> バックアップ</h4>
-<div class="outline-text-4" id="text-3-5-1">
-</div>
+<div id="outline-container-orgdac681f" class="outline-2">
+<h2 id="orgdac681f"><span class="section-number-2">4</span> ToDo</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgebd0878" class="outline-3">
+<h3 id="orgebd0878"><span class="section-number-3">4.1</span> 効率的なバックアップ</h3>
+<div class="outline-text-3" id="text-4-1">
 </div>
 </div>
 </div>
@@ -1120,11 +721,11 @@ $ wget -O - https://github.com/OpenMediaVault-Plugin-Developers/packages/raw/mas
 <div id="text-footnotes">
 
 <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
-初期パスワードは <code>raspberry</code> 。<br />
+<a href="https://www.raspberrypi.org/downloads/">Raspberry Pi Imager</a> であればイメージファイルをダウンロードする必要はない。<br />
 </p></div></div>
 
 <div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
-HFS+の拡張属性ファイルを削除するため。<br />
+初期パスワードは <code>raspberry</code> 。<br />
 </p></div></div>
 
 
@@ -1132,7 +733,7 @@ HFS+の拡張属性ファイルを削除するため。<br />
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2020-01-29 Wed 02:25</p>
+<p class="date">Created: 2020-03-26 Thu 01:46</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
