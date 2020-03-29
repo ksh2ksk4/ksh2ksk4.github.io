@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-03-26 木 04:35 -->
+<!-- 2020-03-29 日 19:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>NASサーバ</title>
@@ -258,32 +258,32 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org5d23125">1. 概要</a></li>
-<li><a href="#org54b163c">2. Raspbian Buster Lite(Version: Februrary 2020)</a>
+<li><a href="#orgb7d52f4">1. 概要</a></li>
+<li><a href="#org4032499">2. Raspbian Buster Lite(Version: Februrary 2020)</a>
 <ul>
-<li><a href="#orgf32feab">2.1. Install</a></li>
-<li><a href="#org144f127">2.2. Settings</a></li>
+<li><a href="#org6f58f89">2.1. Install</a></li>
+<li><a href="#org28a4103">2.2. Settings</a></li>
 </ul>
 </li>
-<li><a href="#org56b1551">3. Backup</a></li>
-<li><a href="#org565c4a8">4. 外部HDD共有</a>
+<li><a href="#org72ebb86">3. Backup</a></li>
+<li><a href="#org73029fb">4. 外部HDD共有</a>
 <ul>
-<li><a href="#org60163d9">4.1. Cryptsetup</a></li>
-<li><a href="#org7cb7587">4.2. Samba</a></li>
-<li><a href="#org64fb635">4.3. HDDのスピンダウン</a></li>
+<li><a href="#org8745a19">4.1. Cryptsetup</a></li>
+<li><a href="#orgc9ccf8c">4.2. Samba</a></li>
+<li><a href="#orgb1e8e20">4.3. HDDのスピンダウン</a></li>
 </ul>
 </li>
-<li><a href="#orgd013d31">5. ToDo</a>
+<li><a href="#orgf2b54de">5. ToDo</a>
 <ul>
-<li><a href="#org3e5ca96">5.1. 効率的なバックアップ</a></li>
+<li><a href="#org9e4d054">5.1. 効率的なバックアップ</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5d23125" class="outline-2">
-<h2 id="org5d23125"><span class="section-number-2">1</span> 概要</h2>
+<div id="outline-container-orgb7d52f4" class="outline-2">
+<h2 id="orgb7d52f4"><span class="section-number-2">1</span> 概要</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4</a> (Memory: 2GB)にRaspbian Buster Liteをインストールしてヘッドレスで運用。<br />
@@ -291,12 +291,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org54b163c" class="outline-2">
-<h2 id="org54b163c"><span class="section-number-2">2</span> Raspbian Buster Lite(Version: Februrary 2020)</h2>
+<div id="outline-container-org4032499" class="outline-2">
+<h2 id="org4032499"><span class="section-number-2">2</span> Raspbian Buster Lite(Version: Februrary 2020)</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgf32feab" class="outline-3">
-<h3 id="orgf32feab"><span class="section-number-3">2.1</span> Install<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></h3>
+<div id="outline-container-org6f58f89" class="outline-3">
+<h3 id="org6f58f89"><span class="section-number-3">2.1</span> Install<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li><a href="https://www.raspberrypi.org/downloads/raspbian/">ここ</a> からイメージファイルをダウンロード<br />
@@ -322,16 +322,16 @@ $ sha256sum 2020-02-13-raspbian-buster-lite.zip
 </div>
 </div>
 
-<div id="outline-container-org144f127" class="outline-3">
-<h3 id="org144f127"><span class="section-number-3">2.2</span> Settings</h3>
+<div id="outline-container-org28a4103" class="outline-3">
+<h3 id="org28a4103"><span class="section-number-3">2.2</span> Settings</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 ユーザ <code>pi</code> でssh<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>してログイン。<br />
 </p>
 </div>
 
-<div id="outline-container-org6b61da6" class="outline-4">
-<h4 id="org6b61da6"><span class="section-number-4">2.2.1</span> raspi-config</h4>
+<div id="outline-container-org241b844" class="outline-4">
+<h4 id="org241b844"><span class="section-number-4">2.2.1</span> raspi-config</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <pre class="example">
 $ sudo raspi-config nonint do_expand_rootfs
@@ -344,8 +344,8 @@ $ sudo reboot
 </div>
 </div>
 
-<div id="outline-container-org669b5ea" class="outline-4">
-<h4 id="org669b5ea"><span class="section-number-4">2.2.2</span> apt</h4>
+<div id="outline-container-org20d0445" class="outline-4">
+<h4 id="org20d0445"><span class="section-number-4">2.2.2</span> apt</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <pre class="example">
 $ sudo apt update
@@ -355,8 +355,8 @@ $ sudo reboot
 </div>
 </div>
 
-<div id="outline-container-org67549e2" class="outline-4">
-<h4 id="org67549e2"><span class="section-number-4">2.2.3</span> DHCP</h4>
+<div id="outline-container-orgad3c915" class="outline-4">
+<h4 id="orgad3c915"><span class="section-number-4">2.2.3</span> DHCP</h4>
 <div class="outline-text-4" id="text-2-2-3">
 <p>
 ネットワーク設定はDHCPを利用するが、IPアドレスを固定するようルータ(YAMAHA NVR510)を設定。<br />
@@ -373,12 +373,12 @@ ip host acacia.home 192.168.126.10
 </div>
 </div>
 
-<div id="outline-container-org257fb5e" class="outline-4">
-<h4 id="org257fb5e"><span class="section-number-4">2.2.4</span> SSH</h4>
+<div id="outline-container-orga658f5e" class="outline-4">
+<h4 id="orga658f5e"><span class="section-number-4">2.2.4</span> SSH</h4>
 <div class="outline-text-4" id="text-2-2-4">
 </div>
-<div id="outline-container-org54ebd3f" class="outline-5">
-<h5 id="org54ebd3f"><span class="section-number-5">2.2.4.1</span> <code>ssh</code> グループへの追加</h5>
+<div id="outline-container-org916f29d" class="outline-5">
+<h5 id="org916f29d"><span class="section-number-5">2.2.4.1</span> <code>ssh</code> グループへの追加</h5>
 <div class="outline-text-5" id="text-2-2-4-1">
 <p>
 念のため以下を実行しておく。<br />
@@ -390,8 +390,8 @@ $ sudo usermod -a -G ssh pi
 </div>
 </div>
 
-<div id="outline-container-orgd2cf7df" class="outline-5">
-<h5 id="orgd2cf7df"><span class="section-number-5">2.2.4.2</span> パスワードレスでログイン</h5>
+<div id="outline-container-org2354eab" class="outline-5">
+<h5 id="org2354eab"><span class="section-number-5">2.2.4.2</span> パスワードレスでログイン</h5>
 <div class="outline-text-5" id="text-2-2-4-2">
 <p>
 作業用PCで以下を実行。<br />
@@ -428,8 +428,8 @@ $ ssh acacia.home
 </div>
 </div>
 
-<div id="outline-container-orgf9a34ca" class="outline-5">
-<h5 id="orgf9a34ca"><span class="section-number-5">2.2.4.3</span> パスワードログインを禁止</h5>
+<div id="outline-container-orgbe563a3" class="outline-5">
+<h5 id="orgbe563a3"><span class="section-number-5">2.2.4.3</span> パスワードログインを禁止</h5>
 <div class="outline-text-5" id="text-2-2-4-3">
 <pre class="example">
 $ sudo vi /etc/ssh/ssh_config
@@ -452,8 +452,8 @@ $ sudo systemctl restart ssh
 </div>
 </div>
 
-<div id="outline-container-org942c2b2" class="outline-5">
-<h5 id="org942c2b2"><span class="section-number-5">2.2.4.4</span> ユーザ <code>pi</code> のパスワードを破棄</h5>
+<div id="outline-container-orgaad3507" class="outline-5">
+<h5 id="orgaad3507"><span class="section-number-5">2.2.4.4</span> ユーザ <code>pi</code> のパスワードを破棄</h5>
 <div class="outline-text-5" id="text-2-2-4-4">
 <pre class="example">
 $ sudo passwd -d pi
@@ -461,8 +461,8 @@ $ sudo passwd -d pi
 </div>
 </div>
 
-<div id="outline-container-org155e580" class="outline-5">
-<h5 id="org155e580"><span class="section-number-5">2.2.4.5</span> Bookmarks</h5>
+<div id="outline-container-org47cb123" class="outline-5">
+<h5 id="org47cb123"><span class="section-number-5">2.2.4.5</span> Bookmarks</h5>
 <div class="outline-text-5" id="text-2-2-4-5">
 <ul class="org-ul">
 <li><a href="https://linuxize.com/post/how-to-setup-passwordless-ssh-login/">How to Setup Passwordless SSH Login</a><br /></li>
@@ -472,8 +472,8 @@ $ sudo passwd -d pi
 </div>
 </div>
 
-<div id="outline-container-orga4c14cc" class="outline-4">
-<h4 id="orga4c14cc"><span class="section-number-4">2.2.5</span> ログインメッセージ</h4>
+<div id="outline-container-orge929c22" class="outline-4">
+<h4 id="orge929c22"><span class="section-number-4">2.2.5</span> ログインメッセージ</h4>
 <div class="outline-text-4" id="text-2-2-5">
 <p>
 これも鬱陶しいので消しておく。<br />
@@ -485,8 +485,8 @@ $ sudo vi /etc/motd
 </div>
 </div>
 
-<div id="outline-container-org36f74fa" class="outline-4">
-<h4 id="org36f74fa"><span class="section-number-4">2.2.6</span> Swap</h4>
+<div id="outline-container-org321251d" class="outline-4">
+<h4 id="org321251d"><span class="section-number-4">2.2.6</span> Swap</h4>
 <div class="outline-text-4" id="text-2-2-6">
 <p>
 スワップは利用しない。<br />
@@ -507,8 +507,8 @@ $ sudo systemctl status dphys-swapfile
 </div>
 </div>
 
-<div id="outline-container-orgf418a47" class="outline-4">
-<h4 id="orgf418a47"><span class="section-number-4">2.2.7</span> Avahi</h4>
+<div id="outline-container-org781d212" class="outline-4">
+<h4 id="org781d212"><span class="section-number-4">2.2.7</span> Avahi</h4>
 <div class="outline-text-4" id="text-2-2-7">
 <p>
 不要なので無効化。<br />
@@ -523,8 +523,8 @@ $ sudo systemctl status avahi-daemon
 </div>
 </div>
 
-<div id="outline-container-org8c13fa1" class="outline-4">
-<h4 id="org8c13fa1"><span class="section-number-4">2.2.8</span> /boot/config.txt</h4>
+<div id="outline-container-org1736133" class="outline-4">
+<h4 id="org1736133"><span class="section-number-4">2.2.8</span> /boot/config.txt</h4>
 <div class="outline-text-4" id="text-2-2-8">
 <p>
 以下を追記。<br />
@@ -548,8 +548,8 @@ $ sudo vi /boot/extraconfig.txt
 </p>
 </div>
 
-<div id="outline-container-org489d813" class="outline-5">
-<h5 id="org489d813"><span class="section-number-5">2.2.8.1</span> GPU memory</h5>
+<div id="outline-container-orgba4f02c" class="outline-5">
+<h5 id="orgba4f02c"><span class="section-number-5">2.2.8.1</span> GPU memory</h5>
 <div class="outline-text-5" id="text-2-2-8-1">
 <p>
 GPUに割り当てるメモリを最小限(16MB)にしておく。<br />
@@ -562,8 +562,8 @@ GPUに割り当てるメモリを最小限(16MB)にしておく。<br />
 </div>
 </div>
 
-<div id="outline-container-orgfcc0a05" class="outline-5">
-<h5 id="orgfcc0a05"><span class="section-number-5">2.2.8.2</span> Buletooth</h5>
+<div id="outline-container-org9de4db5" class="outline-5">
+<h5 id="org9de4db5"><span class="section-number-5">2.2.8.2</span> Buletooth</h5>
 <div class="outline-text-5" id="text-2-2-8-2">
 <p>
 利用しないので無効化。<br />
@@ -576,8 +576,8 @@ GPUに割り当てるメモリを最小限(16MB)にしておく。<br />
 </div>
 </div>
 
-<div id="outline-container-orgb761042" class="outline-5">
-<h5 id="orgb761042"><span class="section-number-5">2.2.8.3</span> Wifi</h5>
+<div id="outline-container-orgf3cfdc5" class="outline-5">
+<h5 id="orgf3cfdc5"><span class="section-number-5">2.2.8.3</span> Wifi</h5>
 <div class="outline-text-5" id="text-2-2-8-3">
 <p>
 利用しないので無効化。<br />
@@ -590,8 +590,8 @@ GPUに割り当てるメモリを最小限(16MB)にしておく。<br />
 </div>
 </div>
 
-<div id="outline-container-orgfe66484" class="outline-5">
-<h5 id="orgfe66484"><span class="section-number-5">2.2.8.4</span> Overheat protection</h5>
+<div id="outline-container-org29f4241" class="outline-5">
+<h5 id="org29f4241"><span class="section-number-5">2.2.8.4</span> Overheat protection</h5>
 <div class="outline-text-5" id="text-2-2-8-4">
 <p>
 SoCの温度が75℃を超えないようにする。<br />
@@ -605,8 +605,8 @@ SoCの温度が75℃を超えないようにする。<br />
 </div>
 </div>
 
-<div id="outline-container-orga25afcd" class="outline-4">
-<h4 id="orga25afcd"><span class="section-number-4">2.2.9</span> vcgencmd</h4>
+<div id="outline-container-org49d884d" class="outline-4">
+<h4 id="org49d884d"><span class="section-number-4">2.2.9</span> vcgencmd</h4>
 <div class="outline-text-4" id="text-2-2-9">
 <p>
 ディスプレイ出力をOffにする。<br />
@@ -622,8 +622,8 @@ $ vcgencmd display_power 0
 </div>
 </div>
 
-<div id="outline-container-org5552813" class="outline-4">
-<h4 id="org5552813"><span class="section-number-4">2.2.10</span> NTP</h4>
+<div id="outline-container-orgef5a119" class="outline-4">
+<h4 id="orgef5a119"><span class="section-number-4">2.2.10</span> NTP</h4>
 <div class="outline-text-4" id="text-2-2-10">
 <p>
 <code>systemd-timesyncd</code> で時刻同期するようになっているはず。<br />
@@ -669,8 +669,8 @@ $ sudo systemctl restart systemd-timesyncd
 </div>
 </div>
 
-<div id="outline-container-org554b11c" class="outline-4">
-<h4 id="org554b11c"><span class="section-number-4">2.2.11</span> fish</h4>
+<div id="outline-container-orgf6cd100" class="outline-4">
+<h4 id="orgf6cd100"><span class="section-number-4">2.2.11</span> fish</h4>
 <div class="outline-text-4" id="text-2-2-11">
 <pre class="example">
 $ sudo apt install fish
@@ -698,8 +698,8 @@ $ sudo chsh -s /usr/bin/fish
 </div>
 </div>
 
-<div id="outline-container-org56b1551" class="outline-2">
-<h2 id="org56b1551"><span class="section-number-2">3</span> Backup</h2>
+<div id="outline-container-org72ebb86" class="outline-2">
+<h2 id="org72ebb86"><span class="section-number-2">3</span> Backup</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 マイクロSDカードを作業用PCへ接続して以下を実行。<br />
@@ -725,24 +725,24 @@ $ bzip2 acaciaYYYYMMDD.img
 </div>
 </div>
 
-<div id="outline-container-org565c4a8" class="outline-2">
-<h2 id="org565c4a8"><span class="section-number-2">4</span> 外部HDD共有</h2>
+<div id="outline-container-org73029fb" class="outline-2">
+<h2 id="org73029fb"><span class="section-number-2">4</span> 外部HDD共有</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 ローカルネットワークでHDDを共有する。<br />
 </p>
 </div>
 
-<div id="outline-container-org60163d9" class="outline-3">
-<h3 id="org60163d9"><span class="section-number-3">4.1</span> Cryptsetup</h3>
+<div id="outline-container-org8745a19" class="outline-3">
+<h3 id="org8745a19"><span class="section-number-3">4.1</span> Cryptsetup</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li><a href="https://manpages.debian.org/buster/cryptsetup-bin/cryptsetup.8.en.html">https://manpages.debian.org/buster/cryptsetup-bin/cryptsetup.8.en.html</a><br /></li>
 </ul>
 </div>
 
-<div id="outline-container-orgb397ecb" class="outline-4">
-<h4 id="orgb397ecb"><span class="section-number-4">4.1.1</span> LUKS</h4>
+<div id="outline-container-org9540445" class="outline-4">
+<h4 id="org9540445"><span class="section-number-4">4.1.1</span> LUKS</h4>
 <div class="outline-text-4" id="text-4-1-1">
 <pre class="example">
 pi@acacia ~&gt; lsblk
@@ -790,13 +790,36 @@ $ sudo mkexfatfs /dev/mapper/luks-disk-b
 </pre>
 
 <p>
+マウント設定。<br />
+</p>
+
+<pre class="example">
+$ sudo vi /etc/fstab
+</pre>
+
+<p>
+以下を追記。<br />
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 9: </span>/etc/fstab</label><pre class="src src-text">/dev/mapper/luks-disk-a /mnt/luks-disk-a exfat defaults,noatime,nofail,uid=1000,gid=1000,fmask=0133,dmask=0022 0 0
+/dev/mapper/luks-disk-b /mnt/luks-disk-b exfat defaults,noatime,nofail,uid=1000,gid=1000,fmask=0133,dmask=0022 0 0
+</pre>
+</div>
+
+<p>
+ファイルのパーミッションを <code>0644</code> にするには <code>fmask</code> を <code>0022</code> ではなく <code>0133</code> にする必要がある。<br />
+(ディレクトリと同様に <code>0777</code> に対するマスクを設定するようになっているらしい)<br />
+</p>
+
+<p>
 マウントポイントを作成してデバイスマッパーをマウント。<br />
 </p>
 
 <pre class="example">
 $ sudo mkdir -p /mnt/luks-disk-{a,b}
-$ sudo mount /dev/mapper/luks-disk-a /mnt/luks-disk-a
-$ sudo mount /dev/mapper/luks-disk-b /mnt/luks-disk-b
+$ sudo mount /mnt/luks-disk-a
+$ sudo mount /mnt/luks-disk-b
 </pre>
 
 <p>
@@ -812,8 +835,8 @@ $ sudo cryptsetup luksClose luks-disk-b
 </div>
 </div>
 
-<div id="outline-container-org7cb7587" class="outline-3">
-<h3 id="org7cb7587"><span class="section-number-3">4.2</span> Samba</h3>
+<div id="outline-container-orgc9ccf8c" class="outline-3">
+<h3 id="orgc9ccf8c"><span class="section-number-3">4.2</span> Samba</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li><a href="https://wiki.debian.org/SambaServerSimple">https://wiki.debian.org/SambaServerSimple</a><br /></li>
@@ -832,7 +855,7 @@ $ sudo vi /etc/samba/smb.conf
 </pre>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 9: </span>/etc/samba/smb.conf</label><pre class="src src-text">[LUKS-disk-A]
+<label class="org-src-name"><span class="listing-number">Listing 10: </span>/etc/samba/smb.conf</label><pre class="src src-text">[LUKS-disk-A]
   comment = Share folder
   path = /mnt/luks-disk-a
   browsable = yes
@@ -861,8 +884,8 @@ $ sudo systemctl status smbd
 </div>
 </div>
 
-<div id="outline-container-org64fb635" class="outline-3">
-<h3 id="org64fb635"><span class="section-number-3">4.3</span> HDDのスピンダウン</h3>
+<div id="outline-container-orgb1e8e20" class="outline-3">
+<h3 id="orgb1e8e20"><span class="section-number-3">4.3</span> HDDのスピンダウン</h3>
 <div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li><a href="https://www.htpcguides.com/spin-down-and-manage-hard-drive-power-on-raspberry-pi/">https://www.htpcguides.com/spin-down-and-manage-hard-drive-power-on-raspberry-pi/</a><br /></li>
@@ -888,12 +911,12 @@ $ sudo hdparm -S 120 /dev/sdb
 </div>
 </div>
 
-<div id="outline-container-orgd013d31" class="outline-2">
-<h2 id="orgd013d31"><span class="section-number-2">5</span> ToDo</h2>
+<div id="outline-container-orgf2b54de" class="outline-2">
+<h2 id="orgf2b54de"><span class="section-number-2">5</span> ToDo</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org3e5ca96" class="outline-3">
-<h3 id="org3e5ca96"><span class="section-number-3">5.1</span> 効率的なバックアップ</h3>
+<div id="outline-container-org9e4d054" class="outline-3">
+<h3 id="org9e4d054"><span class="section-number-3">5.1</span> 効率的なバックアップ</h3>
 <div class="outline-text-3" id="text-5-1">
 </div>
 </div>
@@ -915,7 +938,7 @@ $ sudo hdparm -S 120 /dev/sdb
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2020-03-26 木 04:35</p>
+<p class="date">Created: 2020-03-29 日 19:12</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
