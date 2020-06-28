@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-28 日 03:21 -->
+<!-- 2020-06-28 日 12:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Crostini</title>
@@ -258,36 +258,36 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2ed4607">1. コンテナ</a></li>
-<li><a href="#org0d73aac">2. 環境構築</a>
+<li><a href="#org59725b2">1. コンテナ</a></li>
+<li><a href="#orgd43a653">2. 環境構築</a>
 <ul>
-<li><a href="#org3ea5826">2.1. システムアップデート</a></li>
-<li><a href="#org5b457a0">2.2. パッケージインストール</a></li>
+<li><a href="#org074b13d">2.1. システムアップデート</a></li>
+<li><a href="#orgf893429">2.2. パッケージインストール</a></li>
 </ul>
 </li>
-<li><a href="#org907f525">3. Clojure</a>
+<li><a href="#org494ac03">3. Clojure</a>
 <ul>
-<li><a href="#org70c6ac2">3.1. インストール</a></li>
+<li><a href="#orgd57ac22">3.1. インストール</a></li>
 </ul>
 </li>
-<li><a href="#org03f285f">4. Rust</a>
+<li><a href="#org9dfb500">4. Rust</a>
 <ul>
-<li><a href="#org238c933">4.1. インストール</a></li>
+<li><a href="#org57de751">4.1. インストール</a></li>
 </ul>
 </li>
-<li><a href="#org18eb4bb">5. Deno</a>
+<li><a href="#org03236c9">5. Deno</a>
 <ul>
-<li><a href="#orgb65c35d">5.1. インストール</a></li>
-<li><a href="#org874bc2a">5.2. Bookmarks</a></li>
+<li><a href="#orgf570b1e">5.1. インストール</a></li>
+<li><a href="#orgcc45adf">5.2. Bookmarks</a></li>
 </ul>
 </li>
-<li><a href="#org419f649">6. Bookmarks</a></li>
+<li><a href="#org53a99ba">6. Bookmarks</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2ed4607" class="outline-2">
-<h2 id="org2ed4607"><span class="section-number-2">1</span> コンテナ</h2>
+<div id="outline-container-org59725b2" class="outline-2">
+<h2 id="org59725b2"><span class="section-number-2">1</span> コンテナ</h2>
 <div class="outline-text-2" id="text-1">
 <dl class="org-dl">
 <dt>OS</dt><dd>Debian Buster<br /></dd>
@@ -296,12 +296,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org0d73aac" class="outline-2">
-<h2 id="org0d73aac"><span class="section-number-2">2</span> 環境構築</h2>
+<div id="outline-container-orgd43a653" class="outline-2">
+<h2 id="orgd43a653"><span class="section-number-2">2</span> 環境構築</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org3ea5826" class="outline-3">
-<h3 id="org3ea5826"><span class="section-number-3">2.1</span> システムアップデート</h3>
+<div id="outline-container-org074b13d" class="outline-3">
+<h3 id="org074b13d"><span class="section-number-3">2.1</span> システムアップデート</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 まずはインストールされているパッケージを最新化。<br />
@@ -314,16 +314,16 @@ $ sudo apt upgrade
 </div>
 </div>
 
-<div id="outline-container-org5b457a0" class="outline-3">
-<h3 id="org5b457a0"><span class="section-number-3">2.2</span> パッケージインストール</h3>
+<div id="outline-container-orgf893429" class="outline-3">
+<h3 id="orgf893429"><span class="section-number-3">2.2</span> パッケージインストール</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-org910c9ed" class="outline-4">
-<h4 id="org910c9ed"><span class="section-number-4">2.2.1</span> <a href="https://fishshell.com/">fish</a></h4>
+<div id="outline-container-orgdad99e4" class="outline-4">
+<h4 id="orgdad99e4"><span class="section-number-4">2.2.1</span> <a href="https://fishshell.com/">fish</a></h4>
 <div class="outline-text-4" id="text-2-2-1">
 </div>
-<div id="outline-container-orgc3e823c" class="outline-5">
-<h5 id="orgc3e823c"><span class="section-number-5">2.2.1.1</span> インストール</h5>
+<div id="outline-container-org9ca3739" class="outline-5">
+<h5 id="org9ca3739"><span class="section-number-5">2.2.1.1</span> インストール</h5>
 <div class="outline-text-5" id="text-2-2-1-1">
 <pre class="example">
 $ sudo apt install fish
@@ -331,8 +331,8 @@ $ sudo apt install fish
 </div>
 </div>
 
-<div id="outline-container-org326a357" class="outline-5">
-<h5 id="org326a357"><span class="section-number-5">2.2.1.2</span> ログインシェルの変更</h5>
+<div id="outline-container-org816a8f1" class="outline-5">
+<h5 id="org816a8f1"><span class="section-number-5">2.2.1.2</span> ログインシェルの変更</h5>
 <div class="outline-text-5" id="text-2-2-1-2">
 <pre class="example">
 $ less /etc/shells
@@ -362,16 +362,16 @@ $ sudo su -
 </div>
 </div>
 
-<div id="outline-container-org876bc0f" class="outline-5">
-<h5 id="org876bc0f"><span class="section-number-5">2.2.1.3</span> 設定</h5>
+<div id="outline-container-orgc59289d" class="outline-5">
+<h5 id="orgc59289d"><span class="section-number-5">2.2.1.3</span> 設定</h5>
 <div class="outline-text-5" id="text-2-2-1-3">
 </div>
-<div id="outline-container-org01e9daf" class="outline-6">
-<h6 id="org01e9daf"><span class="section-number-6">2.2.1.3.1</span> <a href="https://github.com/jorgebucaran/fisher">Fisher</a></h6>
+<div id="outline-container-org61b0ac9" class="outline-6">
+<h6 id="org61b0ac9"><span class="section-number-6">2.2.1.3.1</span> <a href="https://github.com/jorgebucaran/fisher">Fisher</a></h6>
 <div class="outline-text-6" id="text-2-2-1-3-1">
 </div>
-<div id="outline-container-org6f0ca83" class="outline-7">
-<h7 id="org6f0ca83"><span class="section-number-7">2.2.1.3.1.1</span> インストール</h7>
+<div id="outline-container-org34b3d04" class="outline-7">
+<h7 id="org34b3d04"><span class="section-number-7">2.2.1.3.1.1</span> インストール</h7>
 <div class="outline-text-7" id="text-2-2-1-3-1-1">
 <pre class="example">
 $ curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
@@ -379,8 +379,8 @@ $ curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.
 </div>
 </div>
 
-<div id="outline-container-orgcf75564" class="outline-7">
-<h7 id="orgcf75564"><span class="section-number-7">2.2.1.3.1.2</span> プラグイン</h7>
+<div id="outline-container-orgbb77df1" class="outline-7">
+<h7 id="orgbb77df1"><span class="section-number-7">2.2.1.3.1.2</span> プラグイン</h7>
 <div class="outline-text-7" id="text-2-2-1-3-1-2">
 <ul class="org-ul">
 <li><p>
@@ -406,8 +406,8 @@ $ vi ~/.config/fish/functions/fish_user_key_bindings.fish
 </div>
 </div>
 
-<div id="outline-container-org60ff95b" class="outline-6">
-<h6 id="org60ff95b"><span class="section-number-6">2.2.1.3.2</span> 環境変数</h6>
+<div id="outline-container-org981bca9" class="outline-6">
+<h6 id="org981bca9"><span class="section-number-6">2.2.1.3.2</span> 環境変数</h6>
 <div class="outline-text-6" id="text-2-2-1-3-2">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 2: </span>~/.config/fish/config.fish</label><pre class="src src-fish"><span style="color: #fff59d;">set</span> <span style="color: #4dd0e1;">-x</span> <span style="color: #ffcc80;">LANG</span> ja_JP.UTF-8
@@ -416,8 +416,8 @@ $ vi ~/.config/fish/functions/fish_user_key_bindings.fish
 </div>
 </div>
 
-<div id="outline-container-orgee464cb" class="outline-6">
-<h6 id="orgee464cb"><span class="section-number-6">2.2.1.3.3</span> プロンプト</h6>
+<div id="outline-container-org2b2958c" class="outline-6">
+<h6 id="org2b2958c"><span class="section-number-6">2.2.1.3.3</span> プロンプト</h6>
 <div class="outline-text-6" id="text-2-2-1-3-3">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 3: </span>~/.config/fish/functions/fish_prompt.fish</label><pre class="src src-fish">
@@ -426,8 +426,8 @@ $ vi ~/.config/fish/functions/fish_user_key_bindings.fish
 </div>
 </div>
 
-<div id="outline-container-org7826c93" class="outline-6">
-<h6 id="org7826c93"><span class="section-number-6">2.2.1.3.4</span> Greeting message</h6>
+<div id="outline-container-orgd37a2d6" class="outline-6">
+<h6 id="orgd37a2d6"><span class="section-number-6">2.2.1.3.4</span> Greeting message</h6>
 <div class="outline-text-6" id="text-2-2-1-3-4">
 <p>
 邪魔なので消す。<br />
@@ -440,8 +440,8 @@ $ vi ~/.config/fish/functions/fish_user_key_bindings.fish
 </div>
 </div>
 
-<div id="outline-container-org6fec688" class="outline-6">
-<h6 id="org6fec688"><span class="section-number-6">2.2.1.3.5</span> カラー</h6>
+<div id="outline-container-org7b161ec" class="outline-6">
+<h6 id="org7b161ec"><span class="section-number-6">2.2.1.3.5</span> カラー</h6>
 <div class="outline-text-6" id="text-2-2-1-3-5">
 <p>
 見難い色を変更。<br />
@@ -468,8 +468,8 @@ $ set -U fish_color_error d7858e
 </div>
 </div>
 
-<div id="outline-container-orgeac958c" class="outline-5">
-<h5 id="orgeac958c"><span class="section-number-5">2.2.1.4</span> その他</h5>
+<div id="outline-container-orgb5f0f4f" class="outline-5">
+<h5 id="orgb5f0f4f"><span class="section-number-5">2.2.1.4</span> その他</h5>
 <div class="outline-text-5" id="text-2-2-1-4">
 <p>
 不要なファイルを削除。<br />
@@ -482,12 +482,12 @@ $ rm -f ~/.bash* ~/.profile
 </div>
 </div>
 
-<div id="outline-container-orgae0306e" class="outline-4">
-<h4 id="orgae0306e"><span class="section-number-4">2.2.2</span> <a href="http://spacemacs.org/">Spacemacs</a></h4>
+<div id="outline-container-org0e57fe0" class="outline-4">
+<h4 id="org0e57fe0"><span class="section-number-4">2.2.2</span> <a href="http://spacemacs.org/">Spacemacs</a></h4>
 <div class="outline-text-4" id="text-2-2-2">
 </div>
-<div id="outline-container-org58c034b" class="outline-5">
-<h5 id="org58c034b"><span class="section-number-5">2.2.2.1</span> インストール</h5>
+<div id="outline-container-org35e7f47" class="outline-5">
+<h5 id="org35e7f47"><span class="section-number-5">2.2.2.1</span> インストール</h5>
 <div class="outline-text-5" id="text-2-2-2-1">
 <pre class="example">
 $ sudo apt install emacs
@@ -495,16 +495,16 @@ $ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 </pre>
 </div>
 
-<div id="outline-container-orgd7828df" class="outline-6">
-<h6 id="orgd7828df"><span class="section-number-6">2.2.2.1.1</span> フォント</h6>
+<div id="outline-container-orgff9e9a9" class="outline-6">
+<h6 id="orgff9e9a9"><span class="section-number-6">2.2.2.1.1</span> フォント</h6>
 <div class="outline-text-6" id="text-2-2-2-1-1">
 <p>
 フォントを追加しておく。<br />
 </p>
 </div>
 
-<div id="outline-container-org09b5a2d" class="outline-7">
-<h7 id="org09b5a2d"><span class="section-number-7">2.2.2.1.1.1</span> <a href="https://github.com/adobe-fonts/source-code-pro">Source Code Pro</a></h7>
+<div id="outline-container-orge8d265d" class="outline-7">
+<h7 id="orge8d265d"><span class="section-number-7">2.2.2.1.1.1</span> <a href="https://github.com/adobe-fonts/source-code-pro">Source Code Pro</a></h7>
 <div class="outline-text-7" id="text-2-2-2-1-1-1">
 <p>
 Spacemacsのデフォルトフォント。<br />
@@ -520,8 +520,8 @@ $ fc-list |less
 </div>
 </div>
 
-<div id="outline-container-org78b9127" class="outline-7">
-<h7 id="org78b9127"><span class="section-number-7">2.2.2.1.1.2</span> <a href="https://github.com/miiton/Cica">Cica</a></h7>
+<div id="outline-container-org786cac4" class="outline-7">
+<h7 id="org786cac4"><span class="section-number-7">2.2.2.1.1.2</span> <a href="https://github.com/miiton/Cica">Cica</a></h7>
 <div class="outline-text-7" id="text-2-2-2-1-1-2">
 <p>
 好みのフォント。<br />
@@ -538,8 +538,8 @@ $ fc-list |less
 </div>
 </div>
 
-<div id="outline-container-orgae1a66a" class="outline-7">
-<h7 id="orgae1a66a"><span class="section-number-7">2.2.2.1.1.3</span> <a href="https://fonts.google.com/specimen/Kosugi+Maru?subset=japanese">小杉丸ゴシック</a></h7>
+<div id="outline-container-orgb969dce" class="outline-7">
+<h7 id="orgb969dce"><span class="section-number-7">2.2.2.1.1.3</span> <a href="https://fonts.google.com/specimen/Kosugi+Maru?subset=japanese">小杉丸ゴシック</a></h7>
 <div class="outline-text-7" id="text-2-2-2-1-1-3">
 <p>
 好みのフォント。<br />
@@ -558,8 +558,8 @@ $ fc-list |less
 </div>
 </div>
 
-<div id="outline-container-orgdda3df5" class="outline-5">
-<h5 id="orgdda3df5"><span class="section-number-5">2.2.2.2</span> 起動</h5>
+<div id="outline-container-org166f020" class="outline-5">
+<h5 id="org166f020"><span class="section-number-5">2.2.2.2</span> 起動</h5>
 <div class="outline-text-5" id="text-2-2-2-2">
 <pre class="example">
 $ emacs &amp;
@@ -577,20 +577,20 @@ $ emacs &amp;
 </div>
 </div>
 
-<div id="outline-container-org98dc63f" class="outline-5">
-<h5 id="org98dc63f"><span class="section-number-5">2.2.2.3</span> 設定</h5>
+<div id="outline-container-org348f3ce" class="outline-5">
+<h5 id="org348f3ce"><span class="section-number-5">2.2.2.3</span> 設定</h5>
 <div class="outline-text-5" id="text-2-2-2-3">
 <p>
 以下のEmacsLispはすべて <code>~/.spacemacs</code> が対象。<br />
 </p>
 </div>
 
-<div id="outline-container-org1d94232" class="outline-6">
-<h6 id="org1d94232"><span class="section-number-6">2.2.2.3.1</span> <code>dotspacemacs/layers</code></h6>
+<div id="outline-container-org51411e4" class="outline-6">
+<h6 id="org51411e4"><span class="section-number-6">2.2.2.3.1</span> <code>dotspacemacs/layers</code></h6>
 <div class="outline-text-6" id="text-2-2-2-3-1">
 </div>
-<div id="outline-container-org374b120" class="outline-7">
-<h7 id="org374b120"><span class="section-number-7">2.2.2.3.1.1</span> レイヤー</h7>
+<div id="outline-container-org4fa2c1c" class="outline-7">
+<h7 id="org4fa2c1c"><span class="section-number-7">2.2.2.3.1.1</span> レイヤー</h7>
 <div class="outline-text-7" id="text-2-2-2-3-1-1">
 <p>
 必要なレイヤーを設定。<br />
@@ -621,8 +621,8 @@ $ emacs &amp;
 </div>
 </div>
 
-<div id="outline-container-org8b79681" class="outline-7">
-<h7 id="org8b79681"><span class="section-number-7">2.2.2.3.1.2</span> パッケージ</h7>
+<div id="outline-container-orgff6fe9e" class="outline-7">
+<h7 id="orgff6fe9e"><span class="section-number-7">2.2.2.3.1.2</span> パッケージ</h7>
 <div class="outline-text-7" id="text-2-2-2-3-1-2">
 <p>
 レイヤーではインストールされないパッケージを追加。<br />
@@ -659,12 +659,12 @@ $ emacs &amp;
 </div>
 </div>
 
-<div id="outline-container-org6e5becd" class="outline-6">
-<h6 id="org6e5becd"><span class="section-number-6">2.2.2.3.2</span> <code>dotspacemacs/init</code></h6>
+<div id="outline-container-orgc20a7b0" class="outline-6">
+<h6 id="orgc20a7b0"><span class="section-number-6">2.2.2.3.2</span> <code>dotspacemacs/init</code></h6>
 <div class="outline-text-6" id="text-2-2-2-3-2">
 </div>
-<div id="outline-container-org5a354c3" class="outline-7">
-<h7 id="org5a354c3"><span class="section-number-7">2.2.2.3.2.1</span> 起動時の表示</h7>
+<div id="outline-container-org4610258" class="outline-7">
+<h7 id="org4610258"><span class="section-number-7">2.2.2.3.2.1</span> 起動時の表示</h7>
 <div class="outline-text-7" id="text-2-2-2-3-2-1">
 <p>
 リストは表示しない。<br />
@@ -677,8 +677,8 @@ $ emacs &amp;
 </div>
 </div>
 
-<div id="outline-container-orgcf39bf8" class="outline-7">
-<h7 id="orgcf39bf8"><span class="section-number-7">2.2.2.3.2.2</span> <a href="https://themegallery.robdor.com/">テーマ</a></h7>
+<div id="outline-container-orgdf8fb63" class="outline-7">
+<h7 id="orgdf8fb63"><span class="section-number-7">2.2.2.3.2.2</span> <a href="https://themegallery.robdor.com/">テーマ</a></h7>
 <div class="outline-text-7" id="text-2-2-2-3-2-2">
 <p>
 好みのテーマに変更。<br />
@@ -692,8 +692,8 @@ $ emacs &amp;
 </div>
 </div>
 
-<div id="outline-container-org5662371" class="outline-7">
-<h7 id="org5662371"><span class="section-number-7">2.2.2.3.2.3</span> デフォルトフォント</h7>
+<div id="outline-container-org6d9fa4b" class="outline-7">
+<h7 id="org6d9fa4b"><span class="section-number-7">2.2.2.3.2.3</span> デフォルトフォント</h7>
 <div class="outline-text-7" id="text-2-2-2-3-2-3">
 <p>
 好みのフォントに変更。<br />
@@ -716,8 +716,8 @@ $ emacs &amp;
 </div>
 </div>
 
-<div id="outline-container-org2fade4f" class="outline-7">
-<h7 id="org2fade4f"><span class="section-number-7">2.2.2.3.2.4</span> フレーム最大化</h7>
+<div id="outline-container-orgda88fbd" class="outline-7">
+<h7 id="orgda88fbd"><span class="section-number-7">2.2.2.3.2.4</span> フレーム最大化</h7>
 <div class="outline-text-7" id="text-2-2-2-3-2-4">
 <p>
 起動時にフレームを最大化する。<br />
@@ -730,8 +730,8 @@ $ emacs &amp;
 </div>
 </div>
 
-<div id="outline-container-orgec051c7" class="outline-7">
-<h7 id="orgec051c7"><span class="section-number-7">2.2.2.3.2.5</span> 画面透過</h7>
+<div id="outline-container-org34d2fbc" class="outline-7">
+<h7 id="org34d2fbc"><span class="section-number-7">2.2.2.3.2.5</span> 画面透過</h7>
 <div class="outline-text-7" id="text-2-2-2-3-2-5">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">dotspacemacs-active-transparency <span style="color: #9ccc65;">80</span>
@@ -741,8 +741,8 @@ dotspacemacs-inactive-transparency <span style="color: #9ccc65;">10</span>
 </div>
 </div>
 
-<div id="outline-container-org18aed71" class="outline-7">
-<h7 id="org18aed71"><span class="section-number-7">2.2.2.3.2.6</span> スペースの削除</h7>
+<div id="outline-container-org8d3db94" class="outline-7">
+<h7 id="org8d3db94"><span class="section-number-7">2.2.2.3.2.6</span> スペースの削除</h7>
 <div class="outline-text-7" id="text-2-2-2-3-2-6">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">dotspacemacs-whitespace-cleanup 'trailing
@@ -752,12 +752,12 @@ dotspacemacs-inactive-transparency <span style="color: #9ccc65;">10</span>
 </div>
 </div>
 
-<div id="outline-container-org4f34d2e" class="outline-6">
-<h6 id="org4f34d2e"><span class="section-number-6">2.2.2.3.3</span> <code>dotspacemacs/user-init</code></h6>
+<div id="outline-container-org6cd3155" class="outline-6">
+<h6 id="org6cd3155"><span class="section-number-6">2.2.2.3.3</span> <code>dotspacemacs/user-init</code></h6>
 <div class="outline-text-6" id="text-2-2-2-3-3">
 </div>
-<div id="outline-container-orgaeb89b4" class="outline-7">
-<h7 id="orgaeb89b4"><span class="section-number-7">2.2.2.3.3.1</span> 安定版パッケージ</h7>
+<div id="outline-container-org11a165f" class="outline-7">
+<h7 id="org11a165f"><span class="section-number-7">2.2.2.3.3.1</span> 安定版パッケージ</h7>
 <div class="outline-text-7" id="text-2-2-2-3-3-1">
 <p>
 <a href="https://github.com/clojure-emacs/cider">CIDER </a>と <a href="https://github.com/magit/magit">Magit </a>は <a href="https://stable.melpa.org/">MELPA Stable</a> から安定版をインストール。<br />
@@ -774,12 +774,12 @@ dotspacemacs-inactive-transparency <span style="color: #9ccc65;">10</span>
 </div>
 </div>
 
-<div id="outline-container-org6c6140a" class="outline-6">
-<h6 id="org6c6140a"><span class="section-number-6">2.2.2.3.4</span> <code>dotspacemacs/user-config</code></h6>
+<div id="outline-container-org440305d" class="outline-6">
+<h6 id="org440305d"><span class="section-number-6">2.2.2.3.4</span> <code>dotspacemacs/user-config</code></h6>
 <div class="outline-text-6" id="text-2-2-2-3-4">
 </div>
-<div id="outline-container-orgb577077" class="outline-7">
-<h7 id="orgb577077"><span class="section-number-7">2.2.2.3.4.1</span> 日本語入力</h7>
+<div id="outline-container-orgfb748d6" class="outline-7">
+<h7 id="orgfb748d6"><span class="section-number-7">2.2.2.3.4.1</span> 日本語入力</h7>
 <div class="outline-text-7" id="text-2-2-2-3-4-1">
 <p>
 <a href="https://www.google.co.jp/ime/">Google 日本語入力</a> を利用する。<br />
@@ -833,8 +833,8 @@ $ sudo apt install emacs-mozc-bin
 </div>
 </div>
 
-<div id="outline-container-org1bccdae" class="outline-7">
-<h7 id="org1bccdae"><span class="section-number-7">2.2.2.3.4.2</span> <a href="https://ja.wikipedia.org/wiki/Unicode%E6%AD%A3%E8%A6%8F%E5%8C%96">Unicode正規化 </a>のNFD&lt;-&gt;NFC対応</h7>
+<div id="outline-container-org89d4bb3" class="outline-7">
+<h7 id="org89d4bb3"><span class="section-number-7">2.2.2.3.4.2</span> <a href="https://ja.wikipedia.org/wiki/Unicode%E6%AD%A3%E8%A6%8F%E5%8C%96">Unicode正規化 </a>のNFD&lt;-&gt;NFC対応</h7>
 <div class="outline-text-7" id="text-2-2-2-3-4-2">
 <p>
 主にMacとデータをやりとりする場合のケア。<br />
@@ -853,8 +853,8 @@ $ sudo apt install emacs-mozc-bin
 </div>
 </div>
 
-<div id="outline-container-org2257364" class="outline-7">
-<h7 id="org2257364"><span class="section-number-7">2.2.2.3.4.3</span> saved places</h7>
+<div id="outline-container-org63cec4e" class="outline-7">
+<h7 id="org63cec4e"><span class="section-number-7">2.2.2.3.4.3</span> saved places</h7>
 <div class="outline-text-7" id="text-2-2-2-3-4-3">
 <p>
 <code>.saved-places</code> を保存するディレクトリを作成。<br />
@@ -868,8 +868,8 @@ $ mkdir ~/.local/share/spacemacs
 </div>
 </div>
 
-<div id="outline-container-org5baa472" class="outline-5">
-<h5 id="org5baa472"><span class="section-number-5">2.2.2.4</span> コマンドメモ</h5>
+<div id="outline-container-org5aa6527" class="outline-5">
+<h5 id="org5aa6527"><span class="section-number-5">2.2.2.4</span> コマンドメモ</h5>
 <div class="outline-text-5" id="text-2-2-2-4">
 <dl class="org-dl">
 <dt>alt-m</dt><dd>SPC<br /></dd>
@@ -886,16 +886,16 @@ $ mkdir ~/.local/share/spacemacs
 </div>
 </div>
 
-<div id="outline-container-orgc565e5f" class="outline-4">
-<h4 id="orgc565e5f"><span class="section-number-4">2.2.3</span> <a href="https://www.kaoriya.net/software/cmigemo/">cmigemo</a></h4>
+<div id="outline-container-org2d143a6" class="outline-4">
+<h4 id="org2d143a6"><span class="section-number-4">2.2.3</span> <a href="https://www.kaoriya.net/software/cmigemo/">cmigemo</a></h4>
 <div class="outline-text-4" id="text-2-2-3">
 <pre class="example">
 $ sudo apt install cmigemo
 </pre>
 </div>
 
-<div id="outline-container-org70da7d1" class="outline-5">
-<h5 id="org70da7d1"><span class="section-number-5">2.2.3.1</span> SKK dict</h5>
+<div id="outline-container-orgb03410a" class="outline-5">
+<h5 id="orgb03410a"><span class="section-number-5">2.2.3.1</span> SKK dict</h5>
 <div class="outline-text-5" id="text-2-2-3-1">
 <ul class="org-ul">
 <li><a href="http://openlab.ring.gr.jp/skk/index-j.html">http://openlab.ring.gr.jp/skk/index-j.html</a><br /></li>
@@ -905,12 +905,12 @@ $ sudo apt install cmigemo
 </div>
 </div>
 
-<div id="outline-container-org4cec7e9" class="outline-4">
-<h4 id="org4cec7e9"><span class="section-number-4">2.2.4</span> <a href="https://aws.amazon.com/jp/corretto/">Amazon Corretto</a></h4>
+<div id="outline-container-orgdd93cbb" class="outline-4">
+<h4 id="orgdd93cbb"><span class="section-number-4">2.2.4</span> <a href="https://aws.amazon.com/jp/corretto/">Amazon Corretto</a></h4>
 <div class="outline-text-4" id="text-2-2-4">
 </div>
-<div id="outline-container-org81ba4f4" class="outline-5">
-<h5 id="org81ba4f4"><span class="section-number-5">2.2.4.1</span> <a href="https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/generic-linux-install.html">インストール</a></h5>
+<div id="outline-container-orgaa52532" class="outline-5">
+<h5 id="orgaa52532"><span class="section-number-5">2.2.4.1</span> <a href="https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/generic-linux-install.html">インストール</a></h5>
 <div class="outline-text-5" id="text-2-2-4-1">
 <p>
 まずは <code>add-apt-repository</code> コマンドをインストール。<br />
@@ -934,8 +934,8 @@ $ java -version
 </div>
 </div>
 
-<div id="outline-container-orgf7ca9db" class="outline-5">
-<h5 id="orgf7ca9db"><span class="section-number-5">2.2.4.2</span> 設定</h5>
+<div id="outline-container-orgba8df28" class="outline-5">
+<h5 id="orgba8df28"><span class="section-number-5">2.2.4.2</span> 設定</h5>
 <div class="outline-text-5" id="text-2-2-4-2">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 4: </span>~/.config/fish/config.fish</label><pre class="src src-fish"><span style="color: #fff59d;">set</span> <span style="color: #4dd0e1;">-x</span> <span style="color: #ffcc80;">JAVA_HOME</span> /usr/lib/jvm/java-11-amazon-corretto
@@ -945,12 +945,12 @@ $ java -version
 </div>
 </div>
 
-<div id="outline-container-org04496b7" class="outline-4">
-<h4 id="org04496b7"><span class="section-number-4">2.2.5</span> <a href="https://www.eclipse.org/jetty/">Jetty</a></h4>
+<div id="outline-container-org6d7e767" class="outline-4">
+<h4 id="org6d7e767"><span class="section-number-4">2.2.5</span> <a href="https://www.eclipse.org/jetty/">Jetty</a></h4>
 <div class="outline-text-4" id="text-2-2-5">
 </div>
-<div id="outline-container-org68b948c" class="outline-5">
-<h5 id="org68b948c"><span class="section-number-5">2.2.5.1</span> インストール</h5>
+<div id="outline-container-orgc52214b" class="outline-5">
+<h5 id="orgc52214b"><span class="section-number-5">2.2.5.1</span> インストール</h5>
 <div class="outline-text-5" id="text-2-2-5-1">
 <pre class="example">
 $ cd ~/Downloads
@@ -966,8 +966,8 @@ $ ln -sfv jetty-distribution-9.4.30.v20200611 jetty
 </div>
 </div>
 
-<div id="outline-container-orgc8a29e5" class="outline-5">
-<h5 id="orgc8a29e5"><span class="section-number-5">2.2.5.2</span> 設定</h5>
+<div id="outline-container-org4b16cbd" class="outline-5">
+<h5 id="org4b16cbd"><span class="section-number-5">2.2.5.2</span> 設定</h5>
 <div class="outline-text-5" id="text-2-2-5-2">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 5: </span>~/.config/fish/config.fish</label><pre class="src src-fish"><span style="color: #fff59d;">set</span> <span style="color: #4dd0e1;">-x</span> <span style="color: #ffcc80;">JETTY_HOME</span> ~/jetty
@@ -977,8 +977,8 @@ $ ln -sfv jetty-distribution-9.4.30.v20200611 jetty
 </div>
 </div>
 
-<div id="outline-container-org08f078d" class="outline-5">
-<h5 id="org08f078d"><span class="section-number-5">2.2.5.3</span> スタートアップスクリプト</h5>
+<div id="outline-container-org404e1bf" class="outline-5">
+<h5 id="org404e1bf"><span class="section-number-5">2.2.5.3</span> スタートアップスクリプト</h5>
 <div class="outline-text-5" id="text-2-2-5-3">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 6: </span>~/.config/fish/functions/startup.fish</label><pre class="src src-fish"><span style="color: #fff59d;">function</span> <span style="color: #84ffff;">startup</span> <span style="color: #4dd0e1;">-d</span> <span style="color: #9ccc65;">'My startups'</span>
@@ -992,8 +992,8 @@ $ ln -sfv jetty-distribution-9.4.30.v20200611 jetty
 </div>
 </div>
 
-<div id="outline-container-org9946014" class="outline-5">
-<h5 id="org9946014"><span class="section-number-5">2.2.5.4</span> 使い方</h5>
+<div id="outline-container-orgb356bd8" class="outline-5">
+<h5 id="orgb356bd8"><span class="section-number-5">2.2.5.4</span> 使い方</h5>
 <div class="outline-text-5" id="text-2-2-5-4">
 <p>
 スタートアップスクリプトを実行してJettyを起動。<br />
@@ -1018,12 +1018,12 @@ e.g. <a href="http://100.115.92.194:8080/ksh2ksk4.github.io/">http://100.115.92.
 </div>
 </div>
 
-<div id="outline-container-org1316738" class="outline-4">
-<h4 id="org1316738"><span class="section-number-4">2.2.6</span> <a href="https://github.com/tmux/tmux">tmux</a></h4>
+<div id="outline-container-orga324646" class="outline-4">
+<h4 id="orga324646"><span class="section-number-4">2.2.6</span> <a href="https://github.com/tmux/tmux">tmux</a></h4>
 <div class="outline-text-4" id="text-2-2-6">
 </div>
-<div id="outline-container-orgfedef6f" class="outline-5">
-<h5 id="orgfedef6f"><span class="section-number-5">2.2.6.1</span> インストール</h5>
+<div id="outline-container-org7e86c07" class="outline-5">
+<h5 id="org7e86c07"><span class="section-number-5">2.2.6.1</span> インストール</h5>
 <div class="outline-text-5" id="text-2-2-6-1">
 <pre class="example">
 $ sudo apt install tmux
@@ -1031,8 +1031,8 @@ $ sudo apt install tmux
 </div>
 </div>
 
-<div id="outline-container-org27297fe" class="outline-5">
-<h5 id="org27297fe"><span class="section-number-5">2.2.6.2</span> 設定</h5>
+<div id="outline-container-orgdc87f86" class="outline-5">
+<h5 id="orgdc87f86"><span class="section-number-5">2.2.6.2</span> 設定</h5>
 <div class="outline-text-5" id="text-2-2-6-2">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 7: </span>~/.config/tmux/.tmux.conf</label><pre class="src src-txt">set -g status-right "%H:%M"
@@ -1059,8 +1059,8 @@ bind -T copy-mode MouseDragEnd1Pane send -X copy-pipe-and-cancel 'pbcopy'
 </div>
 </div>
 
-<div id="outline-container-orgc6dc9fa" class="outline-4">
-<h4 id="orgc6dc9fa"><span class="section-number-4">2.2.7</span> tree</h4>
+<div id="outline-container-orgf0a01e8" class="outline-4">
+<h4 id="orgf0a01e8"><span class="section-number-4">2.2.7</span> tree</h4>
 <div class="outline-text-4" id="text-2-2-7">
 <pre class="example">
 $ sudo apt install tree
@@ -1068,13 +1068,42 @@ $ sudo apt install tree
 </div>
 </div>
 
-<div id="outline-container-org78fa0ec" class="outline-4">
-<h4 id="org78fa0ec"><span class="section-number-4">2.2.8</span> その他</h4>
+<div id="outline-container-orgee9f9bd" class="outline-4">
+<h4 id="orgee9f9bd"><span class="section-number-4">2.2.8</span> <a href="https://code.visualstudio.com/">Visual Studio Code</a></h4>
 <div class="outline-text-4" id="text-2-2-8">
 </div>
-<div id="outline-container-org5cd53b2" class="outline-5">
-<h5 id="org5cd53b2"><span class="section-number-5">2.2.8.1</span> 設定ファイルを <code>~/.config</code> へ集約</h5>
+<div id="outline-container-org1c4e46d" class="outline-5">
+<h5 id="org1c4e46d"><span class="section-number-5">2.2.8.1</span> インストール</h5>
 <div class="outline-text-5" id="text-2-2-8-1">
+<pre class="example">
+$ curl -sSL https://packages.microsoft.com/keys/microsoft.asc |sudo apt-key add -
+$ sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+$ sudo apt update
+$ sudo apt install code
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org36b8e45" class="outline-5">
+<h5 id="org36b8e45"><span class="section-number-5">2.2.8.2</span> 拡張機能</h5>
+<div class="outline-text-5" id="text-2-2-8-2">
+<ul class="org-ul">
+<li>Japanese Language Pack for Visual Studio Code<br /></li>
+<li>Awesome Emacs Keymap<br /></li>
+<li>Rust support for Visual Studio Code<br /></li>
+<li>TOML Language Support<br /></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org44b7bc4" class="outline-4">
+<h4 id="org44b7bc4"><span class="section-number-4">2.2.9</span> その他</h4>
+<div class="outline-text-4" id="text-2-2-9">
+</div>
+<div id="outline-container-org00a1063" class="outline-5">
+<h5 id="org00a1063"><span class="section-number-5">2.2.9.1</span> 設定ファイルを <code>~/.config</code> へ集約</h5>
+<div class="outline-text-5" id="text-2-2-9-1">
 <pre class="example">
 $ cd
 
@@ -1091,9 +1120,9 @@ $ ln -sfv .config/ssh/.ssh
 </div>
 </div>
 
-<div id="outline-container-org94b64ff" class="outline-5">
-<h5 id="org94b64ff"><span class="section-number-5">2.2.8.2</span> ロケール</h5>
-<div class="outline-text-5" id="text-2-2-8-2">
+<div id="outline-container-org79187f3" class="outline-5">
+<h5 id="org79187f3"><span class="section-number-5">2.2.9.2</span> ロケール</h5>
+<div class="outline-text-5" id="text-2-2-9-2">
 <p>
 ビルドとかすると以下のようなロケールのエラーが発生する。<br />
 </p>
@@ -1133,12 +1162,12 @@ $ sudo dpkg-reconfigure locales
 </div>
 </div>
 
-<div id="outline-container-org907f525" class="outline-2">
-<h2 id="org907f525"><span class="section-number-2">3</span> <a href="https://clojure.org/">Clojure</a></h2>
+<div id="outline-container-org494ac03" class="outline-2">
+<h2 id="org494ac03"><span class="section-number-2">3</span> <a href="https://clojure.org/">Clojure</a></h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org70c6ac2" class="outline-3">
-<h3 id="org70c6ac2"><span class="section-number-3">3.1</span> <a href="https://clojure.org/guides/getting_started">インストール</a></h3>
+<div id="outline-container-orgd57ac22" class="outline-3">
+<h3 id="orgd57ac22"><span class="section-number-3">3.1</span> <a href="https://clojure.org/guides/getting_started">インストール</a></h3>
 <div class="outline-text-3" id="text-3-1">
 <pre class="example">
 $ curl -O https://download.clojure.org/install/linux-install-1.10.1.536.sh
@@ -1177,12 +1206,12 @@ user=&gt;
 </div>
 </div>
 
-<div id="outline-container-org03f285f" class="outline-2">
-<h2 id="org03f285f"><span class="section-number-2">4</span> <a href="https://www.rust-lang.org/">Rust</a></h2>
+<div id="outline-container-org9dfb500" class="outline-2">
+<h2 id="org9dfb500"><span class="section-number-2">4</span> <a href="https://www.rust-lang.org/">Rust</a></h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org238c933" class="outline-3">
-<h3 id="org238c933"><span class="section-number-3">4.1</span> <a href="https://www.rust-lang.org/tools/install">インストール</a></h3>
+<div id="outline-container-org57de751" class="outline-3">
+<h3 id="org57de751"><span class="section-number-3">4.1</span> <a href="https://www.rust-lang.org/tools/install">インストール</a></h3>
 <div class="outline-text-3" id="text-4-1">
 <pre class="example">
 $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs |sh
@@ -1196,12 +1225,12 @@ $ sudo apt install build-essential
 </div>
 </div>
 
-<div id="outline-container-org18eb4bb" class="outline-2">
-<h2 id="org18eb4bb"><span class="section-number-2">5</span> <a href="https://deno.land/">Deno</a></h2>
+<div id="outline-container-org03236c9" class="outline-2">
+<h2 id="org03236c9"><span class="section-number-2">5</span> <a href="https://deno.land/">Deno</a></h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orgb65c35d" class="outline-3">
-<h3 id="orgb65c35d"><span class="section-number-3">5.1</span> インストール</h3>
+<div id="outline-container-orgf570b1e" class="outline-3">
+<h3 id="orgf570b1e"><span class="section-number-3">5.1</span> インストール</h3>
 <div class="outline-text-3" id="text-5-1">
 <pre class="example">
 $ curl -fsSL https://deno.land/x/install/install.sh |sh&lt;
@@ -1215,8 +1244,8 @@ $ set -U fish_user_paths ~/.deno/bin $fish_user_paths
 </div>
 </div>
 
-<div id="outline-container-org874bc2a" class="outline-3">
-<h3 id="org874bc2a"><span class="section-number-3">5.2</span> Bookmarks</h3>
+<div id="outline-container-orgcc45adf" class="outline-3">
+<h3 id="orgcc45adf"><span class="section-number-3">5.2</span> Bookmarks</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li><a href="https://knowledge.sakura.ad.jp/24148/">いまさら聞けないNode.js</a><br /></li>
@@ -1226,8 +1255,8 @@ $ set -U fish_user_paths ~/.deno/bin $fish_user_paths
 </div>
 </div>
 
-<div id="outline-container-org419f649" class="outline-2">
-<h2 id="org419f649"><span class="section-number-2">6</span> Bookmarks</h2>
+<div id="outline-container-org53a99ba" class="outline-2">
+<h2 id="org53a99ba"><span class="section-number-2">6</span> Bookmarks</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li><a href="https://www.xda-developers.com/chromebooks-linux-app-support">Here's a list of Chromebooks with Linux app support</a><br /></li>
@@ -1237,7 +1266,7 @@ $ set -U fish_user_paths ~/.deno/bin $fish_user_paths
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: KISHI Kousuke</p>
-<p class="date">Created: 2020-06-28 日 03:21</p>
+<p class="date">Created: 2020-06-28 日 12:01</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
